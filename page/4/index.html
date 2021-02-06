@@ -71,38 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Android日记/数组转集合新颖写法get√" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%95%B0%E7%BB%84%E8%BD%AC%E9%9B%86%E5%90%88%E6%96%B0%E9%A2%96%E5%86%99%E6%B3%95get%E2%88%9A/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:39:48.661Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>title: my new post<br>date: 2021-02-05 19:04:35<br>categories: Android日记<br>tags: Android</p>
-<p>前言:啥也不说了,show me the code!</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> List&lt;Integer&gt; <span class="title">intArrayAsList</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span>[] a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line"></span><br><span class="line">    retrun <span class="keyword">new</span> AbstractList&lt;Integer&gt;() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> Interger <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">            retrun a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> Integer <span class="title">set</span><span class="params">(<span class="keyword">int</span> i, Integer val)</span></span>&#123;</span><br><span class="line">            <span class="keyword">int</span> oldVal = a[i];</span><br><span class="line">            a[i] = val;</span><br><span class="line">            retrun oldVal;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123; retrun a.length;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%95%B0%E7%BB%84%E8%BD%AC%E9%9B%86%E5%90%88%E6%96%B0%E9%A2%96%E5%86%99%E6%B3%95get%E2%88%9A/" data-id="ckkszql4w001284u4e8l68vnm" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-Android日记/安卓网站" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%AE%89%E5%8D%93%E7%BD%91%E7%AB%99/" class="article-date">
@@ -185,41 +153,6 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%AE%89%E5%8D%93%E7%BD%91%E7%AB%99/" data-id="ckkszql4u001184u42gqzbrif" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Android日记/图片设置level-list,根据不同状态显示不同图片" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:39:48.649Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>前言:工作需求,wifi图标根据不同的强度,显示不同的状态.于是想到用图层的方法<br>####bg.xml</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line"></span><br><span class="line">&lt;level-list xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span> &gt;</span><br><span class="line">    &lt;item android:maxLevel=&quot;0&quot; android:drawable=&quot;@drawable/icon_stop_n&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item android:maxLevel=&quot;1&quot; android:drawable=&quot;@drawable/icon_pause&quot;&gt;&lt;/item&gt;</span><br><span class="line"></span><br><span class="line">&lt;/level-list&gt;</span><br></pre></td></tr></table></figure>
-<p><code>note:android:maxLevel 必须从0递增,顺序错误后只会显示第一张图片</code><br>####布局文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button</span><br><span class="line">               android:id&#x3D;&quot;@+id&#x2F;bt_pause_bt&quot;</span><br><span class="line">               android:layout_width&#x3D;&quot;wrap_content&quot;</span><br><span class="line">               android:layout_height&#x3D;&quot;wrap_content&quot;</span><br><span class="line">               android:layout_marginLeft&#x3D;&quot;115px&quot;</span><br><span class="line">               android:background&#x3D;&quot;@drawable&#x2F;bg&quot;</span><br><span class="line">               android:tag&#x3D;&quot;play&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-<p>####代码中使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LevelListDrawable pauseDrawable = (LevelListDrawable) yourwiget</span><br><span class="line">				.getBackground();</span><br><span class="line">pauseDrawable.setLevel(<span class="number">1</span>);<span class="comment">//根据业务需要,对应图片等级</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/" data-id="ckkszql4u001084u4cs2q5tc9" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -406,39 +339,6 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%BF%AE%E6%94%B9gradle%E5%B1%9E%E6%80%A7,%E5%8A%A0%E5%BF%ABAndroid-studio%E7%BC%96%E8%AF%91%E9%80%9F%E5%BA%A6/" data-id="ckkszql4s000y84u400ptcue0" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Android日记/一行代码实现高斯模糊" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:39:48.626Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>前言:有一个音乐播放器的项目,背景需要根据歌曲的封面进行模糊展示,搜罗了很久,找到一个不错的解决方案,不需要我们进行NDK的开发,android帮我们在framework实现好了<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/b72da42e1463">借鉴</a></p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 模糊图片</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> bitmap 原图片</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> radius 模糊度  0~25</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 模糊后的图片</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">blurBitmap</span><span class="params">(Bitmap bitmap, <span class="keyword">float</span> radius, Context context)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Create renderscript</span></span><br><span class="line">    RenderScript rs = RenderScript.create(context);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create allocation from Bitmap</span></span><br><span class="line">    Allocation allocation = Allocation.createFromBitmap(rs, bitmap);</span><br><span class="line">    </span><br><span class="line">    Type t = allocation.getType();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create allocation with the same type</span></span><br><span class="line">    Allocation blurredAllocation = Allocation.createTyped(rs, t);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create script</span></span><br><span class="line">    ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));</span><br><span class="line">    <span class="comment">//Set blur radius (maximum 25.0)</span></span><br><span class="line">    blurScript.setRadius(radius);</span><br><span class="line">    <span class="comment">//Set input for script</span></span><br><span class="line">    blurScript.setInput(allocation);</span><br><span class="line">    <span class="comment">//Call script for output allocation</span></span><br><span class="line">    blurScript.forEach(blurredAllocation);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Copy script result into bitmap</span></span><br><span class="line">    blurredAllocation.copyTo(bitmap);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Destroy everything to free memory</span></span><br><span class="line">    allocation.destroy();</span><br><span class="line">    blurredAllocation.destroy();</span><br><span class="line">    blurScript.destroy();</span><br><span class="line">    t.destroy();</span><br><span class="line">    rs.destroy();</span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>感谢android,感谢开源</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" data-id="ckkszql4r000x84u4abhhcxms" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -814,6 +714,285 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
     </div>
     <footer class="article-footer">
       <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/TextView%E4%BD%8E%E7%BA%A7%E9%94%99%E8%AF%AF,%E7%BB%86%E8%8A%82%E7%BB%86%E8%8A%82/" data-id="ckkszql4o000t84u43ww11nw6" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Set集合依然有重复" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Set%E9%9B%86%E5%90%88%E4%BE%9D%E7%84%B6%E6%9C%89%E9%87%8D%E5%A4%8D/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.559Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set集合依然有重复</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Set集合依然有重复</h1>
+        <div class="show-content">
+          <p>读set的源码，判断重复的依据是集合里的对象hashcode相等和equal返回了true代表俩对象不一样。</p><p>所以我们要重写这俩方法实现去重</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Set%E9%9B%86%E5%90%88%E4%BE%9D%E7%84%B6%E6%9C%89%E9%87%8D%E5%A4%8D/" data-id="ckkszql4m000s84u45wk69tla" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Service官方直译深入理解(基础知识完)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Service%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3(%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AE%8C)/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.553Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service官方直译深入理解(基础知识完)</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Service官方直译深入理解(基础知识完)</h1>
+        <div class="show-content">
+          <h3>Service</h3><p>被设计为不和用户直接交互，在后台执行长期操作的一种系统组件，也可被其它应用使用。每一个服务必须在AndroidManifest中声明。服务可以通过Context.startService() and Context.bindService().启动。<i>Note：service运行在主线程，因此执行网络操作需要另起线程，但</i>IntentService可以解决这个问题。<br></p><h3>What is a Service?</h3><p>首先，我们来说说服务不是什么：</p><p>1：服务不是一个单独的进程，通常情况下它运行在应用进程的一部分</p><p>2.服务不是线程，它不能在应用无响应时工作</p><p>下面来说说服务两个主要的特征：</p><p>1.很方便的通知系统，我有一些后台任务需要处理，直到明确停止服务</p><p>2.很方便的给其它应用提供功能</p><p><i>Note：因为服务很简单，所以我们可以以任何我们想交互的方式来设计一个服务。我们可以将服务看成一个可以随时调用它方法的普通的Java对象，通过AIDL来交互。</i></p><h3>Service Lifecycle</h3><p>服务可以通过两种方式启动。如果有人调用了Context.startService()，那么服务的oncreate()和onStartCommand(Intent, int, int)会被回调，不管执行多少次startService，服务都不会重新创建，而会多次调用onStartCommand，所以并不存在停止不了服务的情况。服务会持续下去直到Context.stopService() or stopSelf()被调用。onStartCommand返回的不同值对应不同的服务需要。</p><p>用户还可以通过Context.bindService()来持有一个服务连接。当服务没运行的时候将会调用oncreate方法，但不会调用onStartCommand方法。客户端会接收到服务onBind(Intent)方法回调的IBinder对象，允许客户端回调服务里面的方法。通常情况下，IBinder是由复杂的接口创建的。</p><p>上述两种启动方式可以同时存在</p><h3>Permissions</h3><p>当一个服务在清单文件中声明，全局访问它将会拒绝。这时需要在自己的清单文件中声明合适的权限来启动，停止和绑定特定的服务。以Android 2.3为例，当调用Context.startService(Intent)，我们也需要设置Intent.FLAG_GRANT_READ_URI_PERMISSION and/or Intent.FLAG_GRANT_WRITE_URI_PERMISSION。</p><p>这会暂时同意Service访问Intent指定的Uri，直到服务停止。这个对Service没有exported也同样适用。</p><hr id="null"><h3>Process Lifecycle</h3><p>Android系统会尽可能长的保留持有service的进程，但是当内存不足需要杀掉一些进程时，有如下的优先级：</p><p>1.当前服务正在回调onCreate(), onStartCommand(), or onDestroy()方法，则视为前台进程，不会被kill</p><p>2.当服务长期运行在后台时，有极高的可能性被kill</p><p>3.我们可以通过startForeground(int, Notification)来设置前台进程，除非在内存极端紧张下，否则不会被杀</p><p><i>Note 有很大的可能，一个正在运行的服务在内存不足时会被系统杀掉，但是被杀掉后，系统会稍后试着重启这个服务。我们可以在</i>onStartCommand()方法用START_FLAG_REDELIVERY回调一个Intent来继续执行我们的服务</p><hr id="null"><h3>基础完</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Service%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3(%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AE%8C)/" data-id="ckkszql4l000r84u4c7sc21d9" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Monkey压力测试从0到1，拿去就能用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Monkey%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E4%BB%8E0%E5%88%B01%EF%BC%8C%E6%8B%BF%E5%8E%BB%E5%B0%B1%E8%83%BD%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.538Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkey压力测试从0到1，拿去就能用</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Monkey压力测试从0到1，拿去就能用</h1>
+        <div class="show-content">
+          <p>以前做炒股app，测试都是测试部工作，现在新的公司一来就说先跑一跑monkey吧。Monkey?不是猴子麽，怎么跑？</p><p>经过多次摸索后，终于可以笑嘻嘻的跑monkey了</p><p>首先adb shell</p><p>mkdir /mnt/sdcard/monkey   回车 创建一个文件夹专门存放Monkey跑完后收集的错误信息</p><p>monkey -p 包名 --ignore-crashes --ignore-timeouts --ignore-native-crashes --pct-touch 50 -s 1 -v -v --throttle 300 10000 2&gt;&gt;/mnt/sdcard/monkey/error.txt  1&gt;&gt;/mnt/sdcard/monkey/info.txt   回车</p><p>然后就看到我们的应用飞起来了。。不要</p><p>亚美爹～</p><p>不要～</p><p>停～</p><p>然后可以在d盘 执行adb pull /mnt/sdcard/monkey .</p><p>就看到error.tex文件 好，开始分析程序中bug吧。Note：在跑完一遍monkey修改bug后，我们要先删除以前的error.txt文件，否则文本还是叠加了刚才的错误。</p><p>删除的命令是(进入到删除文件的根目录)rm -r xx</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Monkey%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E4%BB%8E0%E5%88%B01%EF%BC%8C%E6%8B%BF%E5%8E%BB%E5%B0%B1%E8%83%BD%E7%94%A8/" data-id="ckkszql4k000q84u45drq3lmh" data-title="" class="article-share-link">Share</a>
       
       
       

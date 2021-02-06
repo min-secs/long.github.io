@@ -71,256 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Android日记/Android切九妹图片" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:39:48.308Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android切九妹图片</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android切九妹图片</h1>
-        <div class="show-content">
-          <p>1.打开sdk/tools/draw9patch</p><p>2.拖进去一张图片</p><p>3.四周都可以点，左键选择锚点</p><p>4.左上为图片拉伸区域，右下为内容固定区域</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/" data-id="ckkszql46000884u486909bjm" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Android日记/Android-源码初步认识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:39:48.294Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android 源码初步认识</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android 源码初步认识</h1>
-        <div class="show-content">
-          <p><b>1.源码结构</b></p><p>"BootLoader" u-boot.img MLO 连接硬件和操作系统的中间件,检测与配置硬件,启动操作系统<br></p><p>"uImage"  Linux内核,被u-boot识别引导</p><p>"ramdisk.img"  Android系统根文件镜像</p><p>"boot.img"  将zImage和ramdisk.img合并为一个包<br></p><p>"system.img"  Android系统核心  将被挂载到 /system分区</p><p>"userdata.img"	用户文件  将被挂载到 /data分区</p><p><br></p><p>android在线源码：<a href="http://www.grepcode.com/" target="_blank">http://www.grepcode.com/</a></p><hr>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" data-id="ckkszql45000784u4f2fw3vzf" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Android日记/Android-圆角shape" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:39:48.286Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;shape xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    android:shape=<span class="string">&quot;rectangle&quot;</span>&gt;</span><br><span class="line">    &lt;!-- 填充的颜色 --&gt;</span><br><span class="line">    &lt;solid android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 边框的颜色和粗细 --&gt;</span><br><span class="line">    &lt;stroke</span><br><span class="line">        android:width=<span class="string">&quot;1dp&quot;</span></span><br><span class="line">        android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;corners</span><br><span class="line">        android:bottomLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:bottomRightRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:radius=<span class="string">&quot;20dp&quot;</span></span><br><span class="line">        android:topLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:topRightRadius=<span class="string">&quot;18dp&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/" data-id="ckkszql44000684u4hn7c6i6q" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Android日记/Android-Studio错误集锦" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Studio%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:39:48.271Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Q1:Error: INSTALL_FAILED_INVALID_APK<br>关闭 File/Setting/Build/instant run </li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/2226681-b03a7dfcfd4de1eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="instant run .png"></p>
-<ul>
-<li>Q2:Installation failed with message Failed to commit install session 872031752 with command pm install-commit 872031752. Error: INSTALL_FAILED_INVALID_APK: /data/app/vmdl872031752.tmp/1_slice__ signatures are inconsistent<br>上面那个方式未解决的话, 重新clean一次项目, 在运行</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/2226681-984a8197dba513d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="clean.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Studio%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/" data-id="ckkszql42000384u45jsebesx" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-Android日记/Android-studio打开无响应" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/" class="article-date">
@@ -875,6 +625,182 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity-finish-%E5%90%8E-onDestroy-()%E5%B9%B6%E4%B8%8D%E4%BC%9A%E7%AB%8B%E9%A9%AC%E6%89%A7%E8%A1%8C/" data-id="ckkszql3k000084u420lt6n4t" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-name" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/name/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/06/name/">name</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/name/" data-id="ckkszkqu400011wu4bfgc51jl" data-title="name" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Android-圆角shape" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/">圆角shape</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;shape xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    android:shape=<span class="string">&quot;rectangle&quot;</span>&gt;</span><br><span class="line">    &lt;!-- 填充的颜色 --&gt;</span><br><span class="line">    &lt;solid android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 边框的颜色和粗细 --&gt;</span><br><span class="line">    &lt;stroke</span><br><span class="line">        android:width=<span class="string">&quot;1dp&quot;</span></span><br><span class="line">        android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;corners</span><br><span class="line">        android:bottomLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:bottomRightRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:radius=<span class="string">&quot;20dp&quot;</span></span><br><span class="line">        android:topLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:topRightRadius=<span class="string">&quot;18dp&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/" data-id="ckkszql44000684u4hn7c6i6q" data-title="圆角shape" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/一行代码实现高斯模糊" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/">一行代码实现高斯模糊</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言:有一个音乐播放器的项目,背景需要根据歌曲的封面进行模糊展示,搜罗了很久,找到一个不错的解决方案,不需要我们进行NDK的开发,android帮我们在framework实现好了<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/b72da42e1463">借鉴</a></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 模糊图片</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> bitmap 原图片</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> radius 模糊度  0~25</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 模糊后的图片</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">blurBitmap</span><span class="params">(Bitmap bitmap, <span class="keyword">float</span> radius, Context context)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Create renderscript</span></span><br><span class="line">    RenderScript rs = RenderScript.create(context);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create allocation from Bitmap</span></span><br><span class="line">    Allocation allocation = Allocation.createFromBitmap(rs, bitmap);</span><br><span class="line">    </span><br><span class="line">    Type t = allocation.getType();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create allocation with the same type</span></span><br><span class="line">    Allocation blurredAllocation = Allocation.createTyped(rs, t);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create script</span></span><br><span class="line">    ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));</span><br><span class="line">    <span class="comment">//Set blur radius (maximum 25.0)</span></span><br><span class="line">    blurScript.setRadius(radius);</span><br><span class="line">    <span class="comment">//Set input for script</span></span><br><span class="line">    blurScript.setInput(allocation);</span><br><span class="line">    <span class="comment">//Call script for output allocation</span></span><br><span class="line">    blurScript.forEach(blurredAllocation);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Copy script result into bitmap</span></span><br><span class="line">    blurredAllocation.copyTo(bitmap);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Destroy everything to free memory</span></span><br><span class="line">    allocation.destroy();</span><br><span class="line">    blurredAllocation.destroy();</span><br><span class="line">    blurScript.destroy();</span><br><span class="line">    t.destroy();</span><br><span class="line">    rs.destroy();</span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>感谢android,感谢开源</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" data-id="ckkszql4r000x84u4abhhcxms" data-title="一行代码实现高斯模糊" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/图片设置level-list,根据不同状态显示不同图片" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/">图片分层根据状态显示</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言:工作需求,wifi图标根据不同的强度,显示不同的状态.于是想到用图层的方法<br>####bg.xml</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line"></span><br><span class="line">&lt;level-list xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span> &gt;</span><br><span class="line">    &lt;item android:maxLevel=&quot;0&quot; android:drawable=&quot;@drawable/icon_stop_n&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item android:maxLevel=&quot;1&quot; android:drawable=&quot;@drawable/icon_pause&quot;&gt;&lt;/item&gt;</span><br><span class="line"></span><br><span class="line">&lt;/level-list&gt;</span><br></pre></td></tr></table></figure>
+<p><code>note:android:maxLevel 必须从0递增,顺序错误后只会显示第一张图片</code><br>####布局文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button</span><br><span class="line">               android:id&#x3D;&quot;@+id&#x2F;bt_pause_bt&quot;</span><br><span class="line">               android:layout_width&#x3D;&quot;wrap_content&quot;</span><br><span class="line">               android:layout_height&#x3D;&quot;wrap_content&quot;</span><br><span class="line">               android:layout_marginLeft&#x3D;&quot;115px&quot;</span><br><span class="line">               android:background&#x3D;&quot;@drawable&#x2F;bg&quot;</span><br><span class="line">               android:tag&#x3D;&quot;play&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>####代码中使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LevelListDrawable pauseDrawable = (LevelListDrawable) yourwiget</span><br><span class="line">				.getBackground();</span><br><span class="line">pauseDrawable.setLevel(<span class="number">1</span>);<span class="comment">//根据业务需要,对应图片等级</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/" data-id="ckkszql4u001084u4cs2q5tc9" data-title="图片分层根据状态显示" class="article-share-link">Share</a>
       
       
       
