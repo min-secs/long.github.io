@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Boom.Tan个人空间</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言:xutils真是一款不错的android开发框架，在使用过程中减少了程序员很多的代码量。不过其中也有一小部分需要注意的地方。其它使用请看xutils3详细用法  ##1.注解注意事项不像黄牛刀的注解，xutils的注解是在运行时（ps：我也不懂），用xutils注解点击事件发现，在频繁的切换点击两个button的时候，只会响应一个button的点击，用findviewbyid的方式设置on">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Boom.Tan个人空间">
+<meta property="og:url" content="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/xutils3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8D%87%E7%BA%A7%EF%BC%88markdown%E7%89%88%EF%BC%89/index.html">
+<meta property="og:site_name" content="Boom.Tan个人空间">
+<meta property="og:description" content="前言:xutils真是一款不错的android开发框架，在使用过程中减少了程序员很多的代码量。不过其中也有一小部分需要注意的地方。其它使用请看xutils3详细用法  ##1.注解注意事项不像黄牛刀的注解，xutils的注解是在运行时（ps：我也不懂），用xutils注解点击事件发现，在频繁的切换点击两个button的时候，只会响应一个button的点击，用findviewbyid的方式设置on">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-06T00:39:48.609Z">
+<meta property="article:modified_time" content="2021-02-05T06:53:26.321Z">
+<meta property="article:author" content="boom.Tan">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Boom.Tan个人空间" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Boom.Tan个人空间</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Android日记/xutils3数据库升级（markdown版）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/xutils3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8D%87%E7%BA%A7%EF%BC%88markdown%E7%89%88%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.609Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言:xutils真是一款不错的android开发框架，在使用过程中减少了程序员很多的代码量。不过其中也有一小部分需要注意的地方。其它使用请看<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/95b6c4d7b7ce">xutils3详细用法</a></p>
+</blockquote>
+<p>##1.注解注意事项<br>不像黄牛刀的注解，xutils的注解是在运行时（ps：我也不懂），用xutils注解点击事件发现，在频繁的切换点击两个button的时候，只会响应一个button的点击，用findviewbyid的方式设置onclicklitsener，就不会有这个bug。</p>
+<p>所以我们在用到点击功能的时候，恰当的用一下注解，目前只发现频繁点击会出现问题，不一定其它地方埋着什么。<br>##2.数据库升级<br>当我们的业务在一天天完善的时候，之前建立的数据库字段可能需要做修改。我们如下配置数据库的代码</p>
+<pre><code>    DbManager.DaoConfig daoConfig =newDbManager.DaoConfig()
+
+    .setDbName(&quot;myapp.db&quot;)//设置数据库名
+
+    xutils.db.setDbDir(newFile(&quot;/mnt/sdcard/&quot;))//设置数据库路径，默认存储在app的私有目录
+
+    .setDbVersion(2)//设置数据库的版本号
+
+    .setDbOpenListener(newDbManager.DbOpenListener() &#123;//设置数据库打开的监听
+
+        @Override
+        public void onDbOpened(DbManager db) &#123;//开启数据库支持多线程操作，提升性能，对写入加速提升巨大
+        db.getDatabase().enableWriteAheadLogging();
+&#125;
+&#125;)
+    .setDbUpgradeListener(newDbManager.DbUpgradeListener() &#123;//设置数据库更新的监听
+
+        @Override
+        public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
+
+&#125;
+
+&#125;)  .setTableCreateListener(newDbManager.TableCreateListener() &#123;//设置表创建的监听
+        @Override
+        public void onTableCreated(DbManager db, TableEntity table)&#123;
+        Log.i(&quot;JAVA&quot;,&quot;onTableCreated：&quot;+ table.getName());
+&#125;
+&#125;);
+</code></pre>
+<hr>
+<p>我们可以在setDbVersion（x）填上任意数字，当然根据我们自己的实际情况</p>
+<p>在需要改字段的时候，我们可以填x+n的数字,然后在</p>
+<pre><code>.setDbUpgradeListener(newDbManager.DbUpgradeListener() &#123;//设置数据库更新的监听
+
+@Override 
+public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
+
+  //不需要之前的数据
+
+  db.delete(x.class);
+
+  //需要之前的数据
+
+  db.addColumn(x.class,&quot;test&quot;);//新增的字段
+
+  db.saveOrUpdate(db.findall（）);//当前表中有这条isId则更新数据，没有则添加
+
+&#125;
+
+&#125;)
+</code></pre>
+<hr>
+<p>感谢android，感谢开源</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/xutils3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8D%87%E7%BA%A7%EF%BC%88markdown%E7%89%88%EF%BC%89/" data-id="ckkszql4q000w84u41oljhx4m" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/xUtils3%E7%94%A8%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Win10-WLAN%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96ip%E5%A4%B1%E6%95%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 10px;">标签</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992020%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2019%E5%B9%B4%E7%9A%84%E6%88%91/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992019%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2018%E5%B9%B4%E7%9A%84%E6%88%91/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E8%A5%BF%E6%B8%B8%E5%9B%A2%E9%98%9F%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BD%A0%E4%BB%A5%E4%B8%BA%E6%98%AF%E5%94%90%E5%83%A7%E9%BA%BD%EF%BC%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E8%80%81%E6%9D%BF,%E9%A2%86%E5%AF%BC%E4%B8%8E%E5%91%98%E5%B7%A5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E7%8C%AA%E4%B8%8E%E5%91%BD/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 boom.Tan<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

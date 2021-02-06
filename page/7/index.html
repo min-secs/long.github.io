@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Boom.Tan个人空间</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Boom.Tan个人空间">
+<meta property="og:url" content="http://example.com/page/7/index.html">
+<meta property="og:site_name" content="Boom.Tan个人空间">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="boom.Tan">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Boom.Tan个人空间" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Boom.Tan个人空间</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Android日记/Android利用DDMS性能调优" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%A9%E7%94%A8DDMS%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.316Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android利用DDMS性能调优</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Android利用DDMS性能调优</h1>
+        <div class="show-content">
+          <p>前言：在android功能都开发完毕后，可以开始考虑优化代码。但要怎么入手呢？首先我们应该解决明显的UI卡顿，其次可以考虑内存优化等等。当然因为鄙人能力有限，有不到之处还请各位大神指教。</p><h1>1.UI卡顿</h1><p>UI卡顿的问题，我们可以利用ddms的traceview功能查看。</p><p><br></p><div class="image-package" data-index="1">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-7aec17077e4ccf8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><br></p><p>第一次点击后,会弹出一个对话框,直接点击确定,使用默认的即可.然后在界面上操作一下认为耗时的地方,在点击一下带红点的按钮.在IDE中就会出现traceview的视图.</p><p>我们在</p><div class="image-package" data-index="2">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-c45e1fefcda989a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>这一栏中找到CPU_time/call,点击后排序.里面找我们自己的函数,就能看到较耗时的操作,在进行优化.</p><h4><i>PS:如果已经点击红点按钮,界面操作无响应的话,多半是哪个地方ANR了,我们可以adb pull data/anr/*  d:/   拷贝出traces.txt文件 从而定位哪个函数在主线程进行了耗时操作.</i></h4><h1>2.堆内存泄漏</h1><p>内存泄漏用IDE可点开红框</p><div class="image-package" data-index="3">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-d804e1635562048e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>若是没有视图窗口,则在IDE上方窗口选windows --&gt;show view 里面找到heap</p><p>我们在heap界面,然后每五秒选择gauge GC 若是heap size稳定在一个数值则表示没有内存泄漏的风险,若是heap size在不停的增大,则我们需要考虑创建对象的地方哪还值得优化.可以百度 Android内存优化.</p><p>&gt;推荐使用LeakCancary,eclipse版本的jar包我这有,详情私信</p><h1>3.线程耗时</h1><p><br></p><div class="image-package" data-index="4">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-daf22e49d4da9f19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>我们在设备列表中选中我们的包名,然后打开红框的线程.在右侧就能看到当前应用所有的线程,utime表示我们的线程执行耗时,重点关注这个即可.</p><h1>4.UI嵌套</h1><p><br></p><div class="image-package" data-index="5">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-44734d04ef915973.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>点开这个按钮需要手机有root权限,若是没有的话,可在手机开发者选项中,打开GPU过度绘制,如果界面中红色的区域较多,则这部分区域是我们需要优化的</p><h1>5.cpu占比</h1><p>我们可在上述右侧部位找到system info的窗口,点击update后,即可看我们的应用瞬时占用的cpu比例.</p><p>todo : 如何分析各个函数占用cpu的比重</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%A9%E7%94%A8DDMS%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" data-id="ckkszql47000984u40nxi46pd" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Android切九妹图片" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.308Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android切九妹图片</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Android切九妹图片</h1>
+        <div class="show-content">
+          <p>1.打开sdk/tools/draw9patch</p><p>2.拖进去一张图片</p><p>3.四周都可以点，左键选择锚点</p><p>4.左上为图片拉伸区域，右下为内容固定区域</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/" data-id="ckkszql46000884u486909bjm" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Android-源码初步认识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.294Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android 源码初步认识</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Android 源码初步认识</h1>
+        <div class="show-content">
+          <p><b>1.源码结构</b></p><p>"BootLoader" u-boot.img MLO 连接硬件和操作系统的中间件,检测与配置硬件,启动操作系统<br></p><p>"uImage"  Linux内核,被u-boot识别引导</p><p>"ramdisk.img"  Android系统根文件镜像</p><p>"boot.img"  将zImage和ramdisk.img合并为一个包<br></p><p>"system.img"  Android系统核心  将被挂载到 /system分区</p><p>"userdata.img"	用户文件  将被挂载到 /data分区</p><p><br></p><p>android在线源码：<a href="http://www.grepcode.com/" target="_blank">http://www.grepcode.com/</a></p><hr>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" data-id="ckkszql45000784u4f2fw3vzf" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Android-圆角shape" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.286Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;shape xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    android:shape=<span class="string">&quot;rectangle&quot;</span>&gt;</span><br><span class="line">    &lt;!-- 填充的颜色 --&gt;</span><br><span class="line">    &lt;solid android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 边框的颜色和粗细 --&gt;</span><br><span class="line">    &lt;stroke</span><br><span class="line">        android:width=<span class="string">&quot;1dp&quot;</span></span><br><span class="line">        android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;corners</span><br><span class="line">        android:bottomLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:bottomRightRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:radius=<span class="string">&quot;20dp&quot;</span></span><br><span class="line">        android:topLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:topRightRadius=<span class="string">&quot;18dp&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/" data-id="ckkszql44000684u4hn7c6i6q" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Android-Studio错误集锦" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Studio%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.271Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Q1:Error: INSTALL_FAILED_INVALID_APK<br>关闭 File/Setting/Build/instant run </li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/2226681-b03a7dfcfd4de1eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="instant run .png"></p>
+<ul>
+<li>Q2:Installation failed with message Failed to commit install session 872031752 with command pm install-commit 872031752. Error: INSTALL_FAILED_INVALID_APK: /data/app/vmdl872031752.tmp/1_slice__ signatures are inconsistent<br>上面那个方式未解决的话, 重新clean一次项目, 在运行</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/2226681-984a8197dba513d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="clean.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Studio%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/" data-id="ckkszql42000384u45jsebesx" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Android-studio打开无响应" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.264Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android studio打开无响应</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Android studio打开无响应</h1>
+        <div class="show-content">
+          <p>双击666后无任何反应</p><p>有两种可能</p><p>1.gradle版本和AS不对应</p><p>2.环境变量没配置</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/" data-id="ckkszql44000584u41z2chv6k" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Android-string-xml-插值的简单应用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-string-xml-%E6%8F%92%E5%80%BC%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.257Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android string.xml 插值的简单应用</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Android string.xml 插值的简单应用</h1>
+        <div class="show-content">
+          <p>在string.xml中定义</p><p>  &lt;string name = “myname”&gt;他今年%1$d岁了&lt;/string&gt;</p><p>在程序中</p><p>String string = context.getResource().getString(R.string.myname);</p><p>MyTextView.setText(String.format(string,8));</p><p>打印 他今年8岁了</p><p>%d 整数</p><p>%f 浮点数</p><p>%s字符串</p><p>也可以在String.xml中%2添加多个值，依次在代码中填入相应值即可</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-string-xml-%E6%8F%92%E5%80%BC%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" data-id="ckkszql43000484u4cpkpfed2" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/adb-error-cannot-bind-to-127-0-0-1-5038-" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/adb-error-cannot-bind-to-127-0-0-1-5038-/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.218Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adb error cannot bind to 127.0.0.1:5038:</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">adb error cannot bind to 127.0.0.1:5038:</h1>
+        <div class="show-content">
+          <p>出现这种情况多半是端口被其他程序占用了,一般是自己电脑的手机助手程序</p><p>我们可以打开cmd输入以下命令查看是谁占用了端口</p><p>netstat -nao|findstr 5038</p><div class="image-package">
+<img src="http://upload-images.jianshu.io/upload_images/2226681-ecd24c0cb634997c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" data-original-src="http://upload-images.jianshu.io/upload_images/2226681-ecd24c0cb634997c.png?imageMogr2/auto-orient/strip" data-image-slug="ecd24c0cb634997c" data-width="619" data-height="53"><br><div class="image-caption"></div>
+</div><p>32272为pid,我们可以在任务管理器找到这个程序然后kill,在重启Android studio就好了</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/adb-error-cannot-bind-to-127-0-0-1-5038-/" data-id="ckkszql4p000v84u4b4wp8mhr" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Activity官方直译深入理解（完结）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.210Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity官方直译深入理解（完结）</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Activity官方直译深入理解（完结）</h1>
+        <div class="show-content">
+          <hr id="null"><blockquote>Activity</blockquote><p>一个Activity是用户可以直观交互的东西。所有的activity都聚焦于创建一个窗口，可以通过setcontentview(view)的方式。通常情况下一个activity是全屏显示的，当然也可以设置不同的theme来显示不同的风格，例如windowIsFloating来设置浮动窗口。以下是每个activity必须回调的方法：</p><h4> Oncreate 在此你可以初始化你的activity。通常情况下你会用布局文件setcontentview的方式来定义此activity。在程序中通过findViewById(int)来和布局中的控件进行交互。</h4><h4> Onpause 当用户离开你的activity时会回调此方法，通常情况下之前用户做的改变行为需在此提交。</h4><p>在用Context.startActivity()启动之前，需要在AndroidManifest.xml通过&lt;activity&gt;声明。</p><p><i>Activity的生命周期</i></p><p>﻿</p><div class="image-package">
+<img name="1639224201-1493335611311" src="http://upload-images.jianshu.io/upload_images/2226681-0da4a89ed2cc5f87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50"><br><div class="image-caption">图片发自简书App</div>
+</div><p>整个过程从Oncreate开始，ondestroy结束。用户可以见到activity时刻从onstart开始到onstop之前。我们可以在onstart里面注册BroadcastReceiver，以便收到广播后修改我们的ui, 在onstop里面取消我们的BroadcastReceiver。用户可以和activity交互的时候从onresume开始直到onpause，一个activity会经常在这两个生命周期切换，所以最好在这两个方法里做轻量级的操作。</p><p>你应该在你的子类中回调如下方法，以便在不同的时候处理不同的逻辑。</p><blockquote>public class Activity extends ApplicationContext {﻿</blockquote><blockquote> protected void onCreate(Bundle savedInstanceState);﻿﻿</blockquote><blockquote> protected void onStart();﻿﻿</blockquote><blockquote> protected void onRestart();﻿﻿</blockquote><blockquote> protected void onResume();﻿﻿</blockquote><blockquote> protected void onPause();﻿﻿</blockquote><blockquote> protected void onStop();﻿﻿</blockquote><blockquote> protected void onDestroy();﻿</blockquote><blockquote> }</blockquote><p>Note：如果一个activity的onpause方法不结束的话，当前的或另一个activity的onresume方法不会执行。</p><hr id="null"><h3>Configuration Changes</h3><p>屏幕翻转，改变语言或者输入设备的改变，都会导致activity销毁。当然，我们可以在manifest.xml里面声明android:configChanges属性，在上述配置改变的时候交给我们自己的activity处理.将回调在这个方法里onConfigurationChanged(Configuration)，如果在此方法中有些屏幕配置的改变没有处理到，那么activity还是会被销毁，如果是当前在栈顶的activity则会重建。</p><hr id="null"><h3>Starting Activities and Getting Results</h3><p>通常情况下我们用startActivity(Intent)来启动一个新的activity，但有时我们想从新的activity结束的时候获取某些数据。比如微信打开相册选择某个图片发给联系人。此时就要用到startActivityForResult(Intent, int)，int为请求码，将在稍后介绍。返回的结果将回调在原activity的onActivityResult(int, int, Intent)方法里。不同的int表示不同的情况，如结果返回成功与否。Android系统已帮我们做了定义（RESULT_CANCELED, RESULT_OK）。下面请看示例：见谅，实在不知道怎么在手机上调代码的格式</p><p>﻿</p><blockquote> public boolean onKeyDown(int keyCode, KeyEvent event) {﻿</blockquote><blockquote> if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {﻿</blockquote><blockquote> // When the user center presses, let them pick a contact.﻿</blockquote><blockquote> startActivityForResult(﻿</blockquote><blockquote> new Intent(Intent.ACTION_PICK,﻿</blockquote><blockquote> new Uri("content://contacts")),﻿</blockquote><blockquote> PICK_CONTACT_REQUEST);﻿</blockquote><blockquote> return true;﻿</blockquote><blockquote> }﻿</blockquote><blockquote> return false;﻿</blockquote><blockquote> }﻿﻿</blockquote><blockquote> protected void onActivityResult(int requestCode, int resultCode,﻿</blockquote><blockquote> Intent data) {﻿</blockquote><blockquote> if (requestCode == PICK_CONTACT_REQUEST) {﻿</blockquote><blockquote> if (resultCode == RESULT_OK) {﻿</blockquote><blockquote> // A contact was picked. Here we will just display it﻿</blockquote><blockquote> // to the user.﻿</blockquote><blockquote> startActivity(new Intent(Intent.ACTION_VIEW, data));﻿</blockquote><blockquote> }﻿</blockquote><blockquote> }﻿</blockquote><blockquote> }</blockquote><blockquote><br></blockquote><hr id="null"><h3>Permissions</h3><p>启动一个Activity可能被拒绝，当在manifest里面没声明对应权限的时候。任何一个权限的生命周期（6.0需要特别的权限处理，百度android6.0权限封装）将持续到整个activity结束。</p><h3><hr id="null"></h3><p>Process Lifecycle<br></p><p>Android系统会尽可能长的保留我们的应用进程，但是当内存不足的时候会移除最老的进程。通常情况下移除进程会和用户交互的activity类型有很大相关，以下列出了四种activity的类型（重要性从高到低）：</p><h4>1.foreground activity</h4><p>用户正在交互的Activity,如你现在正在浏览的简书。它的进程只有在内存超出预期（由手机设备分配）才会被杀掉，通常来讲设备有责任保留它的进程。</p><h4>2.visible activity</h4><p>用户可见但不是foreground activity,比如此时弹出了一个对话框，一般来说不会被杀掉，除非为了保证foreground activity运行。</p><h4>3.background activity</h4><p>系统为前两种Activity预留内存会将此activity安全的杀掉。当用户重新返回这个activity时，oncreate方法会被回调，并会在onSaveInstanceState(Bundle)方法保存退出前的状态。</p><h4>4.empty process</h4><p>不再持有Activity或者是一个Service or BroadcastReceiver，系统在内存不足时有极大的可能性杀掉，所以我们在用service这种后台服务的时候，需要告诉系统我们的进程需要保留（通常做法是设置前台进程，弹出notification）。</p><hr id="null"><h3>Public method</h3><p>1.addContentView(View view, ViewGroup.LayoutParams param)</p><p>添加一个可添加的布局</p><p>2.createPendingResult(int requestCode, Intent data, int flags)</p><p>创建一个PendingIntent的对象，并将处理结果返回到onActivityResult(int, int, Intent)。</p><p>3.dispatchTouchEvent(MotionEvent ev)</p><p>此方法在处理滑动冲突时极为有用，还有一个在子类中常用的方法view.getparent.requestdisallow（true）谁用谁知道。事件分发在很多大牛的文章已经有讲述了，小弟就不献丑了。</p><p>4.dump(String prefix, FileDescriptor fd, PrintWriter writer, String[] args)﻿﻿</p><p>打印Activity的状态到指定流﻿﻿</p><p>5.enterPictureInPictureMode（）﻿﻿</p><p>让此Activity进入画中画模式，如果系统允许的话。现在主流直播可能就是此方法的衍生。﻿﻿</p><p>6.findViewById(int id)﻿﻿</p><p>从XML中解析出view对象﻿﻿</p><p>7.finish()﻿﻿</p><p>结束当前Activity,有人说此方法是不正常的结束方式，但看官方并无特别说明。﻿﻿</p><p>8.finishActivity(int requestCode)﻿﻿</p><p>强制关闭通过startActivityForResult(Intent, int)启动的activity。﻿﻿</p><p>9.finishAndRemoveTask()﻿﻿</p><p>结束一个Task里所有的activity。哟，难道能在主页调这个方法？﻿﻿</p><p>10.getApplication()﻿﻿</p><p>获取Activity唯一的application。如果是组件化项目不知道这个方式可不可用？﻿﻿</p><p>11.getCallingActivity()﻿﻿</p><p>超级有用的方法，通常我们做开发的，不知道当前页面是哪个activity,我们可以继承一个baseactivity,然后再回调oncreate的时候打印出当前的类名，这样我们就可以知道哪个页面对应哪个activity了。关于这个郭大神有一篇这个文章，后面我会贴出代码。</p><p>12.getCurrentFocus()</p><p>获得当前Window聚焦的具体view</p><p>13.getFragmentManager()</p><p>返回和当前Activity绑定的fragment的fragment manager</p><p>14.getIntent()</p><p>获得启动此Activity的intent</p><p>15.getLayoutInflater()</p><p>通过此方法直接解析一个布局成View</p><p>16.getReferrer()</p><p>谁启动了我？</p><p>17.getParentActivityIntent()</p><p>18.getRequestedOrientation()</p><p>当前请求的屏幕方向，注意用词，请求的，可能没请求成功</p><p>19.getSystemService(String name)</p><p>根据名字获得不同系统级的服务</p><p>20.isDestroyed()</p><p>回调的Ondestroy执行了，表示当前activity的实例已经死了</p><p>21.isFinishing()</p><p>调用Finish（）后</p><p>22.isImmersive()</p><p>是否为沉侵模式，并且不能被通知打断</p><p>23.isInMultiWindowMode()</p><p>是否为多窗口模式</p><p>24.isInPictureInPictureMode()</p><p>是否为画中画模式</p><p>25.onAttachFragment(Fragment fragment)</p><p>回调此方法在Fragment.onAttach()后</p><p>26.onAttachedToWindow()</p><p>当前Activity的主window是否关联上了windowmanager</p><p>27.onBackPressed()</p><p>用户按了返回键</p><p>28.onKeyDown(int keyCode, KeyEvent event)</p><p>当有键被按下的时候，同时所有的子view没有处理的情况会回调</p><p>29.onLowMemory()</p><p>内存不足时回调，可在此释放一些资源，降低被系统回收的概率</p><p>30.onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)</p><p>请求的所有权限回调</p><p>31.onTouchEvent(MotionEvent event)</p><p>触摸事件，当子view没做处理的时候</p><p>32.overridePendingTransition(int enterAnim, int exitAnim)</p><p>在startActivity(Intent) or finish()后执行activity的切换动画。</p><p>33.recreate()</p><p>重新创建一个新实例</p><p>34.releaseInstance()</p><p>通知本地App叫它释放内存</p><p>35.runOnUiThread(Runnable action)</p><p>运行在UI线程，可在此更新一些界面显示</p><p>36.setIntent(Intent newIntent)</p><p>更新回调的getintent（）</p><p>37.setVisible(boolean visible)</p><p>当前主Window是否可见</p><hr id="null"><p><br></p><h3>Protected methods<br>
+</h3><p>1.onActivityResult(int requestCode, int resultCode, Intent data)</p><p>接收启动的Activity结束时返回给它的一系列参数</p><p>2.onCreate(Bundle savedInstanceState)</p><p>3.onDestroy()</p><p>4.onNewIntent(Intent intent)</p><p>当启动模式为singleTop，在调用startActivity(Intent)时回调此方法</p><p>5.onpaues()</p><p>6.onPostCreate(Bundle savedInstanceState)</p><p>在onStart() and onRestoreInstanceState(Bundle)后调用，此方法用的少，但存在基友它的道理</p><p>7.﻿onPostResume()</p><p>在Onresume后调用</p><p>8.onUserLeaveHint()</p><p>当用户选择进入后台时回调</p><hr id="null"><p>Activity完</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/" data-id="ckkszql41000284u47cntbzgb" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Activity官方直译深入理解（完结）-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89-1/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.203Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity官方直译深入理解（完结）</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Activity官方直译深入理解（完结）</h1>
+        <div class="show-content">
+          <hr id="null"><blockquote>Activity</blockquote><p>一个Activity是用户可以直观交互的东西。所有的activity都聚焦于创建一个窗口，可以通过setcontentview(view)的方式。通常情况下一个activity是全屏显示的，当然也可以设置不同的theme来显示不同的风格，例如windowIsFloating来设置浮动窗口。以下是每个activity必须回调的方法：</p><h4> Oncreate 在此你可以初始化你的activity。通常情况下你会用布局文件setcontentview的方式来定义此activity。在程序中通过findViewById(int)来和布局中的控件进行交互。</h4><h4> Onpause 当用户离开你的activity时会回调此方法，通常情况下之前用户做的改变行为需在此提交。</h4><p>在用Context.startActivity()启动之前，需要在AndroidManifest.xml通过&lt;activity&gt;声明。</p><p><i>Activity的生命周期</i></p><p>﻿</p><div class="image-package">
+<img name="1639224201-1493335611311" src="http://upload-images.jianshu.io/upload_images/2226681-0da4a89ed2cc5f87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50"><br><div class="image-caption">图片发自简书App</div>
+</div><p>整个过程从Oncreate开始，ondestroy结束。用户可以见到activity时刻从onstart开始到onstop之前。我们可以在onstart里面注册BroadcastReceiver，以便收到广播后修改我们的ui, 在onstop里面取消我们的BroadcastReceiver。用户可以和activity交互的时候从onresume开始直到onpause，一个activity会经常在这两个生命周期切换，所以最好在这两个方法里做轻量级的操作。</p><p>你应该在你的子类中回调如下方法，以便在不同的时候处理不同的逻辑。</p><blockquote>public class Activity extends ApplicationContext {﻿</blockquote><blockquote> protected void onCreate(Bundle savedInstanceState);﻿﻿</blockquote><blockquote> protected void onStart();﻿﻿</blockquote><blockquote> protected void onRestart();﻿﻿</blockquote><blockquote> protected void onResume();﻿﻿</blockquote><blockquote> protected void onPause();﻿﻿</blockquote><blockquote> protected void onStop();﻿﻿</blockquote><blockquote> protected void onDestroy();﻿</blockquote><blockquote> }</blockquote><p>Note：如果一个activity的onpause方法不结束的话，当前的或另一个activity的onresume方法不会执行。</p><hr id="null"><h3>Configuration Changes</h3><p>屏幕翻转，改变语言或者输入设备的改变，都会导致activity销毁。当然，我们可以在manifest.xml里面声明android:configChanges属性，在上述配置改变的时候交给我们自己的activity处理.将回调在这个方法里onConfigurationChanged(Configuration)，如果在此方法中有些屏幕配置的改变没有处理到，那么activity还是会被销毁，如果是当前在栈顶的activity则会重建。</p><hr id="null"><h3>Starting Activities and Getting Results</h3><p>通常情况下我们用startActivity(Intent)来启动一个新的activity，但有时我们想从新的activity结束的时候获取某些数据。比如微信打开相册选择某个图片发给联系人。此时就要用到startActivityForResult(Intent, int)，int为请求码，将在稍后介绍。返回的结果将回调在原activity的onActivityResult(int, int, Intent)方法里。不同的int表示不同的情况，如结果返回成功与否。Android系统已帮我们做了定义（RESULT_CANCELED, RESULT_OK）。下面请看示例：见谅，实在不知道怎么在手机上调代码的格式</p><p>﻿</p><blockquote> public boolean onKeyDown(int keyCode, KeyEvent event) {﻿</blockquote><blockquote> if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {﻿</blockquote><blockquote> // When the user center presses, let them pick a contact.﻿</blockquote><blockquote> startActivityForResult(﻿</blockquote><blockquote> new Intent(Intent.ACTION_PICK,﻿</blockquote><blockquote> new Uri("content://contacts")),﻿</blockquote><blockquote> PICK_CONTACT_REQUEST);﻿</blockquote><blockquote> return true;﻿</blockquote><blockquote> }﻿</blockquote><blockquote> return false;﻿</blockquote><blockquote> }﻿﻿</blockquote><blockquote> protected void onActivityResult(int requestCode, int resultCode,﻿</blockquote><blockquote> Intent data) {﻿</blockquote><blockquote> if (requestCode == PICK_CONTACT_REQUEST) {﻿</blockquote><blockquote> if (resultCode == RESULT_OK) {﻿</blockquote><blockquote> // A contact was picked. Here we will just display it﻿</blockquote><blockquote> // to the user.﻿</blockquote><blockquote> startActivity(new Intent(Intent.ACTION_VIEW, data));﻿</blockquote><blockquote> }﻿</blockquote><blockquote> }﻿</blockquote><blockquote> }</blockquote><blockquote><br></blockquote><hr id="null"><h3>Permissions</h3><p>启动一个Activity可能被拒绝，当在manifest里面没声明对应权限的时候。任何一个权限的生命周期（6.0需要特别的权限处理，百度android6.0权限封装）将持续到整个activity结束。</p><h3><hr id="null"></h3><p>Process Lifecycle<br></p><p>Android系统会尽可能长的保留我们的应用进程，但是当内存不足的时候会移除最老的进程。通常情况下移除进程会和用户交互的activity类型有很大相关，以下列出了四种activity的类型（重要性从高到低）：</p><h4>1.foreground activity</h4><p>用户正在交互的Activity,如你现在正在浏览的简书。它的进程只有在内存超出预期（由手机设备分配）才会被杀掉，通常来讲设备有责任保留它的进程。</p><h4>2.visible activity</h4><p>用户可见但不是foreground activity,比如此时弹出了一个对话框，一般来说不会被杀掉，除非为了保证foreground activity运行。</p><h4>3.background activity</h4><p>系统为前两种Activity预留内存会将此activity安全的杀掉。当用户重新返回这个activity时，oncreate方法会被回调，并会在onSaveInstanceState(Bundle)方法保存退出前的状态。</p><h4>4.empty process</h4><p>不再持有Activity或者是一个Service or BroadcastReceiver，系统在内存不足时有极大的可能性杀掉，所以我们在用service这种后台服务的时候，需要告诉系统我们的进程需要保留（通常做法是设置前台进程，弹出notification）。</p><hr id="null"><h3>Public method</h3><p>1.addContentView(View view, ViewGroup.LayoutParams param)</p><p>添加一个可添加的布局</p><p>2.createPendingResult(int requestCode, Intent data, int flags)</p><p>创建一个PendingIntent的对象，并将处理结果返回到onActivityResult(int, int, Intent)。</p><p>3.dispatchTouchEvent(MotionEvent ev)</p><p>此方法在处理滑动冲突时极为有用，还有一个在子类中常用的方法view.getparent.requestdisallow（true）谁用谁知道。事件分发在很多大牛的文章已经有讲述了，小弟就不献丑了。</p><p>4.dump(String prefix, FileDescriptor fd, PrintWriter writer, String[] args)</p><p>打印Activity的状态到指定流</p><p>5.enterPictureInPictureMode（）</p><p>让此Activity进入画中画模式，如果系统允许的话。现在主流直播可能就是此方法的衍生。</p><p>6.findViewById(int id)</p><p>从XML中解析出view对象</p><p>7.finish()</p><p>结束当前Activity,有人说此方法是不正常的结束方式，但看官方并无特别说明。</p><p>8.finishActivity(int requestCode)</p><p>强制关闭通过startActivityForResult(Intent, int)启动的activity。</p><p>9.finishAndRemoveTask()</p><p>结束一个Task里所有的activity。哟，难道能在主页调这个方法？</p><p>10.getApplication()</p><p>获取Activity唯一的application。如果是组件化项目不知道这个方式可不可用？</p><p>11.getCallingActivity()</p><p>超级有用的方法，通常我们做开发的，不知道当前页面是哪个activity,我们可以继承一个baseactivity,然后再回调oncreate的时候打印出当前的类名，这样我们就可以知道哪个页面对应哪个activity了。关于这个郭大神有一篇这个文章，后面我会贴出代码。</p><p>12.getCurrentFocus()﻿<br></p><p>﻿</p><p>获得当前Window聚焦的具体view﻿﻿</p><p>13.getFragmentManager()﻿﻿</p><p>返回和当前Activity绑定的fragment的fragment manager﻿﻿</p><p>14.getIntent()﻿﻿</p><p>获得启动此Activity的intent﻿﻿</p><p>15.getLayoutInflater()﻿﻿</p><p>通过此方法直接解析一个布局成View﻿﻿</p><p>16.getReferrer()﻿﻿</p><p>谁启动了我？﻿﻿</p><p>17.getParentActivityIntent()﻿﻿</p><p>18.getRequestedOrientation()﻿﻿</p><p>当前请求的屏幕方向，注意用词，请求的，可能没请求成功﻿﻿</p><p>19.getSystemService(String name)﻿﻿</p><p>根据名字获得不同系统级的服务﻿﻿</p><p>20.isDestroyed()﻿﻿</p><p>回调的Ondestroy执行了，表示当前activity的实例已经死了﻿﻿</p><p>21.isFinishing()﻿﻿</p><p>调用Finish（）后﻿﻿</p><p>22.isImmersive()﻿﻿</p><p>是否为沉侵模式，并且不能被通知打断﻿﻿</p><p>23.isInMultiWindowMode()﻿﻿</p><p>是否为多窗口模式﻿﻿</p><p>24.isInPictureInPictureMode()﻿﻿</p><p>是否为画中画模式﻿﻿</p><p>25.onAttachFragment(Fragment fragment)﻿﻿</p><p>回调此方法在Fragment.onAttach()后﻿﻿</p><p>26.onAttachedToWindow()﻿﻿</p><p>当前Activity的主window是否关联上了windowmanager﻿﻿</p><p>27.onBackPressed()﻿﻿</p><p>用户按了返回键﻿﻿</p><p>28.onKeyDown(int keyCode, KeyEvent event)﻿﻿</p><p>当有键被按下的时候，同时所有的子view没有处理的情况会回调﻿﻿</p><p>29.onLowMemory()﻿﻿</p><p>内存不足时回调，可在此释放一些资源，降低被系统回收的概率﻿﻿</p><p>30.onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)﻿﻿</p><p>请求的所有权限回调﻿﻿</p><p>31.onTouchEvent(MotionEvent event)﻿﻿</p><p>触摸事件，当子view没做处理的时候﻿﻿</p><p>32.overridePendingTransition(int enterAnim, int exitAnim)﻿﻿</p><p>在startActivity(Intent) or finish()后执行activity的切换动画。</p><p>33.recreate()﻿<br></p><p>﻿</p><p>重新创建一个新实例﻿﻿</p><p>34.releaseInstance()﻿﻿</p><p>通知本地App叫它释放内存﻿﻿</p><p>35.runOnUiThread(Runnable action)﻿﻿</p><p>运行在UI线程，可在此更新一些界面显示﻿﻿</p><p>36.setIntent(Intent newIntent)﻿﻿</p><p>更新回调的getintent（）﻿﻿</p><p>37.setVisible(boolean visible)﻿﻿</p><p>当前主Window是否可见﻿﻿﻿﻿</p><p>Protected methods﻿</p><p>1.onActivityResult(int requestCode, int resultCode, Intent data)﻿﻿</p><p>接收启动的Activity结束时返回给它的一系列参数﻿﻿</p><p>2.onCreate(Bundle savedInstanceState)﻿﻿</p><p>3.onDestroy()﻿﻿</p><p>4.onNewIntent(Intent intent)﻿﻿</p><p>当启动模式为singleTop，在调用startActivity(Intent)时回调此方法﻿﻿</p><p>5.onpaues()﻿﻿</p><p>6.onPostCreate(Bundle savedInstanceState)﻿﻿</p><p>在onStart() and onRestoreInstanceState(Bundle)后调用，此方法用的少，但存在基友它的道理﻿﻿</p><p>7.﻿onPostResume()﻿﻿</p><p>在Onresume后调用﻿﻿</p><p>8.onUserLeaveHint()﻿﻿</p><p>当用户选择进入后台时回调</p><hr id="null"><p>Activity完结，以后将开始service的直译</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89-1/" data-id="ckkszql3z000184u4e9zdcrgj" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 10px;">标签</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992020%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2019%E5%B9%B4%E7%9A%84%E6%88%91/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992019%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2018%E5%B9%B4%E7%9A%84%E6%88%91/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E8%A5%BF%E6%B8%B8%E5%9B%A2%E9%98%9F%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BD%A0%E4%BB%A5%E4%B8%BA%E6%98%AF%E5%94%90%E5%83%A7%E9%BA%BD%EF%BC%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E8%80%81%E6%9D%BF,%E9%A2%86%E5%AF%BC%E4%B8%8E%E5%91%98%E5%B7%A5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E7%8C%AA%E4%B8%8E%E5%91%BD/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 boom.Tan<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

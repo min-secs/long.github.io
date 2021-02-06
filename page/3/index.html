@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Boom.Tan个人空间</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Boom.Tan个人空间">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Boom.Tan个人空间">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="boom.Tan">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Boom.Tan个人空间" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Boom.Tan个人空间</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-工具/Android-图片添加后缀,windows下批量修改文件名" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/%E5%B7%A5%E5%85%B7/Android-%E5%9B%BE%E7%89%87%E6%B7%BB%E5%8A%A0%E5%90%8E%E7%BC%80,windows%E4%B8%8B%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.758Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Android开发遇到了换肤的要求,使用了鸿洋大神的ChangeSkin库,需要大量的给图片加后缀</p>
+</blockquote>
+<h1 id="方法摘自-真紫艳星光"><a href="#方法摘自-真紫艳星光" class="headerlink" title="方法摘自:真紫艳星光"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xingfan/">方法摘自:真紫艳星光</a></h1><p>####第一步 在文件夹(如F:/pic)放图片处shift加右键,在此处打开命令窗口<br>输入<br>dir <em>.</em> /b&gt;rename.xls<br>会把当前文件夹下的文件名保存在表格中<br><img src="https://upload-images.jianshu.io/upload_images/2226681-0602f8df7ac9a5b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="表格_rename"></p>
+<p>####第二步 复制一份到另一个表格<br><img src="https://upload-images.jianshu.io/upload_images/2226681-e28df338454471ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="新建表格"></p>
+<p>Ctrl+F替换为对应的后缀名称<br><img src="https://upload-images.jianshu.io/upload_images/2226681-09c12f57d7cb3638.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="替换"></p>
+<p>复制到第一个表中<br><img src="https://upload-images.jianshu.io/upload_images/2226681-3e57b9f236bfd870.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="复制"><br>####第三步 输入公式<br>在C1单元格<br>=”ren “&amp;A1&amp;” “&amp;B1<br><img src="https://upload-images.jianshu.io/upload_images/2226681-de23c5e6f436b5a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="公式效果"><br>鼠标放到这个点,变成黑色十字架时往下拖<br><img src="https://upload-images.jianshu.io/upload_images/2226681-c3894f8fe8d970d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/2226681-c9615d350dfcd067.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>####第四步 复制C列的内容 在F:/pic新建文本文档拷贝<br><img src="https://upload-images.jianshu.io/upload_images/2226681-a6266be202e843a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>####第五步 修改文本文档后缀为.bat,双击执行<br>原来的文件就添加上后缀啦!<br><img src="https://upload-images.jianshu.io/upload_images/2226681-edc6a3730a836caa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改后的文件"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/%E5%B7%A5%E5%85%B7/Android-%E5%9B%BE%E7%89%87%E6%B7%BB%E5%8A%A0%E5%90%8E%E7%BC%80,windows%E4%B8%8B%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D/" data-id="ckkszql50001684u41fsh8j3v" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-车机/车机（序）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E8%BD%A6%E6%9C%BA%EF%BC%88%E5%BA%8F%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.749Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车机（序）</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">车机（序）</h1>
+        <div class="show-content">
+          <p>今年刚进入一家车机行业开发android，发现和互联网有很多不一样的地方。</p><p>首先第一点车机有点像平板，相对于手机来说很笨重</p><p>第二点来说，之前设计应用比较单一，不必考虑复杂的系统逻辑。对车机来说，考虑到音源切换的处理（处理不好容易混音），蓝牙连接问题，系统的返回键处理逻辑，倒车图像等等。</p><p>总体来说，车机开发也是安卓，只是涉及到android的framework层较多一点。开发应用的转车机开发入门也相对容易。</p><p>后面将再此记录在车机开发中遇到的问题。希望能见证自己的成长</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E8%BD%A6%E6%9C%BA%EF%BC%88%E5%BA%8F%EF%BC%89/" data-id="ckkszql5c001l84u4g45yci7j" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-车机/源的理解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E6%BA%90%E7%9A%84%E7%90%86%E8%A7%A3/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.742Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>源的理解</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">源的理解</h1>
+        <div class="show-content">
+          <h1>源是什么</h1><p>在车机开发中，最重要的一个方面就是源的处理。首先我们要知道源是什么。</p><p>学习一样新东西的时候，我喜欢类比已知的东西来“找你妹”</p><p>在应用开发中，我们播放声音使用的是请求音频焦点，一般是请求AudioManager.STREAM_MUSIC来播放音乐。然后注册一个回调来监听焦点的变化。</p><p>在车机中，因为有收音机，倒车等等独立于手机的模块。为了方便控制，定义了每一种声音播放的一种类型。相当于内部定义了一系列的焦点。一样有源改变的回调接口。在需要哪种类型的声音播放的时候，就请求对应的源，其他应用收到源改变的回调后在做相应的处理。</p><p>另外在车机开发中，常用的版本是android4.4，cpu计算能力比手机反应慢点，所以我们在开发中，因时刻注意性能的问题。</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E6%BA%90%E7%9A%84%E7%90%86%E8%A7%A3/" data-id="ckkszql5c001k84u41vnj7g4k" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-车机/告别USB数据线,利用wifi调试程序" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%91%8A%E5%88%ABUSB%E6%95%B0%E6%8D%AE%E7%BA%BF,%E5%88%A9%E7%94%A8wifi%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.735Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言:目前在车机开发多媒体的U盘播放功能,每次插U盘就不能调试,调试就不能插U盘很不方便.有了远程调试程序,终于方便多了,唯一的缺点是wifi不稳定容易连接超时<br>#####步骤一<br>使用USB数据线成功连接(抱一下大腿先)程序.打开cmd,输入<br><code>adb tcpip 5555</code><br>看到<img src="http://upload-images.jianshu.io/upload_images/2226681-a657793cd1ff5b96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tcp_success"><br>即表示成功.<br>#####步骤二<br>打开手机wifi查看当前IP<br><code>adb connect IP:5555</code><br>此时就算拔掉USB,可以看到Eclipse还是连接着设备<br>####后记<br>使用adb的时候容易遇到一个错误<br><code>ADB server didn&#39;t ACK</code><br>一般情况下是端口号被360手机助手等等软件占用了</p>
+</blockquote>
+<ul>
+<li>解决办法<br>在cmd窗口中<br><code>adb nodaemon server</code><br>查看一下哪个端口被占用了(比如我的 5037)<br>然后<br><code>netstat -ano | findstr &quot;5037&quot;</code><br>找到被占用的端口,在任务管理器中将其结束掉</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%91%8A%E5%88%ABUSB%E6%95%B0%E6%8D%AE%E7%BA%BF,%E5%88%A9%E7%94%A8wifi%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/" data-id="ckkszql59001i84u420zp1jph" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-车机/制作开机动画" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%88%B6%E4%BD%9C%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.729Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言:产品爆出开机动画不流畅的bug,于是和美工切了108个罗汉来,接下来就要看一下如何制作开机动画了<br>###1.建立三个文件夹<br><img src="http://upload-images.jianshu.io/upload_images/2226681-f13665665d3c9040.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="temp_bootanimation.png"><br>part1中放所有的图片,part2中放播放完成后定格的图片<br>打开desc.txt<br>480 800 24 —————–这里的480代表图片的像素（大小）宽度，800代表图片的像素（大小）高度，24代表帧数,part1里面有多少图片就填多少；<br> p 1 0 part1 —————–这里的p代表标志符，1代表循环次数为1次，0代表阶段间隔时间为0，part1代表对应的文件夹名；<br>p 0 0 part2 —————–这里的p代表标志符，0代表循环次数为0次，10代表阶段间隔时间为10，part2代表对应的文件名<br>###2.三个都选中,右键压缩<br><img src="http://upload-images.jianshu.io/upload_images/2226681-f7d7987206d8737f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="temp_zip.png"><br>压缩格式选zip,压缩方式:存储<br>###3.制作好XX.zip<br>push到system/media目录<br>执行adb shell XX 可进行预览动画</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%88%B6%E4%BD%9C%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB/" data-id="ckkszql5a001j84u4br765w9w" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-车机/代码中获得系统分区" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%8E%B7%E5%BE%97%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.723Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言:在最近的工作中涉及到从u盘拷贝大量数据到车机,偶尔有失效的情况,后面发现是sdcard存储空间不足,因此想在代码中展示出当前系统分区.查看系统分区在adb中为adb shell df </p>
+</blockquote>
+<p>#####我们用如下方法可执行任意的adb shell命令,在此仅用”df”举例</p>
+<ul>
+<li>代码如下</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String[] doRuntimeCmmd(String command) &#123;</span><br><span class="line">       Log.d(TAG, <span class="string">&quot;doRuntimeCmmd:&quot;</span> + command);</span><br><span class="line">       Process process = <span class="keyword">null</span>;</span><br><span class="line">       BufferedReader mOutReader = <span class="keyword">null</span>;</span><br><span class="line">       BufferedReader mErrorReader = <span class="keyword">null</span>;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">           process = Runtime.getRuntime().exec(command);</span><br><span class="line">           Log.d(TAG, <span class="string">&quot;process exec: &quot;</span> + process);</span><br><span class="line">           </span><br><span class="line">           mOutReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(process.getInputStream()));</span><br><span class="line">           <span class="keyword">int</span> mOutread;</span><br><span class="line">      <span class="keyword">char</span>[] outBuffer = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">4096</span>];</span><br><span class="line">           StringBuffer output = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">           <span class="keyword">while</span> ((mOutread = mOutReader.read(outBuffer)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               output.append(outBuffer, <span class="number">0</span>, mOutread);</span><br><span class="line">           &#125;   </span><br><span class="line">           mErrorReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(process.getErrorStream()));</span><br><span class="line">           <span class="keyword">int</span> mErrorread;</span><br><span class="line">           <span class="keyword">char</span>[] errorBuffer = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">4096</span>];</span><br><span class="line">           StringBuffer error = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">             <span class="keyword">while</span> ((mErrorread = mErrorReader.read(errorBuffer)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               error.append(errorBuffer, <span class="number">0</span>, mErrorread);</span><br><span class="line">           &#125;</span><br><span class="line">           </span><br><span class="line">           process.waitFor();</span><br><span class="line">         String[] mResult = &#123; output.toString(), error.toString() &#125;;</span><br><span class="line">           Log.d(TAG, command +<span class="string">&quot; Result:&quot;</span> + mResult[<span class="number">0</span>]);</span><br><span class="line">           Log.d(TAG, command+ <span class="string">&quot; Error:&quot;</span> + mResult[<span class="number">1</span>]);</span><br><span class="line">           <span class="keyword">return</span> mResult;</span><br><span class="line">             &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">           String[] mResult = &#123; <span class="string">&quot;error&quot;</span>, <span class="string">&quot;error&quot;</span> &#125;;</span><br><span class="line">           Log.d(TAG, command + <span class="string">&quot;  Result = &quot;</span> + mResult[<span class="number">0</span>] + <span class="string">&quot;   Error = &quot;</span> + mResult[<span class="number">1</span>]);</span><br><span class="line">           <span class="keyword">return</span> mResult;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">           <span class="keyword">try</span> &#123;</span><br><span class="line">               <span class="keyword">if</span> (mOutReader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                   mOutReader.close();</span><br><span class="line">               &#125;</span><br><span class="line">         <span class="keyword">if</span> (mErrorReader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                   mErrorReader.close();</span><br><span class="line">               &#125;</span><br><span class="line">           <span class="keyword">if</span> (process != <span class="keyword">null</span>) &#123;</span><br><span class="line">                   Log.d(TAG, <span class="string">&quot;process destroy: &quot;</span> + process);</span><br><span class="line">                   process.destroy();</span><br><span class="line">               &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">               e.printStackTrace();</span><br><span class="line">           &#125;</span><br><span class="line">               &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>我们在代码中按如下使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] runtimeCmmd = doRuntimeCmmd(<span class="string">&quot;df&quot;</span>);</span><br><span class="line">MySortViewOfCMD textView = <span class="keyword">new</span> MySortViewOfCMD(getActivity());</span><br><span class="line">textView.setCurrentString(runtimeCmmd[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<p>用此方法得到的文本结果,并不像adb命令行中格式化的,需要自定义控件</p>
+<ul>
+<li>自定义view实现排版<code>仅供参考</code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySortViewOfCMD</span> <span class="keyword">extends</span> <span class="title">TextView</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> String text;</span><br><span class="line">	<span class="keyword">int</span> lineCount = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> Paint paint = <span class="keyword">new</span> Paint();</span><br><span class="line">	<span class="keyword">private</span> ArrayMap&lt;Integer, String[]&gt; charByMap;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mWidth = <span class="number">900</span>;<span class="comment">// px</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> mHeight = <span class="number">660</span>;</span><br><span class="line">	<span class="keyword">private</span> Scroller mScroller;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> lastPointX;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> lastPointY;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MySortViewOfCMD</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context);</span><br><span class="line">		initPaint(context);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MySortViewOfCMD</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context, attrs);</span><br><span class="line">		initPaint(context);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPaint</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		paint.setColor(context.getResources().getColor(R.color.white));</span><br><span class="line">		paint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,</span><br><span class="line">				<span class="number">18</span>, context.getResources().getDisplayMetrics()));</span><br><span class="line">		mScroller = <span class="keyword">new</span> Scroller(context);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</span><br><span class="line">		<span class="keyword">int</span> width = measureDimension(mWidth, widthMeasureSpec);</span><br><span class="line">		<span class="keyword">int</span> height = measureDimension(mHeight, heightMeasureSpec);</span><br><span class="line">		setMeasuredDimension(width, height);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">measureDimension</span><span class="params">(<span class="keyword">int</span> defaultSize, <span class="keyword">int</span> measureSpec)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> result = defaultSize;</span><br><span class="line">		<span class="keyword">int</span> specMode = MeasureSpec.getMode(measureSpec);</span><br><span class="line">		<span class="keyword">int</span> specSize = MeasureSpec.getSize(measureSpec);</span><br><span class="line">	    <span class="keyword">if</span> (specMode == MeasureSpec.EXACTLY) &#123;</span><br><span class="line">			result = specSize;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (specMode == MeasureSpec.AT_MOST) &#123;</span><br><span class="line">			result = Math.min(defaultSize, specSize);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		result = defaultSize;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; charByMap.size(); i++) &#123;<span class="comment">//绘制行</span></span><br><span class="line">	    String[] strings = charByMap.get(i);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; strings.length; j++) &#123;<span class="comment">//绘制列</span></span><br><span class="line">				<span class="keyword">if</span> (j == <span class="number">1</span>) &#123;<span class="comment">//针对第二列做特殊处理,防止与第一列重影</span></span><br><span class="line">					canvas.drawText(strings[j], j * (mWidth / <span class="number">3</span>) + <span class="number">60</span>,</span><br><span class="line">							i * <span class="number">30</span> + <span class="number">25</span>, paint);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				canvas.drawText(strings[j], j * (mWidth / <span class="number">3</span>), i * <span class="number">30</span> + <span class="number">25</span>,</span><br><span class="line">						paint);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span> (event.getAction()) &#123;</span><br><span class="line">		<span class="keyword">case</span> MotionEvent.ACTION_DOWN:</span><br><span class="line"></span><br><span class="line">			lastPointX = (<span class="keyword">int</span>) event.getX();</span><br><span class="line">			lastPointY = (<span class="keyword">int</span>) event.getY();</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	<span class="keyword">case</span> MotionEvent.ACTION_MOVE:</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">int</span> mXMove = (<span class="keyword">int</span>) event.getX();</span><br><span class="line">			 <span class="keyword">int</span> scrolledX = (<span class="keyword">int</span>) (lastPointX - mXMove);</span><br><span class="line">	 <span class="keyword">if</span>(getScrollX() + scrolledX &lt; <span class="number">0</span>)&#123;<span class="comment">//左边界</span></span><br><span class="line">				 scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">				 <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">			 &#125;</span><br><span class="line">		<span class="keyword">if</span> (getScrollX() + getWidth() + scrolledX &lt; (mWidth / <span class="number">3</span>) * <span class="number">5</span>)<span class="comment">//小于右边界</span></span><br><span class="line">				mScroller.startScroll(getScrollX(), <span class="number">0</span>,</span><br><span class="line">						lastPointX - (<span class="keyword">int</span>) event.getX(), <span class="number">0</span>, <span class="number">200</span>);</span><br><span class="line">			invalidate();</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> MotionEvent.ACTION_UP:</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 平滑滚动        </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">computeScroll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (mScroller.computeScrollOffset()) &#123;</span><br><span class="line">			scrollTo(mScroller.getCurrX(), mScroller.getCurrY());</span><br><span class="line">			invalidate();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCurrentString</span><span class="params">(String text)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.text = text;</span><br><span class="line">		charByMap = saveCharByMap(text);</span><br><span class="line">		invalidate();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 根据传进来的string保存每一行的字符</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> string</span></span><br><span class="line"><span class="comment">	 *            -显示的字符串 eg: file size use \n filedddd size use \n</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="keyword">private</span> ArrayMap&lt;Integer, String[]&gt; saveCharByMap(String string) &#123;</span><br><span class="line">		String[] lineString = string.split(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">		ArrayMap&lt;Integer, String[]&gt; charMap = <span class="keyword">new</span> ArrayMap&lt;Integer, String[]&gt;();</span><br><span class="line">		lineCount = lineString.length;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lineCount; i++) &#123;</span><br><span class="line">			String[] charItem = lineString[i].split(<span class="string">&quot;\\s+&quot;</span>);<span class="comment">// 按空格切出字符</span></span><br><span class="line"></span><br><span class="line">			charMap.put(i, charItem);</span><br><span class="line">		&#125;</span><br><span class="line">			<span class="keyword">return</span> charMap;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<code>感谢android,感谢开源</code></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%8E%B7%E5%BE%97%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA/" data-id="ckkszql59001h84u4gog01oxa" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-车机/Eclipse遇到的错误" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/Eclipse%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.705Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#Q1 Conversion to Dalvik format failed: Unable to execute dex: Multiple dex files define L;<br>A1：添加的jar包重复了，可能名字不同，里面的内容相同。这点就做的不好了，提示不出来哪两个文件相同。</p>
+<p>#Q2 Unknown exception in parseSdkContent. java.lang.StackOverflowError<br>A2:主工程A  Lib (B C) BC之间相互依赖</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/Eclipse%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/" data-id="ckkszql58001g84u45xqr24we" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-车机/Android开机flow" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/Android%E5%BC%80%E6%9C%BAflow/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.698Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/2226681-420418709379ba26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开机.png"></p>
+<blockquote>
+<p>?:开机动画在哪一层</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/Android%E5%BC%80%E6%9C%BAflow/" data-id="ckkszql58001f84u46kj48qp1" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/重新理解Activity启动模式，确认返回按钮到哪个界面" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.683Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言：之前开发单个应用，把每个Activity声明为singleTask完事，最近开发车机系统相关的应用，各个应用间通过语音可来回跳转，点击返回时返回的Activity和预期不一致，于是研究了一下如何定位到当前Activity点返回会跳转到哪</p>
+</blockquote>
+<blockquote>
+<p>车机系统 Android4.4<br>###所需概念<br>####task&amp;stack<br>Android对于Activity的管理使用First in,Last out的数据结构,对所有的Activity都通过回退栈的方式来管理</p>
+</blockquote>
+<p>启动activity实际上启动的activity所属的task,最顶部的activity处于onResume状态,这点一定要切记</p>
+<p>放入stack里面的顺序不能重排序,只能遵从后入先出的原则(pop&amp;push)</p>
+<p>Home在一个Stack里面,其它应用在另一个Stack里面,通过Task ID管理</p>
+<p>###使用命令<br>adb shell dumpsys activity &gt; E:\stack01.txt<br>或<br>adb shell dumpsys activity activities &gt; E:\stack02.txt  //生成的文件更详细</p>
+<p>此时打开生成的文件找到<em>Recent tasks:</em><br><img src="https://upload-images.jianshu.io/upload_images/2226681-d3097c4de9f501b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="stack.png"><br>即表示当前所有系统管理activity栈,Recent #0是当前界面,点击返回即跳到Recent #1,一直返回到tasks结束或Home为止</p>
+<p>“sz=1”表示当前task所拥有的Activity数量,在同一个task的Activity回退完后,才会到另一个task,一般来说一个应用拥有一个独立的task,(Home启动应用会通过Intent设置FLAG_ACTIVITY_NEW_TASK的flag)<br>###启动模式与任务栈的关系<br>1.默认<br>默认情况下每次都启动一个新的Activity实例<br>2.singleTop<br>当前Activity在task顶部时,及当前正在交互的Activity需要重新打开时不会创建实例,而会走到onNewIntent里面</p>
+<p>非顶部和默认情况下一致<br>3.singleTask<br>当前task里面有实例则会复用,回调onNewIntent,并将当前Activity上面的Activity弹出销毁<br>4.singleInstance<br>同singleTask类似,不同的是这个task里面只会有唯一一个Activity,启动其它Activity会放到新的一个task里面(可理解为给其它Activity设置FLAG_ACTIVITY_NEW_TASK)<br>标识)</p>
+<p>有一点需要注意,对于从Home启动的Activity来说,会设置mOnTopOfHome=true,不管和Home是不是同一个Stack都会返回到主页<br>###小技巧<br>没有给定API接口启动其他应用(跳到指定activity)尽量使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = MyApp.getInstance().getPackageManager()</span><br><span class="line"> .getLaunchIntentForPackage(<span class="string">&quot;com.example.otherpackage&quot;</span>);</span><br><span class="line"></span><br><span class="line">MyApp.getInstance().startActivity(intent);</span><br></pre></td></tr></table></figure>
+<p>由系统判断Launcher category启动,如果手动启动需要根据当前方案设置intent的flag</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/" data-id="ckkszql4z001584u49wel09l3" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/自定义textview-invalidate-()不调用ondraw()可能原因" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E8%87%AA%E5%AE%9A%E4%B9%89textview-invalidate-()%E4%B8%8D%E8%B0%83%E7%94%A8ondraw()%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.676Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义textview invalidate ()不调用ondraw()可能原因</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">自定义textview invalidate ()不调用ondraw()可能原因</h1>
+        <div class="show-content">
+          <p>1.控件大小为0,需要重写onMeasure ()</p><p>2.onDraw()重写的不是protected </p><p>我记得重写已有控件不需要重写测量方法，可能是我记错版本了，有空了在研究研究</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E8%87%AA%E5%AE%9A%E4%B9%89textview-invalidate-()%E4%B8%8D%E8%B0%83%E7%94%A8ondraw()%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/" data-id="ckkszql4y001484u46lrg09r1" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E7%AD%BE/" rel="tag">标签</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%A0%87%E7%AD%BE/" style="font-size: 10px;">标签</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992020%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2019%E5%B9%B4%E7%9A%84%E6%88%91/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992019%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2018%E5%B9%B4%E7%9A%84%E6%88%91/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E8%A5%BF%E6%B8%B8%E5%9B%A2%E9%98%9F%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BD%A0%E4%BB%A5%E4%B8%BA%E6%98%AF%E5%94%90%E5%83%A7%E9%BA%BD%EF%BC%9F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E8%80%81%E6%9D%BF,%E9%A2%86%E5%AF%BC%E4%B8%8E%E5%91%98%E5%B7%A5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E7%8C%AA%E4%B8%8E%E5%91%BD/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 boom.Tan<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
