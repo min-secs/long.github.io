@@ -107,17 +107,16 @@
 <hr>
 <p>3.优化布局</p>
 <ul>
-<li>减少嵌套</li>
-<li>合理使用<include/><merge/></li>
-<li>延迟加载<ViewStub></li>
-</ul>
-<hr>
-<p>4.优化应用启动时间</p>
-<ul>
-<li>从Application到Activity,Fragment中的生命周期方法避免重操作,100ms的差距往往影响甚大<br>可以通过handler延迟初始化一些资源,显示加载框,初始化完成后在隐藏(亲测延迟加载Fragment,界面快了2.5S)</li>
-<li>给Activity或者Application添加背景图片<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MediaTheme</span></span><br><span class="line"> &lt;style name=<span class="string">&quot;MediaTheme&quot;</span> parent=<span class="string">&quot;@android:style/Theme.NoTitleBar&quot;</span>&gt;</span><br><span class="line">        &lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/yourpic&lt;/item&gt;</span><br><span class="line"> &lt;/style&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Manifest</span></span><br><span class="line"> &lt;application</span><br><span class="line">        android:name=<span class="string">&quot;.MediaApplication&quot;</span></span><br><span class="line">        android:allowBackup=<span class="string">&quot;true&quot;</span></span><br><span class="line">        android:icon=<span class="string">&quot;@drawable/ic_launcher&quot;</span></span><br><span class="line">        android:label=<span class="string">&quot;@string/app_name&quot;</span></span><br><span class="line">        android:theme=<span class="string">&quot;@style/MediaTheme&quot;</span>&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+<li><p>减少嵌套</p>
+</li>
+<li><p>合理使用<include/><merge/></p>
+</li>
+<li><p>延迟加载<ViewStub></p>
+        
+          <p class="article-more-link">
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
