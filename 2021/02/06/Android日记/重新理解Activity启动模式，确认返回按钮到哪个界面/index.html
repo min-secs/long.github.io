@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   
-  <title>Boom.Tan个人空间</title>
+  <title>重新理解Activity启动模式,确认返回到哪个界面 | Boom.Tan个人空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="前言：之前开发单个应用，把每个Activity声明为singleTask完事，最近开发车机系统相关的应用，各个应用间通过语音可来回跳转，点击返回时返回的Activity和预期不一致，于是研究了一下如何定位到当前Activity点返回会跳转到哪   车机系统 Android4.4###所需概念####task&amp;stackAndroid对于Activity的管理使用First in,Last">
+  <meta name="description" content="前言：之前开发单个应用，把每个Activity声明为singleTask完事，最近开发车机系统相关的应用，各个应用间通过语音可来回跳转，点击返回时返回的Activity和预期不一致，于是研究了一下如何定位到当前Activity点返回会跳转到哪  车机系统 Android4.4 所需概念task&amp;stackAndroid对于Activity的管理使用First in,Last out的数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Boom.Tan个人空间">
+<meta property="og:title" content="重新理解Activity启动模式,确认返回到哪个界面">
 <meta property="og:url" content="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/index.html">
 <meta property="og:site_name" content="Boom.Tan个人空间">
-<meta property="og:description" content="前言：之前开发单个应用，把每个Activity声明为singleTask完事，最近开发车机系统相关的应用，各个应用间通过语音可来回跳转，点击返回时返回的Activity和预期不一致，于是研究了一下如何定位到当前Activity点返回会跳转到哪   车机系统 Android4.4###所需概念####task&amp;stackAndroid对于Activity的管理使用First in,Last">
+<meta property="og:description" content="前言：之前开发单个应用，把每个Activity声明为singleTask完事，最近开发车机系统相关的应用，各个应用间通过语音可来回跳转，点击返回时返回的Activity和预期不一致，于是研究了一下如何定位到当前Activity点返回会跳转到哪  车机系统 Android4.4 所需概念task&amp;stackAndroid对于Activity的管理使用First in,Last out的数">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2226681-d3097c4de9f501b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="article:published_time" content="2021-02-06T00:39:48.683Z">
-<meta property="article:modified_time" content="2021-02-05T06:53:26.387Z">
+<meta property="article:published_time" content="2021-02-06T00:35:05.000Z">
+<meta property="article:modified_time" content="2021-02-06T01:17:27.053Z">
 <meta property="article:author" content="boom.Tan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2226681-d3097c4de9f501b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -78,36 +78,63 @@
         <section id="main"><article id="post-Android日记/重新理解Activity启动模式，确认返回按钮到哪个界面" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:39:48.683Z" itemprop="datePublished">2021-02-06</time>
+  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      重新理解Activity启动模式,确认返回到哪个界面
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
         <blockquote>
+<hr>
 <p>前言：之前开发单个应用，把每个Activity声明为singleTask完事，最近开发车机系统相关的应用，各个应用间通过语音可来回跳转，点击返回时返回的Activity和预期不一致，于是研究了一下如何定位到当前Activity点返回会跳转到哪</p>
 </blockquote>
-<blockquote>
-<p>车机系统 Android4.4<br>###所需概念<br>####task&amp;stack<br>Android对于Activity的管理使用First in,Last out的数据结构,对所有的Activity都通过回退栈的方式来管理</p>
-</blockquote>
+<p>车机系统 Android4.4</p>
+<h3 id="所需概念"><a href="#所需概念" class="headerlink" title="所需概念"></a>所需概念</h3><h4 id="task-amp-stack"><a href="#task-amp-stack" class="headerlink" title="task&amp;stack"></a>task&amp;stack</h4><p>Android对于Activity的管理使用First in,Last out的数据结构,对所有的Activity都通过回退栈的方式来管理</p>
 <p>启动activity实际上启动的activity所属的task,最顶部的activity处于onResume状态,这点一定要切记</p>
 <p>放入stack里面的顺序不能重排序,只能遵从后入先出的原则(pop&amp;push)</p>
 <p>Home在一个Stack里面,其它应用在另一个Stack里面,通过Task ID管理</p>
-<p>###使用命令<br>adb shell dumpsys activity &gt; E:\stack01.txt<br>或<br>adb shell dumpsys activity activities &gt; E:\stack02.txt  //生成的文件更详细</p>
+<h3 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h3><p>adb shell dumpsys activity &gt; E:\stack01.txt<br>或<br>adb shell dumpsys activity activities &gt; E:\stack02.txt  //生成的文件更详细</p>
 <p>此时打开生成的文件找到<em>Recent tasks:</em><br><img src="https://upload-images.jianshu.io/upload_images/2226681-d3097c4de9f501b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="stack.png"><br>即表示当前所有系统管理activity栈,Recent #0是当前界面,点击返回即跳到Recent #1,一直返回到tasks结束或Home为止</p>
-<p>“sz=1”表示当前task所拥有的Activity数量,在同一个task的Activity回退完后,才会到另一个task,一般来说一个应用拥有一个独立的task,(Home启动应用会通过Intent设置FLAG_ACTIVITY_NEW_TASK的flag)<br>###启动模式与任务栈的关系<br>1.默认<br>默认情况下每次都启动一个新的Activity实例<br>2.singleTop<br>当前Activity在task顶部时,及当前正在交互的Activity需要重新打开时不会创建实例,而会走到onNewIntent里面</p>
-<p>非顶部和默认情况下一致<br>3.singleTask<br>当前task里面有实例则会复用,回调onNewIntent,并将当前Activity上面的Activity弹出销毁<br>4.singleInstance<br>同singleTask类似,不同的是这个task里面只会有唯一一个Activity,启动其它Activity会放到新的一个task里面(可理解为给其它Activity设置FLAG_ACTIVITY_NEW_TASK)<br>标识)</p>
-<p>有一点需要注意,对于从Home启动的Activity来说,会设置mOnTopOfHome=true,不管和Home是不是同一个Stack都会返回到主页<br>###小技巧<br>没有给定API接口启动其他应用(跳到指定activity)尽量使用</p>
+<p>“sz=1”表示当前task所拥有的Activity数量,在同一个task的Activity回退完后,才会到另一个task,一般来说一个应用拥有一个独立的task,(Home启动应用会通过Intent设置FLAG_ACTIVITY_NEW_TASK的flag)</p>
+<h3 id="启动模式与任务栈的关系"><a href="#启动模式与任务栈的关系" class="headerlink" title="启动模式与任务栈的关系"></a>启动模式与任务栈的关系</h3><ol>
+<li><p>默认<br>默认情况下每次都启动一个新的Activity实例</p>
+</li>
+<li><p>singleTop<br>当前Activity在task顶部时,及当前正在交互的Activity需要重新打开时不会创建实例,而会走到onNewIntent里面</p>
+</li>
+</ol>
+<p>非顶部和默认情况下一致</p>
+<ol start="3">
+<li><p>singleTask<br>当前task里面有实例则会复用,回调onNewIntent,并将当前Activity上面的Activity弹出销毁</p>
+</li>
+<li><p>singleInstance<br>同singleTask类似,不同的是这个task里面只会有唯一一个Activity,启动其它Activity会放到新的一个task里面(可理解为给其它Activity设置FLAG_ACTIVITY_NEW_TASK)<br>标识)</p>
+</li>
+</ol>
+<p>有一点需要注意,对于从Home启动的Activity来说,会设置mOnTopOfHome=true,不管和Home是不是同一个Stack都会返回到主页</p>
+<h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><p>没有给定API接口启动其他应用(跳到指定activity)尽量使用</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = MyApp.getInstance().getPackageManager()</span><br><span class="line"> .getLaunchIntentForPackage(<span class="string">&quot;com.example.otherpackage&quot;</span>);</span><br><span class="line"></span><br><span class="line">MyApp.getInstance().startActivity(intent);</span><br></pre></td></tr></table></figure>
 <p>由系统判断Launcher category启动,如果手动启动需要根据当前方案设置intent的flag</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/" data-id="ckkszql4z001584u49wel09l3" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/" data-id="ckkszql4z001584u49wel09l3" data-title="重新理解Activity启动模式,确认返回到哪个界面" class="article-share-link">Share</a>
       
       
       
@@ -117,19 +144,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/Android%E5%BC%80%E6%9C%BAflow/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/02/06/name/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          name
         
       </div>
     </a>
   
   
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E8%87%AA%E5%AE%9A%E4%B9%89textview-invalidate-()%E4%B8%8D%E8%B0%83%E7%94%A8ondraw()%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/02/05/my-new-post/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">my new post</div>
     </a>
   
 </nav>
@@ -146,7 +173,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
     </div>
   </div>
 

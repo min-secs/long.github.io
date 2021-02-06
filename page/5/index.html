@@ -71,99 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Android日记/TextView低级错误,细节细节" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/TextView%E4%BD%8E%E7%BA%A7%E9%94%99%E8%AF%AF,%E7%BB%86%E8%8A%82%E7%BB%86%E8%8A%82/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:39:48.594Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TextView低级错误,细节细节</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">TextView低级错误,细节细节</h1>
-        <div class="show-content">
-          <p>当我们用.9做背景，动态设置聊天背景(宽度随时长改变)时。。</p><p>用”/““作为秒。。1秒怎么都显示不出来。</p><p>记得把TextView设置一个最小宽度，否则有些字符被挤看不到。。</p><p>在考虑了编码和服务器没得问题，用eclipse查看ui的结构才发现了这个。🤣🤣</p><p>另外如果用在Listview的item里，记得设置字体颜色，否则点击item后字体颜色会随系统改变</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/TextView%E4%BD%8E%E7%BA%A7%E9%94%99%E8%AF%AF,%E7%BB%86%E8%8A%82%E7%BB%86%E8%8A%82/" data-id="ckkszql4o000t84u43ww11nw6" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-Android日记/Set集合依然有重复" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Set%E9%9B%86%E5%90%88%E4%BE%9D%E7%84%B6%E6%9C%89%E9%87%8D%E5%A4%8D/" class="article-date">
@@ -966,6 +873,49 @@ getDataFromDb();
 
 
   
+    <article id="post-Android日记/ListView-Adapter-notifi不管用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-Adapter-notifi%E4%B8%8D%E7%AE%A1%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:39:48.487Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言,在使用到adapter的时候，一般要用List来装数据实体，这里两种不同的写法容易遇到不同的问题。</p>
+</blockquote>
+<ul>
+<li>第一种写法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestAdapter</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Node&gt; list;</span><br><span class="line">    ***</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestAdapter</span><span class="params">(List list)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.list = list;</span><br><span class="line">        ***</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样的话,我们在list更新的时候直接调用adapter的notifydatasetchanged就可以了.</p>
+<ul>
+<li>第二种写法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestAdapter</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Node&gt; mList = <span class="keyword">new</span> ArrayList&lt;Node&gt;();</span><br><span class="line">    ***</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestAdapter</span><span class="params">(List list)</span></span>&#123;</span><br><span class="line">        mList.addAll(list);</span><br><span class="line">        ***</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addAll</span><span class="params">(List list)</span></span>&#123;</span><br><span class="line">        mList.clear();</span><br><span class="line">        mList.addAll(list);</span><br><span class="line">        notifydatasetchanged();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addOne</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        mList.add(node);</span><br><span class="line">        notifydatasetchanged();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+用这种写法在数据变化的时候,需要调用adapter.add*()的对应方法</li>
+<li>总结<br>adapter更新是看对象的地址有没有变化,调用notifydatasetchanged()才会管用.</li>
+<li>问题<br>notifydatasetchanged不管作用</li>
+</ul>
+<p>1.一般情况下,遇到notifydatasetchanged不管作用是指向的对象已经不是初始化adapter时的那个对象了.比如使用了上面第二种写法,却调用的第一种的方式.<br>2.list的size==0;<br>3.***</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-Adapter-notifi%E4%B8%8D%E7%AE%A1%E7%94%A8/" data-id="ckkszql4f000j84u48c0q1a6l" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
   <nav id="page-nav">
@@ -981,7 +931,7 @@ getDataFromDb();
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
     </div>
   </div>
 
