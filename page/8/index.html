@@ -71,6 +71,206 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Android日记/Android-UI" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/">Android-UI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Android知识体系,笼统分为UI,Data,interact</p>
+</blockquote>
+<h4 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h4><p>1.屏幕适配</p>
+<h2 id="郭霖微信公众号-屏幕适配"><a href="#郭霖微信公众号-屏幕适配" class="headerlink" title="郭霖微信公众号:屏幕适配"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650243915&idx=1&sn=7054d165d06caf917b6a2b57800316a2&chksm=88637224bf14fb320b689948ebb3fd0d783bd816c7184644abea51e26be6c2ec50b54e61b46c&scene=38#wechat_redirect">郭霖微信公众号:屏幕适配</a></h2><p>adb修改分辨率和屏幕密度<br>adb shell wm size 1280x720 //小写的x<br>adb shell wm density 240<br>adb shell wm size reset //还原默认<br>adb shell wm density reset</p>
+<hr>
+<p>2.自定义view<br><a target="_blank" rel="noopener" href="https://hencoder.com/">扔物线大神</a></p>
+<hr>
+<p>3.优化布局</p>
+<ul>
+<li>减少嵌套</li>
+<li>合理使用<include/><merge/></li>
+<li>延迟加载<ViewStub></li>
+</ul>
+<hr>
+<p>4.优化应用启动时间</p>
+<ul>
+<li>从Application到Activity,Fragment中的生命周期方法避免重操作,100ms的差距往往影响甚大<br>可以通过handler延迟初始化一些资源,显示加载框,初始化完成后在隐藏(亲测延迟加载Fragment,界面快了2.5S)</li>
+<li>给Activity或者Application添加背景图片<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MediaTheme</span></span><br><span class="line"> &lt;style name=<span class="string">&quot;MediaTheme&quot;</span> parent=<span class="string">&quot;@android:style/Theme.NoTitleBar&quot;</span>&gt;</span><br><span class="line">        &lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/yourpic&lt;/item&gt;</span><br><span class="line"> &lt;/style&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Manifest</span></span><br><span class="line"> &lt;application</span><br><span class="line">        android:name=<span class="string">&quot;.MediaApplication&quot;</span></span><br><span class="line">        android:allowBackup=<span class="string">&quot;true&quot;</span></span><br><span class="line">        android:icon=<span class="string">&quot;@drawable/ic_launcher&quot;</span></span><br><span class="line">        android:label=<span class="string">&quot;@string/app_name&quot;</span></span><br><span class="line">        android:theme=<span class="string">&quot;@style/MediaTheme&quot;</span>&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/" data-id="ckkt1lfh5000ipcu4f1xqgw83" data-title="Android-UI" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/Android-圆角shape" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/">圆角shape</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;shape xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    android:shape=<span class="string">&quot;rectangle&quot;</span>&gt;</span><br><span class="line">    &lt;!-- 填充的颜色 --&gt;</span><br><span class="line">    &lt;solid android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 边框的颜色和粗细 --&gt;</span><br><span class="line">    &lt;stroke</span><br><span class="line">        android:width=<span class="string">&quot;1dp&quot;</span></span><br><span class="line">        android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;corners</span><br><span class="line">        android:bottomLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:bottomRightRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:radius=<span class="string">&quot;20dp&quot;</span></span><br><span class="line">        android:topLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:topRightRadius=<span class="string">&quot;18dp&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/" data-id="ckkt1lfh9000opcu4hesmapys" data-title="圆角shape" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/一行代码实现高斯模糊" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/">一行代码实现高斯模糊</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言:有一个音乐播放器的项目,背景需要根据歌曲的封面进行模糊展示,搜罗了很久,找到一个不错的解决方案,不需要我们进行NDK的开发,android帮我们在framework实现好了<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/b72da42e1463">借鉴</a></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 模糊图片</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> bitmap 原图片</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> radius 模糊度  0~25</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 模糊后的图片</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">blurBitmap</span><span class="params">(Bitmap bitmap, <span class="keyword">float</span> radius, Context context)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Create renderscript</span></span><br><span class="line">    RenderScript rs = RenderScript.create(context);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create allocation from Bitmap</span></span><br><span class="line">    Allocation allocation = Allocation.createFromBitmap(rs, bitmap);</span><br><span class="line">    </span><br><span class="line">    Type t = allocation.getType();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create allocation with the same type</span></span><br><span class="line">    Allocation blurredAllocation = Allocation.createTyped(rs, t);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create script</span></span><br><span class="line">    ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));</span><br><span class="line">    <span class="comment">//Set blur radius (maximum 25.0)</span></span><br><span class="line">    blurScript.setRadius(radius);</span><br><span class="line">    <span class="comment">//Set input for script</span></span><br><span class="line">    blurScript.setInput(allocation);</span><br><span class="line">    <span class="comment">//Call script for output allocation</span></span><br><span class="line">    blurScript.forEach(blurredAllocation);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Copy script result into bitmap</span></span><br><span class="line">    blurredAllocation.copyTo(bitmap);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Destroy everything to free memory</span></span><br><span class="line">    allocation.destroy();</span><br><span class="line">    blurredAllocation.destroy();</span><br><span class="line">    blurScript.destroy();</span><br><span class="line">    t.destroy();</span><br><span class="line">    rs.destroy();</span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>感谢android,感谢开源</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" data-id="ckkt1lfht001jpcu4hgc024wq" data-title="一行代码实现高斯模糊" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android日记/图片设置level-list,根据不同状态显示不同图片" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/">图片分层根据状态显示</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言:工作需求,wifi图标根据不同的强度,显示不同的状态.于是想到用图层的方法<br>####bg.xml</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line"></span><br><span class="line">&lt;level-list xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span> &gt;</span><br><span class="line">    &lt;item android:maxLevel=&quot;0&quot; android:drawable=&quot;@drawable/icon_stop_n&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item android:maxLevel=&quot;1&quot; android:drawable=&quot;@drawable/icon_pause&quot;&gt;&lt;/item&gt;</span><br><span class="line"></span><br><span class="line">&lt;/level-list&gt;</span><br></pre></td></tr></table></figure>
+<p><code>note:android:maxLevel 必须从0递增,顺序错误后只会显示第一张图片</code><br>####布局文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button</span><br><span class="line">               android:id&#x3D;&quot;@+id&#x2F;bt_pause_bt&quot;</span><br><span class="line">               android:layout_width&#x3D;&quot;wrap_content&quot;</span><br><span class="line">               android:layout_height&#x3D;&quot;wrap_content&quot;</span><br><span class="line">               android:layout_marginLeft&#x3D;&quot;115px&quot;</span><br><span class="line">               android:background&#x3D;&quot;@drawable&#x2F;bg&quot;</span><br><span class="line">               android:tag&#x3D;&quot;play&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>####代码中使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LevelListDrawable pauseDrawable = (LevelListDrawable) yourwiget</span><br><span class="line">				.getBackground();</span><br><span class="line">pauseDrawable.setLevel(<span class="number">1</span>);<span class="comment">//根据业务需要,对应图片等级</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/" data-id="ckkt1lfhv001mpcu4fbriguce" data-title="图片分层根据状态显示" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Android日记/数组转集合新颖写法get√" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%95%B0%E7%BB%84%E8%BD%AC%E9%9B%86%E5%90%88%E6%96%B0%E9%A2%96%E5%86%99%E6%B3%95get%E2%88%9A/" class="article-date">
@@ -105,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%95%B0%E7%BB%84%E8%BD%AC%E9%9B%86%E5%90%88%E6%96%B0%E9%A2%96%E5%86%99%E6%B3%95get%E2%88%9A/" data-id="ckkszql4w001284u4e8l68vnm" data-title="数组转集合新颖写法" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%95%B0%E7%BB%84%E8%BD%AC%E9%9B%86%E5%90%88%E6%96%B0%E9%A2%96%E5%86%99%E6%B3%95get%E2%88%9A/" data-id="ckkt1lfhw001ppcu42ysf1a3y" data-title="数组转集合新颖写法" class="article-share-link">Share</a>
       
       
       
@@ -176,276 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/" data-id="ckkszql4z001584u49wel09l3" data-title="重新理解Activity启动模式,确认返回到哪个界面" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Android日记/Android-Data" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Data/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Data/">Android-Data</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Android文件系统入门知识"><a href="#Android文件系统入门知识" class="headerlink" title="Android文件系统入门知识"></a>Android文件系统入门知识</h3><blockquote>
-<p>内外存储的由来:因为历史原因,老版本的Android手机可用容量小, 加载外部存储设备以便加大容量, 如sdcard. 后来随着技术的不断提高, 手机本身的容量逐渐加大, 但是这个分法一直保留了下来.</p>
-</blockquote>
-<p><strong>二者区别</strong></p>
-<ul>
-<li><p>内部存储</p>
-<p>  不需要权限</p>
-<p>  其它APP不可访问, 用户也不能操作</p>
-<p>  卸载APP时会移除内部存储数据</p>
-</li>
-<li><p>外部存储</p>
-<p>  首先要确认可访问性, 因为外部存储可卸载</p>
-<p>  其它APP可以访问</p>
-<p>  需要权限</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> /&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>*内部存储简单介绍**</p>
-</li>
-</ul>
-<p>所在路径: Android 6.0在/data/user/0/package_name/</p>
-<p>其它版本也对应在/data/下的某个地方, 以包名作为区分, 未root的文件管理中查看不了</p>
-<p><strong>使用:</strong></p>
-<p>在继承自ContextWrapper中, 如Activity, Application</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到文件对象</span></span><br><span class="line">File file = getFilesDir();</span><br><span class="line"></span><br><span class="line">String inPath = file.getAbsolutePath();</span><br><span class="line"></span><br><span class="line">Log.d(<span class="string">&quot;test-file&quot;</span>,<span class="string">&quot;getFileDir:&quot;</span>+ inPath);</span><br><span class="line"></span><br><span class="line"><span class="comment">//在inPath中写入hello</span></span><br><span class="line">FileOutputStream fileOutputStream = openFileOutput(<span class="string">&quot;hello.txt&quot;</span>, MODE_PRIVATE);</span><br><span class="line">fileOutputStream.write(<span class="string">&quot;hello&quot;</span>.getBytes());</span><br><span class="line"></span><br><span class="line">fileOutputStream.close();</span><br></pre></td></tr></table></figure>
-<p><strong>外部存储简单介绍</strong></p>
-<p>通过android.os包中的Environment类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断文件可用性</span></span><br><span class="line"><span class="comment">/* 可写 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isExternalStorageWritable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String state = Environment.getExternalStorageState();</span><br><span class="line">    <span class="keyword">if</span> (Environment.MEDIA_MOUNTED.equals(state)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 可读 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isExternalStorageReadable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String state = Environment.getExternalStorageState();</span><br><span class="line">    <span class="keyword">if</span> (Environment.MEDIA_MOUNTED.equals(state) ||</span><br><span class="line">        Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//得到外部存储私有对象(File),会随着APP的卸载而卸载</span></span><br><span class="line">Environment.getExternalStorageDirectory();</span><br><span class="line"></span><br><span class="line"><span class="comment">//得到外部存储公共对象, 文件不会随着APP的卸载而卸载</span></span><br><span class="line"><span class="comment">//传入的参数代表文件类型 如Environment.DIRECTORY_MUSIC 代表音乐</span></span><br><span class="line"><span class="comment">//DIRECTORY_RINGTONES 代表铃音</span></span><br><span class="line">Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));</span><br></pre></td></tr></table></figure>
-<p>得到File对象后, 你就可以为所欲为</p>
-<p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/reference/java/io/File.html#public-methods">File类</a></p>
-<hr>
-<p>###共享数据</p>
-<blockquote>
-<p>记得第一份工作面试的时候被问了一个问题:如何自己实现类似友盟分享功能?<br>当时回答的很含糊, 现在再来看, 就是通过Intent来定义分享action, 遍历所有的APP, 显示符合这个action的应用, 按规则启动隐式Intent</p>
-</blockquote>
-<ul>
-<li>简单数据<br>通过Intent</li>
-<li>文件<br>通过V4包中的<a target="_blank" rel="noopener" href="https://developer.android.google.cn/reference/androidx/core/content/FileProvider.html">FileProvider</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Data/" data-id="ckkt1ge1n00000su43pt6a258" data-title="Android-Data" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Android日记/Android-NDK入门" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-NDK%E5%85%A5%E9%97%A8/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-NDK%E5%85%A5%E9%97%A8/">NDK入门</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>最近需要打包C++文件成so库,按照网上教程同步的方式,build/intermediates下始终没有ndk文件中的so库</p>
-</blockquote>
-<p>当前环境<br>windows 10<br>Android Studio3.5.3<br>NDK r21</p>
-<ul>
-<li>配置NDK环境变量<br>我的电脑 右键–&gt;属性–&gt;高级–&gt;环境变量 path中添加ndk-bundle路径</li>
-<li>新建jni文件<br>src/main/java同级目录下src/main/jni<br>将c++文件和头文件全部放入</li>
-<li>jni目录下新建Android.mk文件<br>你的so库名称对应java类中System.loadLibrary(“so库名称”)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH := $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"></span><br><span class="line">LOCAL_MODULE := 你的so库名称 </span><br><span class="line">LOCAL_SRC_FILES := 你的.cpp</span><br><span class="line">include $(BUILD_SHARED_LIBRARY)</span><br></pre></td></tr></table></figure></li>
-<li>jni目录下新建Application.mk文件<br><code>APP_ABI := all</code><br>打包所有支持cpu架构</li>
-<li>在jni目录下打开power shell<br>输入ndk-build<br><img src="https://upload-images.jianshu.io/upload_images/2226681-69efe3b9b940f9e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ndk-build.png"><br>jni同级目录下会有libs/* 各平台so库文件</li>
-<li>app build.gradle中配置so库路径<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android&#123;</span><br><span class="line"> <span class="comment">//***</span></span><br><span class="line">  sourceSets &#123;</span><br><span class="line">        main() &#123;</span><br><span class="line">            jniLibs.srcDirs = [<span class="string">&#x27;src/main/libs&#x27;</span>]</span><br><span class="line">            jni.srcDirs = [] </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-NDK%E5%85%A5%E9%97%A8/" data-id="ckkt1ge2100010su4322hckmz" data-title="NDK入门" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Android日记/Android-PagedList入门,只需五步Java版" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-PagedList%E5%85%A5%E9%97%A8,%E5%8F%AA%E9%9C%80%E4%BA%94%E6%AD%A5Java%E7%89%88/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-PagedList%E5%85%A5%E9%97%A8,%E5%8F%AA%E9%9C%80%E4%BA%94%E6%AD%A5Java%E7%89%88/">PagedList入门</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>最近有接到分页的需求, 想当然准备使用监听onScroll然后分段加载, 看到谷歌爸爸出品了Jetpack系列文章有Paging Lib于是点开看了下, 介绍的太复杂了有木有!!! room什么鬼, ViewModel云云, 抽丝剥茧<br>简单Demo入门, 记录如下</p>
-</blockquote>
-<p>新建Activity, 我使用的Fragment+ViewModel的方式, 很方便<br><img src="https://upload-images.jianshu.io/upload_images/2226681-74073a146e6e7448.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Fragment+ViewModel"></p>
-<p>####1.导入依赖</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">&#x27;android.arch.lifecycle:extensions:1.1.1&#x27;</span></span><br><span class="line">implementation <span class="string">&#x27;android.arch.paging:runtime:1.0.0&#x27;</span></span><br><span class="line">implementation <span class="string">&#x27;com.android.support:recyclerview-v7:27.0.2&#x27;</span></span><br><span class="line"><span class="comment">//可选, 我习惯使用约束布局</span></span><br><span class="line">implementation <span class="string">&#x27;com.android.support.constraint:constraint-layout:1.1.3&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>版本不同方法可能有差异, 建议初学使用我这的版本, 方便跟着后面走<br>首先照着后面的代码复制一遍, 大概知道有哪些东西<br>####2.新建实体类</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Concert</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Concert</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Concert&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;id=&quot;</span> + id +</span><br><span class="line">                <span class="string">&quot;, name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id + name.hashCode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">( Object obj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Concert)&#123;</span><br><span class="line">            <span class="keyword">boolean</span> b = ((Concert) obj).id == id &amp;&amp; ((Concert) obj).name.equals(name);</span><br><span class="line">            <span class="keyword">return</span> b;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用到的布局R.layout.paged_list_fragment</span></span><br><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line">&lt;android.support.constraint.ConstraintLayout xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    xmlns:app=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span><br><span class="line">    xmlns:tools=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span><br><span class="line">    android:id=<span class="string">&quot;@+id/pagedlist&quot;</span></span><br><span class="line">    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    android:layout_height=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    &gt;</span><br><span class="line"></span><br><span class="line">    &lt;android.support.v7.widget.RecyclerView</span><br><span class="line">        android:id=<span class="string">&quot;@+id/recyclerView&quot;</span></span><br><span class="line">        android:layout_width=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:layout_height=<span class="string">&quot;256dp&quot;</span></span><br><span class="line">        android:layout_marginStart=<span class="string">&quot;8dp&quot;</span></span><br><span class="line">        android:layout_marginTop=<span class="string">&quot;8dp&quot;</span></span><br><span class="line">        android:layout_marginEnd=<span class="string">&quot;8dp&quot;</span></span><br><span class="line">        app:layout_constraintEnd_toEndOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">        app:layout_constraintStart_toStartOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">        app:layout_constraintTop_toTopOf=<span class="string">&quot;parent&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/android.support.constraint.ConstraintLayout&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//R.layout.item_concert_list</span></span><br><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line">&lt;android.support.constraint.ConstraintLayout xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    xmlns:app=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span><br><span class="line">    xmlns:tools=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span><br><span class="line">    android:id=<span class="string">&quot;@+id/name&quot;</span></span><br><span class="line">    android:layout_width=<span class="string">&quot;match_parent&quot;</span></span><br><span class="line">    android:layout_height=<span class="string">&quot;match_parent&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=<span class="string">&quot;@+id/textView&quot;</span></span><br><span class="line">        android:layout_width=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">        android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">        android:layout_marginStart=<span class="string">&quot;8dp&quot;</span></span><br><span class="line">        android:layout_marginBottom=<span class="string">&quot;8dp&quot;</span></span><br><span class="line">        android:text=<span class="string">&quot;TextView&quot;</span></span><br><span class="line">        app:layout_constraintBottom_toBottomOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">        app:layout_constraintEnd_toEndOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">        app:layout_constraintStart_toStartOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">        app:layout_constraintTop_toTopOf=<span class="string">&quot;parent&quot;</span> /&gt;</span><br><span class="line">&lt;/android.support.constraint.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
-<p>####3.新建DataSource实现类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.arch.paging.PositionalDataSource;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.NonNull;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PositionPageDataSource</span> <span class="keyword">extends</span> <span class="title">PositionalDataSource</span>&lt;<span class="title">Concert</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadInitial</span><span class="params">(<span class="meta">@NonNull</span> LoadInitialParams params, <span class="meta">@NonNull</span> LoadInitialCallback&lt;Concert&gt; callback)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> requestedLoadSize = params.requestedLoadSize;</span><br><span class="line">        Log.d(<span class="string">&quot;ldo&quot;</span>,<span class="string">&quot;PositionPageDataSource loadInitial &quot;</span>+requestedLoadSize);</span><br><span class="line">        List&lt;Concert&gt; subList = getSubList(<span class="number">0</span>, requestedLoadSize);</span><br><span class="line">        callback.onResult(subList,<span class="number">0</span>,<span class="number">40</span>);<span class="comment">//初始化加载从index == 0开始 40假设为数据总数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadRange</span><span class="params">(<span class="meta">@NonNull</span> LoadRangeParams params, <span class="meta">@NonNull</span> LoadRangeCallback&lt;Concert&gt; callback)</span> </span>&#123;</span><br><span class="line">        Log.d(<span class="string">&quot;ldo&quot;</span>,<span class="string">&quot;PositionPageDataSource loadRange&quot;</span>);</span><br><span class="line">        callback.onResult(getSubList(params.startPosition,params.loadSize));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Concert&gt; <span class="title">getSubList</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        Log.d(<span class="string">&quot;ldo&quot;</span>, <span class="string">&quot;getSubList&quot;</span>);</span><br><span class="line">        ArrayList&lt;Concert&gt; strings = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; end; i++) &#123;</span><br><span class="line">            strings.add(<span class="keyword">new</span> Concert(start, <span class="string">&quot;&quot;</span> + i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> strings;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Factory</span></span><br><span class="line"><span class="keyword">import</span> android.arch.paging.DataSource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSourceFactorty</span> <span class="keyword">extends</span> <span class="title">DataSource</span>.<span class="title">Factory</span>&lt;<span class="title">Integer</span>,<span class="title">Concert</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource&lt;Integer,Concert&gt; <span class="title">create</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PositionPageDataSource();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####4.新建Adapter</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.arch.paging.PagedListAdapter;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.NonNull;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.util.DiffUtil;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.widget.RecyclerView;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.view.ViewGroup;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcertAdapter</span> <span class="keyword">extends</span> <span class="title">PagedListAdapter</span>&lt;<span class="title">Concert</span>, <span class="title">ConcertAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    ConcertAdapter() &#123;</span><br><span class="line">        <span class="keyword">super</span>(showDiffCallBack);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> DiffUtil.ItemCallback&lt;Concert&gt; showDiffCallBack = <span class="keyword">new</span> DiffUtil.ItemCallback&lt;Concert&gt;() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">areItemsTheSame</span><span class="params">(<span class="meta">@NonNull</span> Concert oldItem, <span class="meta">@NonNull</span> Concert newItem)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (oldItem).id == (newItem).id;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">areContentsTheSame</span><span class="params">(<span class="meta">@NonNull</span> Concert oldItem, <span class="meta">@NonNull</span> Concert newItem)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> oldItem.equals(newItem);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ConcertAdapter.<span class="function">ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(<span class="meta">@NonNull</span> ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_concert_list, <span class="keyword">null</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(<span class="meta">@NonNull</span> ViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        Concert concert = getItem(position);</span><br><span class="line">        holder.v.setText(concert.getId()+<span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">        TextView v;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(<span class="meta">@NonNull</span> View itemView)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(itemView);</span><br><span class="line">            <span class="keyword">this</span>.v = itemView.findViewById(R.id.textView);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####5.新建Fragment</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.arch.lifecycle.LiveData;</span><br><span class="line"><span class="keyword">import</span> android.arch.lifecycle.Observer;</span><br><span class="line"><span class="keyword">import</span> android.arch.paging.LivePagedListBuilder;</span><br><span class="line"><span class="keyword">import</span> android.arch.paging.PagedList;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.NonNull;</span><br><span class="line"><span class="keyword">import</span> android.support.annotation.Nullable;</span><br><span class="line"><span class="keyword">import</span> android.support.v4.app.Fragment;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.widget.LinearLayoutManager;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.widget.RecyclerView;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.view.ViewGroup;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.android.displayingbitmaps.R;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PagedListFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> RecyclerView recyclerView;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INITIALLOADSIZE = <span class="number">40</span>;<span class="comment">//初始加载数量</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> RELOADSIZE = <span class="number">20</span>;<span class="comment">//往下滑动加载数量</span></span><br><span class="line">    <span class="keyword">private</span> LiveData&lt;PagedList&lt;Concert&gt;&gt; data;</span><br><span class="line">    <span class="keyword">private</span> ConcertAdapter adapter;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PagedListFragment <span class="title">newInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PagedListFragment();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(<span class="meta">@NonNull</span> LayoutInflater inflater, <span class="meta">@Nullable</span> ViewGroup container,</span></span></span><br><span class="line"><span class="function"><span class="params">                             <span class="meta">@Nullable</span> Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        View inflate = inflater.inflate(R.layout.paged_list_fragment, container, <span class="keyword">false</span>);</span><br><span class="line">       </span><br><span class="line">        recyclerView = inflate.findViewById(R.id.recyclerView);</span><br><span class="line">        <span class="keyword">return</span> inflate;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityCreated</span><span class="params">(<span class="meta">@Nullable</span> Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onActivityCreated(savedInstanceState);</span><br><span class="line">    </span><br><span class="line">        </span><br><span class="line">        PagedList.Config config = <span class="keyword">new</span> PagedList.Config.Builder()</span><br><span class="line">                .setPageSize(INITIALLOADSIZE / <span class="number">2</span>) <span class="comment">// 分页加载的数量</span></span><br><span class="line">                .setEnablePlaceholders(<span class="keyword">false</span>) <span class="comment">// 当item为null是否使用PlaceHolder展示</span></span><br><span class="line">                .setInitialLoadSizeHint(INITIALLOADSIZE) <span class="comment">// 预加载的数量, 与分页加载的数量成倍数关系</span></span><br><span class="line"><span class="comment">//                    .setPrefetchDistance(5)</span></span><br><span class="line">                .build();</span><br><span class="line">        data = <span class="keyword">new</span> LivePagedListBuilder(<span class="keyword">new</span> DataSourceFactorty(), config).build();<span class="comment">//可以放在ViewModel层处理</span></span><br><span class="line">        data.observe(<span class="keyword">this</span>, <span class="keyword">new</span> Observer&lt;PagedList&lt;Concert&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onChanged</span><span class="params">(<span class="meta">@Nullable</span> PagedList&lt;Concert&gt; concerts)</span> </span>&#123;</span><br><span class="line">                Log.d(<span class="string">&quot;ldo&quot;</span>,<span class="string">&quot;onChanged &quot;</span>+concerts.size());</span><br><span class="line">                adapter.submitList(concerts);<span class="comment">//调用PagedListAdapter中的方法绑定</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        adapter = <span class="keyword">new</span> ConcertAdapter();</span><br><span class="line">        recyclerView.setLayoutManager(<span class="keyword">new</span> LinearLayoutManager(getActivity()));</span><br><span class="line">        recyclerView.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>有一个大概认知之后简单介绍一下各个部分</p>
-<ul>
-<li>DataSource<br>数据处理核心, 最终回调到PagedList</li>
-<li>LivePagedListBuilder<br>关联DataSource和观察数据</li>
-<li>PagedList<br>可以理解为存储数据的集合容器, 不需要我们过多关注</li>
-<li>PagedListAdapter<br>配合recycleview使用</li>
-</ul>
-<p>需要注意的是adapter.submitList(concerts)使用父类的方法设置集合, 采取自己设置list然后notifyDataChaged的方式, PositionPageDataSource里面的方法不会回调</p>
-<hr>
-<p>####不同DataSource实现类的区别<br>目前有三种DataSource实现方式, 上面使用的是PositionalDataSource, 想必你已经看到效果了</p>
-<ul>
-<li>PositionalDataSource<br>适用于上拉加载更多的场景, 如京东商城列表浏览, 知乎等</li>
-<li>ItemKeyedDataSource<br>适用于下一part内容依赖当前某个key来获取, 如获得下一part的专辑列表, 需要传入当前歌手来获取</li>
-<li>PageKeyedDataSource<br>适用于有明显上下页的场景, 如支持上一章,下一章跳转可以使用此种方式</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-PagedList%E5%85%A5%E9%97%A8,%E5%8F%AA%E9%9C%80%E4%BA%94%E6%AD%A5Java%E7%89%88/" data-id="ckkt1ge2300020su45tv557et" data-title="PagedList入门" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Android日记/Android-UI" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/" class="article-date">
-  <time class="dt-published" datetime="2021-02-06T00:35:05.000Z" itemprop="datePublished">2021-02-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android%E6%97%A5%E8%AE%B0/">Android日记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/">Android-UI</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Android知识体系,笼统分为UI,Data,interact</p>
-</blockquote>
-<h4 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h4><p>1.屏幕适配</p>
-<h2 id="郭霖微信公众号-屏幕适配"><a href="#郭霖微信公众号-屏幕适配" class="headerlink" title="郭霖微信公众号:屏幕适配"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650243915&idx=1&sn=7054d165d06caf917b6a2b57800316a2&chksm=88637224bf14fb320b689948ebb3fd0d783bd816c7184644abea51e26be6c2ec50b54e61b46c&scene=38#wechat_redirect">郭霖微信公众号:屏幕适配</a></h2><p>adb修改分辨率和屏幕密度<br>adb shell wm size 1280x720 //小写的x<br>adb shell wm density 240<br>adb shell wm size reset //还原默认<br>adb shell wm density reset</p>
-<hr>
-<p>2.自定义view<br><a target="_blank" rel="noopener" href="https://hencoder.com/">扔物线大神</a></p>
-<hr>
-<p>3.优化布局</p>
-<ul>
-<li>减少嵌套</li>
-<li>合理使用<include/><merge/></li>
-<li>延迟加载<ViewStub></li>
-</ul>
-<hr>
-<p>4.优化应用启动时间</p>
-<ul>
-<li>从Application到Activity,Fragment中的生命周期方法避免重操作,100ms的差距往往影响甚大<br>可以通过handler延迟初始化一些资源,显示加载框,初始化完成后在隐藏(亲测延迟加载Fragment,界面快了2.5S)</li>
-<li>给Activity或者Application添加背景图片<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MediaTheme</span></span><br><span class="line"> &lt;style name=<span class="string">&quot;MediaTheme&quot;</span> parent=<span class="string">&quot;@android:style/Theme.NoTitleBar&quot;</span>&gt;</span><br><span class="line">        &lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/yourpic&lt;/item&gt;</span><br><span class="line"> &lt;/style&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Manifest</span></span><br><span class="line"> &lt;application</span><br><span class="line">        android:name=<span class="string">&quot;.MediaApplication&quot;</span></span><br><span class="line">        android:allowBackup=<span class="string">&quot;true&quot;</span></span><br><span class="line">        android:icon=<span class="string">&quot;@drawable/ic_launcher&quot;</span></span><br><span class="line">        android:label=<span class="string">&quot;@string/app_name&quot;</span></span><br><span class="line">        android:theme=<span class="string">&quot;@style/MediaTheme&quot;</span>&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/" data-id="ckkt1ge2500030su43m2qd7h7" data-title="Android-UI" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/" data-id="ckkt1lfhx001tpcu4gucnfbet" data-title="重新理解Activity启动模式,确认返回到哪个界面" class="article-share-link">Share</a>
       
       
       
@@ -488,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/05/my-new-post/" data-id="ckks6moui0000tsu4awfy07ii" data-title="my new post" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/02/05/my-new-post/" data-id="ckkt1lfgt0003pcu4d44kftn7" data-title="my new post" class="article-share-link">Share</a>
       
       
       
@@ -537,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/05/hello-world/" data-id="ckks5waum0000jcu4cyoq8uh4" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/02/05/hello-world/" data-id="ckkt1lfgh0001pcu479rt05y7" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
