@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="高效使用异常指南 Item 57: Use exceptions only for exceptional conditions只有在异常条件下才使用异常 考虑如下的代码 123456&#x2F;&#x2F;bad !! don&amp;#x27;t do thistry &amp;#123;	int i &#x3D; 0;	while(true)		range[i++].climb();&amp;#125; catch(ArrayIndexOutO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础进阶之EffectiveJava翻译系列(第八章-异常)">
+<meta property="og:url" content="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BC%82%E5%B8%B8)/index.html">
+<meta property="og:site_name" content="Boom.Tan个人空间">
+<meta property="og:description" content="高效使用异常指南 Item 57: Use exceptions only for exceptional conditions只有在异常条件下才使用异常 考虑如下的代码 123456&#x2F;&#x2F;bad !! don&amp;#x27;t do thistry &amp;#123;	int i &#x3D; 0;	while(true)		range[i++].climb();&amp;#125; catch(ArrayIndexOutO">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-06T00:35:05.000Z">
+<meta property="article:modified_time" content="2021-02-06T09:03:15.687Z">
+<meta property="article:author" content="boom.Tan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BC%82%E5%B8%B8)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Android基础进阶之EffectiveJava翻译系列(第八章-异常) | Boom.Tan个人空间</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Boom.Tan个人空间</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">82</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BC%82%E5%B8%B8)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android基础进阶之EffectiveJava翻译系列(第八章-异常)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-06 08:35:05 / Modified: 17:03:15" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>高效使用异常指南</p>
+<h5 id="Item-57-Use-exceptions-only-for-exceptional-conditions"><a href="#Item-57-Use-exceptions-only-for-exceptional-conditions" class="headerlink" title="Item 57: Use exceptions only for exceptional conditions"></a>Item 57: Use exceptions only for exceptional conditions</h5><p>只有在异常条件下才使用异常</p>
+<p>考虑如下的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bad !! don&#x27;t do this</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="keyword">true</span>)</span><br><span class="line">		range[i++].climb();</span><br><span class="line">&#125; <span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e)&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>使用异常条件来终止遍历操作是非常错误的做法</p>
+<p>使用如下代码代替</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Mountain m : range)</span><br><span class="line">	m.climb();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>名副其实,异常只能用在异常条件下,而不能用于流程控制</p>
+</blockquote>
+<hr>
+<h5 id="Item-58-Use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors"><a href="#Item-58-Use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors" class="headerlink" title="Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors"></a>Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors</h5><p>对可恢复条件使用检查异常，对程序错误使用运行时异常。</p>
+<p>Java提供了三种异常:checked exceptions,runtime exceptions and errors.大多数程序员对何时使用何种异常有困惑,有如下几种原则作参考</p>
+<p>决定使用检查异常或非检查异常的原则是:<strong>调用方可以合理的修复异常</strong>,现如今的IDE工具如eclipse或Android studio会自动提示此类异常,自动填充try catch</p>
+<p>非检查异常有两种:runtime exceptions and errors</p>
+<p><strong>用运行时异常(runtime exceptions)识程序错误</strong>,绝大多数的运行时异常都表明违反了某种前提条件,如ArrayIndexOutOfBoundsException数组越界</p>
+<p>有一个普遍的约定是error用于JVM,所以所有的非检查异常都应该继承自 RuntimeException </p>
+<blockquote>
+<p>常见的非检查异常runtime exception</p>
+<ul>
+<li>NullPointerException, 空指针异常 </li>
+<li>ArithmeticException, 算术异常</li>
+<li>ClassCastException, 类型强制转换异常</li>
+<li>IllegalArgumentException, 传递非法参数异常</li>
+</ul>
+</blockquote>
+<hr>
+<h5 id="Item-59-Avoid-unnecessary-use-of-checked-exceptions"><a href="#Item-59-Avoid-unnecessary-use-of-checked-exceptions" class="headerlink" title="Item 59: Avoid unnecessary use of checked exceptions"></a>Item 59: Avoid unnecessary use of checked exceptions</h5><p>避免过度使用检查异常<br>如果一个方法有多个检查异常,调用者会包裹多个catch来处理异常,这里没有一个绝对的准则,可以使用if语句把条件先过滤一遍而避免抛异常</p>
+<hr>
+<h5 id="Item-60-Favor-the-use-of-standard-exceptions"><a href="#Item-60-Favor-the-use-of-standard-exceptions" class="headerlink" title="Item 60: Favor the use of standard exceptions"></a>Item 60: Favor the use of standard exceptions</h5><p>使用常用异常<br>当需要抛出一个异常时,尽量使用Java平台提供好的异常,因为大家都知道什么意思</p>
+<hr>
+<h5 id="Item-61-Throw-exceptions-appropriate-to-the-abstraction"><a href="#Item-61-Throw-exceptions-appropriate-to-the-abstraction" class="headerlink" title="Item 61: Throw exceptions appropriate to the abstraction"></a>Item 61: Throw exceptions appropriate to the abstraction</h5><p>抛出更合适的抽象异常</p>
+<p>当抛出和任务不相关的异常时容易让人困惑,当抛出一个低级的异常时,这种情况经常发生,它不仅仅令人困惑,也污染了上层的调用</p>
+<p>为了避免这个问题，上层应该捕获较低级别的异常，并在它们的位置上抛出可以用更高级别的抽象来解释的异常,如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Exception Translation</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="comment">// Use lower-level abstraction to do our bidding</span></span><br><span class="line">	...</span><br><span class="line">&#125; <span class="keyword">catch</span>(LowerLevelException e) &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> HigherLevelException(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更具体的例子在List<E>的方法中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Returns the element at the specified position in this list.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@throws</span> IndexOutOfBoundsException if the index is out of range</span></span><br><span class="line"><span class="comment">* (&#123;<span class="doctag">@code</span> index &lt; 0 || index &gt;= size()&#125;).</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	ListIterator&lt;E&gt; i = listIterator(index);</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> i.next();</span><br><span class="line">	&#125; <span class="keyword">catch</span>(NoSuchElementException e) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">&quot;Index: &quot;</span> + index);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种特殊的异常处理方式被称为”异常链”,但是也不应该过度使用</p>
+<p>我们也可以在在上层调用中抛出底层错误的原因</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Exception Chaining</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	... <span class="comment">// Use lower-level abstraction to do our bidding</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (LowerLevelException cause) &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> HigherLevelException(cause);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最好的方式还是尽量在底层避免异常,如果不能处理在考虑”异常链”的方式</p>
+</blockquote>
+<hr>
+<h5 id="Item-62-Document-all-exceptions-thrown-by-each-method"><a href="#Item-62-Document-all-exceptions-thrown-by-each-method" class="headerlink" title="Item 62: Document all exceptions thrown by each method"></a>Item 62: Document all exceptions thrown by each method</h5><p>为每个方法抛出的异常添加文档注释</p>
+<p>对于检查异常,要说明前置条件,并用@throws标记合适的异常,不要为了图简单直接 @throws Exception</p>
+<p>如果一个异常被多个方法抛出,并且是相同的原因,则不要在方法上注释,而是要在类上添加异常注释</p>
+<hr>
+<h5 id="Item-63-Include-failure-capture-information-in-detail-messages"><a href="#Item-63-Include-failure-capture-information-in-detail-messages" class="headerlink" title="Item 63: Include failure-capture information in detail messages"></a>Item 63: Include failure-capture information in detail messages</h5><p>打印出异常的详细信息以便于分析</p>
+<hr>
+<h5 id="Item-64-Strive-for-failure-atomicity"><a href="#Item-64-Strive-for-failure-atomicity" class="headerlink" title="Item 64: Strive for failure atomicity"></a>Item 64: Strive for failure atomicity</h5><p>保证错误的原子性(调用一千次,输出一样)</p>
+<p>即使一个异常发生了,我们也希望对象能正常使用</p>
+<p>有几种方式可以达到这一点,最简单的就是创建不可变的对象,如果一个对象是不可变的,原子性也随之而来</p>
+<p>对于可变对象,常见的方式是检查参数的合法性(Item 38)</p>
+<p>第三种方式是发生异常后,回滚异常状态为使用前的初始状态</p>
+<p>最后一种方式使用拷贝来避免发生错误时改变原来对象的状态,如Collections.sort,排序方法会先转成array数组来排序,本来是为了提高性能,额外的如果发生了错误不会改变原集合的状态</p>
+<p>虽然原子性能保证,但是实际使用中并不总是能达到满意的状态,如两个线程同时修改一个对象,没有同步的情况下,引发了currentModificationException.这时如果恢复对象的状态依然不能使程序正确运行</p>
+<blockquote>
+<p>作为一种规则来讲,当发生异常时总能确保当前对象的状态,可惜目前很多API都没有遵守</p>
+</blockquote>
+<hr>
+<h5 id="Item-65-Don’t-ignore-exceptions"><a href="#Item-65-Don’t-ignore-exceptions" class="headerlink" title="Item 65: Don’t ignore exceptions"></a>Item 65: Don’t ignore exceptions</h5><p>不要忽略异常</p>
+<p>这条建议看似很明显,但是值得重复,当API的设计者声明了一种异常,他们是为了告诉你什么,**不要忽略它!**很容易包裹一个空的try catch语句就不管这个异常了.如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	...</span><br><span class="line">&#125; <span class="keyword">catch</span> (SomeException e) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>空处理并不是抛异常的初衷,目的是为了强制解决这个异常条件</strong>.忽略异常就像忽略火警广播,有人关了广播导致其他人并不知道发生了火灾.如果确实需要一个空的处理,需要详细说明为何空处理是合适的</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b188135338f4">上一章:通用原则</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" rel="prev" title="一行代码实现高斯模糊">
+      <i class="fa fa-chevron-left"></i> 一行代码实现高斯模糊
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95)/" rel="next" title="Android基础进阶之EffectiveJava翻译系列(第二章-通用方法)">
+      Android基础进阶之EffectiveJava翻译系列(第二章-通用方法) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Item-57-Use-exceptions-only-for-exceptional-conditions"><span class="nav-number">1.</span> <span class="nav-text">Item 57: Use exceptions only for exceptional conditions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item-58-Use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors"><span class="nav-number">2.</span> <span class="nav-text">Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item-59-Avoid-unnecessary-use-of-checked-exceptions"><span class="nav-number">3.</span> <span class="nav-text">Item 59: Avoid unnecessary use of checked exceptions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item-60-Favor-the-use-of-standard-exceptions"><span class="nav-number">4.</span> <span class="nav-text">Item 60: Favor the use of standard exceptions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item-61-Throw-exceptions-appropriate-to-the-abstraction"><span class="nav-number">5.</span> <span class="nav-text">Item 61: Throw exceptions appropriate to the abstraction</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item-62-Document-all-exceptions-thrown-by-each-method"><span class="nav-number">6.</span> <span class="nav-text">Item 62: Document all exceptions thrown by each method</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item-63-Include-failure-capture-information-in-detail-messages"><span class="nav-number">7.</span> <span class="nav-text">Item 63: Include failure-capture information in detail messages</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item-64-Strive-for-failure-atomicity"><span class="nav-number">8.</span> <span class="nav-text">Item 64: Strive for failure atomicity</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item-65-Don%E2%80%99t-ignore-exceptions"><span class="nav-number">9.</span> <span class="nav-text">Item 65: Don’t ignore exceptions</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">boom.Tan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">boom.Tan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
