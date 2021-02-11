@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">82</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">94</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -173,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E6%BA%90%E7%9A%84%E7%90%86%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Set%E9%9B%86%E5%90%88%E4%BE%9D%E7%84%B6%E6%9C%89%E9%87%8D%E5%A4%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,7 +187,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E6%BA%90%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Set%E9%9B%86%E5%90%88%E4%BE%9D%E7%84%B6%E6%9C%89%E9%87%8D%E5%A4%8D/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta">
@@ -223,7 +223,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>源的理解</title>
+    <title>Set集合依然有重复</title>
     <style type="text/css" media="all">
       body {
         margin: 0;
@@ -275,9 +275,9 @@
   <body>
     <div class="container">
       <div class="post">
-        <h1 class="title">源的理解</h1>
+        <h1 class="title">Set集合依然有重复</h1>
         <div class="show-content">
-          <h1>源是什么</h1><p>在车机开发中，最重要的一个方面就是源的处理。首先我们要知道源是什么。</p><p>学习一样新东西的时候，我喜欢类比已知的东西来“找你妹”</p><p>在应用开发中，我们播放声音使用的是请求音频焦点，一般是请求AudioManager.STREAM_MUSIC来播放音乐。然后注册一个回调来监听焦点的变化。</p><p>在车机中，因为有收音机，倒车等等独立于手机的模块。为了方便控制，定义了每一种声音播放的一种类型。相当于内部定义了一系列的焦点。一样有源改变的回调接口。在需要哪种类型的声音播放的时候，就请求对应的源，其他应用收到源改变的回调后在做相应的处理。</p><p>另外在车机开发中，常用的版本是android4.4，cpu计算能力比手机反应慢点，所以我们在开发中，因时刻注意性能的问题。</p>
+          <p>读set的源码，判断重复的依据是集合里的对象hashcode相等和equal返回了true代表俩对象不一样。</p><p>所以我们要重写这俩方法实现去重</p>
         </div>
       </div>
     </div>
@@ -302,7 +302,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%91%8A%E5%88%ABUSB%E6%95%B0%E6%8D%AE%E7%BA%BF,%E5%88%A9%E7%94%A8wifi%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Service%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3(%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AE%8C)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -316,7 +316,523 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%91%8A%E5%88%ABUSB%E6%95%B0%E6%8D%AE%E7%BA%BF,%E5%88%A9%E7%94%A8wifi%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Service%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3(%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AE%8C)/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-05 14:53:25" itemprop="dateModified" datetime="2021-02-05T14:53:25+08:00">2021-02-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service官方直译深入理解(基础知识完)</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Service官方直译深入理解(基础知识完)</h1>
+        <div class="show-content">
+          <h3>Service</h3><p>被设计为不和用户直接交互，在后台执行长期操作的一种系统组件，也可被其它应用使用。每一个服务必须在AndroidManifest中声明。服务可以通过Context.startService() and Context.bindService().启动。<i>Note：service运行在主线程，因此执行网络操作需要另起线程，但</i>IntentService可以解决这个问题。<br></p><h3>What is a Service?</h3><p>首先，我们来说说服务不是什么：</p><p>1：服务不是一个单独的进程，通常情况下它运行在应用进程的一部分</p><p>2.服务不是线程，它不能在应用无响应时工作</p><p>下面来说说服务两个主要的特征：</p><p>1.很方便的通知系统，我有一些后台任务需要处理，直到明确停止服务</p><p>2.很方便的给其它应用提供功能</p><p><i>Note：因为服务很简单，所以我们可以以任何我们想交互的方式来设计一个服务。我们可以将服务看成一个可以随时调用它方法的普通的Java对象，通过AIDL来交互。</i></p><h3>Service Lifecycle</h3><p>服务可以通过两种方式启动。如果有人调用了Context.startService()，那么服务的oncreate()和onStartCommand(Intent, int, int)会被回调，不管执行多少次startService，服务都不会重新创建，而会多次调用onStartCommand，所以并不存在停止不了服务的情况。服务会持续下去直到Context.stopService() or stopSelf()被调用。onStartCommand返回的不同值对应不同的服务需要。</p><p>用户还可以通过Context.bindService()来持有一个服务连接。当服务没运行的时候将会调用oncreate方法，但不会调用onStartCommand方法。客户端会接收到服务onBind(Intent)方法回调的IBinder对象，允许客户端回调服务里面的方法。通常情况下，IBinder是由复杂的接口创建的。</p><p>上述两种启动方式可以同时存在</p><h3>Permissions</h3><p>当一个服务在清单文件中声明，全局访问它将会拒绝。这时需要在自己的清单文件中声明合适的权限来启动，停止和绑定特定的服务。以Android 2.3为例，当调用Context.startService(Intent)，我们也需要设置Intent.FLAG_GRANT_READ_URI_PERMISSION and/or Intent.FLAG_GRANT_WRITE_URI_PERMISSION。</p><p>这会暂时同意Service访问Intent指定的Uri，直到服务停止。这个对Service没有exported也同样适用。</p><hr id="null"><h3>Process Lifecycle</h3><p>Android系统会尽可能长的保留持有service的进程，但是当内存不足需要杀掉一些进程时，有如下的优先级：</p><p>1.当前服务正在回调onCreate(), onStartCommand(), or onDestroy()方法，则视为前台进程，不会被kill</p><p>2.当服务长期运行在后台时，有极高的可能性被kill</p><p>3.我们可以通过startForeground(int, Notification)来设置前台进程，除非在内存极端紧张下，否则不会被杀</p><p><i>Note 有很大的可能，一个正在运行的服务在内存不足时会被系统杀掉，但是被杀掉后，系统会稍后试着重启这个服务。我们可以在</i>onStartCommand()方法用START_FLAG_REDELIVERY回调一个Intent来继续执行我们的服务</p><hr id="null"><h3>基础完</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Monkey%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E4%BB%8E0%E5%88%B01%EF%BC%8C%E6%8B%BF%E5%8E%BB%E5%B0%B1%E8%83%BD%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Monkey%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E4%BB%8E0%E5%88%B01%EF%BC%8C%E6%8B%BF%E5%8E%BB%E5%B0%B1%E8%83%BD%E7%94%A8/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-05 14:53:25" itemprop="dateModified" datetime="2021-02-05T14:53:25+08:00">2021-02-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkey压力测试从0到1，拿去就能用</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Monkey压力测试从0到1，拿去就能用</h1>
+        <div class="show-content">
+          <p>以前做炒股app，测试都是测试部工作，现在新的公司一来就说先跑一跑monkey吧。Monkey?不是猴子麽，怎么跑？</p><p>经过多次摸索后，终于可以笑嘻嘻的跑monkey了</p><p>首先adb shell</p><p>mkdir /mnt/sdcard/monkey   回车 创建一个文件夹专门存放Monkey跑完后收集的错误信息</p><p>monkey -p 包名 --ignore-crashes --ignore-timeouts --ignore-native-crashes --pct-touch 50 -s 1 -v -v --throttle 300 10000 2&gt;&gt;/mnt/sdcard/monkey/error.txt  1&gt;&gt;/mnt/sdcard/monkey/info.txt   回车</p><p>然后就看到我们的应用飞起来了。。不要</p><p>亚美爹～</p><p>不要～</p><p>停～</p><p>然后可以在d盘 执行adb pull /mnt/sdcard/monkey .</p><p>就看到error.tex文件 好，开始分析程序中bug吧。Note：在跑完一遍monkey修改bug后，我们要先删除以前的error.txt文件，否则文本还是叠加了刚才的错误。</p><p>删除的命令是(进入到删除文件的根目录)rm -r xx</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Manifest-merger-failed-with-multiple-errors/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Manifest-merger-failed-with-multiple-errors/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest merger failed with multiple errors</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Manifest merger failed with multiple errors</h1>
+        <div class="show-content">
+          <p>项目的清单文件和库里面或者arr里面的清单文件有重复项并且不一致，替换为一致即可。比如我遇到的情况是meta data不一致</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E8%87%AA%E5%8A%A8%E6%BB%9A%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E6%9D%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E8%87%AA%E5%8A%A8%E6%BB%9A%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E6%9D%A1/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListView自动滚到最后一条</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">ListView自动滚到最后一条</h1>
+        <div class="show-content">
+          <p>1.listview xml里面加上</p><p>android.transcriptmode=alwaysScroll</p><p>android:stackFromBottom="true"//此种情况 每次数据更新状态都会滚到最后一条</p><p>到顶部</p><p>```</p><p>if (!listview.isStackFromBottom()) {</p><p>    listview.setStackFromBottom(true);</p><p>}</p><p> listview.setStackFromBottom(false);</p><p>```</p><p>到底部</p><p>if (listview.isStackFromBottom()) {</p><p>    listview.setStackFromBottom(false);</p><p>}</p><p> listview.setStackFromBottom(true);</p><p><br></p><p>2.list.post(new runnable)</p><p>List.setselection(size-1)</p><p>可以在需要滚的地方滚</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E7%BB%93%E5%90%88xutils3%E4%BB%BF%E5%BE%AE%E4%BF%A1%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E7%BB%93%E5%90%88xutils3%E4%BB%BF%E5%BE%AE%E4%BF%A1%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta">
@@ -348,291 +864,33 @@
 
       
           <blockquote>
-<p>前言:目前在车机开发多媒体的U盘播放功能,每次插U盘就不能调试,调试就不能插U盘很不方便.有了远程调试程序,终于方便多了,唯一的缺点是wifi不稳定容易连接超时<br>#####步骤一<br>使用USB数据线成功连接(抱一下大腿先)程序.打开cmd,输入<br><code>adb tcpip 5555</code><br>看到<img src="http://upload-images.jianshu.io/upload_images/2226681-a657793cd1ff5b96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tcp_success"><br>即表示成功.<br>#####步骤二<br>打开手机wifi查看当前IP<br><code>adb connect IP:5555</code><br>此时就算拔掉USB,可以看到Eclipse还是连接着设备<br>####后记<br>使用adb的时候容易遇到一个错误<br><code>ADB server didn&#39;t ACK</code><br>一般情况下是端口号被360手机助手等等软件占用了</p>
+<p>前言:最近涉及到和QQ打交道,定义所有的好友一共只能有300条消息,如果一次性从数据库读取300条或者更多,界面会有细微的卡顿.所以考虑了下分页,第一次进来只显示20条(仿微信),当用户滑到第一条后,如果数据库有消息,则再加载20条.</p>
 </blockquote>
-<ul>
-<li>解决办法<br>在cmd窗口中<br><code>adb nodaemon server</code><br>查看一下哪个端口被占用了(比如我的 5037)<br>然后<br><code>netstat -ano | findstr &quot;5037&quot;</code><br>找到被占用的端口,在任务管理器中将其结束掉</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%88%B6%E4%BD%9C%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%88%B6%E4%BD%9C%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>前言:产品爆出开机动画不流畅的bug,于是和美工切了108个罗汉来,接下来就要看一下如何制作开机动画了<br>###1.建立三个文件夹<br><img src="http://upload-images.jianshu.io/upload_images/2226681-f13665665d3c9040.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="temp_bootanimation.png"><br>part1中放所有的图片,part2中放播放完成后定格的图片<br>打开desc.txt<br>480 800 24 —————–这里的480代表图片的像素（大小）宽度，800代表图片的像素（大小）高度，24代表帧数,part1里面有多少图片就填多少；<br> p 1 0 part1 —————–这里的p代表标志符，1代表循环次数为1次，0代表阶段间隔时间为0，part1代表对应的文件夹名；<br>p 0 0 part2 —————–这里的p代表标志符，0代表循环次数为0次，10代表阶段间隔时间为10，part2代表对应的文件名<br>###2.三个都选中,右键压缩<br><img src="http://upload-images.jianshu.io/upload_images/2226681-f7d7987206d8737f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="temp_zip.png"><br>压缩格式选zip,压缩方式:存储<br>###3.制作好XX.zip<br>push到system/media目录<br>执行adb shell XX 可进行预览动画</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%8E%B7%E5%BE%97%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%8E%B7%E5%BE%97%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>前言:在最近的工作中涉及到从u盘拷贝大量数据到车机,偶尔有失效的情况,后面发现是sdcard存储空间不足,因此想在代码中展示出当前系统分区.查看系统分区在adb中为adb shell df </p>
-</blockquote>
-<p>#####我们用如下方法可执行任意的adb shell命令,在此仅用”df”举例</p>
-<ul>
-<li>代码如下</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String[] doRuntimeCmmd(String command) &#123;</span><br><span class="line">       Log.d(TAG, <span class="string">&quot;doRuntimeCmmd:&quot;</span> + command);</span><br><span class="line">       Process process = <span class="keyword">null</span>;</span><br><span class="line">       BufferedReader mOutReader = <span class="keyword">null</span>;</span><br><span class="line">       BufferedReader mErrorReader = <span class="keyword">null</span>;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">           process = Runtime.getRuntime().exec(command);</span><br><span class="line">           Log.d(TAG, <span class="string">&quot;process exec: &quot;</span> + process);</span><br><span class="line">           </span><br><span class="line">           mOutReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(process.getInputStream()));</span><br><span class="line">           <span class="keyword">int</span> mOutread;</span><br><span class="line">      <span class="keyword">char</span>[] outBuffer = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">4096</span>];</span><br><span class="line">           StringBuffer output = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">           <span class="keyword">while</span> ((mOutread = mOutReader.read(outBuffer)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               output.append(outBuffer, <span class="number">0</span>, mOutread);</span><br><span class="line">           &#125;   </span><br><span class="line">           mErrorReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(process.getErrorStream()));</span><br><span class="line">           <span class="keyword">int</span> mErrorread;</span><br><span class="line">           <span class="keyword">char</span>[] errorBuffer = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">4096</span>];</span><br><span class="line">           StringBuffer error = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">             <span class="keyword">while</span> ((mErrorread = mErrorReader.read(errorBuffer)) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               error.append(errorBuffer, <span class="number">0</span>, mErrorread);</span><br><span class="line">           &#125;</span><br><span class="line">           </span><br><span class="line">           process.waitFor();</span><br><span class="line">         String[] mResult = &#123; output.toString(), error.toString() &#125;;</span><br><span class="line">           Log.d(TAG, command +<span class="string">&quot; Result:&quot;</span> + mResult[<span class="number">0</span>]);</span><br><span class="line">           Log.d(TAG, command+ <span class="string">&quot; Error:&quot;</span> + mResult[<span class="number">1</span>]);</span><br><span class="line">           <span class="keyword">return</span> mResult;</span><br><span class="line">             &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">           String[] mResult = &#123; <span class="string">&quot;error&quot;</span>, <span class="string">&quot;error&quot;</span> &#125;;</span><br><span class="line">           Log.d(TAG, command + <span class="string">&quot;  Result = &quot;</span> + mResult[<span class="number">0</span>] + <span class="string">&quot;   Error = &quot;</span> + mResult[<span class="number">1</span>]);</span><br><span class="line">           <span class="keyword">return</span> mResult;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">           <span class="keyword">try</span> &#123;</span><br><span class="line">               <span class="keyword">if</span> (mOutReader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                   mOutReader.close();</span><br><span class="line">               &#125;</span><br><span class="line">         <span class="keyword">if</span> (mErrorReader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                   mErrorReader.close();</span><br><span class="line">               &#125;</span><br><span class="line">           <span class="keyword">if</span> (process != <span class="keyword">null</span>) &#123;</span><br><span class="line">                   Log.d(TAG, <span class="string">&quot;process destroy: &quot;</span> + process);</span><br><span class="line">                   process.destroy();</span><br><span class="line">               &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">               e.printStackTrace();</span><br><span class="line">           &#125;</span><br><span class="line">               &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>我们在代码中按如下使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] runtimeCmmd = doRuntimeCmmd(<span class="string">&quot;df&quot;</span>);</span><br><span class="line">MySortViewOfCMD textView = <span class="keyword">new</span> MySortViewOfCMD(getActivity());</span><br><span class="line">textView.setCurrentString(runtimeCmmd[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
-<p>用此方法得到的文本结果,并不像adb命令行中格式化的,需要自定义控件</p>
-<ul>
-<li>自定义view实现排版<code>仅供参考</code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySortViewOfCMD</span> <span class="keyword">extends</span> <span class="title">TextView</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> String text;</span><br><span class="line">	<span class="keyword">int</span> lineCount = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> Paint paint = <span class="keyword">new</span> Paint();</span><br><span class="line">	<span class="keyword">private</span> ArrayMap&lt;Integer, String[]&gt; charByMap;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mWidth = <span class="number">900</span>;<span class="comment">// px</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> mHeight = <span class="number">660</span>;</span><br><span class="line">	<span class="keyword">private</span> Scroller mScroller;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> lastPointX;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> lastPointY;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MySortViewOfCMD</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context);</span><br><span class="line">		initPaint(context);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MySortViewOfCMD</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(context, attrs);</span><br><span class="line">		initPaint(context);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPaint</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">		paint.setColor(context.getResources().getColor(R.color.white));</span><br><span class="line">		paint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,</span><br><span class="line">				<span class="number">18</span>, context.getResources().getDisplayMetrics()));</span><br><span class="line">		mScroller = <span class="keyword">new</span> Scroller(context);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</span><br><span class="line">		<span class="keyword">int</span> width = measureDimension(mWidth, widthMeasureSpec);</span><br><span class="line">		<span class="keyword">int</span> height = measureDimension(mHeight, heightMeasureSpec);</span><br><span class="line">		setMeasuredDimension(width, height);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">measureDimension</span><span class="params">(<span class="keyword">int</span> defaultSize, <span class="keyword">int</span> measureSpec)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> result = defaultSize;</span><br><span class="line">		<span class="keyword">int</span> specMode = MeasureSpec.getMode(measureSpec);</span><br><span class="line">		<span class="keyword">int</span> specSize = MeasureSpec.getSize(measureSpec);</span><br><span class="line">	    <span class="keyword">if</span> (specMode == MeasureSpec.EXACTLY) &#123;</span><br><span class="line">			result = specSize;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (specMode == MeasureSpec.AT_MOST) &#123;</span><br><span class="line">			result = Math.min(defaultSize, specSize);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		result = defaultSize;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; charByMap.size(); i++) &#123;<span class="comment">//绘制行</span></span><br><span class="line">	    String[] strings = charByMap.get(i);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; strings.length; j++) &#123;<span class="comment">//绘制列</span></span><br><span class="line">				<span class="keyword">if</span> (j == <span class="number">1</span>) &#123;<span class="comment">//针对第二列做特殊处理,防止与第一列重影</span></span><br><span class="line">					canvas.drawText(strings[j], j * (mWidth / <span class="number">3</span>) + <span class="number">60</span>,</span><br><span class="line">							i * <span class="number">30</span> + <span class="number">25</span>, paint);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				canvas.drawText(strings[j], j * (mWidth / <span class="number">3</span>), i * <span class="number">30</span> + <span class="number">25</span>,</span><br><span class="line">						paint);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span> (event.getAction()) &#123;</span><br><span class="line">		<span class="keyword">case</span> MotionEvent.ACTION_DOWN:</span><br><span class="line"></span><br><span class="line">			lastPointX = (<span class="keyword">int</span>) event.getX();</span><br><span class="line">			lastPointY = (<span class="keyword">int</span>) event.getY();</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	<span class="keyword">case</span> MotionEvent.ACTION_MOVE:</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">int</span> mXMove = (<span class="keyword">int</span>) event.getX();</span><br><span class="line">			 <span class="keyword">int</span> scrolledX = (<span class="keyword">int</span>) (lastPointX - mXMove);</span><br><span class="line">	 <span class="keyword">if</span>(getScrollX() + scrolledX &lt; <span class="number">0</span>)&#123;<span class="comment">//左边界</span></span><br><span class="line">				 scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">				 <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">			 &#125;</span><br><span class="line">		<span class="keyword">if</span> (getScrollX() + getWidth() + scrolledX &lt; (mWidth / <span class="number">3</span>) * <span class="number">5</span>)<span class="comment">//小于右边界</span></span><br><span class="line">				mScroller.startScroll(getScrollX(), <span class="number">0</span>,</span><br><span class="line">						lastPointX - (<span class="keyword">int</span>) event.getX(), <span class="number">0</span>, <span class="number">200</span>);</span><br><span class="line">			invalidate();</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> MotionEvent.ACTION_UP:</span><br><span class="line"></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 平滑滚动        </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">computeScroll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (mScroller.computeScrollOffset()) &#123;</span><br><span class="line">			scrollTo(mScroller.getCurrX(), mScroller.getCurrY());</span><br><span class="line">			invalidate();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCurrentString</span><span class="params">(String text)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.text = text;</span><br><span class="line">		charByMap = saveCharByMap(text);</span><br><span class="line">		invalidate();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 根据传进来的string保存每一行的字符</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> string</span></span><br><span class="line"><span class="comment">	 *            -显示的字符串 eg: file size use \n filedddd size use \n</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="keyword">private</span> ArrayMap&lt;Integer, String[]&gt; saveCharByMap(String string) &#123;</span><br><span class="line">		String[] lineString = string.split(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">		ArrayMap&lt;Integer, String[]&gt; charMap = <span class="keyword">new</span> ArrayMap&lt;Integer, String[]&gt;();</span><br><span class="line">		lineCount = lineString.length;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lineCount; i++) &#123;</span><br><span class="line">			String[] charItem = lineString[i].split(<span class="string">&quot;\\s+&quot;</span>);<span class="comment">// 按空格切出字符</span></span><br><span class="line"></span><br><span class="line">			charMap.put(i, charItem);</span><br><span class="line">		&#125;</span><br><span class="line">			<span class="keyword">return</span> charMap;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<code>感谢android,感谢开源</code></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/Eclipse%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/Eclipse%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>#Q1 Conversion to Dalvik format failed: Unable to execute dex: Multiple dex files define L;<br>A1：添加的jar包重复了，可能名字不同，里面的内容相同。这点就做的不好了，提示不出来哪两个文件相同。</p>
-<p>#Q2 Unknown exception in parseSdkContent. java.lang.StackOverflowError<br>A2:主工程A  Lib (B C) BC之间相互依赖</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/Android%E5%BC%80%E6%9C%BAflow/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/Android%E5%BC%80%E6%9C%BAflow/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://upload-images.jianshu.io/upload_images/2226681-420418709379ba26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开机.png"></p>
+<p>##步骤-问把大象关冰箱,总共分几步?<br>###1.自定义absListview.scrollListerner<br>核心的东西是监听ListView的scrollListerner,网上扒了一个挺不错的,大家用的时候实现这个scrollListerner,完善自己的逻辑即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyOnScrollListener</span> <span class="keyword">implements</span> <span class="title">OnScrollListener</span> </span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> totalItemCount;</span><br><span class="line">      <span class="comment">//ListView最后的item项</span></span><br><span class="line">	  <span class="keyword">private</span> <span class="keyword">int</span> lastItem;</span><br><span class="line">      <span class="comment">//listview第一项</span></span><br><span class="line">	  <span class="keyword">private</span> <span class="keyword">int</span> firstItem;</span><br><span class="line">	    <span class="comment">//用于判断当前是否在加载</span></span><br><span class="line">	  <span class="keyword">private</span> <span class="keyword">boolean</span> isLoading;</span><br><span class="line">	    <span class="comment">//底部加载更多布局</span></span><br><span class="line">	  <span class="keyword">private</span> View footer;</span><br><span class="line">	    <span class="comment">//接口回调的实例</span></span><br><span class="line">	  <span class="keyword">private</span> OnloadDataListener listener;</span><br><span class="line">	 </span><br><span class="line">	  <span class="comment">//数据</span></span><br><span class="line">	  <span class="keyword">private</span> List&lt;MsgBean&gt; data;</span><br><span class="line">	  Handler handler = <span class="keyword">new</span> Handler();</span><br><span class="line">     </span><br><span class="line">	 </span><br><span class="line">	  <span class="function"><span class="keyword">public</span> <span class="title">MyOnScrollListener</span><span class="params">(View footer, List&lt;MsgBean&gt; data)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">this</span>.footer = footer;</span><br><span class="line">	    <span class="keyword">this</span>.data = data;</span><br><span class="line">	  &#125;</span><br><span class="line">	  <span class="comment">//设置接口回调的实例</span></span><br><span class="line">	  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnLoadDataListener</span><span class="params">(OnloadDataListener listener)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">this</span>.listener = listener;</span><br><span class="line">	  &#125;</span><br><span class="line">	   <span class="comment">/**</span></span><br><span class="line"><span class="comment">	   * 滑动状态变化</span></span><br><span class="line"><span class="comment">	   *</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> view</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> scrollState 1 SCROLL_STATE_TOUCH_SCROLL是拖动  2 SCROLL_STATE_FLING是惯性滑动 0SCROLL_STATE_IDLE是停止 , 只有当在不同状态间切换的时候才会执行</span></span><br><span class="line"><span class="comment">	   */</span></span><br><span class="line">	  <span class="meta">@Override</span></span><br><span class="line">	   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrollStateChanged</span><span class="params">(AbsListView view, <span class="keyword">int</span> scrollState)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//如果数据没有加载，并且滑动状态是停止的,并且滚到了第一个item,可在此做下拉更新或者上拉更新的判断</span></span><br><span class="line">	    <span class="keyword">if</span> (!isLoading &amp;&amp; firstItem == <span class="number">0</span> &amp;&amp; scrollState == SCROLL_STATE_IDLE) &#123;</span><br><span class="line">	      <span class="comment">//显示加载更多</span></span><br><span class="line">	      footer.setVisibility(View.VISIBLE);</span><br><span class="line">	    </span><br><span class="line">	      <span class="comment">//模拟一个延迟两秒的刷新功能</span></span><br><span class="line">	       handler.postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	        <span class="meta">@Override</span></span><br><span class="line">	        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	          <span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</span><br><span class="line">	            <span class="comment">//开始加载更多数据</span></span><br><span class="line">	            loadMoreData();</span><br><span class="line">	            <span class="comment">//回调设置ListView的数据</span></span><br><span class="line">	            listener.onLoadData(data);</span><br><span class="line">	             <span class="comment">//加载完成后操作什么</span></span><br><span class="line">	            loadComplete();</span><br><span class="line">	          &#125;</span><br><span class="line">	        &#125;</span><br><span class="line">	      &#125;, <span class="number">2000</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	   <span class="comment">/**</span></span><br><span class="line"><span class="comment">	   * 当加载数据完成后，设置加载标志为false表示没有加载数据了</span></span><br><span class="line"><span class="comment">	   * 并且设置底部加载更多为隐藏</span></span><br><span class="line"><span class="comment">	   */</span></span><br><span class="line">	  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    isLoading = <span class="keyword">false</span>;</span><br><span class="line">	    footer.setVisibility(View.GONE);</span><br><span class="line">	 </span><br><span class="line">	  &#125;</span><br><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	   * 开始加载更多新数据，这里每次只更新三条数据</span></span><br><span class="line"><span class="comment">	   */</span></span><br><span class="line">	  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadMoreData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    isLoading = <span class="keyword">true</span>;</span><br><span class="line">	    MsgBean msg = <span class="keyword">null</span>;</span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">	      msg = <span class="keyword">new</span> MsgBean();</span><br><span class="line">	     msg .setRemark(<span class="string">&quot;Liming&quot;</span>+i);</span><br><span class="line">	     msg .setMsgID(i);</span><br><span class="line">	      data.add(stu);</span><br><span class="line">	    &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	   * 监听可见界面的情况</span></span><br><span class="line"><span class="comment">	   *</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> view       ListView</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> firstVisibleItem 第一个可见的 item 的索引</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> visibleItemCount 可以显示的 item的条数</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> totalItemCount  总共有多少个 item</span></span><br><span class="line"><span class="comment">	   */</span></span><br><span class="line">	  <span class="meta">@Override</span></span><br><span class="line">	   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScroll</span><span class="params">(AbsListView view, <span class="keyword">int</span> firstVisibleItem, <span class="keyword">int</span> visibleItemCount, <span class="keyword">int</span> totalItemCount)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//实现下拉加载</span></span><br><span class="line">	    lastItem = firstVisibleItem + visibleItemCount;</span><br><span class="line">           <span class="comment">//实现上拉加载</span></span><br><span class="line">	    firstItem = firstVisibleItem;</span><br><span class="line">	     <span class="comment">//总listView的item个数</span></span><br><span class="line">	    <span class="keyword">this</span>.totalItemCount = totalItemCount;</span><br><span class="line">	  &#125;</span><br><span class="line">	  <span class="comment">//回调接口</span></span><br><span class="line">	  <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnloadDataListener</span> </span>&#123;</span><br><span class="line">	    <span class="function"><span class="keyword">void</span> <span class="title">onLoadData</span><span class="params">(List&lt;MsgBean&gt; data)</span></span>;</span><br><span class="line">	  &#125;</span><br><span class="line">	 &#125;</span><br></pre></td></tr></table></figure>
+<p>###2.实现此接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListPageActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">MyOnScrollListener</span>.<span class="title">OnloadDataListener</span>  </span>&#123;</span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line">	  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	    setContentView(R.layout.activity_list_page);</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">//显示到ListView上</span></span><br><span class="line">	    showListView(data);</span><br><span class="line"> <span class="comment">//自定义的滚动监听事件</span></span><br><span class="line">	    MyOnScrollListener onScrollListener = <span class="keyword">new</span> MyOnScrollListener(header, data);</span><br><span class="line">	    <span class="comment">//设置接口回调</span></span><br><span class="line">	    onScrollListener.setOnLoadDataListener(<span class="keyword">this</span>);</span><br><span class="line">	    <span class="comment">//设置ListView的滚动监听事件</span></span><br><span class="line">	    mListView.setOnScrollListener(onScrollListener);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">	  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoadData</span><span class="params">(List&lt;MsgBean&gt; data)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//加载数据完成后，展示数据到ListView</span></span><br><span class="line">	    showListView(data);</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>showListView里面无疑是普通的更新adapter的工作<br>那么我们如何借助xutils的数据库进行分类呢?<br>###3.利用xutils数据库操作进行分页处理<br>首先,我们理一下思路,上面我们已经实现了上拉的回调,在此回调中把新来的数据加载到adapter即可.<br>//下文db是Dbmanager的实例,可参考<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/95b6c4d7b7ce">xutils3用法</a></p>
+<pre><code>/**
+ * 当前屏幕显示的消息数量
+ */
+private int MAX_MSG_NUMBER = 20;
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;MsgBean&gt; <span class="title">getDataFromDb</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	 List&lt;?&gt; dbSize = db.selector(MsgBean.class).where(WhereBuilder.b(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;=&quot;</span>, <span class="number">400</span>)).findAll();<span class="comment">//记得捕获null指针和DbException异常</span></span><br><span class="line"><span class="comment">//如果数据库比我们显示的页数小,则不偏移,否则,偏移到我们需要显示的位置</span></span><br><span class="line">		<span class="keyword">if</span> (dbSize.size() &lt; MAX_MSG_NUMBER) &#123;</span><br><span class="line">			indexOffset = <span class="number">0</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			indexOffset = dbSize.size() - MAX_MSG_NUMBER;</span><br><span class="line">		&#125;</span><br><span class="line">	 </span><br><span class="line">	 List&lt;MsgBean&gt; datas = db.selector(MsgBean.class).where(WhereBuilder.b(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;=&quot;</span>, <span class="number">400</span>)).limit(MAX_MSG_NUMBER)</span><br><span class="line">					.offset(indexOffset).findAll();</span><br><span class="line">		<span class="keyword">return</span> datas;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>?:开机动画在哪一层</p>
+<p>这里解释一下          </p>
 </blockquote>
+<pre><code>db.selector(MsgBean.class).where(WhereBuilder.b(&quot;id&quot;, &quot;=&quot;, 400)).limit(MAX_MSG_NUMBER).offset(indexOffset).findAll();是我们实现分页的关键
+</code></pre>
+<p>.limit是我们定义的分页大小<br>.offset偏移量,我们数据库的大小是不变的,如果不定义偏移量,那么我们定义的分页大小每次只从0取到19.假设数据库中有21条数据,那么我们需要从1取到20,而不是0到19,所以偏移1.</p>
+<p>然后我们在loadMoreData中</p>
+<pre><code>MAX_MSG_NUMBER += MAX_MSG_NUMBER;
+getDataFromDb();
+</code></pre>
+<p>将大小自加,即完成加载更多的功能,在onLoadData(List<MsgBean> data)中加载数据即可.</p>
+<hr>
+<p>后面贴上我对xutils数据库操作的封装,还有很多不完善之处</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数据库 xutils用法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 青楼爱小生</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DbUtil</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = DbUtil.class.getName();</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> DbUtil dbUtil;</span><br><span class="line">	<span class="keyword">private</span> DbManager db;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">DbUtil</span><span class="params">()</span></span>&#123;</span><br><span class="line">		db = x.getDb(MyApplication.getInstance().daoConfig);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DbUtil <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(dbUtil == <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (DbUtil.class) &#123;</span><br><span class="line">				<span class="keyword">if</span>(dbUtil == <span class="keyword">null</span>)&#123;</span><br><span class="line">					dbUtil = <span class="keyword">new</span> DbUtil();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> dbUtil;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 增加数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> list</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMsgList</span><span class="params">(List&lt;MsgBean&gt; list)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.saveOrUpdate(list);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 增加一条数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> node</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMsgToDb</span><span class="params">(MsgBean node)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.saveOrUpdate(node);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除表中所有数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> cls  创建的表的映射</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteAll</span><span class="params">(Class cls)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.delete(cls);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除第一条数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> cls</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteFirst</span><span class="params">(Class cls)</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.delete(db.findFirst(cls));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 查询表中所有数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> List&lt;?&gt; findAll(Class cls) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> db.findAll(cls) == <span class="keyword">null</span> ? Collections.emptyList() : db.findAll(cls);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">			<span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * //添加查询条件进行查询</span></span><br><span class="line"><span class="comment">		List&lt;ChildInfo&gt; all = db.selector(ChildInfo.class).where(&quot;id&quot;,&quot;&gt;&quot;,2).and(&quot;id&quot;,&quot;&lt;&quot;,4).findAll();</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 搜索指定条件的数据</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> List&lt;?&gt; findDataByWhere(Class cls,WhereBuilder format)&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> db.selector(cls).where(format).findAll()== <span class="keyword">null</span> ?</span><br><span class="line">					Collections.emptyList() :db.selector(cls).where(format).findAll();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">		LogHelper.e(TAG, e.getMessage());</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 添加查询条件进行查询</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> cls  表映射</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> str  select语句</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> format  where语句</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> List&lt;DbModel&gt; DbModel  key为数据库列名 value为值</span></span><br><span class="line"><span class="comment">	 * eg:(Selector.from(Parent.class)  </span></span><br><span class="line"><span class="comment">                                   .where(&quot;id&quot; ,&quot;&lt;&quot;, 54)  </span></span><br><span class="line"><span class="comment">                                   .and(WhereBuilder.b(&quot;age&quot;, &quot;&gt;&quot;, 20).or(&quot;age&quot;, &quot; &lt; &quot;, 30))  </span></span><br><span class="line"><span class="comment">                                   .orderBy(&quot;id&quot;)  </span></span><br><span class="line"><span class="comment">                                   .limit(pageSize)    .offset(pageSize * pageIndex));  </span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> Selector&lt;?&gt; findDataBySelector(Class cls,WhereBuilder format)&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span>  db.selector(cls).where(format);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -652,7 +910,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E8%87%AA%E5%AE%9A%E4%B9%89textview-invalidate-()%E4%B8%8D%E8%B0%83%E7%94%A8ondraw()%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E5%8A%A0%E8%83%8C%E6%99%AF%E6%96%87%E5%AD%97%E9%80%8F%E6%98%8E%E6%95%88%E6%9E%9C%E5%8E%BB%E4%B8%8D%E6%8E%89+%E8%B7%91%E9%A9%AC%E7%81%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -666,136 +924,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E8%87%AA%E5%AE%9A%E4%B9%89textview-invalidate-()%E4%B8%8D%E8%B0%83%E7%94%A8ondraw()%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:25" itemprop="dateModified" datetime="2021-02-05T14:53:25+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自定义textview invalidate ()不调用ondraw()可能原因</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">自定义textview invalidate ()不调用ondraw()可能原因</h1>
-        <div class="show-content">
-          <p>1.控件大小为0,需要重写onMeasure ()</p><p>2.onDraw()重写的不是protected </p><p>我记得重写已有控件不需要重写测量方法，可能是我记错版本了，有空了在研究研究</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%A3%80%E6%B5%8Bcpu%E5%8D%A0%E7%94%A8%E7%8E%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%A3%80%E6%B5%8Bcpu%E5%8D%A0%E7%94%A8%E7%8E%87/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E5%8A%A0%E8%83%8C%E6%99%AF%E6%96%87%E5%AD%97%E9%80%8F%E6%98%8E%E6%95%88%E6%9E%9C%E5%8E%BB%E4%B8%8D%E6%8E%89+%E8%B7%91%E9%A9%AC%E7%81%AF/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta">
@@ -831,7 +960,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>检测cpu占用率</title>
+    <title>ListView加背景文字透明效果去不掉+跑马灯</title>
     <style type="text/css" media="all">
       body {
         margin: 0;
@@ -883,9 +1012,11 @@
   <body>
     <div class="container">
       <div class="post">
-        <h1 class="title">检测cpu占用率</h1>
+        <h1 class="title">ListView加背景文字透明效果去不掉+跑马灯</h1>
         <div class="show-content">
-          <p>adb shell top -m 10 -d 1</p><p>-m 显示的最多进程数</p><p>-d 更新间隔时间</p>
+          <p>纠结了好久，设置ListView背景后，每次点击都感觉文字有层透明的图片遮住了，那是因为adapter中的布局文字未设置颜色，系统默认的就会出现透明的感觉。</p><p>另附加上跑马灯</p><p>﻿</p><div class="image-package">
+<img name="149307608-1496643988974" src="http://upload-images.jianshu.io/upload_images/2226681-32460f54929f89b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50"><br><div class="image-caption">图片发自简书App</div>
+</div><p>然后在Adapter找到对应的TextView, setSelected(true)</p><p>跑马灯走你</p>
         </div>
       </div>
     </div>
@@ -910,7 +1041,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%AE%89%E5%8D%93%E7%BD%91%E7%AB%99/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-%E8%AE%BE%E7%BD%AEviewtype%E5%90%8E%E6%95%B0%E7%BB%84%E8%B6%8A%E7%95%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -924,7 +1055,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%AE%89%E5%8D%93%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-%E8%AE%BE%E7%BD%AEviewtype%E5%90%8E%E6%95%B0%E7%BB%84%E8%B6%8A%E7%95%8C/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta">
@@ -960,7 +1091,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>安卓网站</title>
+    <title>ListView 设置viewtype后数组越界</title>
     <style type="text/css" media="all">
       body {
         margin: 0;
@@ -1012,9 +1143,9 @@
   <body>
     <div class="container">
       <div class="post">
-        <h1 class="title">安卓网站</h1>
+        <h1 class="title">ListView 设置viewtype后数组越界</h1>
         <div class="show-content">
-          <p>guolin.tech</p><p>Hencodr.com</p><p>http://ticktick.blog.51cto.com/823160/1655761  内核分析<br></p>
+          <p>一个很微妙的bug</p><p>ListView的getItemViewType (int pos)</p><p>返回一定从0开始</p><p>切记</p>
         </div>
       </div>
     </div>
@@ -1039,7 +1170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-smoothScrollToPosition-%E5%AE%9A%E4%BD%8D%E4%B8%8D%E5%87%86%E7%AC%A8%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1053,7 +1184,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-smoothScrollToPosition-%E5%AE%9A%E4%BD%8D%E4%B8%8D%E5%87%86%E7%AC%A8%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta">
@@ -1070,7 +1201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:25" itemprop="dateModified" datetime="2021-02-05T14:53:25+08:00">2021-02-05</time>
+                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
               </span>
 
           
@@ -1089,7 +1220,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>命令行打印日志</title>
+    <title>ListView smoothScrollToPosition 定位不准笨方法解决</title>
     <style type="text/css" media="all">
       body {
         margin: 0;
@@ -1141,9 +1272,138 @@
   <body>
     <div class="container">
       <div class="post">
-        <h1 class="title">命令行打印日志</h1>
+        <h1 class="title">ListView smoothScrollToPosition 定位不准笨方法解决</h1>
         <div class="show-content">
-          <p>adb logcat -s TAG</p><p>有时候我们放在System priv-app里的apk，不能再eclipse或as打印。需要用控制台的方式</p>
+          <p>有时需要列表平滑滚动到指定位置</p><p>但和预期位置有出入</p><p>网上查的原因说是Android的一个bug</p><p>解决方法如下</p><p>ListView.smoothScrollToPosition(0)</p><p>ListView.postDelayed(new runnable){</p><p>ListView.setSelection(0)</p><p>}</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/ImageView-background%E5%92%8Csrc%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/ImageView-background%E5%92%8Csrc%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageView background和src的区别</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">ImageView background和src的区别</h1>
+        <div class="show-content">
+          <p>在用到ImageView设置背景选择器的时候，要用. setImageResource ()。(对应布局的src属性)，这样图片有多大就显示多大，用background将会拉伸图片适应宽高。ImageButton和此一样的用法。</p>
         </div>
       </div>
     </div>
@@ -1167,7 +1427,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1233,13 +1493,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

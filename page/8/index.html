@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">82</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">94</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -173,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80(Java)-try-catch-finally-retrun%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%8E%8B%E7%BC%A9%E5%A4%A7%E5%9B%BE%E5%AE%98%E6%96%B9%E5%86%99%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,7 +187,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80(Java)-try-catch-finally-retrun%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" class="post-title-link" itemprop="url">Android基础-try-catch等执行顺序</a>
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%8E%8B%E7%BC%A9%E5%A4%A7%E5%9B%BE%E5%AE%98%E6%96%B9%E5%86%99%E6%B3%95/" class="post-title-link" itemprop="url">Android压缩大图官方写法</a>
         </h2>
 
         <div class="post-meta">
@@ -197,14 +197,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-11 11:54:20" itemprop="dateModified" datetime="2021-02-11T11:54:20+08:00">2021-02-11</time>
+                <time title="Modified: 2021-02-11 16:56:46" itemprop="dateModified" datetime="2021-02-11T16:56:46+08:00">2021-02-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,111 +228,15 @@
 
       
           <blockquote>
-<p>口诀,catch优先return, 无论怎样finally<br>2019年9月19日</p>
+<p>前言:之前写多媒体的时候,加载图片使用的Picasso框架,但图片列表很多依然有oom的问题,原来的图片分辨率(5024*4280)太大了,遂要压缩图片</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      tag = <span class="string">&quot;ldo-&quot;</span>;</span><br><span class="line">      Log.d(tag, <span class="string">&quot;go: start&quot;</span>);</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">          Log.d(tag, <span class="string">&quot;go: try 01&quot;</span>);</span><br><span class="line">          arrayList.get(<span class="number">0</span>);</span><br><span class="line">          Log.d(tag, <span class="string">&quot;go: return 01&quot;</span>);</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">          Log.d(tag, <span class="string">&quot;go: catch01&quot;</span>);</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">              arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">              arrayList.add(<span class="number">1</span>);</span><br><span class="line">          &#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">              e1.printStackTrace();</span><br><span class="line">              Log.d(tag, <span class="string">&quot;go: catch02&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">      &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">          Log.d(tag, <span class="string">&quot;go: finally&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>方法第一次执行<br>猜猜看打印什么<br>嘟嘟嘟嘟<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.</p>
-<p>.<br>.<br>.<br>..<br>.<br>.<br>.</p>
-<p>公布</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01-01 01:24:02.567 17772-17772&#x2F; D&#x2F;ldo-: go: start</span><br><span class="line">01-01 01:24:02.567 17772-17772&#x2F; D&#x2F;ldo-: go: try 01</span><br><span class="line">01-01 01:24:02.567 17772-17772&#x2F; D&#x2F;ldo-: go: catch01</span><br><span class="line">01-01 01:24:02.570 17772-17772&#x2F; D&#x2F;ldo-: go: finally</span><br></pre></td></tr></table></figure>
-<hr>
-<p>第二次执行<br>嘟嘟嘟<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01-01 01:27:29.302 17772-17772&#x2F; D&#x2F;ldo-: go: start</span><br><span class="line">01-01 01:27:29.302 17772-17772&#x2F; D&#x2F;ldo-: go: try 01</span><br><span class="line">01-01 01:27:29.302 17772-17772&#x2F; D&#x2F;ldo-: go: return 01</span><br><span class="line">01-01 01:27:29.302 17772-17772&#x2F; D&#x2F;ldo-: go: finally</span><br></pre></td></tr></table></figure>
-<p>别忘了会执行finally哦~</p>
-<hr>
-<p>最后考大家一个, 大家加油哦 ~. ~</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        tag = <span class="string">&quot;ldo-&quot;</span>;</span><br><span class="line">        Log.d(tag, <span class="string">&quot;go: start&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Log.d(tag, <span class="string">&quot;go: try 01&quot;</span>);</span><br><span class="line">            arrayList.get(<span class="number">0</span>);</span><br><span class="line">            Log.d(tag, <span class="string">&quot;go: return 01&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            Log.d(tag, <span class="string">&quot;go: catch01&quot;</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">//                arrayList = new ArrayList&lt;&gt;();</span></span><br><span class="line">                arrayList.add(<span class="number">1</span>);</span><br><span class="line">                Log.d(tag, <span class="string">&quot;go: try 02&quot;</span>);</span><br><span class="line">                Log.d(tag, <span class="string">&quot;go: return 02&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">                e1.printStackTrace();</span><br><span class="line">                Log.d(tag, <span class="string">&quot;go: catch02&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">                Log.d(tag, <span class="string">&quot;go: finally 02&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            Log.d(tag, <span class="string">&quot;go: finally 01&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95)/" class="post-title-link" itemprop="url">Android基础进阶之EffectiveJava翻译系列(第二章-通用方法)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-06 08:35:05 / Modified: 17:05:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="2-所有对象都有的方法-equals-hashCode…"><a href="#2-所有对象都有的方法-equals-hashCode…" class="headerlink" title="2.所有对象都有的方法(equals,hashCode…)"></a>2.所有对象都有的方法(equals,hashCode…)</h4><h5 id="Item8-遵循equals的通用规则"><a href="#Item8-遵循equals的通用规则" class="headerlink" title="Item8 遵循equals的通用规则"></a>Item8 遵循equals的通用规则</h5><ul>
-<li>反射性:if x != null ,x.equals(x) must return true; </li>
-<li>对称性:if x != null &amp;&amp; y != null ,x.equals(y) is true; y.equals(x) must return true</li>
-<li>传递性:if x != null &amp;&amp; y != null &amp;&amp; z != null ,x.equals(y) is true; y.equals(z) is true ; x.equals(z) must return true</li>
-<li>一致性:不管调用多少次equals方法,返回的值一致</li>
-<li>if x != null,x.equals(null) must return false<blockquote>
-<p>除非有数学上的倾向要违背这些,否则必要遵循<br>当父类和子类都有自己的equals方法时,某些场景会违背这些原则,非要使用equals的话,建议将子类替换成组合的方式<br>当自己重写equals方法问自己三个问题:它是对称性的吗?是可传递的吗?是一致的吗?<br>#####Item9 重写equals时始终重写hashCode<br>重写equals而没有重写hashCode会导致用到hash值的类出现bug,如HashMap,HashSet..<br>下面是使用Object在JavaSE6中的规则:</p>
-</blockquote>
-</li>
-<li>在一次程序操作中的同一个对象,任何时候hashCode保持一致</li>
-<li>如果两个对象根据equals(Object)方法相等，那么对这两个对象中的每个对象调用hashCode方法都必须产生相同的整数结果</li>
-<li>如果两个对象根据equals(Object)方法不相等，那么对这两个对象中的每个对象没必要产生相同的整数结果,但是有利于提高HashTable的性能<blockquote>
-<p>生成hashCode时,属性中可计算的则直接参与计算,不可计算的字段调用它的hashCode()参与计算</p>
-</blockquote>
-</li>
-</ul>
-<h5 id="Item10-始终重写toString方法"><a href="#Item10-始终重写toString方法" class="headerlink" title="Item10 始终重写toString方法"></a>Item10 始终重写toString方法</h5><blockquote>
-<p>不重写的话会得到Object@163b91一串无意义的打印<br>最好是打印出自己需要的关键字段信息</p>
-</blockquote>
-<h5 id="Item11-明智的重写clone方法"><a href="#Item11-明智的重写clone方法" class="headerlink" title="Item11 明智的重写clone方法"></a>Item11 明智的重写clone方法</h5><blockquote>
-<p>使用的较少,理解不深,后续补充</p>
-</blockquote>
-<h5 id="Item12-实现-Comparable接口"><a href="#Item12-实现-Comparable接口" class="headerlink" title="Item12 实现 Comparable接口"></a>Item12 实现 Comparable接口</h5><p>对于需要排序和比较的对象,实现此接口定义自己的排序规则</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/96ba1f9da2b6">上一章:创建和销毁对象</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d8e8a6916325">下一章:类和接口</a> </p>
+<p>对于一张5024*4280的图片(ARGB_8888 )来说,系统要分配多少内存呢?计算方法如下<br>5024*4280*4byte 约等 82.026M,吓人不<br>对于android设备来说,丢失一点像素点肉眼基本看不出来(肉眼八倍镜除外),所以如下是官方提供的demo</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">decodeSampledBitmapFromResource</span><span class="params">(Resources res, <span class="keyword">int</span> resId,</span></span></span><br><span class="line"><span class="function"><span class="params">        <span class="keyword">int</span> reqWidth, <span class="keyword">int</span> reqHeight)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// First decode with inJustDecodeBounds=true to check dimensions</span></span><br><span class="line">    <span class="keyword">final</span> BitmapFactory.Options options = <span class="keyword">new</span> BitmapFactory.Options();</span><br><span class="line">    options.inJustDecodeBounds = <span class="keyword">true</span>;</span><br><span class="line">    BitmapFactory.decodeResource(res, resId, options);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Calculate inSampleSize</span></span><br><span class="line">    options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Decode bitmap with inSampleSize set</span></span><br><span class="line">    options.inJustDecodeBounds = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">return</span> BitmapFactory.decodeResource(res, resId, options);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateInSampleSize</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            BitmapFactory.Options options, <span class="keyword">int</span> reqWidth, <span class="keyword">int</span> reqHeight)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Raw height and width of image</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> height = options.outHeight;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> width = options.outWidth;</span><br><span class="line">    <span class="keyword">int</span> inSampleSize = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (height &gt; reqHeight || width &gt; reqWidth) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> halfHeight = height / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> halfWidth = width / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Calculate the largest inSampleSize value that is a power of 2 and keeps both</span></span><br><span class="line">        <span class="comment">// height and width larger than the requested height and width.</span></span><br><span class="line">        <span class="keyword">while</span> ((halfHeight / inSampleSize) &gt;= reqHeight</span><br><span class="line">                &amp;&amp; (halfWidth / inSampleSize) &gt;= reqWidth) &#123;</span><br><span class="line">            inSampleSize *= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> inSampleSize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用法如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mImageView.setImageBitmap(</span><br><span class="line">    decodeSampledBitmapFromResource(getResources(), R.id.myimage, <span class="number">100</span>, <span class="number">100</span>));</span><br></pre></td></tr></table></figure>
+<p>网上有人说decodeStream会比decodeResource更节省内存,官方并无相关说明,需要用哪种方法解析Bitmap就用哪个方法吧,主要还是在于压缩图片</p>
+<p>压缩原理就我的理解是先不分配图片的内存,待针对不同的设备(中密度,高密度,超高密度等)计算好压缩比例后再分配内存</p>
+<p>ps:Picasso加载图片有一个fit()方法会根据imageview的大小自动压缩图片,就不需要上面的步骤了</p>
 
       
     </div>
@@ -352,7 +256,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BC%82%E5%B8%B8)/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E9%A2%9C%E8%89%B2%E9%80%8F%E6%98%8E%E5%BA%A6%E7%99%BE%E5%88%86%E6%AF%94%E5%92%8C%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AF%B9%E5%BA%94%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -366,454 +270,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BC%82%E5%B8%B8)/" class="post-title-link" itemprop="url">Android基础进阶之EffectiveJava翻译系列(第八章-异常)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-06 08:35:05 / Modified: 17:03:15" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>高效使用异常指南</p>
-<h5 id="Item-57-Use-exceptions-only-for-exceptional-conditions"><a href="#Item-57-Use-exceptions-only-for-exceptional-conditions" class="headerlink" title="Item 57: Use exceptions only for exceptional conditions"></a>Item 57: Use exceptions only for exceptional conditions</h5><p>只有在异常条件下才使用异常</p>
-<p>考虑如下的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bad !! don&#x27;t do this</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="keyword">true</span>)</span><br><span class="line">		range[i++].climb();</span><br><span class="line">&#125; <span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e)&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>使用异常条件来终止遍历操作是非常错误的做法</p>
-<p>使用如下代码代替</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Mountain m : range)</span><br><span class="line">	m.climb();</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>名副其实,异常只能用在异常条件下,而不能用于流程控制</p>
-</blockquote>
-<hr>
-<h5 id="Item-58-Use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors"><a href="#Item-58-Use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors" class="headerlink" title="Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors"></a>Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors</h5><p>对可恢复条件使用检查异常，对程序错误使用运行时异常。</p>
-<p>Java提供了三种异常:checked exceptions,runtime exceptions and errors.大多数程序员对何时使用何种异常有困惑,有如下几种原则作参考</p>
-<p>决定使用检查异常或非检查异常的原则是:<strong>调用方可以合理的修复异常</strong>,现如今的IDE工具如eclipse或Android studio会自动提示此类异常,自动填充try catch</p>
-<p>非检查异常有两种:runtime exceptions and errors</p>
-<p><strong>用运行时异常(runtime exceptions)识程序错误</strong>,绝大多数的运行时异常都表明违反了某种前提条件,如ArrayIndexOutOfBoundsException数组越界</p>
-<p>有一个普遍的约定是error用于JVM,所以所有的非检查异常都应该继承自 RuntimeException </p>
-<blockquote>
-<p>常见的非检查异常runtime exception</p>
-<ul>
-<li>NullPointerException, 空指针异常 </li>
-<li>ArithmeticException, 算术异常</li>
-<li>ClassCastException, 类型强制转换异常</li>
-<li>IllegalArgumentException, 传递非法参数异常</li>
-</ul>
-</blockquote>
-<hr>
-<h5 id="Item-59-Avoid-unnecessary-use-of-checked-exceptions"><a href="#Item-59-Avoid-unnecessary-use-of-checked-exceptions" class="headerlink" title="Item 59: Avoid unnecessary use of checked exceptions"></a>Item 59: Avoid unnecessary use of checked exceptions</h5><p>避免过度使用检查异常<br>如果一个方法有多个检查异常,调用者会包裹多个catch来处理异常,这里没有一个绝对的准则,可以使用if语句把条件先过滤一遍而避免抛异常</p>
-<hr>
-<h5 id="Item-60-Favor-the-use-of-standard-exceptions"><a href="#Item-60-Favor-the-use-of-standard-exceptions" class="headerlink" title="Item 60: Favor the use of standard exceptions"></a>Item 60: Favor the use of standard exceptions</h5><p>使用常用异常<br>当需要抛出一个异常时,尽量使用Java平台提供好的异常,因为大家都知道什么意思</p>
-<hr>
-<h5 id="Item-61-Throw-exceptions-appropriate-to-the-abstraction"><a href="#Item-61-Throw-exceptions-appropriate-to-the-abstraction" class="headerlink" title="Item 61: Throw exceptions appropriate to the abstraction"></a>Item 61: Throw exceptions appropriate to the abstraction</h5><p>抛出更合适的抽象异常</p>
-<p>当抛出和任务不相关的异常时容易让人困惑,当抛出一个低级的异常时,这种情况经常发生,它不仅仅令人困惑,也污染了上层的调用</p>
-<p>为了避免这个问题，上层应该捕获较低级别的异常，并在它们的位置上抛出可以用更高级别的抽象来解释的异常,如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Exception Translation</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="comment">// Use lower-level abstraction to do our bidding</span></span><br><span class="line">	...</span><br><span class="line">&#125; <span class="keyword">catch</span>(LowerLevelException e) &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> HigherLevelException(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更具体的例子在List<E>的方法中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Returns the element at the specified position in this list.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@throws</span> IndexOutOfBoundsException if the index is out of range</span></span><br><span class="line"><span class="comment">* (&#123;<span class="doctag">@code</span> index &lt; 0 || index &gt;= size()&#125;).</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	ListIterator&lt;E&gt; i = listIterator(index);</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> i.next();</span><br><span class="line">	&#125; <span class="keyword">catch</span>(NoSuchElementException e) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">&quot;Index: &quot;</span> + index);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种特殊的异常处理方式被称为”异常链”,但是也不应该过度使用</p>
-<p>我们也可以在在上层调用中抛出底层错误的原因</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Exception Chaining</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	... <span class="comment">// Use lower-level abstraction to do our bidding</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (LowerLevelException cause) &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> HigherLevelException(cause);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>最好的方式还是尽量在底层避免异常,如果不能处理在考虑”异常链”的方式</p>
-</blockquote>
-<hr>
-<h5 id="Item-62-Document-all-exceptions-thrown-by-each-method"><a href="#Item-62-Document-all-exceptions-thrown-by-each-method" class="headerlink" title="Item 62: Document all exceptions thrown by each method"></a>Item 62: Document all exceptions thrown by each method</h5><p>为每个方法抛出的异常添加文档注释</p>
-<p>对于检查异常,要说明前置条件,并用@throws标记合适的异常,不要为了图简单直接 @throws Exception</p>
-<p>如果一个异常被多个方法抛出,并且是相同的原因,则不要在方法上注释,而是要在类上添加异常注释</p>
-<hr>
-<h5 id="Item-63-Include-failure-capture-information-in-detail-messages"><a href="#Item-63-Include-failure-capture-information-in-detail-messages" class="headerlink" title="Item 63: Include failure-capture information in detail messages"></a>Item 63: Include failure-capture information in detail messages</h5><p>打印出异常的详细信息以便于分析</p>
-<hr>
-<h5 id="Item-64-Strive-for-failure-atomicity"><a href="#Item-64-Strive-for-failure-atomicity" class="headerlink" title="Item 64: Strive for failure atomicity"></a>Item 64: Strive for failure atomicity</h5><p>保证错误的原子性(调用一千次,输出一样)</p>
-<p>即使一个异常发生了,我们也希望对象能正常使用</p>
-<p>有几种方式可以达到这一点,最简单的就是创建不可变的对象,如果一个对象是不可变的,原子性也随之而来</p>
-<p>对于可变对象,常见的方式是检查参数的合法性(Item 38)</p>
-<p>第三种方式是发生异常后,回滚异常状态为使用前的初始状态</p>
-<p>最后一种方式使用拷贝来避免发生错误时改变原来对象的状态,如Collections.sort,排序方法会先转成array数组来排序,本来是为了提高性能,额外的如果发生了错误不会改变原集合的状态</p>
-<p>虽然原子性能保证,但是实际使用中并不总是能达到满意的状态,如两个线程同时修改一个对象,没有同步的情况下,引发了currentModificationException.这时如果恢复对象的状态依然不能使程序正确运行</p>
-<blockquote>
-<p>作为一种规则来讲,当发生异常时总能确保当前对象的状态,可惜目前很多API都没有遵守</p>
-</blockquote>
-<hr>
-<h5 id="Item-65-Don’t-ignore-exceptions"><a href="#Item-65-Don’t-ignore-exceptions" class="headerlink" title="Item 65: Don’t ignore exceptions"></a>Item 65: Don’t ignore exceptions</h5><p>不要忽略异常</p>
-<p>这条建议看似很明显,但是值得重复,当API的设计者声明了一种异常,他们是为了告诉你什么,**不要忽略它!**很容易包裹一个空的try catch语句就不管这个异常了.如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	...</span><br><span class="line">&#125; <span class="keyword">catch</span> (SomeException e) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>空处理并不是抛异常的初衷,目的是为了强制解决这个异常条件</strong>.忽略异常就像忽略火警广播,有人关了广播导致其他人并不知道发生了火灾.如果确实需要一个空的处理,需要详细说明为何空处理是合适的</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b188135338f4">上一章:通用原则</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A/" class="post-title-link" itemprop="url">一行代码实现高斯模糊</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-06 08:35:05 / Modified: 10:37:53" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>前言:有一个音乐播放器的项目,背景需要根据歌曲的封面进行模糊展示,搜罗了很久,找到一个不错的解决方案,不需要我们进行NDK的开发,android帮我们在framework实现好了<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/b72da42e1463">借鉴</a></p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 模糊图片</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> bitmap 原图片</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> radius 模糊度  0~25</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 模糊后的图片</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">blurBitmap</span><span class="params">(Bitmap bitmap, <span class="keyword">float</span> radius, Context context)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Create renderscript</span></span><br><span class="line">    RenderScript rs = RenderScript.create(context);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create allocation from Bitmap</span></span><br><span class="line">    Allocation allocation = Allocation.createFromBitmap(rs, bitmap);</span><br><span class="line">    </span><br><span class="line">    Type t = allocation.getType();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create allocation with the same type</span></span><br><span class="line">    Allocation blurredAllocation = Allocation.createTyped(rs, t);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Create script</span></span><br><span class="line">    ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));</span><br><span class="line">    <span class="comment">//Set blur radius (maximum 25.0)</span></span><br><span class="line">    blurScript.setRadius(radius);</span><br><span class="line">    <span class="comment">//Set input for script</span></span><br><span class="line">    blurScript.setInput(allocation);</span><br><span class="line">    <span class="comment">//Call script for output allocation</span></span><br><span class="line">    blurScript.forEach(blurredAllocation);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Copy script result into bitmap</span></span><br><span class="line">    blurredAllocation.copyTo(bitmap);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//Destroy everything to free memory</span></span><br><span class="line">    allocation.destroy();</span><br><span class="line">    blurredAllocation.destroy();</span><br><span class="line">    blurScript.destroy();</span><br><span class="line">    t.destroy();</span><br><span class="line">    rs.destroy();</span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>感谢android,感谢开源</code></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%9B%BE%E7%89%87%E8%AE%BE%E7%BD%AElevel-list,%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%8A%B6%E6%80%81%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">图片分层根据状态显示</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-06 08:35:05 / Modified: 09:23:38" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>前言:工作需求,wifi图标根据不同的强度,显示不同的状态.于是想到用图层的方法<br>####bg.xml</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line"></span><br><span class="line">&lt;level-list xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span> &gt;</span><br><span class="line">    &lt;item android:maxLevel=&quot;0&quot; android:drawable=&quot;@drawable/icon_stop_n&quot;&gt;&lt;/item&gt;</span><br><span class="line">    &lt;item android:maxLevel=&quot;1&quot; android:drawable=&quot;@drawable/icon_pause&quot;&gt;&lt;/item&gt;</span><br><span class="line"></span><br><span class="line">&lt;/level-list&gt;</span><br></pre></td></tr></table></figure>
-<p><code>note:android:maxLevel 必须从0递增,顺序错误后只会显示第一张图片</code><br>####布局文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button</span><br><span class="line">               android:id&#x3D;&quot;@+id&#x2F;bt_pause_bt&quot;</span><br><span class="line">               android:layout_width&#x3D;&quot;wrap_content&quot;</span><br><span class="line">               android:layout_height&#x3D;&quot;wrap_content&quot;</span><br><span class="line">               android:layout_marginLeft&#x3D;&quot;115px&quot;</span><br><span class="line">               android:background&#x3D;&quot;@drawable&#x2F;bg&quot;</span><br><span class="line">               android:tag&#x3D;&quot;play&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-<p>####代码中使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LevelListDrawable pauseDrawable = (LevelListDrawable) yourwiget</span><br><span class="line">				.getBackground();</span><br><span class="line">pauseDrawable.setLevel(<span class="number">1</span>);<span class="comment">//根据业务需要,对应图片等级</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%95%B0%E7%BB%84%E8%BD%AC%E9%9B%86%E5%90%88%E6%96%B0%E9%A2%96%E5%86%99%E6%B3%95get%E2%88%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%95%B0%E7%BB%84%E8%BD%AC%E9%9B%86%E5%90%88%E6%96%B0%E9%A2%96%E5%86%99%E6%B3%95get%E2%88%9A/" class="post-title-link" itemprop="url">数组转集合新颖写法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-06 08:35:05 / Modified: 09:23:07" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>title: my new post<br>date: 2021-02-05 19:04:35<br>categories: Android日记<br>tags: Android</p>
-<p>前言:啥也不说了,show me the code!</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> List&lt;Integer&gt; <span class="title">intArrayAsList</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span>[] a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line"></span><br><span class="line">    retrun <span class="keyword">new</span> AbstractList&lt;Integer&gt;() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> Interger <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">            retrun a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> Integer <span class="title">set</span><span class="params">(<span class="keyword">int</span> i, Integer val)</span></span>&#123;</span><br><span class="line">            <span class="keyword">int</span> oldVal = a[i];</span><br><span class="line">            a[i] = val;</span><br><span class="line">            retrun oldVal;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123; retrun a.length;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E9%87%8D%E6%96%B0%E7%90%86%E8%A7%A3Activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%EF%BC%8C%E7%A1%AE%E8%AE%A4%E8%BF%94%E5%9B%9E%E6%8C%89%E9%92%AE%E5%88%B0%E5%93%AA%E4%B8%AA%E7%95%8C%E9%9D%A2/" class="post-title-link" itemprop="url">重新理解Activity启动模式,确认返回到哪个界面</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-06 08:35:05 / Modified: 09:17:27" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<hr>
-<p>前言：之前开发单个应用，把每个Activity声明为singleTask完事，最近开发车机系统相关的应用，各个应用间通过语音可来回跳转，点击返回时返回的Activity和预期不一致，于是研究了一下如何定位到当前Activity点返回会跳转到哪</p>
-</blockquote>
-<p>车机系统 Android4.4</p>
-<h3 id="所需概念"><a href="#所需概念" class="headerlink" title="所需概念"></a>所需概念</h3><h4 id="task-amp-stack"><a href="#task-amp-stack" class="headerlink" title="task&amp;stack"></a>task&amp;stack</h4><p>Android对于Activity的管理使用First in,Last out的数据结构,对所有的Activity都通过回退栈的方式来管理</p>
-<p>启动activity实际上启动的activity所属的task,最顶部的activity处于onResume状态,这点一定要切记</p>
-<p>放入stack里面的顺序不能重排序,只能遵从后入先出的原则(pop&amp;push)</p>
-<p>Home在一个Stack里面,其它应用在另一个Stack里面,通过Task ID管理</p>
-<h3 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h3><p>adb shell dumpsys activity &gt; E:\stack01.txt<br>或<br>adb shell dumpsys activity activities &gt; E:\stack02.txt  //生成的文件更详细</p>
-<p>此时打开生成的文件找到<em>Recent tasks:</em><br><img src="https://upload-images.jianshu.io/upload_images/2226681-d3097c4de9f501b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="stack.png"><br>即表示当前所有系统管理activity栈,Recent #0是当前界面,点击返回即跳到Recent #1,一直返回到tasks结束或Home为止</p>
-<p>“sz=1”表示当前task所拥有的Activity数量,在同一个task的Activity回退完后,才会到另一个task,一般来说一个应用拥有一个独立的task,(Home启动应用会通过Intent设置FLAG_ACTIVITY_NEW_TASK的flag)</p>
-<h3 id="启动模式与任务栈的关系"><a href="#启动模式与任务栈的关系" class="headerlink" title="启动模式与任务栈的关系"></a>启动模式与任务栈的关系</h3><ol>
-<li><p>默认<br>默认情况下每次都启动一个新的Activity实例</p>
-</li>
-<li><p>singleTop<br>当前Activity在task顶部时,及当前正在交互的Activity需要重新打开时不会创建实例,而会走到onNewIntent里面</p>
-</li>
-</ol>
-<p>非顶部和默认情况下一致</p>
-<ol start="3">
-<li><p>singleTask<br>当前task里面有实例则会复用,回调onNewIntent,并将当前Activity上面的Activity弹出销毁</p>
-</li>
-<li><p>singleInstance<br>同singleTask类似,不同的是这个task里面只会有唯一一个Activity,启动其它Activity会放到新的一个task里面(可理解为给其它Activity设置FLAG_ACTIVITY_NEW_TASK)<br>标识)</p>
-</li>
-</ol>
-<p>有一点需要注意,对于从Home启动的Activity来说,会设置mOnTopOfHome=true,不管和Home是不是同一个Stack都会返回到主页</p>
-<h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><p>没有给定API接口启动其他应用(跳到指定activity)尽量使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = MyApp.getInstance().getPackageManager()</span><br><span class="line"> .getLaunchIntentForPackage(<span class="string">&quot;com.example.otherpackage&quot;</span>);</span><br><span class="line"></span><br><span class="line">MyApp.getInstance().startActivity(intent);</span><br></pre></td></tr></table></figure>
-<p>由系统判断Launcher category启动,如果手动启动需要根据当前方案设置intent的flag</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992019%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2018%E5%B9%B4%E7%9A%84%E6%88%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992019%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2018%E5%B9%B4%E7%9A%84%E6%88%91/" class="post-title-link" itemprop="url">写给2019年的你,来自2018年的我</a>
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E9%A2%9C%E8%89%B2%E9%80%8F%E6%98%8E%E5%BA%A6%E7%99%BE%E5%88%86%E6%AF%94%E5%92%8C%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AF%B9%E5%BA%94%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">Android颜色透明度计算公式</a>
         </h2>
 
         <div class="post-meta">
@@ -823,14 +280,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-11 11:54:45" itemprop="dateModified" datetime="2021-02-11T11:54:45+08:00">2021-02-11</time>
+                <time title="Modified: 2021-02-11 16:57:10" itemprop="dateModified" datetime="2021-02-11T16:57:10+08:00">2021-02-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -838,7 +295,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/" itemprop="url" rel="index"><span itemprop="name">未来的你</span></a>
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
                 </span>
             </span>
 
@@ -854,15 +311,13 @@
 
       
           <blockquote>
-<p>前言:可惜,写了五年的未来之信丢失了,好多宝贵的记忆与期望都无从寻觅,在重新开始吧.每年都给未来的你写一封信,然后在未来,见证自己的成长<br>###18年的收获<br>待总结<br>###改变<br>####身体<br>身高接近180cm,体重在18年终于达到130斤了.你现在都已经140了吧,不知道有没有结婚,听说婚后谁胖了就是另一半的爱比较多哦,我俩肯定都会胖的(<em>^__^</em>) 嘻嘻<br>这一年也不再要求你有八块腹肌了,只希望你每天都能运动,保持身心的愉悦.一有时间的话我就快步走40分钟,在寒冷的冬天,身体暖洋洋的感觉挺好.<br>笨笨有一段时间也便秘,肚子不舒服.. 我也头疼脚痛的,现在你是不是因为锻炼了一年而有所改善了呢,加油</p>
+<p>有时候UI设计颜色多少透明度的时候,都去网上找对应关系图,其实有一个公式可以自己算出来</p>
 </blockquote>
-<hr>
-<p>目标:长到140斤 你来打勾<br><code>笨笨不超过100斤</code></p>
-<p>####家人<br>陪伴父母的时间越来越少,现在你也有了自己的家.倩妹也越来越大了,越来越大离家也越来远了.倩妹也会有自己的生活和圈子了.现在的你是不是花了些时间来陪伴家人呢.小学每天回家,中学两周回一次家,大学半年回一次,工作了一年回一次.还好回到了重庆,平时放假就能回去看看.</p>
-<hr>
-<p>目标:陪伴家人每一个重要的日子 你来打勾<br>####工作<br>学到的技术还是要实践领悟了才是自己的,平时就要学习下各种大神的知识多积累.现在的你对服务和aidl了解的差不多了吧,java的各种技术和平时的想法都要学习才行,加油!</p>
-<hr>
-<p>目标:对android整体架构有更深入的认识,对java有更深入的理解</p>
+<p>十六进制的FF–&gt;十进制的255</p>
+<ul>
+<li>90%透明度<br>十进制255*0.9 = 229.5 ≈ 230(四舍五入) –&gt;十六进制E6</li>
+</ul>
+<p>其它透明度以此类推<br><img src="https://upload-images.jianshu.io/upload_images/2226681-47375f771c7e80f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="程序员计算器"></p>
 
       
     </div>
@@ -882,7 +337,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992020%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2019%E5%B9%B4%E7%9A%84%E6%88%91/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/ArrayList%E5%AF%B9%E8%B1%A1%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -896,7 +351,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992020%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2019%E5%B9%B4%E7%9A%84%E6%88%91/" class="post-title-link" itemprop="url">写给2020年的你,来自2019年的我</a>
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/ArrayList%E5%AF%B9%E8%B1%A1%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">List对象排序</a>
         </h2>
 
         <div class="post-meta">
@@ -906,14 +361,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-11 11:54:41" itemprop="dateModified" datetime="2021-02-11T11:54:41+08:00">2021-02-11</time>
+                <time title="Modified: 2021-02-11 16:58:57" itemprop="dateModified" datetime="2021-02-11T16:58:57+08:00">2021-02-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -921,7 +376,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/" itemprop="url" rel="index"><span itemprop="name">未来的你</span></a>
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
                 </span>
             </span>
 
@@ -936,80 +391,478 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h5 id="2018年终总结"><a href="#2018年终总结" class="headerlink" title="2018年终总结"></a>2018年终总结</h5><h6 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h6><p>优</p>
+          <blockquote>
+<p>前言:最近对收音机的开发,遇到一个需求,将收藏列表显示在前,电台列表显示在后,所以需要对列表进行对象排序,在此做一个总结.</p>
+</blockquote>
+<h4 id="步骤1-创建比较器-指定排序规则"><a href="#步骤1-创建比较器-指定排序规则" class="headerlink" title="步骤1 创建比较器,指定排序规则"></a>步骤1 创建比较器,指定排序规则</h4><p>导入此包 java.util.Comparator</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">comparator = <span class="keyword">new</span> Comparator&lt;RadioNode&gt;() &#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(RadioNode s1, RadioNode s2)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">if</span> (s1.isFavor == s2.isFavor) &#123;</span><br><span class="line">					<span class="keyword">return</span> s2.frequent - s1.frequent;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					<span class="keyword">if</span>(s1.isFavor)	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">					<span class="keyword">if</span>(s2.isFavor)	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里面有两个对象s1和s2,下面是制定的比较规则,如果isFavor相同,则比较frequent<br>返回1表示s1比s2大,则s1的位置不动,s2继续与后面的比较<br>返回0表示俩一样大,位置不变<br>返回-1表示s1与s2交换位置,s1继续按规则比较</p>
+<h4 id="步骤2-将集合传入"><a href="#步骤2-将集合传入" class="headerlink" title="步骤2 将集合传入"></a>步骤2 将集合传入</h4><p>导入此包java.util.Collections</p>
+<pre><code>Collections.sort(favorList,comparator);
+</code></pre>
+<p><code>end</code><br>感谢android</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E9%80%89%E6%8B%A9%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E5%90%8E%E9%97%AA%E9%80%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E9%80%89%E6%8B%A9%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E5%90%8E%E9%97%AA%E9%80%80/" class="post-title-link" itemprop="url">Eclipse选择工作空间后闪退</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:59:22" itemprop="dateModified" datetime="2021-02-11T16:59:22+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>前言:之前使用的好好的时候,eclipse莫名报了一个outofXXX的弹框,没仔细看.整个eclipse动不了,不停弹框,网上搜索了一下解决方案</p>
+</blockquote>
+<h3 id="稳准狠"><a href="#稳准狠" class="headerlink" title="稳准狠"></a>稳准狠</h3><p>删除<br>[workspace]/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/ListView-Adapter-notifi%E4%B8%8D%E7%AE%A1%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/ListView-Adapter-notifi%E4%B8%8D%E7%AE%A1%E7%94%A8/" class="post-title-link" itemprop="url">ListView-Adapter刷新无作用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 17:00:12" itemprop="dateModified" datetime="2021-02-11T17:00:12+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>前言,在使用到adapter的时候，一般要用List来装数据实体，这里两种不同的写法容易遇到不同的问题。</p>
+</blockquote>
 <ul>
-<li>完成多媒体及平台oom/anr问题修复</li>
-<li>薪资涨了一千(被人力砍了500)</li>
-<li>晋升为团队leader</li>
-<li>熟悉了多媒体平台架构</li>
-<li>熟读了Thinking in Java</li>
-<li>熟读了编程方法学</li>
-<li>熟读了Effect Java</li>
-<li>浅读了源码分析</li>
-<li>看完了扔物线大神系列文章,很受益</li>
-<li>逻辑思维更成熟了,分析log有头绪</li>
-<li>上拉刷新下拉加载控件</li>
-<li>熟练自定义view</li>
+<li>第一种写法</li>
 </ul>
-<hr>
-<p>劣</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestAdapter</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Node&gt; list;</span><br><span class="line">    ***</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestAdapter</span><span class="params">(List list)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.list = list;</span><br><span class="line">        ***</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样的话,我们在list更新的时候直接调用adapter的notifydatasetchanged就可以了.</p>
 <ul>
-<li>自定义viewgroup较弱</li>
-<li>源码部分看的少</li>
-<li>遇到没碰到过的模块分析起来较慢,容易形成畏难心理,最后发现往往是一行代码的事</li>
-<li>不懂拒绝,导致自己问题积攒下来,增加了压力,帮助别人做的事产出也不大,没做好反而会被投诉</li>
-<li>多个维度的事情找上门来,分不清轻重缓急(自己认为重要的,实际上对版本意义不大),后续同技术PM沟通,统一优先解决的目标<blockquote>
-<p>对于薄弱项列出计划smart原则<a href=",%E5%85%B7%E4%BD%93,%E5%8F%AF%E8%A1%A1%E9%87%8F,%E5%8F%AF%E5%AE%9E%E7%8E%B0,%E4%B8%8E%E8%A1%8C%E4%B8%9A%E7%9B%B8%E5%85%B3,%E6%9C%89%E6%97%B6%E9%99%90,">^hhh</a></p>
+<li>第二种写法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestAdapter</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Node&gt; mList = <span class="keyword">new</span> ArrayList&lt;Node&gt;();</span><br><span class="line">    ***</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestAdapter</span><span class="params">(List list)</span></span>&#123;</span><br><span class="line">        mList.addAll(list);</span><br><span class="line">        ***</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addAll</span><span class="params">(List list)</span></span>&#123;</span><br><span class="line">        mList.clear();</span><br><span class="line">        mList.addAll(list);</span><br><span class="line">        notifydatasetchanged();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addOne</span><span class="params">(Node node)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        mList.add(node);</span><br><span class="line">        notifydatasetchanged();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+用这种写法在数据变化的时候,需要调用adapter.add*()的对应方法</li>
+<li>总结<br>adapter更新是看对象的地址有没有变化,调用notifydatasetchanged()才会管用.</li>
+<li>问题<br>notifydatasetchanged不管作用</li>
+</ul>
+<p>1.一般情况下,遇到notifydatasetchanged不管作用是指向的对象已经不是初始化adapter时的那个对象了.比如使用了上面第二种写法,却调用的第一种的方式.<br>2.list的size==0;<br>3.***</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/xutils3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8D%87%E7%BA%A7%EF%BC%88markdown%E7%89%88%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/xutils3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8D%87%E7%BA%A7%EF%BC%88markdown%E7%89%88%EF%BC%89/" class="post-title-link" itemprop="url">Xutils3数据库升级</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 17:01:04" itemprop="dateModified" datetime="2021-02-11T17:01:04+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>前言:xutils真是一款不错的android开发框架，在使用过程中减少了程序员很多的代码量。不过其中也有一小部分需要注意的地方。其它使用请看<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/95b6c4d7b7ce">xutils3详细用法</a></p>
+</blockquote>
+<h2 id="1-注解注意事项"><a href="#1-注解注意事项" class="headerlink" title="1.注解注意事项"></a>1.注解注意事项</h2><p>不像黄牛刀的注解，xutils的注解是在运行时（ps：我也不懂），用xutils注解点击事件发现，在频繁的切换点击两个button的时候，只会响应一个button的点击，用findviewbyid的方式设置onclicklitsener，就不会有这个bug。</p>
+<p>所以我们在用到点击功能的时候，恰当的用一下注解，目前只发现频繁点击会出现问题，不一定其它地方埋着什么。</p>
+<h2 id="2-数据库升级"><a href="#2-数据库升级" class="headerlink" title="2.数据库升级"></a>2.数据库升级</h2><p>当我们的业务在一天天完善的时候，之前建立的数据库字段可能需要做修改。我们如下配置数据库的代码</p>
+<pre><code>    DbManager.DaoConfig daoConfig =newDbManager.DaoConfig()
+
+    .setDbName(&quot;myapp.db&quot;)//设置数据库名
+
+    xutils.db.setDbDir(newFile(&quot;/mnt/sdcard/&quot;))//设置数据库路径，默认存储在app的私有目录
+
+    .setDbVersion(2)//设置数据库的版本号
+
+    .setDbOpenListener(newDbManager.DbOpenListener() &#123;//设置数据库打开的监听
+
+        @Override
+        public void onDbOpened(DbManager db) &#123;//开启数据库支持多线程操作，提升性能，对写入加速提升巨大
+        db.getDatabase().enableWriteAheadLogging();
+&#125;
+&#125;)
+    .setDbUpgradeListener(newDbManager.DbUpgradeListener() &#123;//设置数据库更新的监听
+
+        @Override
+        public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
+
+&#125;
+
+&#125;)  .setTableCreateListener(newDbManager.TableCreateListener() &#123;//设置表创建的监听
+        @Override
+        public void onTableCreated(DbManager db, TableEntity table)&#123;
+        Log.i(&quot;JAVA&quot;,&quot;onTableCreated：&quot;+ table.getName());
+&#125;
+&#125;);
+</code></pre>
+<hr>
+<p>我们可以在setDbVersion（x）填上任意数字，当然根据我们自己的实际情况</p>
+<p>在需要改字段的时候，我们可以填x+n的数字,然后在</p>
+<pre><code>.setDbUpgradeListener(newDbManager.DbUpgradeListener() &#123;//设置数据库更新的监听
+
+@Override 
+public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
+
+  //不需要之前的数据
+
+  db.delete(x.class);
+
+  //需要之前的数据
+
+  db.addColumn(x.class,&quot;test&quot;);//新增的字段
+
+  db.saveOrUpdate(db.findall（）);//当前表中有这条isId则更新数据，没有则添加
+
+&#125;
+
+&#125;)
+</code></pre>
+<hr>
+<p>感谢android，感谢开源</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E8%BD%A6%E6%9C%BA/Eclipse%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/%E8%BD%A6%E6%9C%BA/Eclipse%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">Eclipse遇到的错误</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:45:15" itemprop="dateModified" datetime="2021-02-11T16:45:15+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%A6%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">车机</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Q1-Conversion-to-Dalvik-format-failed-Unable-to-execute-dex-Multiple-dex-files-define-L"><a href="#Q1-Conversion-to-Dalvik-format-failed-Unable-to-execute-dex-Multiple-dex-files-define-L" class="headerlink" title="Q1 Conversion to Dalvik format failed: Unable to execute dex: Multiple dex files define L"></a>Q1 Conversion to Dalvik format failed: Unable to execute dex: Multiple dex files define L</h3><p>A1：添加的jar包重复了，可能名字不同，里面的内容相同。这点就做的不好了，提示不出来哪两个文件相同。</p>
+<h3 id="Q2-Unknown-exception-in-parseSdkContent-java-lang-StackOverflowError"><a href="#Q2-Unknown-exception-in-parseSdkContent-java-lang-StackOverflowError" class="headerlink" title="Q2 Unknown exception in parseSdkContent. java.lang.StackOverflowError"></a>Q2 Unknown exception in parseSdkContent. java.lang.StackOverflowError</h3><p>A2:主工程A  Lib (B C) BC之间相互依赖</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E9%9A%8F%E7%AC%94/Markdown%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/%E9%9A%8F%E7%AC%94/Markdown%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">Markdown</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:49:15" itemprop="dateModified" datetime="2021-02-11T16:49:15+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>前言:之前一直用富文本的编辑模式,但是对代码的支持不友好,因此练习了一下markdown,记录下来,对自己有个提醒,也希望能帮助到大家<a target="_blank" rel="noopener" href="https://segmentfault.com/markdown">更多技巧</a></p>
+</blockquote>
+<hr>
+<p>#1.标题</p>
+<p>#标题   —-&gt;  #标题<br>##标题   —-&gt;  ##标题<br>###标题   —-&gt;  ###标题<br>####标题   —-&gt;  ####标题<br>#####标题   —-&gt;  #####标题<br>######标题   —-&gt;  ######标题<br>目前支持六种标题大小<br>#2.引用<br>输入大于号后跟上文本,就像上面前言中显示的样式.eg: &gt;你好</p>
+<blockquote>
+<p>你好</p>
+</blockquote>
+<ul>
+<li><h1 id="程序员版本"><a href="#程序员版本" class="headerlink" title="程序员版本"></a>程序员版本</h1><p>##3.1插入一行代码<br>首先我们另起一行,然后在行首连续输入两个”tab”键,跟上代码即可(<code>一定要另起一行</code>) tabtab db.addColumn(x.class,”test”);//新增的字段</p>
+<p>  db.addColumn(x.class,”test”);//新增的字段<br>##3.2插入代码块<br>连续插入代码,我们需要连续输入三个符号 ```,后面可以跟上语言种类如java,然后代码块输入完毕,换行,在输入三个符号表示代码块结束 <code>键盘esc下面,波浪号的那个键</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//```java(某种编程语言)</span></span><br><span class="line"><span class="comment">//代码段</span></span><br><span class="line"><span class="comment">//```</span></span><br><span class="line"><span class="keyword">for</span> (Element e : c) &#123;</span><br><span class="line">    doSomething(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//before JDK1.5</span></span><br><span class="line"><span class="keyword">for</span> (Iterator i = c.iterator(); i.hasNext(); ) &#123;</span><br><span class="line">    doSomething((Element) i.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面基本上可以满足程序员的基本要求了<br>##4.插入链接<br>在简书中的用法是<img src="https://upload-images.jianshu.io/upload_images/2226681-dca0142cb829876a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="链接语法.png"><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/829ed0e6010e">DDMS性能调优</a></p>
 </blockquote>
 </li>
-</ul>
-<hr>
-<h6 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h6><p>优</p>
-<ul>
-<li>不知从哪个月开始,一直在进行握力训练,做完后会引起腋下不适,但渐渐加粗的手臂还是要坚持下去</li>
-</ul>
-<hr>
-<p>劣</p>
-<ul>
-<li>每晚熬夜刷小视频(不得不说小视频的魔力挺大,根本停不下来)</li>
-<li>缺乏锻炼,自认心肺功能不是很好,应当坚持跑步或者游泳<blockquote>
-<p>这么一总结发现对自己身体的投资太少了,2020年的目标有了</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h6 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h6><p>优</p>
-<ul>
-<li>在对象工作的地方买了房</li>
-</ul>
-<ul>
-<li>在一起的时候,每晚给笨笨讲睡前故事,睡得可快了</li>
-<li>给笨笨买了新手机iPhoneXr</li>
-<li>双方家长都有意靠拢,19年回去争取定下来<a href="%E8%B0%88%E5%A6%A5%E5%A9%9A%E5%89%8D%E5%87%86%E5%A4%87">^h</a>    </li>
-</ul>
-<ul>
-<li>与笨笨都在存钱装修<a href="%E5%AF%B9%E4%BA%8E%E6%9C%88%E5%85%89%E6%97%8F%E7%9A%84%E7%AC%A8%E7%AC%A8(%E5%B9%B3%E6%97%B6%E7%BB%99%E6%88%91%E4%B9%B0%E8%A1%A3%E6%9C%8D%E7%AD%89%E7%AD%89%E7%AD%89),%E5%B9%B4%E5%BA%95%E5%B1%85%E7%84%B6%E5%AD%98%E4%BA%86%E4%B8%89%E4%B8%87,%E5%8E%89%E5%AE%B3%E5%8E%89%E5%AE%B3">^hh</a></li>
-</ul>
-<hr>
-<p>劣</p>
-<ul>
-<li>与父母每周一通电话有时会遗漏</li>
-<li>工作上女方不太赞成程序员这个行业,认为不稳定,想让我考公务员 2020年的目标有了</li>
-<li>异地,这也是想考公务员的主要原因</li>
-<li>同妹妹相差15岁,慢慢对她的关心少了<blockquote>
-<p>年龄越来越大,离父母家人却越来越远,实属羞愧 现在整体行情不好,家里也处于困难期,工程款结不到账,我更应该承担起照顾家庭的责任</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h3 id="写给2020的你"><a href="#写给2020的你" class="headerlink" title="写给2020的你"></a>写给2020的你</h3><p>总结了去年,龙哥你的目标也明确了吧,重心要偏向身体和生活上</p>
-<ul>
-<li>结婚</li>
-</ul>
-<ul>
-<li>常与家人沟通</li>
-<li>考上公务员,结束异地恋</li>
-<li>系统源码,多看,多思</li>
 </ul>
 
       
@@ -1030,7 +883,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992021%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2020%E5%B9%B4%E7%9A%84%E6%88%91%20/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E9%9A%8F%E7%AC%94/%E4%B8%8E%E7%88%B1%E6%83%85%E6%9C%89%E5%85%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1044,7 +897,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992021%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2020%E5%B9%B4%E7%9A%84%E6%88%91%20/" class="post-title-link" itemprop="url">写给2021年的你,来自2020年的我</a>
+            <a href="/2020/02/06/%E9%9A%8F%E7%AC%94/%E4%B8%8E%E7%88%B1%E6%83%85%E6%9C%89%E5%85%B3/" class="post-title-link" itemprop="url">与爱情有关</a>
         </h2>
 
         <div class="post-meta">
@@ -1054,14 +907,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-11 11:54:37" itemprop="dateModified" datetime="2021-02-11T11:54:37+08:00">2021-02-11</time>
+                <time title="Modified: 2021-02-11 16:48:34" itemprop="dateModified" datetime="2021-02-11T16:48:34+08:00">2021-02-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1069,7 +922,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/" itemprop="url" rel="index"><span itemprop="name">未来的你</span></a>
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
                 </span>
             </span>
 
@@ -1084,51 +937,84 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h5 id="2020年终总结"><a href="#2020年终总结" class="headerlink" title="2020年终总结"></a>2020年终总结</h5><h6 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h6><p>优</p>
-<ul>
-<li>搭建了蓝鲸整个多媒体平台,虽然现在编解码还有点问题,整体流程可用</li>
-<li>工资破万</li>
-<li>重新阅读了设计模式</li>
-<li>用平台思维来设计代码</li>
-<li>提高了责任心, 周末加班解决同事遗留下来的重大问题</li>
-</ul>
-<hr>
-<p>劣</p>
-<ul>
-<li>表达能力需要锻炼, 有技术含量的事情表达出一半. 有同事基本很薄弱,却表达出很厉害的感觉, 虽然我不喜欢这样,但我还是想把自己做的东西能表达完整</li>
-<li>没搭建好自己的学习体系</li>
-</ul>
-<hr>
-<h6 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h6><p>优</p>
-<ul>
-<li>额.. 好像没进行有效锻炼, 偶尔下班前跑跑步, 不过倒是经常打乒乓球</li>
-</ul>
-<hr>
-<p>劣</p>
-<ul>
-<li>晚上还是经不住短视频的诱惑 -  这块研究下办法,好的是困的时候马上就放下手机了,没有勉强自己</li>
-<li>平时坐久了定了闹钟,但是事情来了还是没有去运动运动</li>
-</ul>
-<hr>
-<h6 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h6><p>优</p>
-<ul>
-<li>谈的越久, 越明白笨笨的好, 好好珍惜</li>
-<li>有年终了, 给父母一份安心</li>
-<li>倩妹长大了, 希望身体健康, 开心平安长大</li>
-</ul>
-<hr>
-<p>劣</p>
-<ul>
-<li>婚前准备两家人的思想还是不统一, 如果要彩礼的话, 结婚证拿的话也要有礼节, 我爸会爆哦.. 刚好也是现在双方最困难的时候, 也是最需要用钱的时候, 笨笨愿意站出来和我一起面对, 很欣慰了</li>
-<li>和家人在一起的时间越来越短了, 多陪陪家人</li>
-<li>还是异地</li>
-</ul>
-<hr>
-<h3 id="写给2021的你"><a href="#写给2021的你" class="headerlink" title="写给2021的你"></a>写给2021的你</h3><ul>
-<li>考教师资格证做准备, 先把普通话过了</li>
-<li>身体是第一位的, 上班多运动</li>
-<li>常回家看看</li>
-</ul>
+          <h4 id="故事一"><a href="#故事一" class="headerlink" title="故事一"></a>故事一</h4><p> 我的下铺是一个五十多岁的中年男子，在公司为我们做饭。每天下班他都会和家里的小朋友视频，看着真是疼爱极了。但是我们每每周末回家的时候他都待在宿舍，一年半载也不回家一次。有天无意中提起他的婚姻，他笑着说：我已经离婚了。很突然，很意外。于是我问到，怎么会呢，你们看起来这么恩爱，这么顾家，什么原因导致的呢？</p>
+<p>他说，我那个婆娘，一天到晚拿我跟别个老公比，终于有一天我也成别人老公了。</p>
+<p> 也许在心中有了比较，彼此在心中的位置就空出来了吧</p>
+<h4 id="故事二"><a href="#故事二" class="headerlink" title="故事二"></a>故事二</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E9%9A%8F%E7%AC%94/%E6%81%95%E4%B8%8E%E5%BF%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/%E9%9A%8F%E7%AC%94/%E6%81%95%E4%B8%8E%E5%BF%8D/" class="post-title-link" itemprop="url">恕与忍</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:47:24" itemprop="dateModified" datetime="2021-02-11T16:47:24+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>恕他人,忍自己</p>
+<p>而今常态,忍他人,恕自己</p>
 
       
     </div>
@@ -1147,7 +1033,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1213,13 +1099,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.创建和销毁对象这个章节包含创建和销毁对象,什么时候和怎样创建,什么时候避免创建,如何确保对象在准确的时机销毁,如何管理与清理销毁的对象 Item1 考虑用静态工厂方法替代构造方法通常来说获取一个类的实例是通过它的构造方法,但这有一种更科学的方式: 123public static Boolean valueOf(boolean b)&amp;#123;  return b ? Boolean.TRUE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础进阶之EffectiveJava翻译系列(第一章-更好的使用对象)">
+<meta property="og:url" content="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%9B%B4%E5%A5%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1)/index.html">
+<meta property="og:site_name" content="Boom.Tan个人空间">
+<meta property="og:description" content="1.创建和销毁对象这个章节包含创建和销毁对象,什么时候和怎样创建,什么时候避免创建,如何确保对象在准确的时机销毁,如何管理与清理销毁的对象 Item1 考虑用静态工厂方法替代构造方法通常来说获取一个类的实例是通过它的构造方法,但这有一种更科学的方式: 123public static Boolean valueOf(boolean b)&amp;#123;  return b ? Boolean.TRUE">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-06T00:35:05.000Z">
+<meta property="article:modified_time" content="2021-02-11T08:55:28.411Z">
+<meta property="article:author" content="boom.Tan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%9B%B4%E5%A5%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Android基础进阶之EffectiveJava翻译系列(第一章-更好的使用对象) | Boom.Tan个人空间</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Boom.Tan个人空间</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">94</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%9B%B4%E5%A5%BD%E7%9A%84%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android基础进阶之EffectiveJava翻译系列(第一章-更好的使用对象)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:55:28" itemprop="dateModified" datetime="2021-02-11T16:55:28+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="1-创建和销毁对象"><a href="#1-创建和销毁对象" class="headerlink" title="1.创建和销毁对象"></a>1.创建和销毁对象</h4><p>这个章节包含创建和销毁对象,什么时候和怎样创建,什么时候避免创建,如何确保对象在准确的时机销毁,如何管理与清理销毁的对象</p>
+<h5 id="Item1-考虑用静态工厂方法替代构造方法"><a href="#Item1-考虑用静态工厂方法替代构造方法" class="headerlink" title="Item1 考虑用静态工厂方法替代构造方法"></a>Item1 考虑用静态工厂方法替代构造方法</h5><p>通常来说获取一个类的实例是通过它的构造方法,但这有一种更科学的方式:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">valueOf</span><span class="params">(<span class="keyword">boolean</span> b)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> b ? Boolean.TRUE : Boolean.FALSE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意,静态工厂方法并不等价工厂设计模式</p>
+</blockquote>
+<p>当然使用这种方式有利有弊<br><strong>利:<br>1.静态工厂方法有名字,可以一目了然 eg:BigPerson.name</strong><br><strong>2.在被调用的时候只创建一个对象</strong><br><strong>3.封装了实现细节,可返回任意需要的对象</strong><br><strong>4.减少对象的创建参数<br>eg:<code>java Map&lt;String,List&lt;String&gt;&gt; m = new HashMap&lt;String,List&lt;String&gt;&gt;(); Map&lt;String,List&lt;String&gt;&gt; m = MyMap.newInstance();</code></strong></p>
+<p>弊:<br>1.无法从它派生出子类<br>继承的特性使用不上<br>2.无法和其它静态方法明显做出区分<br>推荐常用的几个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">newInstance()</span><br><span class="line">newType()</span><br><span class="line">getInstance()</span><br><span class="line">valueOf()</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="Item2-考虑用建造者模式创建多个参数的对象"><a href="#Item2-考虑用建造者模式创建多个参数的对象" class="headerlink" title="Item2 考虑用建造者模式创建多个参数的对象"></a>Item2 考虑用建造者模式创建多个参数的对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NutritionFacts</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> servingSize;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> servings;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> calories;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> fat;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> sodium;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> carbohydrate;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> servingSize;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> servings;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> calories = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> fat= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> sodium= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> carbohydrate= <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Builder</span><span class="params">(<span class="keyword">int</span> ser,<span class="keyword">int</span> servings)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.servingSize = ser;</span><br><span class="line">      <span class="keyword">this</span>.servings = servings;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Builder <span class="title">calories</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;calories = val;<span class="keyword">return</span> <span class="keyword">this</span>;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Builder <span class="title">fat</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;fat= val;<span class="keyword">return</span> <span class="keyword">this</span>;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Builder <span class="title">sodium</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;sodium= val;<span class="keyword">return</span> <span class="keyword">this</span>;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Builder <span class="title">carbohydrate</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;carbohydrate= val;<span class="keyword">return</span> <span class="keyword">this</span>;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> NutritionFacts <span class="title">build</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="keyword">new</span> NutritionFacts(<span class="keyword">this</span>);&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">NutritionFacts</span> <span class="params">(Builder builder)</span></span>&#123;</span><br><span class="line">	    servingSize  = builder.servingSize ;</span><br><span class="line">        servings = builder.servings ;</span><br><span class="line">        calories = builder.calories ;</span><br><span class="line">        fat= builder.fat;</span><br><span class="line">        sodium= builder.sodium;</span><br><span class="line">        carbohydrate= builder.carbohydrate;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NutritionFacts obj = <span class="keyword">new</span> NutritionFacts.Builder(<span class="number">240</span>,<span class="number">8</span>).calories(<span class="number">100</span>)</span><br><span class="line">  .sodium(<span class="number">33</span>).carbohydrate(<span class="number">22</span>).build();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>比如典型的Dialog就是用的建造者模式</p>
+</blockquote>
+<hr>
+<h5 id="Item3-强制-单例属性使用私有的构造方法或者使用枚举"><a href="#Item3-强制-单例属性使用私有的构造方法或者使用枚举" class="headerlink" title="Item3 (强制)单例属性使用私有的构造方法或者使用枚举"></a>Item3 (强制)单例属性使用私有的构造方法或者使用枚举</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Elvis</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Elvis INSTANCE = <span class="keyword">new</span> Elvis();</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Elvis</span> <span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Elvis <span class="title">getInstance</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> INSTANCE ;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//枚举</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Object <span class="title">readRssolve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> INSTANCE ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Elvis</span> </span>&#123;</span><br><span class="line">  INSTANCE ;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Item4-强制-对于只有静态方法的工具类不允许使用私有构造方法"><a href="#Item4-强制-对于只有静态方法的工具类不允许使用私有构造方法" class="headerlink" title="Item4 (强制)对于只有静态方法的工具类不允许使用私有构造方法"></a>Item4 (强制)对于只有静态方法的工具类不允许使用私有构造方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> calss UtilityClass&#123;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">UtilityClass</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//error</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Item5-避免创建不必要的对象"><a href="#Item5-避免创建不必要的对象" class="headerlink" title="Item5 避免创建不必要的对象"></a>Item5 避免创建不必要的对象</h5><p>重复利用一个对象好过重新创建一个新对象<br>重复利用访问更快而且更时尚,理论上说一个对象不可变可一直重复利用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bad DON&#x27;T DO THIS!</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Date birthDate;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBabyBoomer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//分配了不必要的强度对象</span></span><br><span class="line">    Calendar gmtCal = </span><br><span class="line">        Calendar.getInstance(TimeZone.getTimeZone(<span class="string">&quot;GMT&quot;</span>));</span><br><span class="line">    gmtCal .set(<span class="number">1946</span>,Calendar.JANUARY,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    Date boomStart = gmtCal .getTime();</span><br><span class="line">    gmtCal .set(<span class="number">1965</span>,Calendar.JANUARY,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    Date boomEnd = gmtCal .getTime();</span><br><span class="line">    <span class="keyword">return</span> birthDate.compareTo(boomStart) &gt;= <span class="number">0</span> </span><br><span class="line">      &amp;&amp; birthDate.compareTo(boomEnd) &lt; <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>isBabyBoomer每次调用都会创建Calendar,TimeZone,和两个Date实例,优化后如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//good</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Date birthDate;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Date BOOM_START;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Date BOOM_END:</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone(<span class="string">&quot;GMT&quot;</span>));</span><br><span class="line">		gmtCal.set(<span class="number">1946</span>,Calendar.JANUARY,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">		BOOM_START = gmtCal.getTime();</span><br><span class="line">		gmtCal.set(<span class="number">1946</span>,Calendar.JANUARY,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">		BOOM_END = gmtCal.getTime();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBabyBoomer</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> birthDate.compareTo(BOOM_START) &gt;= <span class="number">0</span> </span><br><span class="line">          &amp;&amp; birthDate.compareTo(BOOM_END) &lt; <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重复调用1000万次isBabyBoomer,使用bad-耗时32,000ms 使用good-耗时130ms,Wow~</p>
+<hr>
+<h5 id="Item6-清除过时的对象引用"><a href="#Item6-清除过时的对象引用" class="headerlink" title="Item6 清除过时的对象引用"></a>Item6 清除过时的对象引用</h5><p>Java有GC机制,并不意味着Java程序员不需要考虑内存了<br>你能找到如下代码内存泄漏之处吗?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Object[] elements;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_SIZE = <span class="number">16</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Stack</span><span class="params">()</span></span>&#123;</span><br><span class="line">		elements = <span class="keyword">new</span> Object[DEFAULT_SIZE];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Object e)</span></span>&#123;</span><br><span class="line">		ensureCapacity();</span><br><span class="line">		elements[size++] = e;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(size == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">		<span class="keyword">return</span> elements[--size];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(elements.length == size)</span><br><span class="line">			elements = Arrays.copyOf(elements,<span class="number">2</span> * size + <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>乍一看没什么问题吧?你也可以用你想到方式测试它,它都能运行良好 但这有一个内存泄漏的问题哦<br>嘟嘟嘟~<br>so,问题出在哪里呢?<br>嘟嘟嘟~</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p>…<br>问题在于当我们pop了一些对象,GC并不知道这些对象已经过时,它只知道elements[]还处于活跃状态,所以一直不会清理那部分过时的对象<br>优化如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(size == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> EmptyStackException();</span><br><span class="line">		Object result = elements[--size];</span><br><span class="line">		elements[size] = <span class="keyword">null</span>;<span class="comment">//清理过时的对象</span></span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>类似的情况还有在集合中保存了对象,常常会忘记这些对象的存在</p>
+</blockquote>
+<blockquote>
+<p>对于监听的listener和callback也要及时注册和反注册,不然也会导致内存异常</p>
+</blockquote>
+<h5 id="Item7-避免使用finalizers"><a href="#Item7-避免使用finalizers" class="headerlink" title="Item7 避免使用finalizers"></a>Item7 避免使用finalizers</h5><h2 id="略"><a href="#略" class="headerlink" title="略"></a>略</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e9933b7e9009">下一章:Object的方法</a> </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%B8%83%E7%AB%A0-%E9%80%9A%E7%94%A8%E5%8E%9F%E5%88%99)/" rel="prev" title="Android基础进阶之EffectiveJava翻译系列(第七章-通用原则)">
+      <i class="fa fa-chevron-left"></i> Android基础进阶之EffectiveJava翻译系列(第七章-通用原则)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3)/" rel="next" title="Android基础进阶之EffectiveJava翻译系列(第三章-类和接口)">
+      Android基础进阶之EffectiveJava翻译系列(第三章-类和接口) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E5%92%8C%E9%94%80%E6%AF%81%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">1.创建和销毁对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Item1-%E8%80%83%E8%99%91%E7%94%A8%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%9B%BF%E4%BB%A3%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">Item1 考虑用静态工厂方法替代构造方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item2-%E8%80%83%E8%99%91%E7%94%A8%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.2.</span> <span class="nav-text">Item2 考虑用建造者模式创建多个参数的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item3-%E5%BC%BA%E5%88%B6-%E5%8D%95%E4%BE%8B%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E6%88%96%E8%80%85%E4%BD%BF%E7%94%A8%E6%9E%9A%E4%B8%BE"><span class="nav-number">1.3.</span> <span class="nav-text">Item3 (强制)单例属性使用私有的构造方法或者使用枚举</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item4-%E5%BC%BA%E5%88%B6-%E5%AF%B9%E4%BA%8E%E5%8F%AA%E6%9C%89%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E7%9A%84%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%B8%8D%E5%85%81%E8%AE%B8%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">Item4 (强制)对于只有静态方法的工具类不允许使用私有构造方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item5-%E9%81%BF%E5%85%8D%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.5.</span> <span class="nav-text">Item5 避免创建不必要的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item6-%E6%B8%85%E9%99%A4%E8%BF%87%E6%97%B6%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8"><span class="nav-number">1.6.</span> <span class="nav-text">Item6 清除过时的对象引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Item7-%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8finalizers"><span class="nav-number">1.7.</span> <span class="nav-text">Item7 避免使用finalizers</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%A5"><span class="nav-number"></span> <span class="nav-text">略</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">boom.Tan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">94</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">boom.Tan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

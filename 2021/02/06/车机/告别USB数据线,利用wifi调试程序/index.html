@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言:目前在车机开发多媒体的U盘播放功能,每次插U盘就不能调试,调试就不能插U盘很不方便.有了远程调试程序,终于方便多了,唯一的缺点是wifi不稳定容易连接超时#####步骤一使用USB数据线成功连接(抱一下大腿先)程序.打开cmd,输入adb tcpip 5555看到即表示成功.#####步骤二打开手机wifi查看当前IPadb connect IP:5555此时就算拔掉USB,可以看到Ecl">
+  <meta name="description" content="前言:目前在车机开发多媒体的U盘播放功能,每次插U盘就不能调试,调试就不能插U盘很不方便.有了远程调试程序,终于方便多了,唯一的缺点是wifi不稳定容易连接超时  步骤一使用USB数据线成功连接(抱一下大腿先)程序.打开cmd,输入adb tcpip 5555看到即表示成功. 步骤二打开手机wifi查看当前IPadb connect IP:5555此时就算拔掉USB,可以看到Eclipse还是连">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Boom.Tan个人空间">
+<meta property="og:title" content="告别USB数据线,使用wifi调试">
 <meta property="og:url" content="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%91%8A%E5%88%ABUSB%E6%95%B0%E6%8D%AE%E7%BA%BF,%E5%88%A9%E7%94%A8wifi%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/index.html">
 <meta property="og:site_name" content="Boom.Tan个人空间">
-<meta property="og:description" content="前言:目前在车机开发多媒体的U盘播放功能,每次插U盘就不能调试,调试就不能插U盘很不方便.有了远程调试程序,终于方便多了,唯一的缺点是wifi不稳定容易连接超时#####步骤一使用USB数据线成功连接(抱一下大腿先)程序.打开cmd,输入adb tcpip 5555看到即表示成功.#####步骤二打开手机wifi查看当前IPadb connect IP:5555此时就算拔掉USB,可以看到Ecl">
+<meta property="og:description" content="前言:目前在车机开发多媒体的U盘播放功能,每次插U盘就不能调试,调试就不能插U盘很不方便.有了远程调试程序,终于方便多了,唯一的缺点是wifi不稳定容易连接超时  步骤一使用USB数据线成功连接(抱一下大腿先)程序.打开cmd,输入adb tcpip 5555看到即表示成功. 步骤二打开手机wifi查看当前IPadb connect IP:5555此时就算拔掉USB,可以看到Eclipse还是连">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2226681-a657793cd1ff5b96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="article:published_time" content="2021-02-06T00:39:48.735Z">
-<meta property="article:modified_time" content="2021-02-05T06:53:26.645Z">
+<meta property="article:published_time" content="2021-02-06T00:35:05.000Z">
+<meta property="article:modified_time" content="2021-02-11T08:40:13.947Z">
 <meta property="article:author" content="boom.Tan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2226681-a657793cd1ff5b96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title> | Boom.Tan个人空间</title>
+  <title>告别USB数据线,使用wifi调试 | Boom.Tan个人空间</title>
   
 
 
@@ -122,7 +122,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">82</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">94</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -193,7 +193,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          告别USB数据线,使用wifi调试
         </h1>
 
         <div class="post-meta">
@@ -203,15 +203,24 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
+                <time title="Modified: 2021-02-11 16:40:13" itemprop="dateModified" datetime="2021-02-11T16:40:13+08:00">2021-02-11</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%A6%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">车机</span></a>
+                </span>
+            </span>
 
           
 
@@ -225,8 +234,11 @@
 
       
         <blockquote>
-<p>前言:目前在车机开发多媒体的U盘播放功能,每次插U盘就不能调试,调试就不能插U盘很不方便.有了远程调试程序,终于方便多了,唯一的缺点是wifi不稳定容易连接超时<br>#####步骤一<br>使用USB数据线成功连接(抱一下大腿先)程序.打开cmd,输入<br><code>adb tcpip 5555</code><br>看到<img src="http://upload-images.jianshu.io/upload_images/2226681-a657793cd1ff5b96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tcp_success"><br>即表示成功.<br>#####步骤二<br>打开手机wifi查看当前IP<br><code>adb connect IP:5555</code><br>此时就算拔掉USB,可以看到Eclipse还是连接着设备<br>####后记<br>使用adb的时候容易遇到一个错误<br><code>ADB server didn&#39;t ACK</code><br>一般情况下是端口号被360手机助手等等软件占用了</p>
+<p>前言:目前在车机开发多媒体的U盘播放功能,每次插U盘就不能调试,调试就不能插U盘很不方便.有了远程调试程序,终于方便多了,唯一的缺点是wifi不稳定容易连接超时</p>
 </blockquote>
+<h5 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h5><p>使用USB数据线成功连接(抱一下大腿先)程序.打开cmd,输入<br><code>adb tcpip 5555</code><br>看到<img src="http://upload-images.jianshu.io/upload_images/2226681-a657793cd1ff5b96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tcp_success"><br>即表示成功.</p>
+<h5 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h5><p>打开手机wifi查看当前IP<br><code>adb connect IP:5555</code><br>此时就算拔掉USB,可以看到Eclipse还是连接着设备</p>
+<h4 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h4><p>使用adb的时候容易遇到一个错误<br><code>ADB server didn&#39;t ACK</code><br>一般情况下是端口号被360手机助手等等软件占用了</p>
 <ul>
 <li>解决办法<br>在cmd窗口中<br><code>adb nodaemon server</code><br>查看一下哪个端口被占用了(比如我的 5037)<br>然后<br><code>netstat -ano | findstr &quot;5037&quot;</code><br>找到被占用的端口,在任务管理器中将其结束掉</li>
 </ul>
@@ -245,12 +257,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%88%B6%E4%BD%9C%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB/" rel="prev" title="">
-      <i class="fa fa-chevron-left"></i> 
+    <a href="/2021/02/05/my-new-post/" rel="prev" title="my new post">
+      <i class="fa fa-chevron-left"></i> my new post
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E6%BA%90%E7%9A%84%E7%90%86%E8%A7%A3/" rel="next" title="">
-       <i class="fa fa-chevron-right"></i>
+    <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%88%B6%E4%BD%9C%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB/" rel="next" title="制作开机动画">
+      制作开机动画 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -310,6 +322,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">步骤一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">步骤二</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number"></span> <span class="nav-text">后记</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -323,13 +336,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
