@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>源的理解</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">源的理解</h1>
+        <div class="show-content">
+          <h1>源是什么</h1><p>在车机开发中，最重要的一个方面就是源的处理。首先我们要知道源是什么。</p><p>学习一样新东西的时候，我喜欢类比已知的东西来“找你妹”</p><p>在应用开发中，我们播放声音使用的是请求音频焦点，一般是请求AudioManager.STREAM_MUSIC来播放音乐。然后注册一个回调来监听焦点的变化。</p><p>在车机中，因为有收音机，倒车等等独立于手机的模块。为了方便控制，定义了每一种声音播放的一种类型。相当于内部定义了一系列的焦点。一样有源改变的回调接口。在需要哪种类型的声音播放的时候，就请求对应的源，其他应用收到源改变的回调后在做相应的处理。</p><p>另外在车机开发中，常用的版本是android4.4，cpu计算能力比手机反应慢点，所以我们在开发中，因时刻注意性能的问题。</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

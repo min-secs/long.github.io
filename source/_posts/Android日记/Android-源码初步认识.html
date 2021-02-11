@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android 源码初步认识</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Android 源码初步认识</h1>
+        <div class="show-content">
+          <p><b>1.源码结构</b></p><p>"BootLoader" u-boot.img MLO 连接硬件和操作系统的中间件,检测与配置硬件,启动操作系统<br></p><p>"uImage"  Linux内核,被u-boot识别引导</p><p>"ramdisk.img"  Android系统根文件镜像</p><p>"boot.img"  将zImage和ramdisk.img合并为一个包<br></p><p>"system.img"  Android系统核心  将被挂载到 /system分区</p><p>"userdata.img"	用户文件  将被挂载到 /data分区</p><p><br></p><p>android在线源码：<a href="http://www.grepcode.com/" target="_blank">http://www.grepcode.com/</a></p><hr>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
