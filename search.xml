@@ -174,9 +174,10 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <title>Activity官方直译深入理解(完结)</title>
+    <url>/2020/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/</url>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -245,6 +246,9 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>Android-Data</title>
@@ -438,9 +442,10 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Android-string-xml-插值的简单应用</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-string-xml-%E6%8F%92%E5%80%BC%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -506,11 +511,15 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Android-studio打开无响应</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -576,6 +585,9 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>圆角shape</title>
@@ -586,9 +598,10 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Android-源码初步认识</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -654,11 +667,15 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Android切九妹图片</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -724,11 +741,15 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%A9%E7%94%A8DDMS%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <title>Android利用DDMS性能调优</title>
+    <url>/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%A9%E7%94%A8DDMS%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/</url>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -804,6 +825,9 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>Android压缩大图官方写法</title>
@@ -954,9 +978,10 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Android截取string中的空字符</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E6%88%AA%E5%8F%96string%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1022,6 +1047,9 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>Android颜色透明度计算公式</title>
@@ -1040,9 +1068,10 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Application官方直译深入理解(持续更新中)</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Application%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD)/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1108,6 +1137,9 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>List对象排序</title>
@@ -1128,9 +1160,10 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Eclipse修改log缓冲大小</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E4%BF%AE%E6%94%B9log%E7%BC%93%E5%86%B2%E5%A4%A7%E5%B0%8F/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1196,11 +1229,15 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Eclipse导入库爆红×</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E5%AF%BC%E5%85%A5%E5%BA%93%E6%8A%A5%E7%BA%A2%E5%8F%89/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1266,6 +1303,9 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>Eclipse选择工作空间后闪退</title>
@@ -1280,9 +1320,10 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>ImageView-background和src的区别</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/ImageView-background%E5%92%8Csrc%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1348,6 +1389,9 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>ListView-Adapter刷新无作用</title>
@@ -1373,9 +1417,10 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>ListView-smoothScroll定位不准笨方法</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-smoothScrollToPosition-%E5%AE%9A%E4%BD%8D%E4%B8%8D%E5%87%86%E7%AC%A8%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1441,11 +1486,15 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>ListView-设置viewtype后数组越界</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-%E8%AE%BE%E7%BD%AEviewtype%E5%90%8E%E6%95%B0%E7%BB%84%E8%B6%8A%E7%95%8C/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1511,11 +1560,15 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>ListView加背景文字透明效果去不掉</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E5%8A%A0%E8%83%8C%E6%99%AF%E6%96%87%E5%AD%97%E9%80%8F%E6%98%8E%E6%95%88%E6%9E%9C%E5%8E%BB%E4%B8%8D%E6%8E%89+%E8%B7%91%E9%A9%AC%E7%81%AF/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1583,6 +1636,9 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title></title>
@@ -1618,9 +1674,10 @@ getDataFromDb();
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>ListView自动滚到最后一条</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E8%87%AA%E5%8A%A8%E6%BB%9A%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E6%9D%A1/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1686,6 +1743,9 @@ getDataFromDb();
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title></title>
@@ -1758,9 +1818,10 @@ getDataFromDb();
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>Monkey压力测试从0到1，拿去就能用</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Monkey%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E4%BB%8E0%E5%88%B01%EF%BC%8C%E6%8B%BF%E5%8E%BB%E5%B0%B1%E8%83%BD%E7%94%A8/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1826,6 +1887,9 @@ getDataFromDb();
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title></title>
@@ -2108,9 +2172,10 @@ getDataFromDb();
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>adb-error-cannot-bind-to</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/adb-error-cannot-bind-to-127-0-0-1-5038-/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2178,6 +2243,9 @@ getDataFromDb();
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>Xutils3数据库升级</title>

@@ -173,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E5%AF%BC%E5%85%A5%E5%BA%93%E6%8A%A5%E7%BA%A2%E5%8F%89/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Studio%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,7 +187,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E5%AF%BC%E5%85%A5%E5%BA%93%E6%8A%A5%E7%BA%A2%E5%8F%89/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Studio%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/" class="post-title-link" itemprop="url">AS错误集锦</a>
         </h2>
 
         <div class="post-meta">
@@ -196,16 +196,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+              <time title="Created: 2021-02-06 08:35:05 / Modified: 17:01:32" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
 
           
 
@@ -218,71 +221,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eclipse导入库报红叉</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Eclipse导入库报红叉</h1>
-        <div class="show-content">
-          <p>目录没在同一个</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+          <ul>
+<li>Q1:Error: INSTALL_FAILED_INVALID_APK<br>关闭 File/Setting/Build/instant run </li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/2226681-b03a7dfcfd4de1eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="instant run .png"></p>
+<ul>
+<li>Q2:Installation failed with message Failed to commit install session 872031752 with command pm install-commit 872031752. Error: INSTALL_FAILED_INVALID_APK: /data/app/vmdl872031752.tmp/1_slice__ signatures are inconsistent<br>上面那个方式未解决的话, 重新clean一次项目, 在运行</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/2226681-984a8197dba513d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="clean.png"></p>
 
       
     </div>
@@ -302,7 +248,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E4%BF%AE%E6%94%B9log%E7%BC%93%E5%86%B2%E5%A4%A7%E5%B0%8F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -316,7 +262,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E4%BF%AE%E6%94%B9log%E7%BC%93%E5%86%B2%E5%A4%A7%E5%B0%8F/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/" class="post-title-link" itemprop="url">Android-UI</a>
         </h2>
 
         <div class="post-meta">
@@ -325,16 +271,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+              <time title="Created: 2021-02-06 08:35:05 / Modified: 09:37:47" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
 
           
 
@@ -347,856 +296,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eclipse修改log缓冲大小</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Eclipse修改log缓冲大小</h1>
-        <div class="show-content">
-          <p>大家有木有这种情况，看着已经定位的错误log,一行一行的消失。。我的心也跟着崩溃了。</p><p>这是因为默认Log的缓存只有5000条</p><p>我们需要在Window-Preferences-Android-logcat…把5000加个0</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Application%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Application%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD)/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:25" itemprop="dateModified" datetime="2021-02-05T14:53:25+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application官方直译深入理解(持续更新中)</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Application官方直译深入理解(持续更新中)</h1>
-        <div class="show-content">
-          <h3>Application</h3><p>持有全局应用的基类，通过继承Application并在清单文件声明name属性来使用自己的application。</p><p>Note：通常情况下我们并不需要自己的application，为了获得一个全局的context，可以通过Context.getApplicationContext()来得到一个context</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E6%88%AA%E5%8F%96string%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E6%88%AA%E5%8F%96string%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%AD%97%E7%AC%A6/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:25" itemprop="dateModified" datetime="2021-02-05T14:53:25+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android截取string中的空字符</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android截取string中的空字符</h1>
-        <div class="show-content">
-          <p>最近遇到一个需求，在textview显示执行控制台“df”命令返回的字符串 排版那叫一个难看，所以想截取出来自己重新计算位置。</p><p>大家只要记住就可以了，用到了正则表达式</p><p>String.split(“\\s+”)   截取多个空格 结果保存在String[]里</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%A9%E7%94%A8DDMS%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%A9%E7%94%A8DDMS%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android利用DDMS性能调优</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android利用DDMS性能调优</h1>
-        <div class="show-content">
-          <p>前言：在android功能都开发完毕后，可以开始考虑优化代码。但要怎么入手呢？首先我们应该解决明显的UI卡顿，其次可以考虑内存优化等等。当然因为鄙人能力有限，有不到之处还请各位大神指教。</p><h1>1.UI卡顿</h1><p>UI卡顿的问题，我们可以利用ddms的traceview功能查看。</p><p><br></p><div class="image-package" data-index="1">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-7aec17077e4ccf8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p><br></p><p>第一次点击后,会弹出一个对话框,直接点击确定,使用默认的即可.然后在界面上操作一下认为耗时的地方,在点击一下带红点的按钮.在IDE中就会出现traceview的视图.</p><p>我们在</p><div class="image-package" data-index="2">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-c45e1fefcda989a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p>这一栏中找到CPU_time/call,点击后排序.里面找我们自己的函数,就能看到较耗时的操作,在进行优化.</p><h4><i>PS:如果已经点击红点按钮,界面操作无响应的话,多半是哪个地方ANR了,我们可以adb pull data/anr/*  d:/   拷贝出traces.txt文件 从而定位哪个函数在主线程进行了耗时操作.</i></h4><h1>2.堆内存泄漏</h1><p>内存泄漏用IDE可点开红框</p><div class="image-package" data-index="3">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-d804e1635562048e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p>若是没有视图窗口,则在IDE上方窗口选windows --&gt;show view 里面找到heap</p><p>我们在heap界面,然后每五秒选择gauge GC 若是heap size稳定在一个数值则表示没有内存泄漏的风险,若是heap size在不停的增大,则我们需要考虑创建对象的地方哪还值得优化.可以百度 Android内存优化.</p><p>&gt;推荐使用LeakCancary,eclipse版本的jar包我这有,详情私信</p><h1>3.线程耗时</h1><p><br></p><div class="image-package" data-index="4">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-daf22e49d4da9f19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p>我们在设备列表中选中我们的包名,然后打开红框的线程.在右侧就能看到当前应用所有的线程,utime表示我们的线程执行耗时,重点关注这个即可.</p><h1>4.UI嵌套</h1><p><br></p><div class="image-package" data-index="5">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-44734d04ef915973.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p>点开这个按钮需要手机有root权限,若是没有的话,可在手机开发者选项中,打开GPU过度绘制,如果界面中红色的区域较多,则这部分区域是我们需要优化的</p><h1>5.cpu占比</h1><p>我们可在上述右侧部位找到system info的窗口,点击update后,即可看我们的应用瞬时占用的cpu比例.</p><p>todo : 如何分析各个函数占用cpu的比重</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android切九妹图片</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android切九妹图片</h1>
-        <div class="show-content">
-          <p>1.打开sdk/tools/draw9patch</p><p>2.拖进去一张图片</p><p>3.四周都可以点，左键选择锚点</p><p>4.左上为图片拉伸区域，右下为内容固定区域</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android 源码初步认识</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android 源码初步认识</h1>
-        <div class="show-content">
-          <p><b>1.源码结构</b></p><p>"BootLoader" u-boot.img MLO 连接硬件和操作系统的中间件,检测与配置硬件,启动操作系统<br></p><p>"uImage"  Linux内核,被u-boot识别引导</p><p>"ramdisk.img"  Android系统根文件镜像</p><p>"boot.img"  将zImage和ramdisk.img合并为一个包<br></p><p>"system.img"  Android系统核心  将被挂载到 /system分区</p><p>"userdata.img"	用户文件  将被挂载到 /data分区</p><p><br></p><p>android在线源码：<a href="http://www.grepcode.com/" target="_blank">http://www.grepcode.com/</a></p><hr>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android studio打开无响应</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android studio打开无响应</h1>
-        <div class="show-content">
-          <p>双击666后无任何反应</p><p>有两种可能</p><p>1.gradle版本和AS不对应</p><p>2.环境变量没配置</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
+          <blockquote>
+<p>Android知识体系,笼统分为UI,Data,interact</p>
+</blockquote>
+<h4 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h4><p>1.屏幕适配</p>
+<h2 id="郭霖微信公众号-屏幕适配"><a href="#郭霖微信公众号-屏幕适配" class="headerlink" title="郭霖微信公众号:屏幕适配"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650243915&idx=1&sn=7054d165d06caf917b6a2b57800316a2&chksm=88637224bf14fb320b689948ebb3fd0d783bd816c7184644abea51e26be6c2ec50b54e61b46c&scene=38#wechat_redirect">郭霖微信公众号:屏幕适配</a></h2><p>adb修改分辨率和屏幕密度<br>adb shell wm size 1280x720 //小写的x<br>adb shell wm density 240<br>adb shell wm size reset //还原默认<br>adb shell wm density reset</p>
+<hr>
+<p>2.自定义view<br><a target="_blank" rel="noopener" href="https://hencoder.com/">扔物线大神</a></p>
+<hr>
+<p>3.优化布局</p>
+<ul>
+<li><p>减少嵌套</p>
+</li>
+<li><p>合理使用<include/><merge/></p>
+</li>
+<li><p>延迟加载<ViewStub></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-UI/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1229,7 +351,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-string-xml-%E6%8F%92%E5%80%BC%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-string-xml-%E6%8F%92%E5%80%BC%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">Android-string-xml-插值的简单应用</a>
         </h2>
 
         <div class="post-meta">
@@ -1239,15 +361,24 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
+                <time title="Modified: 2021-02-15 11:08:58" itemprop="dateModified" datetime="2021-02-15T11:08:58+08:00">2021-02-15</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
 
           
 
@@ -1260,7 +391,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <!DOCTYPE html>
+          
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1344,7 +476,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/adb-error-cannot-bind-to-127-0-0-1-5038-/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1358,7 +490,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/adb-error-cannot-bind-to-127-0-0-1-5038-/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/" class="post-title-link" itemprop="url">Android-studio打开无响应</a>
         </h2>
 
         <div class="post-meta">
@@ -1368,15 +500,24 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
+                <time title="Modified: 2021-02-15 11:09:18" itemprop="dateModified" datetime="2021-02-15T11:09:18+08:00">2021-02-15</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
 
           
 
@@ -1389,12 +530,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <!DOCTYPE html>
+          
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adb error cannot bind to 127.0.0.1:5038:</title>
+    <title>Android studio打开无响应</title>
     <style type="text/css" media="all">
       body {
         margin: 0;
@@ -1446,16 +588,672 @@
   <body>
     <div class="container">
       <div class="post">
-        <h1 class="title">adb error cannot bind to 127.0.0.1:5038:</h1>
+        <h1 class="title">Android studio打开无响应</h1>
         <div class="show-content">
-          <p>出现这种情况多半是端口被其他程序占用了,一般是自己电脑的手机助手程序</p><p>我们可以打开cmd输入以下命令查看是谁占用了端口</p><p>netstat -nao|findstr 5038</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/2226681-ecd24c0cb634997c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" data-original-src="http://upload-images.jianshu.io/upload_images/2226681-ecd24c0cb634997c.png?imageMogr2/auto-orient/strip" data-image-slug="ecd24c0cb634997c" data-width="619" data-height="53"><br><div class="image-caption"></div>
-</div><p>32272为pid,我们可以在任务管理器找到这个程序然后kill,在重启Android studio就好了</p>
+          <p>双击666后无任何反应</p><p>有两种可能</p><p>1.gradle版本和AS不对应</p><p>2.环境变量没配置</p>
         </div>
       </div>
     </div>
   </body>
 </html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E5%9C%86%E8%A7%92shape/" class="post-title-link" itemprop="url">圆角shape</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-06 08:35:05 / Modified: 09:24:22" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;shape xmlns:android=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span><br><span class="line">    android:shape=<span class="string">&quot;rectangle&quot;</span>&gt;</span><br><span class="line">    &lt;!-- 填充的颜色 --&gt;</span><br><span class="line">    &lt;solid android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 边框的颜色和粗细 --&gt;</span><br><span class="line">    &lt;stroke</span><br><span class="line">        android:width=<span class="string">&quot;1dp&quot;</span></span><br><span class="line">        android:color=<span class="string">&quot;@color/bottom_controller_color&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;corners</span><br><span class="line">        android:bottomLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:bottomRightRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:radius=<span class="string">&quot;20dp&quot;</span></span><br><span class="line">        android:topLeftRadius=<span class="string">&quot;0dp&quot;</span></span><br><span class="line">        android:topRightRadius=<span class="string">&quot;18dp&quot;</span></span><br><span class="line">        /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/shape&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" class="post-title-link" itemprop="url">Android-源码初步认识</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-15 11:11:01" itemprop="dateModified" datetime="2021-02-15T11:11:01+08:00">2021-02-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android 源码初步认识</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Android 源码初步认识</h1>
+        <div class="show-content">
+          <p><b>1.源码结构</b></p><p>"BootLoader" u-boot.img MLO 连接硬件和操作系统的中间件,检测与配置硬件,启动操作系统<br></p><p>"uImage"  Linux内核,被u-boot识别引导</p><p>"ramdisk.img"  Android系统根文件镜像</p><p>"boot.img"  将zImage和ramdisk.img合并为一个包<br></p><p>"system.img"  Android系统核心  将被挂载到 /system分区</p><p>"userdata.img"	用户文件  将被挂载到 /data分区</p><p><br></p><p>android在线源码：<a href="http://www.grepcode.com/" target="_blank">http://www.grepcode.com/</a></p><hr>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">Android切九妹图片</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-15 11:10:31" itemprop="dateModified" datetime="2021-02-15T11:10:31+08:00">2021-02-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android切九妹图片</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Android切九妹图片</h1>
+        <div class="show-content">
+          <p>1.打开sdk/tools/draw9patch</p><p>2.拖进去一张图片</p><p>3.四周都可以点，左键选择锚点</p><p>4.左上为图片拉伸区域，右下为内容固定区域</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80(Java)-try-catch-finally-retrun%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80(Java)-try-catch-finally-retrun%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" class="post-title-link" itemprop="url">Android基础-try-catch等执行顺序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 11:54:20" itemprop="dateModified" datetime="2021-02-11T11:54:20+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>口诀,catch优先return, 无论怎样finally<br>2019年9月19日</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      tag = <span class="string">&quot;ldo-&quot;</span>;</span><br><span class="line">      Log.d(tag, <span class="string">&quot;go: start&quot;</span>);</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">          Log.d(tag, <span class="string">&quot;go: try 01&quot;</span>);</span><br><span class="line">          arrayList.get(<span class="number">0</span>);</span><br><span class="line">          Log.d(tag, <span class="string">&quot;go: return 01&quot;</span>);</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">          Log.d(tag, <span class="string">&quot;go: catch01&quot;</span>);</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">              arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">              arrayList.add(<span class="number">1</span>);</span><br><span class="line">          &#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">              e1.printStackTrace();</span><br><span class="line">              Log.d(tag, <span class="string">&quot;go: catch02&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">      &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">          Log.d(tag, <span class="string">&quot;go: finally&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>方法第一次执行<br>猜猜看打印什么<br>嘟嘟嘟嘟<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.</p>
+<p>.<br>.<br>.<br>..<br>.<br>.<br>.</p>
+<p>公布</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01-01 01:24:02.567 17772-17772&#x2F; D&#x2F;ldo-: go: start</span><br><span class="line">01-01 01:24:02.567 17772-17772&#x2F; D&#x2F;ldo-: go: try 01</span><br><span class="line">01-01 01:24:02.567 17772-17772&#x2F; D&#x2F;ldo-: go: catch01</span><br><span class="line">01-01 01:24:02.570 17772-17772&#x2F; D&#x2F;ldo-: go: finally</span><br></pre></td></tr></table></figure>
+<hr>
+<p>第二次执行<br>嘟嘟嘟<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01-01 01:27:29.302 17772-17772&#x2F; D&#x2F;ldo-: go: start</span><br><span class="line">01-01 01:27:29.302 17772-17772&#x2F; D&#x2F;ldo-: go: try 01</span><br><span class="line">01-01 01:27:29.302 17772-17772&#x2F; D&#x2F;ldo-: go: return 01</span><br><span class="line">01-01 01:27:29.302 17772-17772&#x2F; D&#x2F;ldo-: go: finally</span><br></pre></td></tr></table></figure>
+<p>别忘了会执行finally哦~</p>
+<hr>
+<p>最后考大家一个, 大家加油哦 ~. ~</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        tag = <span class="string">&quot;ldo-&quot;</span>;</span><br><span class="line">        Log.d(tag, <span class="string">&quot;go: start&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Log.d(tag, <span class="string">&quot;go: try 01&quot;</span>);</span><br><span class="line">            arrayList.get(<span class="number">0</span>);</span><br><span class="line">            Log.d(tag, <span class="string">&quot;go: return 01&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            Log.d(tag, <span class="string">&quot;go: catch01&quot;</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">//                arrayList = new ArrayList&lt;&gt;();</span></span><br><span class="line">                arrayList.add(<span class="number">1</span>);</span><br><span class="line">                Log.d(tag, <span class="string">&quot;go: try 02&quot;</span>);</span><br><span class="line">                Log.d(tag, <span class="string">&quot;go: return 02&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">                e1.printStackTrace();</span><br><span class="line">                Log.d(tag, <span class="string">&quot;go: catch02&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">                Log.d(tag, <span class="string">&quot;go: finally 02&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            Log.d(tag, <span class="string">&quot;go: finally 01&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95)/" class="post-title-link" itemprop="url">Android基础进阶之EffectiveJava翻译系列(第二章-通用方法)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-06 08:35:05 / Modified: 17:05:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="2-所有对象都有的方法-equals-hashCode…"><a href="#2-所有对象都有的方法-equals-hashCode…" class="headerlink" title="2.所有对象都有的方法(equals,hashCode…)"></a>2.所有对象都有的方法(equals,hashCode…)</h4><h5 id="Item8-遵循equals的通用规则"><a href="#Item8-遵循equals的通用规则" class="headerlink" title="Item8 遵循equals的通用规则"></a>Item8 遵循equals的通用规则</h5><ul>
+<li>反射性:if x != null ,x.equals(x) must return true; </li>
+<li>对称性:if x != null &amp;&amp; y != null ,x.equals(y) is true; y.equals(x) must return true</li>
+<li>传递性:if x != null &amp;&amp; y != null &amp;&amp; z != null ,x.equals(y) is true; y.equals(z) is true ; x.equals(z) must return true</li>
+<li>一致性:不管调用多少次equals方法,返回的值一致</li>
+<li>if x != null,x.equals(null) must return false<blockquote>
+<p>除非有数学上的倾向要违背这些,否则必要遵循<br>当父类和子类都有自己的equals方法时,某些场景会违背这些原则,非要使用equals的话,建议将子类替换成组合的方式<br>当自己重写equals方法问自己三个问题:它是对称性的吗?是可传递的吗?是一致的吗?<br>#####Item9 重写equals时始终重写hashCode<br>重写equals而没有重写hashCode会导致用到hash值的类出现bug,如HashMap,HashSet..<br>下面是使用Object在JavaSE6中的规则:</p>
+</blockquote>
+</li>
+<li>在一次程序操作中的同一个对象,任何时候hashCode保持一致</li>
+<li>如果两个对象根据equals(Object)方法相等，那么对这两个对象中的每个对象调用hashCode方法都必须产生相同的整数结果</li>
+<li>如果两个对象根据equals(Object)方法不相等，那么对这两个对象中的每个对象没必要产生相同的整数结果,但是有利于提高HashTable的性能<blockquote>
+<p>生成hashCode时,属性中可计算的则直接参与计算,不可计算的字段调用它的hashCode()参与计算</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="Item10-始终重写toString方法"><a href="#Item10-始终重写toString方法" class="headerlink" title="Item10 始终重写toString方法"></a>Item10 始终重写toString方法</h5><blockquote>
+<p>不重写的话会得到Object@163b91一串无意义的打印<br>最好是打印出自己需要的关键字段信息</p>
+</blockquote>
+<h5 id="Item11-明智的重写clone方法"><a href="#Item11-明智的重写clone方法" class="headerlink" title="Item11 明智的重写clone方法"></a>Item11 明智的重写clone方法</h5><blockquote>
+<p>使用的较少,理解不深,后续补充</p>
+</blockquote>
+<h5 id="Item12-实现-Comparable接口"><a href="#Item12-实现-Comparable接口" class="headerlink" title="Item12 实现 Comparable接口"></a>Item12 实现 Comparable接口</h5><p>对于需要排序和比较的对象,实现此接口定义自己的排序规则</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/96ba1f9da2b6">上一章:创建和销毁对象</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d8e8a6916325">下一章:类和接口</a> </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BC%82%E5%B8%B8)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BC%82%E5%B8%B8)/" class="post-title-link" itemprop="url">Android基础进阶之EffectiveJava翻译系列(第八章-异常)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-06 08:35:05 / Modified: 17:03:15" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>高效使用异常指南</p>
+<h5 id="Item-57-Use-exceptions-only-for-exceptional-conditions"><a href="#Item-57-Use-exceptions-only-for-exceptional-conditions" class="headerlink" title="Item 57: Use exceptions only for exceptional conditions"></a>Item 57: Use exceptions only for exceptional conditions</h5><p>只有在异常条件下才使用异常</p>
+<p>考虑如下的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bad !! don&#x27;t do this</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="keyword">true</span>)</span><br><span class="line">		range[i++].climb();</span><br><span class="line">&#125; <span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e)&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>使用异常条件来终止遍历操作是非常错误的做法</p>
+<p>使用如下代码代替</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Mountain m : range)</span><br><span class="line">	m.climb();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>名副其实,异常只能用在异常条件下,而不能用于流程控制</p>
+</blockquote>
+<hr>
+<h5 id="Item-58-Use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors"><a href="#Item-58-Use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors" class="headerlink" title="Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors"></a>Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors</h5><p>对可恢复条件使用检查异常，对程序错误使用运行时异常。</p>
+<p>Java提供了三种异常:checked exceptions,runtime exceptions and errors.大多数程序员对何时使用何种异常有困惑,有如下几种原则作参考</p>
+<p>决定使用检查异常或非检查异常的原则是:<strong>调用方可以合理的修复异常</strong>,现如今的IDE工具如eclipse或Android studio会自动提示此类异常,自动填充try catch</p>
+<p>非检查异常有两种:runtime exceptions and errors</p>
+<p><strong>用运行时异常(runtime exceptions)识程序错误</strong>,绝大多数的运行时异常都表明违反了某种前提条件,如ArrayIndexOutOfBoundsException数组越界</p>
+<p>有一个普遍的约定是error用于JVM,所以所有的非检查异常都应该继承自 RuntimeException </p>
+<blockquote>
+<p>常见的非检查异常runtime exception</p>
+<ul>
+<li>NullPointerException, 空指针异常 </li>
+<li>ArithmeticException, 算术异常</li>
+<li>ClassCastException, 类型强制转换异常</li>
+<li>IllegalArgumentException, 传递非法参数异常</li>
+</ul>
+</blockquote>
+<hr>
+<h5 id="Item-59-Avoid-unnecessary-use-of-checked-exceptions"><a href="#Item-59-Avoid-unnecessary-use-of-checked-exceptions" class="headerlink" title="Item 59: Avoid unnecessary use of checked exceptions"></a>Item 59: Avoid unnecessary use of checked exceptions</h5><p>避免过度使用检查异常<br>如果一个方法有多个检查异常,调用者会包裹多个catch来处理异常,这里没有一个绝对的准则,可以使用if语句把条件先过滤一遍而避免抛异常</p>
+<hr>
+<h5 id="Item-60-Favor-the-use-of-standard-exceptions"><a href="#Item-60-Favor-the-use-of-standard-exceptions" class="headerlink" title="Item 60: Favor the use of standard exceptions"></a>Item 60: Favor the use of standard exceptions</h5><p>使用常用异常<br>当需要抛出一个异常时,尽量使用Java平台提供好的异常,因为大家都知道什么意思</p>
+<hr>
+<h5 id="Item-61-Throw-exceptions-appropriate-to-the-abstraction"><a href="#Item-61-Throw-exceptions-appropriate-to-the-abstraction" class="headerlink" title="Item 61: Throw exceptions appropriate to the abstraction"></a>Item 61: Throw exceptions appropriate to the abstraction</h5><p>抛出更合适的抽象异常</p>
+<p>当抛出和任务不相关的异常时容易让人困惑,当抛出一个低级的异常时,这种情况经常发生,它不仅仅令人困惑,也污染了上层的调用</p>
+<p>为了避免这个问题，上层应该捕获较低级别的异常，并在它们的位置上抛出可以用更高级别的抽象来解释的异常,如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Exception Translation</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="comment">// Use lower-level abstraction to do our bidding</span></span><br><span class="line">	...</span><br><span class="line">&#125; <span class="keyword">catch</span>(LowerLevelException e) &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> HigherLevelException(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更具体的例子在List<E>的方法中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Returns the element at the specified position in this list.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@throws</span> IndexOutOfBoundsException if the index is out of range</span></span><br><span class="line"><span class="comment">* (&#123;<span class="doctag">@code</span> index &lt; 0 || index &gt;= size()&#125;).</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	ListIterator&lt;E&gt; i = listIterator(index);</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> i.next();</span><br><span class="line">	&#125; <span class="keyword">catch</span>(NoSuchElementException e) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">&quot;Index: &quot;</span> + index);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种特殊的异常处理方式被称为”异常链”,但是也不应该过度使用</p>
+<p>我们也可以在在上层调用中抛出底层错误的原因</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Exception Chaining</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	... <span class="comment">// Use lower-level abstraction to do our bidding</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (LowerLevelException cause) &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> HigherLevelException(cause);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最好的方式还是尽量在底层避免异常,如果不能处理在考虑”异常链”的方式</p>
+</blockquote>
+<hr>
+<h5 id="Item-62-Document-all-exceptions-thrown-by-each-method"><a href="#Item-62-Document-all-exceptions-thrown-by-each-method" class="headerlink" title="Item 62: Document all exceptions thrown by each method"></a>Item 62: Document all exceptions thrown by each method</h5><p>为每个方法抛出的异常添加文档注释</p>
+<p>对于检查异常,要说明前置条件,并用@throws标记合适的异常,不要为了图简单直接 @throws Exception</p>
+<p>如果一个异常被多个方法抛出,并且是相同的原因,则不要在方法上注释,而是要在类上添加异常注释</p>
+<hr>
+<h5 id="Item-63-Include-failure-capture-information-in-detail-messages"><a href="#Item-63-Include-failure-capture-information-in-detail-messages" class="headerlink" title="Item 63: Include failure-capture information in detail messages"></a>Item 63: Include failure-capture information in detail messages</h5><p>打印出异常的详细信息以便于分析</p>
+<hr>
+<h5 id="Item-64-Strive-for-failure-atomicity"><a href="#Item-64-Strive-for-failure-atomicity" class="headerlink" title="Item 64: Strive for failure atomicity"></a>Item 64: Strive for failure atomicity</h5><p>保证错误的原子性(调用一千次,输出一样)</p>
+<p>即使一个异常发生了,我们也希望对象能正常使用</p>
+<p>有几种方式可以达到这一点,最简单的就是创建不可变的对象,如果一个对象是不可变的,原子性也随之而来</p>
+<p>对于可变对象,常见的方式是检查参数的合法性(Item 38)</p>
+<p>第三种方式是发生异常后,回滚异常状态为使用前的初始状态</p>
+<p>最后一种方式使用拷贝来避免发生错误时改变原来对象的状态,如Collections.sort,排序方法会先转成array数组来排序,本来是为了提高性能,额外的如果发生了错误不会改变原集合的状态</p>
+<p>虽然原子性能保证,但是实际使用中并不总是能达到满意的状态,如两个线程同时修改一个对象,没有同步的情况下,引发了currentModificationException.这时如果恢复对象的状态依然不能使程序正确运行</p>
+<blockquote>
+<p>作为一种规则来讲,当发生异常时总能确保当前对象的状态,可惜目前很多API都没有遵守</p>
+</blockquote>
+<hr>
+<h5 id="Item-65-Don’t-ignore-exceptions"><a href="#Item-65-Don’t-ignore-exceptions" class="headerlink" title="Item 65: Don’t ignore exceptions"></a>Item 65: Don’t ignore exceptions</h5><p>不要忽略异常</p>
+<p>这条建议看似很明显,但是值得重复,当API的设计者声明了一种异常,他们是为了告诉你什么,**不要忽略它!**很容易包裹一个空的try catch语句就不管这个异常了.如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	...</span><br><span class="line">&#125; <span class="keyword">catch</span> (SomeException e) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>空处理并不是抛异常的初衷,目的是为了强制解决这个异常条件</strong>.忽略异常就像忽略火警广播,有人关了广播导致其他人并不知道发生了火灾.如果确实需要一个空的处理,需要详细说明为何空处理是合适的</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b188135338f4">上一章:通用原则</a></p>
 
       
     </div>
