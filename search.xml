@@ -1892,9 +1892,10 @@ getDataFromDb();
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Service官方直译深入理解(基础知识完)</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Service%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3(%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AE%8C)/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1960,11 +1961,15 @@ getDataFromDb();
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Set集合依然有重复</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Set%E9%9B%86%E5%90%88%E4%BE%9D%E7%84%B6%E6%9C%89%E9%87%8D%E5%A4%8D/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2030,11 +2035,15 @@ getDataFromDb();
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>TextView低级错误</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/TextView%E4%BD%8E%E7%BA%A7%E9%94%99%E8%AF%AF,%E7%BB%86%E8%8A%82%E7%BB%86%E8%8A%82/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2100,11 +2109,15 @@ getDataFromDb();
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Win10-wlan自动获取ip失效</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Win10-WLAN%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96ip%E5%A4%B1%E6%95%88/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2170,6 +2183,9 @@ getDataFromDb();
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>adb-error-cannot-bind-to</title>
@@ -2328,9 +2344,10 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>修改gradle属性,加快Android-Studio编译速度</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E4%BF%AE%E6%94%B9gradle%E5%B1%9E%E6%80%A7,%E5%8A%A0%E5%BF%ABAndroid-studio%E7%BC%96%E8%AF%91%E9%80%9F%E5%BA%A6/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2396,11 +2413,15 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>命令行打印日志</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2466,6 +2487,9 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>图片分层根据状态显示</title>
@@ -2483,9 +2507,10 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>安卓网站</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E5%AE%89%E5%8D%93%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2551,6 +2576,9 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>数组转集合新颖写法</title>
@@ -2565,9 +2593,10 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>检测cpu占用率</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%A3%80%E6%B5%8Bcpu%E5%8D%A0%E7%94%A8%E7%8E%87/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2633,11 +2662,15 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>自定义textview,invalidate不调用ondraw可能原因</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E8%87%AA%E5%AE%9A%E4%B9%89textview-invalidate-()%E4%B8%8D%E8%B0%83%E7%94%A8ondraw()%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2703,6 +2736,9 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>重新理解Activity启动模式,确认返回到哪个界面</title>
@@ -3061,9 +3097,10 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>源的理解</title>
     <url>/2021/02/06/%E8%BD%A6%E6%9C%BA/%E6%BA%90%E7%9A%84%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -3129,11 +3166,15 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>车机</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>车机(序)</title>
     <url>/2021/02/06/%E8%BD%A6%E6%9C%BA/%E8%BD%A6%E6%9C%BA%EF%BC%88%E5%BA%8F%EF%BC%89/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -3199,11 +3240,15 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>车机</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>100个基本</title>
     <url>/2021/02/06/%E9%9A%8F%E7%AC%94/100%E4%B8%AA%E5%9F%BA%E6%9C%AC/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -3269,6 +3314,9 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>Markdown</title>
@@ -3378,9 +3426,10 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>加油的人</title>
     <url>/2021/02/06/%E9%9A%8F%E7%AC%94/%E5%8A%A0%E6%B2%B9%E7%9A%84%E4%BA%BA/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -3446,11 +3495,15 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>如何鉴别女友是不是处女</title>
     <url>/2021/02/06/%E9%9A%8F%E7%AC%94/%E5%A6%82%E4%BD%95%E9%89%B4%E5%88%AB%E5%A5%B3%E5%8F%8B%EF%BC%9A%EF%BD%9E%EF%BC%9A%EF%BC%9A%E6%98%AF%E4%B8%8D%E6%98%AF%E5%A4%84%E5%A5%B3/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -3516,6 +3569,9 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>恕与忍</title>
@@ -3528,9 +3584,10 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>我眼中的刘备不是正人君子</title>
     <url>/2021/02/06/%E9%9A%8F%E7%AC%94/%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84%E5%88%98%E5%A4%87%E4%B8%8D%E6%98%AF%E6%AD%A3%E4%BA%BA%E5%90%9B%E5%AD%90/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -3596,11 +3653,15 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>朋友,不是你好就够了</title>
     <url>/2021/02/06/%E9%9A%8F%E7%AC%94/%E6%9C%8B%E5%8F%8B%EF%BC%8C%E4%B8%8D%E6%98%AF%E4%BD%A0%E5%A5%BD%E5%B0%B1%E5%A4%9F%E4%BA%86/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -3666,6 +3727,9 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title>猪与命</title>
@@ -3690,9 +3754,10 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>西游团队的核心你以为是唐僧麽？</title>
     <url>/2021/02/06/%E9%9A%8F%E7%AC%94/%E8%A5%BF%E6%B8%B8%E5%9B%A2%E9%98%9F%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BD%A0%E4%BB%A5%E4%B8%BA%E6%98%AF%E5%94%90%E5%83%A7%E9%BA%BD%EF%BC%9F/</url>
-    <content><![CDATA[<!DOCTYPE html>
+    <content><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -3758,6 +3823,9 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
   </entry>
   <entry>
     <title></title>
