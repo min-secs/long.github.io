@@ -4578,4 +4578,46 @@ Thermometer.newInstance(TemperatureScale.CELSIUS)不仅比Thermometer.newInstanc
         <category>Android日记</category>
       </categories>
   </entry>
+  <entry>
+    <title>MediaSession框架</title>
+    <url>/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/</url>
+    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>​        传统的媒体开发, 由我们自己定义接口, 服务端, 涉及到不同的业务往往需要重新定义不同的接口, 导致开发成本增加, 为此google在5.0中提供了一套多媒体开发框架, 目前Android9源码中蓝牙音乐服务/收音机服务等均已采用此架构. 主要目的为了规范媒体服务和客户端之间的通信接口, 实现解耦</p>
+<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img src="D:\资料\long\boke\Hexo-Blog\source\媒体应用架构01.png" alt="image-20210219173614340"></p>
+<p>​        UI和播放器针对不同项目可有不同程度的扩展, 但针对媒体应用来说, 业务交互基本相同, 所以抽出了MediaController和MediaSession实现核心交互逻辑</p>
+<h4 id="核心类"><a href="#核心类" class="headerlink" title="核心类"></a>核心类</h4><ul>
+<li><p>MediaController(媒体控制器)</p>
+<p>负责与UI的交互, 将用户的操作通过媒体控制器转换为对会话的回调, 同样, 媒体会话改变会通知控制器的回调变化, 实现双重更新机制</p>
+</li>
+<li><p>MediaSession(媒体会话)</p>
+<p>负责与播放器的所有通信, 对UI隐藏播放器实现细节</p>
+<p>维护播放相关的信息, 比如播放状态, Id3info等</p>
+</li>
+</ul>
+<h3 id="使用媒体会话"><a href="#使用媒体会话" class="headerlink" title="使用媒体会话"></a>使用媒体会话</h3><h3 id="构建视频应用"><a href="#构建视频应用" class="headerlink" title="构建视频应用"></a>构建视频应用</h3><p>​        播放视频时, 依赖于界面, 设计结构如下:</p>
+<p><img src="D:\资料\long\boke\Hexo-Blog\source\视频应用架构01.png" alt="image-20210219175529647"></p>
+<p>使用步骤:</p>
+<ol>
+<li><p>在onCreate中初始化MediaSession</p>
+</li>
+<li><p>设置回话回调</p>
+</li>
+<li><p>初始化媒体控制器</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. Create a MediaSessionCompat</span></span><br><span class="line">mediaSession = <span class="keyword">new</span> MediaSessionCompat(<span class="keyword">this</span>, LOG_TAG);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Enable callbacks from MediaButtons and TransportControls</span></span><br><span class="line">mediaSession.setFlags(</span><br><span class="line">    MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS |</span><br><span class="line">    MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Do not let MediaButtons restart the player when the app is not visible</span></span><br><span class="line">mediaSession.setMediaButtonReceiver(<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set an initial PlaybackState with ACTION_PLAY, so media buttons can start the player</span></span><br><span class="line">stateBuilder = <span class="keyword">new</span> PlaybackStateCompat.Builder()</span><br><span class="line">        .setActions(</span><br><span class="line">         PlaybackStateCompat.ACTION_PLAY |</span><br><span class="line">         PlaybackStateCompat.ACTION_PLAY_PAUSE);</span><br><span class="line">mediaSession.setState(stateBuilder.build());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. MySessionCallback has methods that handle callbacks from a media controller</span></span><br><span class="line">mediaSession.setCallback(<span class="keyword">new</span> MySessionCallback());</span><br><span class="line"><span class="comment">// 3. initial mediacontroller</span></span><br><span class="line">mediaController = <span class="keyword">new</span> MediaControllerCompat(context, mediaSession);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h3 id="构建音频应用"><a href="#构建音频应用" class="headerlink" title="构建音频应用"></a>构建音频应用</h3><p>​        构建音频应用时, 不依赖于界面, 界面销毁后依然能在后台播放, 设计架构如下:</p>
+<p><img src="D:\资料\long\boke\Hexo-Blog\source\音频应用架构01.png" alt="image-20210219175745066"></p>
+<ul>
+<li>MediaBrowser</li>
+<li>MediaBrowserService</li>
+</ul>
+<h3 id="响应媒体按钮"><a href="#响应媒体按钮" class="headerlink" title="响应媒体按钮"></a>响应媒体按钮</h3><p>…</p>
+<h3 id="音频焦点管理"><a href="#音频焦点管理" class="headerlink" title="音频焦点管理"></a>音频焦点管理</h3><p>…</p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><h4 id="Q1-方控下一曲多次-音源跑到上一个-如当前播放视频-切曲多次跑到了音乐源"><a href="#Q1-方控下一曲多次-音源跑到上一个-如当前播放视频-切曲多次跑到了音乐源" class="headerlink" title="Q1: 方控下一曲多次, 音源跑到上一个, 如当前播放视频, 切曲多次跑到了音乐源"></a>Q1: 方控下一曲多次, 音源跑到上一个, 如当前播放视频, 切曲多次跑到了音乐源</h4>]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
+  </entry>
 </search>
