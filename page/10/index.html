@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">95</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">96</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -173,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/MVP%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A8,%E5%8F%AA%E9%9C%805%E6%AD%A5/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E9%9A%8F%E7%AC%94/%E4%B8%8E%E7%88%B1%E6%83%85%E6%9C%89%E5%85%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,7 +187,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/MVP%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A8,%E5%8F%AA%E9%9C%805%E6%AD%A5/" class="post-title-link" itemprop="url">MVP小白入门,只需5步</a>
+            <a href="/2020/02/06/%E9%9A%8F%E7%AC%94/%E4%B8%8E%E7%88%B1%E6%83%85%E6%9C%89%E5%85%B3/" class="post-title-link" itemprop="url">与爱情有关</a>
         </h2>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-11 17:00:36" itemprop="dateModified" datetime="2021-02-11T17:00:36+08:00">2021-02-11</time>
+                <time title="Modified: 2021-02-11 16:48:34" itemprop="dateModified" datetime="2021-02-11T16:48:34+08:00">2021-02-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,7 +212,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
                 </span>
             </span>
 
@@ -227,20 +227,84 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>前言:因为公司氛围没有用,一直很火的mvp模式像鬼一样听说过没见过,今天闲来无事了解一下,发现由普通的MVC改起来还是挺行云流水的,但像有些弹窗不知道写在P层还是V层<br>关于MVP的概念我就不详细说了,记住关键的一点就是将view与逻辑分离<br>在谷歌推荐写法下,M层被弱化,数据处理放在了P层<br>####1.定义一个P接口</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BasePresenter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">something</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####2.定义一个V接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BaseView</span>&lt;<span class="title">P</span> <span class="keyword">extends</span> <span class="title">BasePresenter</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setPresenter</span><span class="params">(P presenter)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####3.定义一个合约类管理上述两个接口,Presenter用于定义界面的逻辑与数据,View 用于定义对应的界面显示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateRecordContract</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">Presenter</span> <span class="keyword">extends</span> <span class="title">BasePresenter</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取今日数据</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">getTodayData</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="comment">//获取所有数据</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">getAllData</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="comment">//检查数据是否有效</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">checkData</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="comment">//插入一条数据</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">insertDateBean</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="comment">//开始计时</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">startTiming</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">View</span> <span class="keyword">extends</span> <span class="title">BaseView</span>&lt;<span class="title">Presenter</span>&gt; </span>&#123;</span><br><span class="line">        <span class="comment">//显示计时界面</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">startAnim</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="comment">//刷新界面</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">refreshUI</span><span class="params">(List&lt;DateRecordBean&gt; data)</span></span>;</span><br><span class="line">        <span class="comment">//停止计时界面</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">stopAnim</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="comment">//刷新一个界面</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">refreshOneDate</span><span class="params">(DateRecordBean bean)</span></span>;</span><br><span class="line">        <span class="comment">//保存输入的文本</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">saveInputtext</span><span class="params">(String str)</span></span>;</span><br><span class="line">        <span class="comment">//获得当前的文本</span></span><br><span class="line">        <span class="function">String <span class="title">getCurrenttext</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="comment">//隐藏输入法</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">hideInput</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####4.定义一个P层实现类,最好放在上面的接口同一个包下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateRecordPresenterImpl</span> <span class="keyword">implements</span> <span class="title">DateRecordContract</span>.<span class="title">Presenter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> DateRecordContract.View view;</span><br><span class="line">    <span class="keyword">private</span> SharedPreferencesHelper spHelper;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DateRecordPresenterImpl</span><span class="params">(DateRecordContract.View view,SharedPreferencesHelper sp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.view = view;</span><br><span class="line">        view.setPresenter(<span class="keyword">this</span>);</span><br><span class="line">        spHelper = sp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getTodayData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//..处理数据</span></span><br><span class="line">        List&lt;DateRecordBean&gt; list = ...;</span><br><span class="line">        <span class="comment">//..通知view刷新界面</span></span><br><span class="line">        view.refreshUI(list);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getAllData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;DateRecordBean&gt; list = ...;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        view.refreshUI(list);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">checkData</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertDateBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> endTime = System.currentTimeMillis();</span><br><span class="line">        DateRecordBean bean = <span class="keyword">new</span> DateRecordBean();</span><br><span class="line">        <span class="comment">//..数据处理</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//处理完数据后通知view刷新界面</span></span><br><span class="line">        view.refreshOneDate(bean);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startTiming</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        view.hideInput();</span><br><span class="line">        view.startAnim();</span><br><span class="line"></span><br><span class="line">        spHelper.put(SharedPreferencesHelper.isStartTime, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        view.saveInputtext(str);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">something</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//...自己的处理逻辑</span></span><br><span class="line">        <span class="keyword">return</span> isStartRecord;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>####5.定义一个View实现类,根据回调显示UI</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">DateRecordContract</span>.<span class="title">View</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> DateRecordPresenterImpl presenter;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</span><br><span class="line">        setSupportActionBar(toolbar);</span><br><span class="line"></span><br><span class="line">        presenter = <span class="keyword">new</span> DateRecordPresenterImpl(<span class="keyword">this</span>,spHelper);</span><br><span class="line">        <span class="comment">//通知P层获得今日数据</span></span><br><span class="line">        presenter.getTodayData();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">refreshUI</span><span class="params">(List&lt;DateRecordBean&gt; data)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//显示P层处理好的数据</span></span><br><span class="line">        dapter.addBeans(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>以上就是简单的MVP入门,哪里出问题了直接在合约类查看,还是挺方便,也可以把MainActivity改为Fragment实现View,有些疑问是不知道把Dialog放在哪,目前还是放在了Activity中<br>2018年9月5日08:02:16</p>
+          <h4 id="故事一"><a href="#故事一" class="headerlink" title="故事一"></a>故事一</h4><p> 我的下铺是一个五十多岁的中年男子，在公司为我们做饭。每天下班他都会和家里的小朋友视频，看着真是疼爱极了。但是我们每每周末回家的时候他都待在宿舍，一年半载也不回家一次。有天无意中提起他的婚姻，他笑着说：我已经离婚了。很突然，很意外。于是我问到，怎么会呢，你们看起来这么恩爱，这么顾家，什么原因导致的呢？</p>
+<p>他说，我那个婆娘，一天到晚拿我跟别个老公比，终于有一天我也成别人老公了。</p>
+<p> 也许在心中有了比较，彼此在心中的位置就空出来了吧</p>
+<h4 id="故事二"><a href="#故事二" class="headerlink" title="故事二"></a>故事二</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E9%9A%8F%E7%AC%94/%E6%81%95%E4%B8%8E%E5%BF%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/%E9%9A%8F%E7%AC%94/%E6%81%95%E4%B8%8E%E5%BF%8D/" class="post-title-link" itemprop="url">恕与忍</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:47:24" itemprop="dateModified" datetime="2021-02-11T16:47:24+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>恕他人,忍自己</p>
+<p>而今常态,忍他人,恕自己</p>
 
       
     </div>
@@ -260,7 +324,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/app%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B-%E5%86%B7%E5%90%AF%E5%8A%A8,%E7%83%AD%E5%90%AF%E5%8A%A8,%E6%9A%96%E5%90%AF%E5%8A%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E9%9A%8F%E7%AC%94/%E7%8C%AA%E4%B8%8E%E5%91%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -274,7 +338,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/app%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B-%E5%86%B7%E5%90%AF%E5%8A%A8,%E7%83%AD%E5%90%AF%E5%8A%A8,%E6%9A%96%E5%90%AF%E5%8A%A8/" class="post-title-link" itemprop="url">app启动流程</a>
+            <a href="/2020/02/06/%E9%9A%8F%E7%AC%94/%E7%8C%AA%E4%B8%8E%E5%91%BD/" class="post-title-link" itemprop="url">猪与命</a>
         </h2>
 
         <div class="post-meta">
@@ -291,7 +355,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-11 16:58:26" itemprop="dateModified" datetime="2021-02-11T16:58:26+08:00">2021-02-11</time>
+                <time title="Modified: 2021-02-11 16:48:59" itemprop="dateModified" datetime="2021-02-11T16:48:59+08:00">2021-02-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -299,7 +363,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
                 </span>
             </span>
 
@@ -314,22 +378,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>前言:项目中被诟病多媒体开机第一次启动很慢,大约3s的黑屏,后续点开启动正常,其中什么原理呢?这就涉及到系统的三种启动模型</p>
-</blockquote>
-<h3 id="1-Cold-Start-冷启动"><a href="#1-Cold-Start-冷启动" class="headerlink" title="1.Cold Start,冷启动"></a>1.Cold Start,冷启动</h3><p>system—&gt;<br>loding and launching the app<br>                  displaying a blank window</p>
-<h2 id="createing-the-app-process"><a href="#createing-the-app-process" class="headerlink" title="createing the app process"></a>createing the app process</h2><p>process—&gt;<br>creating the application<br>launching the main thread<br>creating the main activity<br>inflating views<br>laying out the screen<br>perfoming the initial draw<br>main activity place blank window</p>
-<hr>
-<h3 id="2-Hot-Start-热启动"><a href="#2-Hot-Start-热启动" class="headerlink" title="2.Hot Start,热启动"></a>2.Hot Start,热启动</h3><p>前台activity因内存不足,被系统销毁重建的过程(重建流程同冷启动)</p>
-<h3 id="3-Warm-Start"><a href="#3-Warm-Start" class="headerlink" title="3.Warm Start"></a>3.Warm Start</h3><ul>
-<li>用户点击返回,并重新运行</li>
-<li>activity不在前台,被系统销毁,由用户主动运行<br>可通过onSaveInstance保存状态</li>
-</ul>
-<hr>
-<h3 id="4-APP启动慢常见问题"><a href="#4-APP启动慢常见问题" class="headerlink" title="4.APP启动慢常见问题"></a>4.APP启动慢常见问题</h3><ul>
-<li>Application.onCreate中执行了过重的操作,如I/O操作,频繁创建对象等</li>
-<li>Activity.onCreate<br>布局过于复杂<br>Loading and decoding bitmaps<br>blocking screen drawing on disk or network I/O<br>Rasterinzing vectordrawable objects<br>initialztion of other subsystem of the activity</li>
-</ul>
+          <p>人世间真的有命数吗?</p>
+<p>一只猪再怎么拼命挣扎,努力奋斗也逃不过被人宰割的命运吧,可是当初它为什么选择猪圈呢?猪圈里的猪又生小猪猪,让小猪猪以为他们的命运也是如此,吃饱睡,睡饱吃,很安逸的一个圈,殊不知等待他们的都是同一个命运.</p>
+<p>逃出这个舒适圈,跑到野地里去,要不了多久就会长出猎人也害怕的獠牙吧,纵使没有獠牙,也有一股难以屈服,拒绝任人宰割的野性吧</p>
+<p>每个认为现在安逸环境的人身处的环境,难道不是一个圈吗?待到被命运宰割的时候,怎么嚎叫也无能为力.</p>
+<p>可我们有自省和选择的权力,看清身边的处境,待命运之手来临时,狠狠的咬他一口,去他妈的命!!!</p>
 
       
     </div>
@@ -349,7 +402,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E8%BD%A6%E6%9C%BA/Android-mk%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E9%9A%8F%E7%AC%94/%E8%80%81%E6%9D%BF,%E9%A2%86%E5%AF%BC%E4%B8%8E%E5%91%98%E5%B7%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -363,7 +416,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/06/%E8%BD%A6%E6%9C%BA/Android-mk%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Android.mk</a>
+            <a href="/2020/02/06/%E9%9A%8F%E7%AC%94/%E8%80%81%E6%9D%BF,%E9%A2%86%E5%AF%BC%E4%B8%8E%E5%91%98%E5%B7%A5/" class="post-title-link" itemprop="url">老板领导与员工</a>
         </h2>
 
         <div class="post-meta">
@@ -380,7 +433,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-11 16:43:09" itemprop="dateModified" datetime="2021-02-11T16:43:09+08:00">2021-02-11</time>
+                <time title="Modified: 2021-02-11 16:46:54" itemprop="dateModified" datetime="2021-02-11T16:46:54+08:00">2021-02-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -388,7 +441,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%A6%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">车机</span></a>
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
                 </span>
             </span>
 
@@ -403,46 +456,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>Android源码编译不同的版本,略微有不同<br>如下基于9.0</p>
-</blockquote>
-<p>编写app之前,确认编译环境使用的sdk版本,在build.gradle中配置成一样的<br>删掉不需要用的东西,也许某个虚线下面在编译时就是一个炸弹</p>
-<p>一个apk构依赖部分<br>系统属性/自己项目的module/第三方jar/第三方aar/so库</p>
-<ul>
-<li><h4 id="系统预编译好的属性"><a href="#系统预编译好的属性" class="headerlink" title="系统预编译好的属性"></a>系统预编译好的属性</h4>如AndroidX系列,<br>implementation ‘androidx.constraintlayout:constraintlayout:1.1.0<br>可在编译目录中通过查找对应 name属性<br><code>find prebuilts/sdk/ -name Android.bp|xargs grep &quot;name.*constraintlayout&quot;</code></li>
-</ul>
-<p>mk如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">LOCAL_STATIC_ANDROID_LIBRARIES :&#x3D; \ androidx-constraintlayout_constraintlayout</span><br><span class="line"></span><br><span class="line">include $(BUILD_PACKAGE)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="依赖自己项目中Module"><a href="#依赖自己项目中Module" class="headerlink" title="依赖自己项目中Module"></a>依赖自己项目中Module</h4></li>
-</ul>
-<p>1.只依赖java文件,即常用的jar包<br>module中配置Android.bp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">java_library &#123;</span><br><span class="line">    name: &quot;constantproxy&quot;,</span><br><span class="line"></span><br><span class="line">    srcs: [</span><br><span class="line">        &quot;src&#x2F;main&#x2F;java&#x2F;**&#x2F;*.java&quot;,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    exclude_srcs: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    libs: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    static_libs: [</span><br><span class="line">        &quot;androidx.media_media&quot;, &#x2F;&#x2F;依赖的系统属性</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    required: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    dxflags: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>app中Android.mk</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH :&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">LOCAL_STATIC_JAVA_LIBRARIES :&#x3D; \</span><br><span class="line">							   constantproxy\</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>2.既依赖java又依赖res<br>此种module不需要写mk<br>在app中引入即可</p>
-<blockquote>
-<p>? 理论上是不是每个module都可以这么写</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line"></span><br><span class="line">LOCAL_MODULE_TAGS :&#x3D; optional</span><br><span class="line"></span><br><span class="line">LOCAL_SRC_FILES :&#x3D; $(call all-java-files-under, src)</span><br><span class="line">LOCAL_SRC_FILES +&#x3D; $(call all-java-files-under, yourmodule&#x2F;src)</span><br><span class="line">LOCAL_RESOURCE_DIR +&#x3D; $(LOCAL_PATH)&#x2F;src&#x2F;main&#x2F;res</span><br><span class="line">LOCAL_RESOURCE_DIR +&#x3D; $(LOCAL_PATH)&#x2F;yourmodule&#x2F;src&#x2F;main&#x2F;res</span><br><span class="line">#注意yourmodule路径的准确性</span><br><span class="line"></span><br><span class="line">LOCAL_AAPT_FLAGS :&#x3D; --auto-add-overlay \</span><br><span class="line">                                      --extra-packages yourmodule包名 \</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">include $(BUILD_PACKAGE)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="第三方jar"><a href="#第三方jar" class="headerlink" title="第三方jar"></a>第三方jar</h4>在jar的同级目录下新建Androd.bp 如libs/Android.bp<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java_import &#123;</span><br><span class="line">    name: &quot;my_jar&quot;,</span><br><span class="line">    jars: [&quot;annotation-1.1.0.jar&quot;],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-如果依赖第三方jar的是库,则在库里面的Android.bp中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">java_library &#123;</span><br><span class="line">    name: &quot;my_lib_core&quot;,</span><br><span class="line"></span><br><span class="line">    srcs: [</span><br><span class="line">        &quot;src&#x2F;main&#x2F;java&#x2F;**&#x2F;*.java&quot;,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    exclude_srcs: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    libs: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    static_libs: [</span><br><span class="line">        &quot;androidx.appcompat_appcompat&quot;,&quot;my_jar&quot;</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    required: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    dxflags: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-如果是自己的项目,则在app中Android.mk<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line">LOCAL_STATIC_JAVA_LIBRARIES :&#x3D; \</span><br><span class="line">                my_jar \</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">LOCAL_PRIVATE_PLATFORM_APIS :&#x3D; true</span><br><span class="line">include $(BUILD_PACKAGE)</span><br></pre></td></tr></table></figure></li>
-<li><h4 id="依赖第三方aar"><a href="#依赖第三方aar" class="headerlink" title="依赖第三方aar"></a>依赖第三方aar</h4>在aar同级目录Android.bp中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">android_library_import &#123;</span><br><span class="line">    name: &quot;navigation-fragment-nodeps&quot;,</span><br><span class="line">    aars: [&quot;libs&#x2F;navigation-fragment-2.3.0-alpha01.aar&quot;],</span><br><span class="line">    sdk_version: &quot;current&quot;,</span><br><span class="line">    static_libs: [</span><br><span class="line">		&quot;androidx.fragment_fragment&quot;, &#x2F;&#x2F;navigation-fragment依赖androidx.fragment_fragment</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">android_library &#123;</span><br><span class="line">    name: &quot;androidx.navigation_navigation-fragment&quot;,</span><br><span class="line">    sdk_version: &quot;current&quot;,</span><br><span class="line">    manifest: &quot;androidx.navigation.fragment&#x2F;AndroidManifest.xml&quot;,</span><br><span class="line">    static_libs: [</span><br><span class="line">        &quot;navigation-fragment-nodeps&quot;,</span><br><span class="line">		&quot;androidx.fragment_fragment&quot;,</span><br><span class="line">    ],</span><br><span class="line">    java_version: &quot;1.8&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-在Android.mk中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_STATIC_ANDROID_LIBRARIES :&#x3D; \</span><br><span class="line">                    androidx.navigation_navigation-fragment</span><br></pre></td></tr></table></figure></li>
-<li><h4 id="so库"><a href="#so库" class="headerlink" title="so库"></a>so库</h4><blockquote>
-<p>此so库指的是NDK编译出来的so库,libs下直接可用<br>需要用到so库的mk里面</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">include $(BUILD_PACKAGE)</span><br><span class="line"></span><br><span class="line">libs_dir :&#x3D; $(TARGET_OUT)&#x2F;app&#x2F;yourapkname&#x2F;lib&#x2F;armeabi</span><br><span class="line">$(shell mkdir -p $(libs_dir))</span><br><span class="line">src_files :&#x3D; $(shell ls $(LOCAL_PATH)&#x2F;libs&#x2F;armeabi&#x2F;)</span><br><span class="line">$(foreach file, $(src_files),\</span><br><span class="line">			    $(shell cp $(LOCAL_PATH)&#x2F;libs&#x2F;armeabi&#x2F;$(file) $(libs_dir)&#x2F;$(file)))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<hr>
-<p>Android9.0源码中的mk例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:&#x3D; $(call my-dir)</span><br><span class="line"> </span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"> </span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line">LOCAL_PACKAGE_NAME :&#x3D; APK名字</span><br><span class="line">LOCAL_OVERRIDES_PACKAGES :&#x3D; </span><br><span class="line">LOCAL_MODULE_TAGS :&#x3D; optional</span><br><span class="line"> </span><br><span class="line"># can&#39;t use LOCAL_SDK_VERSION, otherwise the error will occur like this:</span><br><span class="line"># &quot;(java:sdk) should not link to&quot;</span><br><span class="line">#LOCAL_SDK_VERSION :&#x3D; current</span><br><span class="line">LOCAL_PRIVATE_PLATFORM_APIS :&#x3D; true</span><br><span class="line">LOCAL_PRIVILEGED_MODULE :&#x3D; true</span><br><span class="line">LOCAL_JAVACFLAGS :&#x3D; -Xlint:deprecation -Xlint:unchecked</span><br><span class="line"> </span><br><span class="line">#LOCAL_PROGUARD_FLAG_FILES :&#x3D; proguard.flags</span><br><span class="line">#LOCAL_JARJAR_RULES :&#x3D; $(LOCAL_PATH)&#x2F;jarjar-rules.txt</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># src, res, AndroidManifest.xml ...</span><br><span class="line">###################################################</span><br><span class="line">LOCAL_MANIFEST_FILE :&#x3D; src&#x2F;main&#x2F;AndroidManifest.xml</span><br><span class="line">LOCAL_SRC_FILES :&#x3D; $(call all-java-files-under, src&#x2F;main&#x2F;java)</span><br><span class="line">LOCAL_RESOURCE_DIR :&#x3D; $(LOCAL_PATH)&#x2F;src&#x2F;main&#x2F;res</span><br><span class="line">LOCAL_ASSET_DIR :&#x3D; $(LOCAL_PATH)&#x2F;src&#x2F;main&#x2F;assets</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># AS dependencies from androidx or android-support</span><br><span class="line">###################################################</span><br><span class="line">#implementation &#39;androidx.appcompat:appcompat:1.0.0&#39;</span><br><span class="line">#LOCAL_STATIC_ANDROID_LIBRARIES +&#x3D; androidx.appcompat_appcompat</span><br><span class="line"> </span><br><span class="line">#implementation &#39;androidx.constraintlayout:constraintlayout:1.1.0&#39;</span><br><span class="line">#LOCAL_STATIC_ANDROID_LIBRARIES +&#x3D; androidx-constraintlayout_constraintlayout</span><br><span class="line"> </span><br><span class="line">#implementation &#39;androidx.recyclerview:recyclerview:1.0.0&#39;</span><br><span class="line">#LOCAL_STATIC_ANDROID_LIBRARIES +&#x3D; androidx.recyclerview_recyclerview</span><br><span class="line"> </span><br><span class="line">#implementation &#39;com.google.android.material:material:1.0.0&#39;</span><br><span class="line">#LOCAL_STATIC_ANDROID_LIBRARIES +&#x3D; com.google.android.material_material</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># custom aar library</span><br><span class="line">###################################################</span><br><span class="line">#LOCAL_STATIC_JAVA_AAR_LIBRARIES +&#x3D; 第三方AAR的别名，如：Demo_xxx-1.0.0</span><br><span class="line">#LOCAL_AAPT_FLAGS +&#x3D; --extra-packages 第三方AAR里面AndroidManifest.xml定义的包名</span><br><span class="line">#LOCAL_RESOURCE_DIR +&#x3D; 如果第三方AAR里面有res编不过的时候可以将res解压出来在此引用，如：$(LOCAL_PATH)&#x2F;libs&#x2F;xxx&#x2F;res</span><br><span class="line">LOCAL_AAPT_FLAGS +&#x3D; --auto-add-overlay</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># custom jar library</span><br><span class="line">###################################################</span><br><span class="line">#LOCAL_STATIC_JAVA_LIBRARIES +&#x3D; 自定义Module或第三方JAR的别名</span><br><span class="line">#LOCAL_JAVA_LIBRARIES +&#x3D;</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># custom jni library</span><br><span class="line">###################################################</span><br><span class="line">LOCAL_JNI_SHARED_LIBRARIES :&#x3D; </span><br><span class="line"> </span><br><span class="line">include $(BUILD_PACKAGE)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">##############################################################</span><br><span class="line"># Pre-built dependency jars,aars,...</span><br><span class="line">##############################################################</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"> </span><br><span class="line">#LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES +&#x3D; AAR或JAR别名与文件路径对应关系，如：Demo_xxx-1.0.0:libs&#x2F;xxx&#x2F;xxx.aar</span><br><span class="line"> </span><br><span class="line">include $(BUILD_MULTI_PREBUILT)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">##############################################################</span><br><span class="line"># Pre-built dependency jars,aars,...</span><br><span class="line">##############################################################</span><br><span class="line">#prebuilts +&#x3D; xxx:libs&#x2F;xxx&#x2F;xxx.aar</span><br><span class="line">#</span><br><span class="line">#define define-prebuilt</span><br><span class="line">#  $(eval tw :&#x3D; $(subst :, ,$(strip $(1)))) \</span><br><span class="line">#  $(eval include $(CLEAR_VARS)) \</span><br><span class="line">#  $(eval LOCAL_MODULE :&#x3D; $(word 1,$(tw))) \</span><br><span class="line">#  $(eval LOCAL_MODULE_TAGS :&#x3D; optional) \</span><br><span class="line">#  $(eval LOCAL_MODULE_CLASS :&#x3D; JAVA_LIBRARIES) \</span><br><span class="line">#  $(eval LOCAL_SRC_FILES :&#x3D; $(word 2,$(tw))) \</span><br><span class="line">#  $(eval LOCAL_UNINSTALLABLE_MODULE :&#x3D; true) \</span><br><span class="line">#  $(eval LOCAL_SDK_VERSION :&#x3D; system_current) \</span><br><span class="line">#  $(eval include $(BUILD_PREBUILT))</span><br><span class="line">#endef</span><br><span class="line">#</span><br><span class="line">#$(foreach p,$(prebuilts),\</span><br><span class="line">#  $(call define-prebuilt,$(p)))</span><br><span class="line">#</span><br><span class="line">#prebuilts :&#x3D;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">##############################################################</span><br><span class="line"># find other Android.mk </span><br><span class="line">##############################################################</span><br><span class="line">include $(call all-makefiles-under, $(LOCAL_PATH))</span><br></pre></td></tr></table></figure>
-<hr>
-<p>上面的方式都不行的话,直接打包apk编译<br>xx.apk同级目录Android.mk</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH :&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"></span><br><span class="line">LOCAL_MODULE :&#x3D; weixin</span><br><span class="line">LOCAL_MODULE_CLASS :&#x3D; APPS</span><br><span class="line">LOCAL_MODULE_SUFFIX :&#x3D; $(COMMON_ANDROID_PACKAGE_SUFFIX)</span><br><span class="line">LOCAL_SRC_FILES :&#x3D; $(LOCAL_MODULE).apk</span><br><span class="line">LOCAL_MODULE_PATH :&#x3D; $(TARGET_OUT_APP)</span><br><span class="line">LOCAL_CERTIFICATE :&#x3D; platform</span><br><span class="line">include $(BUILD_PREBUILT)</span><br><span class="line">include $(call all-makefiles-under,$(LOCAL_PATH))</span><br></pre></td></tr></table></figure>
+          <p>老板:不需要在场证明<br>领导:不在场证明—开会<br>员工:详述论证一下不在场的证据,以证明这个锅不是你的</p>
 
       
     </div>
@@ -644,7 +658,7 @@
 <p>为了避免重复和安全故障，千万不要在同步方法或块内控制客户端.换句话说,不要再同步方法中调用需要重写的方法或者从客户端提供的对象方法(这种方法被称为”外星人”).因为同步块不知道这个方法是干什么的也不能控制这个客户端,调用它将会导致异常或者数据损坏</p>
 <p>考虑如下的”外星人”代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bad Broken - invokes alien method from synchronized block!</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObservableSet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">ForwardingSet</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ObservableSet</span><span class="params">(Set&lt;E&gt; set)</span> </span>&#123; <span class="keyword">super</span>(set); &#125;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> List&lt;SetObserver&lt;E&gt;&gt; observers = </span><br><span class="line">                    <span class="keyword">new</span> ArrayList&lt;SetObserver&lt;E&gt;&gt;();</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(SetObserver&lt;E&gt; observer)</span> </span>&#123;</span><br><span class="line">  	  <span class="keyword">synchronized</span>(observers) &#123;</span><br><span class="line">		  observers.add(observer);</span><br><span class="line">	  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeObserver</span><span class="params">(SetObserver&lt;E&gt; observer)</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">synchronized</span>(observers) &#123;</span><br><span class="line">		  <span class="keyword">return</span> observers.remove(observer);</span><br><span class="line">	  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">notifyElementAdded</span><span class="params">(E element)</span> </span>&#123;</span><br><span class="line">	  <span class="keyword">synchronized</span>(observers) &#123;</span><br><span class="line">		<span class="keyword">for</span> (SetObserver&lt;E&gt; observer : observers)</span><br><span class="line">			observer.added(<span class="keyword">this</span>, element);</span><br><span class="line">	  &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E element)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">boolean</span> added = <span class="keyword">super</span>.add(element);</span><br><span class="line">	<span class="keyword">if</span> (added)</span><br><span class="line">		notifyElementAdded(element);</span><br><span class="line">	<span class="keyword">return</span> added;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">boolean</span> result = <span class="keyword">false</span>;</span><br><span class="line">	<span class="keyword">for</span> (E element : c)</span><br><span class="line">		result |= add(element); </span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>observers通过addObserver/removeObserver 订阅/取消订阅,但是SetObserver<E> observer被传递进来了:</p>
+<p>observers通过addObserver/removeObserver 订阅/取消订阅,但是SetObserver<E> observer被传递进来了:</E></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SetObserver</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">	<span class="comment">// Invoked when an element is added to the observable set</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">added</span><span class="params">(ObservableSet&lt;E&gt; set, E element)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -671,7 +685,7 @@
 <p>你可以用ExecutorService做很多事情,比如你可以等待特定任务完成,可以等待任务停止(用awaitTermination方法)等等</p>
 <p>如果你想多个线程做任务队列里的工作,可以通过线程池创建不同的ExecutorService.  java.util.concurrent.Executors提供了很多你需要的静态工厂方法,你也可以直接使用 ThreadPoolExecutor.</p>
 <p>对特定的任务选择合适的线程池.如果你想写一个小的轻量级的加载服务,用Executors.newCachedThreadPool是一个很好的选择.但是这个线程池不适合做很重的操作,Executors.newFixedThreadPool是一个很好的选择,内部维护了一个固定数量的线程.</p>
-<p>完整的Executor介绍超出了本书的内容,有兴趣可以参考<Java Concurrency in Practice></p>
+<p>完整的Executor介绍超出了本书的内容,有兴趣可以参考<Java concurrency in practice></Java></p>
 <hr>
 <h5 id="Item-69-使用并发工具类代替wait和notify"><a href="#Item-69-使用并发工具类代替wait和notify" class="headerlink" title="Item 69: 使用并发工具类代替wait和notify"></a>Item 69: 使用并发工具类代替wait和notify</h5><p>随着1.5版本的诞生,wait和notify使用越来越少了,因为Java平台提供了高效的并发工具类</p>
 <p>在java.util.concurrent提供了三种工具类</p>
@@ -852,7 +866,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

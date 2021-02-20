@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">95</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">96</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -169,6 +169,145 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" class="post-title-link" itemprop="url">Android-源码初步认识</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-15 11:11:01" itemprop="dateModified" datetime="2021-02-15T11:11:01+08:00">2021-02-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android 源码初步认识</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Android 源码初步认识</h1>
+        <div class="show-content">
+          <p><b>1.源码结构</b></p><p>"BootLoader" u-boot.img MLO 连接硬件和操作系统的中间件,检测与配置硬件,启动操作系统<br></p><p>"uImage"  Linux内核,被u-boot识别引导</p><p>"ramdisk.img"  Android系统根文件镜像</p><p>"boot.img"  将zImage和ramdisk.img合并为一个包<br></p><p>"system.img"  Android系统核心  将被挂载到 /system分区</p><p>"userdata.img"	用户文件  将被挂载到 /data分区</p><p><br></p><p>android在线源码：<a href="http://www.grepcode.com/" target="_blank">http://www.grepcode.com/</a></p><hr>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -574,7 +713,7 @@
 <p>当抛出和任务不相关的异常时容易让人困惑,当抛出一个低级的异常时,这种情况经常发生,它不仅仅令人困惑,也污染了上层的调用</p>
 <p>为了避免这个问题，上层应该捕获较低级别的异常，并在它们的位置上抛出可以用更高级别的抽象来解释的异常,如:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Exception Translation</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="comment">// Use lower-level abstraction to do our bidding</span></span><br><span class="line">	...</span><br><span class="line">&#125; <span class="keyword">catch</span>(LowerLevelException e) &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> HigherLevelException(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更具体的例子在List<E>的方法中</p>
+<p>更具体的例子在List<E>的方法中</E></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Returns the element at the specified position in this list.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@throws</span> IndexOutOfBoundsException if the index is out of range</span></span><br><span class="line"><span class="comment">* (&#123;<span class="doctag">@code</span> index &lt; 0 || index &gt;= size()&#125;).</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	ListIterator&lt;E&gt; i = listIterator(index);</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> i.next();</span><br><span class="line">	&#125; <span class="keyword">catch</span>(NoSuchElementException e) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">&quot;Index: &quot;</span> + index);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种特殊的异常处理方式被称为”异常链”,但是也不应该过度使用</p>
 <p>我们也可以在在上层调用中抛出底层错误的原因</p>
@@ -1316,145 +1455,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-smoothScrollToPosition-%E5%AE%9A%E4%BD%8D%E4%B8%8D%E5%87%86%E7%AC%A8%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView-smoothScrollToPosition-%E5%AE%9A%E4%BD%8D%E4%B8%8D%E5%87%86%E7%AC%A8%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">ListView-smoothScroll定位不准笨方法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-15 11:14:40" itemprop="dateModified" datetime="2021-02-15T11:14:40+08:00">2021-02-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ListView smoothScrollToPosition 定位不准笨方法解决</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">ListView smoothScrollToPosition 定位不准笨方法解决</h1>
-        <div class="show-content">
-          <p>有时需要列表平滑滚动到指定位置</p><p>但和预期位置有出入</p><p>网上查的原因说是Android的一个bug</p><p>解决方法如下</p><p>ListView.smoothScrollToPosition(0)</p><p>ListView.postDelayed(new runnable){</p><p>ListView.setSelection(0)</p><p>}</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1524,7 +1524,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

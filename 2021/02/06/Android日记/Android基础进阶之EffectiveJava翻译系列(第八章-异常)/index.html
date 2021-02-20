@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">95</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">96</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -260,7 +260,7 @@
 <p>当抛出和任务不相关的异常时容易让人困惑,当抛出一个低级的异常时,这种情况经常发生,它不仅仅令人困惑,也污染了上层的调用</p>
 <p>为了避免这个问题，上层应该捕获较低级别的异常，并在它们的位置上抛出可以用更高级别的抽象来解释的异常,如:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Exception Translation</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="comment">// Use lower-level abstraction to do our bidding</span></span><br><span class="line">	...</span><br><span class="line">&#125; <span class="keyword">catch</span>(LowerLevelException e) &#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> HigherLevelException(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更具体的例子在List<E>的方法中</p>
+<p>更具体的例子在List<E>的方法中</E></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Returns the element at the specified position in this list.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@throws</span> IndexOutOfBoundsException if the index is out of range</span></span><br><span class="line"><span class="comment">* (&#123;<span class="doctag">@code</span> index &lt; 0 || index &gt;= size()&#125;).</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">	ListIterator&lt;E&gt; i = listIterator(index);</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> i.next();</span><br><span class="line">	&#125; <span class="keyword">catch</span>(NoSuchElementException e) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">&quot;Index: &quot;</span> + index);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种特殊的异常处理方式被称为”异常链”,但是也不应该过度使用</p>
 <p>我们也可以在在上层调用中抛出底层错误的原因</p>
@@ -386,7 +386,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

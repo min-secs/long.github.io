@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="Boom.Tan个人空间">
 <meta property="og:description" content="背景​        传统的媒体开发, 由我们自己定义接口, 服务端, 涉及到不同的业务往往需要重新定义不同的接口, 导致开发成本增加, 为此google在5.0中提供了一套多媒体开发框架, 目前Android9源码中蓝牙音乐服务&#x2F;收音机服务等均已采用此架构. 主要目的为了规范媒体服务和客户端之间的通信接口, 实现解耦 整体架构 ​        UI和播放器针对不同项目可有不同程度的扩展, 但针">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="d:/资料/long/boke/Hexo-Blog/source/媒体应用架构01.png">
-<meta property="og:image" content="d:/资料/long/boke/Hexo-Blog/source/视频应用架构01.png">
-<meta property="og:image" content="d:/资料/long/boke/Hexo-Blog/source/音频应用架构01.png">
+<meta property="og:image" content="http://example.com/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/....%5C%E5%AA%92%E4%BD%93%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%8401.png">
+<meta property="og:image" content="http://example.com/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/%E8%A7%86%E9%A2%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%8401.png">
+<meta property="og:image" content="http://example.com/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/资料/long/boke/Hexo-Blog/source/音频应用架构01.png">
 <meta property="article:published_time" content="2021-02-19T09:12:42.000Z">
-<meta property="article:modified_time" content="2021-02-19T10:10:02.902Z">
+<meta property="article:modified_time" content="2021-02-20T02:01:02.234Z">
 <meta property="article:author" content="boom.Tan">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="d:/资料/long/boke/Hexo-Blog/source/媒体应用架构01.png">
+<meta name="twitter:image" content="http://example.com/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/....%5C%E5%AA%92%E4%BD%93%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%8401.png">
 
 <link rel="canonical" href="http://example.com/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/">
 
@@ -124,7 +124,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">95</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">96</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,10 +204,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-02-19 17:12:42 / Modified: 18:10:02" itemprop="dateCreated datePublished" datetime="2021-02-19T17:12:42+08:00">2021-02-19</time>
+              <time title="Created: 2021-02-19 17:12:42" itemprop="dateCreated datePublished" datetime="2021-02-19T17:12:42+08:00">2021-02-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-20 10:01:02" itemprop="dateModified" datetime="2021-02-20T10:01:02+08:00">2021-02-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -230,7 +236,7 @@
 
       
         <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>​        传统的媒体开发, 由我们自己定义接口, 服务端, 涉及到不同的业务往往需要重新定义不同的接口, 导致开发成本增加, 为此google在5.0中提供了一套多媒体开发框架, 目前Android9源码中蓝牙音乐服务/收音机服务等均已采用此架构. 主要目的为了规范媒体服务和客户端之间的通信接口, 实现解耦</p>
-<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img src="D:\资料\long\boke\Hexo-Blog\source\媒体应用架构01.png" alt="image-20210219173614340"></p>
+<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img src="/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/....%5C%E5%AA%92%E4%BD%93%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%8401.png" alt="媒体应用架构01"></p>
 <p>​        UI和播放器针对不同项目可有不同程度的扩展, 但针对媒体应用来说, 业务交互基本相同, 所以抽出了MediaController和MediaSession实现核心交互逻辑</p>
 <h4 id="核心类"><a href="#核心类" class="headerlink" title="核心类"></a>核心类</h4><ul>
 <li><p>MediaController(媒体控制器)</p>
@@ -241,8 +247,10 @@
 <p>维护播放相关的信息, 比如播放状态, Id3info等</p>
 </li>
 </ul>
+<a id="more"></a>
+
 <h3 id="使用媒体会话"><a href="#使用媒体会话" class="headerlink" title="使用媒体会话"></a>使用媒体会话</h3><h3 id="构建视频应用"><a href="#构建视频应用" class="headerlink" title="构建视频应用"></a>构建视频应用</h3><p>​        播放视频时, 依赖于界面, 设计结构如下:</p>
-<p><img src="D:\资料\long\boke\Hexo-Blog\source\视频应用架构01.png" alt="image-20210219175529647"></p>
+<p><img src="/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/%E8%A7%86%E9%A2%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%8401.png" alt="视频应用架构01"></p>
 <p>使用步骤:</p>
 <ol>
 <li><p>在onCreate中初始化MediaSession</p>
@@ -256,7 +264,7 @@
 </li>
 </ol>
 <h3 id="构建音频应用"><a href="#构建音频应用" class="headerlink" title="构建音频应用"></a>构建音频应用</h3><p>​        构建音频应用时, 不依赖于界面, 界面销毁后依然能在后台播放, 设计架构如下:</p>
-<p><img src="D:\资料\long\boke\Hexo-Blog\source\音频应用架构01.png" alt="image-20210219175745066"></p>
+<p><img src="/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/资料\long\boke\Hexo-Blog\source\音频应用架构01.png" alt="音频应用架构01"></p>
 <ul>
 <li>MediaBrowser</li>
 <li>MediaBrowserService</li>
@@ -281,7 +289,10 @@
     <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E4%B8%8A%E7%8F%AD%E8%BF%98%E6%98%AF%E5%88%9B%E4%B8%9A/" rel="prev" title="">
       <i class="fa fa-chevron-left"></i> 
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/20/photo/" rel="next" title="photo">
+      photo <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -354,7 +365,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
