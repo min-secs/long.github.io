@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">96</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">95</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -169,385 +169,6 @@
 
           <div class="content index posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/" class="post-title-link" itemprop="url">Activity官方直译深入理解(完结)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-15 11:07:32" itemprop="dateModified" datetime="2021-02-15T11:07:32+08:00">2021-02-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activity官方直译深入理解（完结）</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Activity官方直译深入理解（完结）</h1>
-        <div class="show-content">
-          <hr id="null"><blockquote>Activity</blockquote><p>一个Activity是用户可以直观交互的东西。所有的activity都聚焦于创建一个窗口，可以通过setcontentview(view)的方式。通常情况下一个activity是全屏显示的，当然也可以设置不同的theme来显示不同的风格，例如windowIsFloating来设置浮动窗口。以下是每个activity必须回调的方法：</p><h4> Oncreate 在此你可以初始化你的activity。通常情况下你会用布局文件setcontentview的方式来定义此activity。在程序中通过findViewById(int)来和布局中的控件进行交互。</h4><h4> Onpause 当用户离开你的activity时会回调此方法，通常情况下之前用户做的改变行为需在此提交。</h4><p>在用Context.startActivity()启动之前，需要在AndroidManifest.xml通过&lt;activity&gt;声明。</p><p><i>Activity的生命周期</i></p><p>﻿</p><div class="image-package">
-<img name="1639224201-1493335611311" src="http://upload-images.jianshu.io/upload_images/2226681-0da4a89ed2cc5f87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50"><br><div class="image-caption">图片发自简书App</div>
-</div><p>整个过程从Oncreate开始，ondestroy结束。用户可以见到activity时刻从onstart开始到onstop之前。我们可以在onstart里面注册BroadcastReceiver，以便收到广播后修改我们的ui, 在onstop里面取消我们的BroadcastReceiver。用户可以和activity交互的时候从onresume开始直到onpause，一个activity会经常在这两个生命周期切换，所以最好在这两个方法里做轻量级的操作。</p><p>你应该在你的子类中回调如下方法，以便在不同的时候处理不同的逻辑。</p><blockquote>public class Activity extends ApplicationContext {﻿</blockquote><blockquote> protected void onCreate(Bundle savedInstanceState);﻿﻿</blockquote><blockquote> protected void onStart();﻿﻿</blockquote><blockquote> protected void onRestart();﻿﻿</blockquote><blockquote> protected void onResume();﻿﻿</blockquote><blockquote> protected void onPause();﻿﻿</blockquote><blockquote> protected void onStop();﻿﻿</blockquote><blockquote> protected void onDestroy();﻿</blockquote><blockquote> }</blockquote><p>Note：如果一个activity的onpause方法不结束的话，当前的或另一个activity的onresume方法不会执行。</p><hr id="null"><h3>Configuration Changes</h3><p>屏幕翻转，改变语言或者输入设备的改变，都会导致activity销毁。当然，我们可以在manifest.xml里面声明android:configChanges属性，在上述配置改变的时候交给我们自己的activity处理.将回调在这个方法里onConfigurationChanged(Configuration)，如果在此方法中有些屏幕配置的改变没有处理到，那么activity还是会被销毁，如果是当前在栈顶的activity则会重建。</p><hr id="null"><h3>Starting Activities and Getting Results</h3><p>通常情况下我们用startActivity(Intent)来启动一个新的activity，但有时我们想从新的activity结束的时候获取某些数据。比如微信打开相册选择某个图片发给联系人。此时就要用到startActivityForResult(Intent, int)，int为请求码，将在稍后介绍。返回的结果将回调在原activity的onActivityResult(int, int, Intent)方法里。不同的int表示不同的情况，如结果返回成功与否。Android系统已帮我们做了定义（RESULT_CANCELED, RESULT_OK）。下面请看示例：见谅，实在不知道怎么在手机上调代码的格式</p><p>﻿</p><blockquote> public boolean onKeyDown(int keyCode, KeyEvent event) {﻿</blockquote><blockquote> if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {﻿</blockquote><blockquote> // When the user center presses, let them pick a contact.﻿</blockquote><blockquote> startActivityForResult(﻿</blockquote><blockquote> new Intent(Intent.ACTION_PICK,﻿</blockquote><blockquote> new Uri("content://contacts")),﻿</blockquote><blockquote> PICK_CONTACT_REQUEST);﻿</blockquote><blockquote> return true;﻿</blockquote><blockquote> }﻿</blockquote><blockquote> return false;﻿</blockquote><blockquote> }﻿﻿</blockquote><blockquote> protected void onActivityResult(int requestCode, int resultCode,﻿</blockquote><blockquote> Intent data) {﻿</blockquote><blockquote> if (requestCode == PICK_CONTACT_REQUEST) {﻿</blockquote><blockquote> if (resultCode == RESULT_OK) {﻿</blockquote><blockquote> // A contact was picked. Here we will just display it﻿</blockquote><blockquote> // to the user.﻿</blockquote><blockquote> startActivity(new Intent(Intent.ACTION_VIEW, data));﻿</blockquote><blockquote> }﻿</blockquote><blockquote> }﻿</blockquote><blockquote> }</blockquote><blockquote><br></blockquote><hr id="null"><h3>Permissions</h3><p>启动一个Activity可能被拒绝，当在manifest里面没声明对应权限的时候。任何一个权限的生命周期（6.0需要特别的权限处理，百度android6.0权限封装）将持续到整个activity结束。</p><h3><hr id="null"></h3><p>Process Lifecycle<br></p><p>Android系统会尽可能长的保留我们的应用进程，但是当内存不足的时候会移除最老的进程。通常情况下移除进程会和用户交互的activity类型有很大相关，以下列出了四种activity的类型（重要性从高到低）：</p><h4>1.foreground activity</h4><p>用户正在交互的Activity,如你现在正在浏览的简书。它的进程只有在内存超出预期（由手机设备分配）才会被杀掉，通常来讲设备有责任保留它的进程。</p><h4>2.visible activity</h4><p>用户可见但不是foreground activity,比如此时弹出了一个对话框，一般来说不会被杀掉，除非为了保证foreground activity运行。</p><h4>3.background activity</h4><p>系统为前两种Activity预留内存会将此activity安全的杀掉。当用户重新返回这个activity时，oncreate方法会被回调，并会在onSaveInstanceState(Bundle)方法保存退出前的状态。</p><h4>4.empty process</h4><p>不再持有Activity或者是一个Service or BroadcastReceiver，系统在内存不足时有极大的可能性杀掉，所以我们在用service这种后台服务的时候，需要告诉系统我们的进程需要保留（通常做法是设置前台进程，弹出notification）。</p><hr id="null"><h3>Public method</h3><p>1.addContentView(View view, ViewGroup.LayoutParams param)</p><p>添加一个可添加的布局</p><p>2.createPendingResult(int requestCode, Intent data, int flags)</p><p>创建一个PendingIntent的对象，并将处理结果返回到onActivityResult(int, int, Intent)。</p><p>3.dispatchTouchEvent(MotionEvent ev)</p><p>此方法在处理滑动冲突时极为有用，还有一个在子类中常用的方法view.getparent.requestdisallow（true）谁用谁知道。事件分发在很多大牛的文章已经有讲述了，小弟就不献丑了。</p><p>4.dump(String prefix, FileDescriptor fd, PrintWriter writer, String[] args)﻿﻿</p><p>打印Activity的状态到指定流﻿﻿</p><p>5.enterPictureInPictureMode（）﻿﻿</p><p>让此Activity进入画中画模式，如果系统允许的话。现在主流直播可能就是此方法的衍生。﻿﻿</p><p>6.findViewById(int id)﻿﻿</p><p>从XML中解析出view对象﻿﻿</p><p>7.finish()﻿﻿</p><p>结束当前Activity,有人说此方法是不正常的结束方式，但看官方并无特别说明。﻿﻿</p><p>8.finishActivity(int requestCode)﻿﻿</p><p>强制关闭通过startActivityForResult(Intent, int)启动的activity。﻿﻿</p><p>9.finishAndRemoveTask()﻿﻿</p><p>结束一个Task里所有的activity。哟，难道能在主页调这个方法？﻿﻿</p><p>10.getApplication()﻿﻿</p><p>获取Activity唯一的application。如果是组件化项目不知道这个方式可不可用？﻿﻿</p><p>11.getCallingActivity()﻿﻿</p><p>超级有用的方法，通常我们做开发的，不知道当前页面是哪个activity,我们可以继承一个baseactivity,然后再回调oncreate的时候打印出当前的类名，这样我们就可以知道哪个页面对应哪个activity了。关于这个郭大神有一篇这个文章，后面我会贴出代码。</p><p>12.getCurrentFocus()</p><p>获得当前Window聚焦的具体view</p><p>13.getFragmentManager()</p><p>返回和当前Activity绑定的fragment的fragment manager</p><p>14.getIntent()</p><p>获得启动此Activity的intent</p><p>15.getLayoutInflater()</p><p>通过此方法直接解析一个布局成View</p><p>16.getReferrer()</p><p>谁启动了我？</p><p>17.getParentActivityIntent()</p><p>18.getRequestedOrientation()</p><p>当前请求的屏幕方向，注意用词，请求的，可能没请求成功</p><p>19.getSystemService(String name)</p><p>根据名字获得不同系统级的服务</p><p>20.isDestroyed()</p><p>回调的Ondestroy执行了，表示当前activity的实例已经死了</p><p>21.isFinishing()</p><p>调用Finish（）后</p><p>22.isImmersive()</p><p>是否为沉侵模式，并且不能被通知打断</p><p>23.isInMultiWindowMode()</p><p>是否为多窗口模式</p><p>24.isInPictureInPictureMode()</p><p>是否为画中画模式</p><p>25.onAttachFragment(Fragment fragment)</p><p>回调此方法在Fragment.onAttach()后</p><p>26.onAttachedToWindow()</p><p>当前Activity的主window是否关联上了windowmanager</p><p>27.onBackPressed()</p><p>用户按了返回键</p><p>28.onKeyDown(int keyCode, KeyEvent event)</p><p>当有键被按下的时候，同时所有的子view没有处理的情况会回调</p><p>29.onLowMemory()</p><p>内存不足时回调，可在此释放一些资源，降低被系统回收的概率</p><p>30.onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)</p><p>请求的所有权限回调</p><p>31.onTouchEvent(MotionEvent event)</p><p>触摸事件，当子view没做处理的时候</p><p>32.overridePendingTransition(int enterAnim, int exitAnim)</p><p>在startActivity(Intent) or finish()后执行activity的切换动画。</p><p>33.recreate()</p><p>重新创建一个新实例</p><p>34.releaseInstance()</p><p>通知本地App叫它释放内存</p><p>35.runOnUiThread(Runnable action)</p><p>运行在UI线程，可在此更新一些界面显示</p><p>36.setIntent(Intent newIntent)</p><p>更新回调的getintent（）</p><p>37.setVisible(boolean visible)</p><p>当前主Window是否可见</p><hr id="null"><p><br></p><h3>Protected methods<br>
-</h3><p>1.onActivityResult(int requestCode, int resultCode, Intent data)</p><p>接收启动的Activity结束时返回给它的一系列参数</p><p>2.onCreate(Bundle savedInstanceState)</p><p>3.onDestroy()</p><p>4.onNewIntent(Intent intent)</p><p>当启动模式为singleTop，在调用startActivity(Intent)时回调此方法</p><p>5.onpaues()</p><p>6.onPostCreate(Bundle savedInstanceState)</p><p>在onStart() and onRestoreInstanceState(Bundle)后调用，此方法用的少，但存在基友它的道理</p><p>7.﻿onPostResume()</p><p>在Onresume后调用</p><p>8.onUserLeaveHint()</p><p>当用户选择进入后台时回调</p><hr id="null"><p>Activity完</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E5%AE%98%E6%96%B9%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E5%AE%98%E6%96%B9%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Android内存优化官方指南</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-11 16:56:29" itemprop="dateModified" datetime="2021-02-11T16:56:29+08:00">2021-02-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>前言:在开发中遇到加载图片的业务时,一不小心就会碰到oom等令人头痛的问题,在低配手机上尤其明显.以下是谷歌官方优化建议</p>
-</blockquote>
-<h3 id="1-避免使用常驻服务"><a href="#1-避免使用常驻服务" class="headerlink" title="1.避免使用常驻服务"></a>1.避免使用常驻服务</h3><p>在一个服务使用时再去启动,不用时停止,应用开发推荐使用IntentService</p>
-<h3 id="2-合理选择容器"><a href="#2-合理选择容器" class="headerlink" title="2.合理选择容器"></a>2.合理选择容器</h3><p>针对HashMap,Android有专门优化过的容器,比如LongSparseArray<E>等</E></p>
-<h3 id="3-小心使用抽象"><a href="#3-小心使用抽象" class="headerlink" title="3.小心使用抽象"></a>3.小心使用抽象</h3><p>抽象能大大简化子类的代码,但是很多子类并不需要的代码也被放到了类里面,有隐形影响</p>
-<h3 id="4-用Protocol-Buffers代替序列化数据"><a href="#4-用Protocol-Buffers代替序列化数据" class="headerlink" title="4.用Protocol Buffers代替序列化数据"></a>4.用Protocol Buffers代替序列化数据</h3><p>谷歌出品,必属精品</p>
-<h3 id="5-避免内存流失"><a href="#5-避免内存流失" class="headerlink" title="5.避免内存流失"></a>5.避免内存流失</h3><p>常见的有在ondraw里面new obj()</p>
-<h3 id="6-移除多余的库"><a href="#6-移除多余的库" class="headerlink" title="6.移除多余的库"></a>6.移除多余的库</h3><p>很多时候第三方库能大大节省我们开发代码的时间,但也要考虑到库本身是不是太大并消耗了我们的内存</p>
-<h3 id="7-减小apk的体积"><a href="#7-减小apk的体积" class="headerlink" title="7.减小apk的体积"></a>7.减小apk的体积</h3><p>使用webp代替png图标,能缩小40%到60%的空间;<br>使用AS的Analyz分析代码中没用到的资源;<br>代码混淆也会减小一定的体积</p>
-<h3 id="8-依赖注入框架选择Dagger2"><a href="#8-依赖注入框架选择Dagger2" class="headerlink" title="8.依赖注入框架选择Dagger2"></a>8.依赖注入框架选择Dagger2</h3><p>谷歌描述的是不会像其他注入框架扫描代码,影响性能</p>
-<h3 id="9-谨慎使用外部库"><a href="#9-谨慎使用外部库" class="headerlink" title="9.谨慎使用外部库"></a>9.谨慎使用外部库</h3><p>互联网上常用的库,有些可能不是专为手机的操作系统设计的,我们要考量两个方面:本身大小和内存占用情况</p>
-<hr>
-<p>针对图片oom,对新手来说使用记住一个公式就可以了<br>Picasso.with(context).fit().into(view)//Picasso2.5.2版本<br>这行代码会根据imageview的大小自动适配图片大小</p>
-<p>想要深入了解的同学记住一点,就是图片分辨率太大了,想办法压缩图片;就像人耳听觉有频率限制,太高清的图片在手机上也是浪费资源,压缩后肉眼也看不出明显区别</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%A9%E7%94%A8DDMS%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%A9%E7%94%A8DDMS%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" class="post-title-link" itemprop="url">Android利用DDMS性能调优</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-15 11:10:14" itemprop="dateModified" datetime="2021-02-15T11:10:14+08:00">2021-02-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android利用DDMS性能调优</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android利用DDMS性能调优</h1>
-        <div class="show-content">
-          <p>前言：在android功能都开发完毕后，可以开始考虑优化代码。但要怎么入手呢？首先我们应该解决明显的UI卡顿，其次可以考虑内存优化等等。当然因为鄙人能力有限，有不到之处还请各位大神指教。</p><h1>1.UI卡顿</h1><p>UI卡顿的问题，我们可以利用ddms的traceview功能查看。</p><p><br></p><div class="image-package" data-index="1">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-7aec17077e4ccf8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p><br></p><p>第一次点击后,会弹出一个对话框,直接点击确定,使用默认的即可.然后在界面上操作一下认为耗时的地方,在点击一下带红点的按钮.在IDE中就会出现traceview的视图.</p><p>我们在</p><div class="image-package" data-index="2">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-c45e1fefcda989a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p>这一栏中找到CPU_time/call,点击后排序.里面找我们自己的函数,就能看到较耗时的操作,在进行优化.</p><h4><i>PS:如果已经点击红点按钮,界面操作无响应的话,多半是哪个地方ANR了,我们可以adb pull data/anr/*  d:/   拷贝出traces.txt文件 从而定位哪个函数在主线程进行了耗时操作.</i></h4><h1>2.堆内存泄漏</h1><p>内存泄漏用IDE可点开红框</p><div class="image-package" data-index="3">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-d804e1635562048e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p>若是没有视图窗口,则在IDE上方窗口选windows --&gt;show view 里面找到heap</p><p>我们在heap界面,然后每五秒选择gauge GC 若是heap size稳定在一个数值则表示没有内存泄漏的风险,若是heap size在不停的增大,则我们需要考虑创建对象的地方哪还值得优化.可以百度 Android内存优化.</p><p>&gt;推荐使用LeakCancary,eclipse版本的jar包我这有,详情私信</p><h1>3.线程耗时</h1><p><br></p><div class="image-package" data-index="4">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-daf22e49d4da9f19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p>我们在设备列表中选中我们的包名,然后打开红框的线程.在右侧就能看到当前应用所有的线程,utime表示我们的线程执行耗时,重点关注这个即可.</p><h1>4.UI嵌套</h1><p><br></p><div class="image-package" data-index="5">
-<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/2226681-44734d04ef915973.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" style="min-height:0;min-width:0;" width="auto" height="auto"><br><div class="image-caption"></div>
-</div><p>点开这个按钮需要手机有root权限,若是没有的话,可在手机开发者选项中,打开GPU过度绘制,如果界面中红色的区域较多,则这部分区域是我们需要优化的</p><h1>5.cpu占比</h1><p>我们可在上述右侧部位找到system info的窗口,点击update后,即可看我们的应用瞬时占用的cpu比例.</p><p>todo : 如何分析各个函数占用cpu的比重</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -1380,6 +1001,247 @@ Thermometer.newInstance(TemperatureScale.CELSIUS)不仅比Thermometer.newInstanc
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E9%A2%9C%E8%89%B2%E9%80%8F%E6%98%8E%E5%BA%A6%E7%99%BE%E5%88%86%E6%AF%94%E5%92%8C%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AF%B9%E5%BA%94%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E9%A2%9C%E8%89%B2%E9%80%8F%E6%98%8E%E5%BA%A6%E7%99%BE%E5%88%86%E6%AF%94%E5%92%8C%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E5%AF%B9%E5%BA%94%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">Android颜色透明度计算公式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:57:10" itemprop="dateModified" datetime="2021-02-11T16:57:10+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>有时候UI设计颜色多少透明度的时候,都去网上找对应关系图,其实有一个公式可以自己算出来</p>
+</blockquote>
+<p>十六进制的FF–&gt;十进制的255</p>
+<ul>
+<li>90%透明度<br>十进制255*0.9 = 229.5 ≈ 230(四舍五入) –&gt;十六进制E6</li>
+</ul>
+<p>其它透明度以此类推<br><img src="https://upload-images.jianshu.io/upload_images/2226681-47375f771c7e80f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="程序员计算器"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/ArrayList%E5%AF%B9%E8%B1%A1%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/ArrayList%E5%AF%B9%E8%B1%A1%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">List对象排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:58:57" itemprop="dateModified" datetime="2021-02-11T16:58:57+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>前言:最近对收音机的开发,遇到一个需求,将收藏列表显示在前,电台列表显示在后,所以需要对列表进行对象排序,在此做一个总结.</p>
+</blockquote>
+<h4 id="步骤1-创建比较器-指定排序规则"><a href="#步骤1-创建比较器-指定排序规则" class="headerlink" title="步骤1 创建比较器,指定排序规则"></a>步骤1 创建比较器,指定排序规则</h4><p>导入此包 java.util.Comparator</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">comparator = <span class="keyword">new</span> Comparator&lt;RadioNode&gt;() &#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(RadioNode s1, RadioNode s2)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">if</span> (s1.isFavor == s2.isFavor) &#123;</span><br><span class="line">					<span class="keyword">return</span> s2.frequent - s1.frequent;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					<span class="keyword">if</span>(s1.isFavor)	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">					<span class="keyword">if</span>(s2.isFavor)	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里面有两个对象s1和s2,下面是制定的比较规则,如果isFavor相同,则比较frequent<br>返回1表示s1比s2大,则s1的位置不动,s2继续与后面的比较<br>返回0表示俩一样大,位置不变<br>返回-1表示s1与s2交换位置,s1继续按规则比较</p>
+<h4 id="步骤2-将集合传入"><a href="#步骤2-将集合传入" class="headerlink" title="步骤2 将集合传入"></a>步骤2 将集合传入</h4><p>导入此包java.util.Collections</p>
+<pre><code>Collections.sort(favorList,comparator);
+</code></pre>
+<p><code>end</code><br>感谢android</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E9%80%89%E6%8B%A9%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E5%90%8E%E9%97%AA%E9%80%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Eclipse%E9%80%89%E6%8B%A9%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E5%90%8E%E9%97%AA%E9%80%80/" class="post-title-link" itemprop="url">Eclipse选择工作空间后闪退</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:59:22" itemprop="dateModified" datetime="2021-02-11T16:59:22+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>前言:之前使用的好好的时候,eclipse莫名报了一个outofXXX的弹框,没仔细看.整个eclipse动不了,不停弹框,网上搜索了一下解决方案</p>
+</blockquote>
+<h3 id="稳准狠"><a href="#稳准狠" class="headerlink" title="稳准狠"></a>稳准狠</h3><p>删除<br>[workspace]/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1449,7 +1311,7 @@ Thermometer.newInstance(TemperatureScale.CELSIUS)不仅比Thermometer.newInstanc
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1457,11 +1319,6 @@ Thermometer.newInstance(TemperatureScale.CELSIUS)不仅比Thermometer.newInstanc
             <a href="/categories/">
         <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>

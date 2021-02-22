@@ -15,18 +15,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>my new post</title>
-    <url>/2021/02/05/my-new-post/</url>
-    <content><![CDATA[<p>我是一个兵,来自老本性</p>
-<h2 id="哈哈哈"><a href="#哈哈哈" class="headerlink" title="哈哈哈"></a>哈哈哈</h2>]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>标签</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>photo</title>
     <url>/2021/02/20/photo/</url>
     <content><![CDATA[]]></content>
@@ -2229,10 +2217,10 @@ getDataFromDb();
   <entry>
     <title>MediaSession框架</title>
     <url>/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/</url>
-    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>​        传统的媒体开发, 由我们自己定义接口, 服务端, 涉及到不同的业务往往需要重新定义不同的接口, 导致开发成本增加, 为此google在5.0中提供了一套多媒体开发框架, 目前Android9源码中蓝牙音乐服务/收音机服务等均已采用此架构. 主要目的为了规范媒体服务和客户端之间的通信接口, 实现解耦</p>
-<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img src="/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/....%5C%E5%AA%92%E4%BD%93%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%8401.png" alt="媒体应用架构01"></p>
+    <content><![CDATA[<h3 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h3><p>​        传统的媒体开发, 由我们自己定义接口, 服务端, 涉及到不同的业务往往需要重新定义不同的接口, 导致开发成本增加, 为此google在5.0中提供了一套多媒体开发框架, 目前Android9源码中蓝牙音乐服务/收音机服务等均已采用此架构. 主要目的为了规范媒体服务和客户端之间的通信接口, 实现解耦</p>
+<h3 id="2-整体架构"><a href="#2-整体架构" class="headerlink" title="2. 整体架构"></a>2. 整体架构</h3><p><img src="/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/%E5%AA%92%E4%BD%93%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%8401.png" alt="媒体应用架构01"></p>
 <p>​        UI和播放器针对不同项目可有不同程度的扩展, 但针对媒体应用来说, 业务交互基本相同, 所以抽出了MediaController和MediaSession实现核心交互逻辑</p>
-<h4 id="核心类"><a href="#核心类" class="headerlink" title="核心类"></a>核心类</h4><ul>
+<h4 id="2-1-核心类"><a href="#2-1-核心类" class="headerlink" title="2.1 核心类"></a>2.1 核心类</h4><ul>
 <li><p>MediaController(媒体控制器)</p>
 <p>负责与UI的交互, 将用户的操作通过媒体控制器转换为对会话的回调, 同样, 媒体会话改变会通知控制器的回调变化, 实现双重更新机制</p>
 </li>
@@ -2243,7 +2231,12 @@ getDataFromDb();
 </ul>
 <a id="more"></a>
 
-<h3 id="使用媒体会话"><a href="#使用媒体会话" class="headerlink" title="使用媒体会话"></a>使用媒体会话</h3><h3 id="构建视频应用"><a href="#构建视频应用" class="headerlink" title="构建视频应用"></a>构建视频应用</h3><p>​        播放视频时, 依赖于界面, 设计结构如下:</p>
+<h3 id="3-使用媒体会话"><a href="#3-使用媒体会话" class="headerlink" title="3. 使用媒体会话"></a>3. 使用媒体会话</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1. 在Activity或服务的onCreate中初始化</span></span><br><span class="line">mediaSession = <span class="keyword">new</span> MediaSessionCompat(context, TAG);</span><br><span class="line">mediaSession.setActive(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Do not let MediaButtons restart the player when the app is not visible</span></span><br><span class="line">mediaSession.setMediaButtonReceiver(<span class="keyword">null</span>);</span><br><span class="line">mediaSession.setFlags(</span><br><span class="line">                MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 初始化PlaybackStateCompat实例</span></span><br><span class="line">stateBuilder = <span class="keyword">new</span> PlaybackStateCompat.Builder()</span><br><span class="line">      .setActions(</span><br><span class="line">         PlaybackStateCompat.ACTION_PLAY |</span><br><span class="line">         PlaybackStateCompat.ACTION_PLAY_PAUSE |</span><br><span class="line">         PlaybackStateCompat.ACTION_FAST_FORWARD |</span><br><span class="line">         PlaybackStateCompat.ACTION_REWIND |</span><br><span class="line">         PlaybackStateCompat.ACTION_PAUSE);</span><br><span class="line">mediaSession.setPlaybackState(stateBuilder.build());</span><br><span class="line"><span class="comment">// 3. 设置callback, 接收客户端传来的消息, 如播放暂停上下曲</span></span><br><span class="line">mediaSession.setCallback(<span class="keyword">new</span> MySessionCallback());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 媒体信息改变/播放状态改变</span></span><br><span class="line">mediaSession.setMetaData();</span><br><span class="line">mediaSession.setPlaybackState()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="4-构建视频应用"><a href="#4-构建视频应用" class="headerlink" title="4. 构建视频应用"></a>4. 构建视频应用</h3><p>​        播放视频时, 依赖于界面, 设计结构如下:</p>
 <p><img src="/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/%E8%A7%86%E9%A2%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%8401.png" alt="视频应用架构01"></p>
 <p>使用步骤:</p>
 <ol>
@@ -2257,15 +2250,67 @@ getDataFromDb();
 
 </li>
 </ol>
-<h3 id="构建音频应用"><a href="#构建音频应用" class="headerlink" title="构建音频应用"></a>构建音频应用</h3><p>​        构建音频应用时, 不依赖于界面, 界面销毁后依然能在后台播放, 设计架构如下:</p>
-<p><img src="/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/资料\long\boke\Hexo-Blog\source\音频应用架构01.png" alt="音频应用架构01"></p>
+<h3 id="5-构建音频应用"><a href="#5-构建音频应用" class="headerlink" title="5. 构建音频应用"></a>5. 构建音频应用</h3><p>​        构建音频应用时, 不依赖于界面, 界面销毁后依然能在后台播放, 设计架构如下:</p>
+<p><img src="/2021/02/19/Android%E6%97%A5%E8%AE%B0/MediaSession%E6%A1%86%E6%9E%B6/%E9%9F%B3%E9%A2%91%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%8401.png" alt="音频应用架构01"></p>
 <ul>
-<li>MediaBrowser</li>
-<li>MediaBrowserService</li>
+<li><p>MediaBrowser</p>
+<p>用于连接音频服务, 实现多对一的架构</p>
+<p><strong>使用步骤</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mediaBrowser = <span class="keyword">new</span> MediaBrowserCompat(context,</span><br><span class="line">                <span class="keyword">new</span> ComponentName(ServicePackage, ServiceClass),</span><br><span class="line">                connectionCallbacks,</span><br><span class="line">                <span class="keyword">null</span>); </span><br><span class="line">mediaBrowser.connect();</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> MediaBrowserCompat.ConnectionCallback connectionCallbacks = <span class="keyword">new</span> MediaBrowserCompat.ConnectionCallback() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onConnected</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="comment">//拿到媒体控制器</span></span><br><span class="line">            mediaController = <span class="keyword">new</span> MediaControllerCompat(mContext, token);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">//...省略其它</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>MediaBrowserService</p>
+<p>用于构建音频服务, 生命周期同正常的Service</p>
+<p>内部维护MediaSession和Player</p>
+<p><strong>使用步骤</strong></p>
+<ol>
+<li><p>清单文件中</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">service</span> <span class="attr">android:name</span>=<span class="string">&quot;.MediaPlaybackService&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.media.browse.MediaBrowserService&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
+<li><p>服务继承MediaBrowserServiceCompat</p>
+</li>
+<li><p>初始化媒体会话(同第三节)</p>
+</li>
+</ol>
+</li>
 </ul>
-<h3 id="响应媒体按钮"><a href="#响应媒体按钮" class="headerlink" title="响应媒体按钮"></a>响应媒体按钮</h3><p>…</p>
-<h3 id="音频焦点管理"><a href="#音频焦点管理" class="headerlink" title="音频焦点管理"></a>音频焦点管理</h3><p>…</p>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><h4 id="Q1-方控下一曲多次-音源跑到上一个-如当前播放视频-切曲多次跑到了音乐源"><a href="#Q1-方控下一曲多次-音源跑到上一个-如当前播放视频-切曲多次跑到了音乐源" class="headerlink" title="Q1: 方控下一曲多次, 音源跑到上一个, 如当前播放视频, 切曲多次跑到了音乐源"></a>Q1: 方控下一曲多次, 音源跑到上一个, 如当前播放视频, 切曲多次跑到了音乐源</h4>]]></content>
+<h3 id="6-响应媒体按钮"><a href="#6-响应媒体按钮" class="headerlink" title="6. 响应媒体按钮"></a>6. 响应媒体按钮</h3><p>Android8.0之后</p>
+<p><img src="https://developer.android.google.cn/guide/topics/media-apps/images/mediabutton-o.png" alt="MediaButton逻辑图"></p>
+<p>​        正常情况下触发方控按钮后会匹配到当前激活态的MediaSession, 并回调onMediaButtonEvent()方法, 默认解析常用的键值到对应的方法</p>
+<table>
+<thead>
+<tr>
+<th align="center">KEYCODE_MEDIA_PLAY</th>
+<th align="center">onPlay()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">KEYCODE_MEDIA_NEXT</td>
+<td align="center">onSkipToNext()</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+</tbody></table>
+<p>​        如需自定义按钮实现可重写onMediaButtonEvent()</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onMediaButtonEvent</span><span class="params">(Intent mediaButtonEvent)</span> </span>&#123;</span><br><span class="line">    KeyEvent keyEvent = mediaButtonEvent.getParcelableExtra(Intent.EXTRA_KEY_EVENT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​        <strong>注意</strong>: </p>
+<ol>
+<li>根据实际应用中发现, MediaSession的查找并不完全根据active的状态, 而是根据setPlayState状态匹配底层实际播放器的状态决定的</li>
+<li>Activity界面消费按键后, 不会走到MediaSession的查找逻辑</li>
+</ol>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><h4 id="Q1-方控下一曲多次-音源跑到上一个-如当前播放视频-切曲多次跑到了音乐源"><a href="#Q1-方控下一曲多次-音源跑到上一个-如当前播放视频-切曲多次跑到了音乐源" class="headerlink" title="Q1: 方控下一曲多次, 音源跑到上一个, 如当前播放视频, 切曲多次跑到了音乐源"></a>Q1: 方控下一曲多次, 音源跑到上一个, 如当前播放视频, 切曲多次跑到了音乐源</h4><p>​        A: 舒工(万里)查找源码后发现, MediaSession的遍历依赖当前uid, 车机应用中基本每个媒体服务都设置了android:sharedUserId=”android.uid.system”, 所以匹配不到对应的Session后, 会取列表中的第一个, 导致不匹配</p>
+<p>解决方案有两种:</p>
+<ol>
+<li><p>不设置system属性</p>
+<p>不设置此属性, 当前应用维护的MediaSession一般只有一个, 所以不会匹配错乱</p>
+<p>此方案需要动态申请权限</p>
+</li>
+<li><p>当前丢失焦点后或者确认不播放音乐的场景 MediaSession.setPlayState(null)</p>
+<p>此方案需要用到播放状态回调的地方判断null, 视为暂停状态</p>
+</li>
+</ol>
+]]></content>
       <categories>
         <category>Android日记</category>
       </categories>
@@ -3318,10 +3363,9 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2021/02/06/%E6%97%B6%E9%97%B4/2018--%E4%B8%80%E6%9C%8824%E5%8F%B7%E5%88%B0%E4%B8%80%E6%9C%8828%E5%8F%B7/</url>
-    <content><![CDATA[<p>###本周总结 总共时间10080分钟<br>#####1.总体计划概要</p>
-<ul>
+    <title>2018/0124~0128</title>
+    <url>/2018/02/03/%E6%97%B6%E9%97%B4/2018--%E4%B8%80%E6%9C%8824%E5%8F%B7%E5%88%B0%E4%B8%80%E6%9C%8828%E5%8F%B7/</url>
+    <content><![CDATA[<h3 id="本周总结-总共时间10080分钟"><a href="#本周总结-总共时间10080分钟" class="headerlink" title="本周总结 总共时间10080分钟"></a>本周总结 总共时间10080分钟</h3><h5 id="1-总体计划概要"><a href="#1-总体计划概要" class="headerlink" title="1.总体计划概要"></a>1.总体计划概要</h5><ul>
 <li>工作时长:2335分钟</li>
 <li>学习:95分钟</li>
 <li> 交通:437分钟</li>
@@ -3329,20 +3373,50 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
 <li>日常(洗漱,洗澡等):247分钟</li>
 <li>睡眠:2940分钟<br>#####2.计划本周目标及完成情况<br>学习420分钟,未达成<br>#####3.完成情况原因分析<br>冬天开始睡懒觉,晚上看上了吃鸡直播,没有按时睡觉,闹钟响后没有第一时间起床,结果导致没有时间学习<br>#####4.后续计划<br>按时睡觉按时起床,每天早上观看一小时谷歌官方文章,晚上查看车机系统是如何搭成的<br>继续提高专业能力</li>
 </ul>
-<p>#####本周做得完善的地方<br>学会了Source Insight 4.0的基本用法<br>工作上基本完成<br>#####值得改进的地方<br>每天晚上玩手机的时间太多了,影响了睡眠,进而影响了学习.<br>给家人打电话的时间变少了,争取每周打一通电话</p>
+<h5 id="本周做得完善的地方"><a href="#本周做得完善的地方" class="headerlink" title="本周做得完善的地方"></a>本周做得完善的地方</h5><p>学会了Source Insight 4.0的基本用法<br>工作上基本完成</p>
+<h5 id="值得改进的地方"><a href="#值得改进的地方" class="headerlink" title="值得改进的地方"></a>值得改进的地方</h5><p>每天晚上玩手机的时间太多了,影响了睡眠,进而影响了学习.<br>给家人打电话的时间变少了,争取每周打一通电话</p>
 ]]></content>
+      <categories>
+        <category>时间</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2021/02/06/%E6%97%B6%E9%97%B4/2018-01-29~02-03/</url>
-    <content><![CDATA[<p>###本周总结<br>##1.总体计划概要<br>*工作时长:3307分钟<br>*学习:34分钟<br>*交通:<br>*陪伴家人:332分钟<br>*日常(洗漱,洗澡等):125分钟<br>*睡眠:2520<br>*娱乐:695分钟<br>##2.计划本周目标及完成情况<br>每天学习一小时–未完成<br>每天快走40分钟–未完成<br>汗颜~<br>##3.完成情况原因分析<br>早上喜欢睡懒觉,晚上12点多才睡,影响到了第二天的质量<br>##4.后续计划<br>每晚11:30必须睡觉<br>下班后走40分钟<br>早上7点起床,学习一小时<br>#####本周做得完善的地方<br>工作上比较顺利,也帮朋友解决了一些问题,但上班只能挣小钱,要多学习商业模式<br>#####值得改进的地方<br>每晚睡的晚必须要改进了,平时工作的时候,稍微触及点利益的变得很敏感,还需要看开,想好各种场景的措辞,向高压锅同志学习</p>
+    <title>老板领导与员工</title>
+    <url>/2018/02/03/%E6%97%B6%E9%97%B4/2018-01-29~02-03/</url>
+    <content><![CDATA[<h3 id="本周总结"><a href="#本周总结" class="headerlink" title="本周总结"></a>本周总结</h3><h2 id="1-总体计划概要"><a href="#1-总体计划概要" class="headerlink" title="1.总体计划概要"></a>1.总体计划概要</h2><ul>
+<li><p>工作时长:3307分钟</p>
+<p>学习:34分钟<br>*交通:<br>*陪伴家人:332分钟<br>*日常(洗漱,洗澡等):125分钟<br>*睡眠:2520<br>*娱乐:695分钟</p>
+<h2 id="2-计划本周目标及完成情况"><a href="#2-计划本周目标及完成情况" class="headerlink" title="2.计划本周目标及完成情况"></a>2.计划本周目标及完成情况</h2><p>每天学习一小时–未完成<br>每天快走40分钟–未完成<br>汗颜~</p>
+<h2 id="3-完成情况原因分析"><a href="#3-完成情况原因分析" class="headerlink" title="3.完成情况原因分析"></a>3.完成情况原因分析</h2><p>早上喜欢睡懒觉,晚上12点多才睡,影响到了第二天的质量</p>
+<h2 id="4-后续计划"><a href="#4-后续计划" class="headerlink" title="4.后续计划"></a>4.后续计划</h2><p>每晚11:30必须睡觉<br>下班后走40分钟<br>早上7点起床,学习一小时</p>
+<h5 id="本周做得完善的地方"><a href="#本周做得完善的地方" class="headerlink" title="本周做得完善的地方"></a>本周做得完善的地方</h5><p>工作上比较顺利,也帮朋友解决了一些问题,但上班只能挣小钱,要多学习商业模式</p>
+<h5 id="值得改进的地方"><a href="#值得改进的地方" class="headerlink" title="值得改进的地方"></a>值得改进的地方</h5><p>每晚睡的晚必须要改进了,平时工作的时候,稍微触及点利益的变得很敏感,还需要看开,想好各种场景的措辞,向高压锅同志学习</p>
+</li>
+</ul>
 ]]></content>
+      <categories>
+        <category>时间</category>
+      </categories>
   </entry>
   <entry>
     <title></title>
     <url>/2021/02/06/%E6%97%B6%E9%97%B4/%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<p>###本周总结<br>##1.总体计划概要<br>*工作时长:<br>*学习:<br>*交通:<br>*陪伴家人:<br>*日常(洗漱,洗澡等)<br>*睡眠:<br>*娱乐:<br>##2.计划本周目标及完成情况<br>##3.完成情况原因分析<br>##4.后续计划<br>#####本周做得完善的地方<br>#####值得改进的地方</p>
-]]></content>
+    <content><![CDATA[<h3 id="本周总结"><a href="#本周总结" class="headerlink" title="本周总结"></a>本周总结</h3><h2 id="1-总体计划概要"><a href="#1-总体计划概要" class="headerlink" title="1.总体计划概要"></a>1.总体计划概要</h2><p>工作时长:</p>
+<ul>
+<li><p>学习:</p>
+</li>
+<li><p>交通:</p>
+</li>
+<li><p>陪伴家人:</p>
+</li>
+<li><p>日常(洗漱,洗澡等)</p>
+</li>
+<li><p>睡眠:</p>
+</li>
+<li><p>娱乐:</p>
+</li>
+</ul>
+<h2 id="2-计划本周目标及完成情况"><a href="#2-计划本周目标及完成情况" class="headerlink" title="2.计划本周目标及完成情况"></a>2.计划本周目标及完成情况</h2><h2 id="3-完成情况原因分析"><a href="#3-完成情况原因分析" class="headerlink" title="3.完成情况原因分析"></a>3.完成情况原因分析</h2><h2 id="4-后续计划"><a href="#4-后续计划" class="headerlink" title="4.后续计划"></a>4.后续计划</h2><h5 id="本周做得完善的地方"><a href="#本周做得完善的地方" class="headerlink" title="本周做得完善的地方"></a>本周做得完善的地方</h5><h5 id="值得改进的地方"><a href="#值得改进的地方" class="headerlink" title="值得改进的地方"></a>值得改进的地方</h5>]]></content>
   </entry>
   <entry>
     <title>写给2019年的你,来自2018年的我</title>
