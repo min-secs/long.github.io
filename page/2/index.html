@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">95</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">97</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -169,6 +169,250 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity-finish-%E5%90%8E-onDestroy-()%E5%B9%B6%E4%B8%8D%E4%BC%9A%E7%AB%8B%E9%A9%AC%E6%89%A7%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity-finish-%E5%90%8E-onDestroy-()%E5%B9%B6%E4%B8%8D%E4%BC%9A%E7%AB%8B%E9%A9%AC%E6%89%A7%E8%A1%8C/" class="post-title-link" itemprop="url">Activity-finish之后,onDestoy并不会马上执行</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-15 10:53:30" itemprop="dateModified" datetime="2021-02-15T10:53:30+08:00">2021-02-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity finish 后 onDestroy ()并不会立马执行</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">Activity finish 后 onDestroy ()并不会立马执行</h1>
+        <div class="show-content">
+          <p>只看标题就好</p><p>所以两个Activity在用到生命周期的时候,不要再onDestroy中做，控制不了</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Data/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-Data/" class="post-title-link" itemprop="url">Android-Data</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-06 08:35:05 / Modified: 09:24:56" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Android文件系统入门知识"><a href="#Android文件系统入门知识" class="headerlink" title="Android文件系统入门知识"></a>Android文件系统入门知识</h3><blockquote>
+<p>内外存储的由来:因为历史原因,老版本的Android手机可用容量小, 加载外部存储设备以便加大容量, 如sdcard. 后来随着技术的不断提高, 手机本身的容量逐渐加大, 但是这个分法一直保留了下来.</p>
+</blockquote>
+<p><strong>二者区别</strong></p>
+<ul>
+<li><p>内部存储</p>
+<p>  不需要权限</p>
+<p>  其它APP不可访问, 用户也不能操作</p>
+<p>  卸载APP时会移除内部存储数据</p>
+</li>
+<li><p>外部存储</p>
+<p>  首先要确认可访问性, 因为外部存储可卸载</p>
+<p>  其它APP可以访问</p>
+<p>  需要权限</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> /&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>*内部存储简单介绍**</p>
+</li>
+</ul>
+<p>所在路径: Android 6.0在/data/user/0/package_name/</p>
+<p>其它版本也对应在/data/下的某个地方, 以包名作为区分, 未root的文件管理中查看不了</p>
+<p><strong>使用:</strong></p>
+<p>在继承自ContextWrapper中, 如Activity, Application</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到文件对象</span></span><br><span class="line">File file = getFilesDir();</span><br><span class="line"></span><br><span class="line">String inPath = file.getAbsolutePath();</span><br><span class="line"></span><br><span class="line">Log.d(<span class="string">&quot;test-file&quot;</span>,<span class="string">&quot;getFileDir:&quot;</span>+ inPath);</span><br><span class="line"></span><br><span class="line"><span class="comment">//在inPath中写入hello</span></span><br><span class="line">FileOutputStream fileOutputStream = openFileOutput(<span class="string">&quot;hello.txt&quot;</span>, MODE_PRIVATE);</span><br><span class="line">fileOutputStream.write(<span class="string">&quot;hello&quot;</span>.getBytes());</span><br><span class="line"></span><br><span class="line">fileOutputStream.close();</span><br></pre></td></tr></table></figure>
+<p><strong>外部存储简单介绍</strong></p>
+<p>通过android.os包中的Environment类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断文件可用性</span></span><br><span class="line"><span class="comment">/* 可写 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isExternalStorageWritable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String state = Environment.getExternalStorageState();</span><br><span class="line">    <span class="keyword">if</span> (Environment.MEDIA_MOUNTED.equals(state)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 可读 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isExternalStorageReadable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String state = Environment.getExternalStorageState();</span><br><span class="line">    <span class="keyword">if</span> (Environment.MEDIA_MOUNTED.equals(state) ||</span><br><span class="line">        Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//得到外部存储私有对象(File),会随着APP的卸载而卸载</span></span><br><span class="line">Environment.getExternalStorageDirectory();</span><br><span class="line"></span><br><span class="line"><span class="comment">//得到外部存储公共对象, 文件不会随着APP的卸载而卸载</span></span><br><span class="line"><span class="comment">//传入的参数代表文件类型 如Environment.DIRECTORY_MUSIC 代表音乐</span></span><br><span class="line"><span class="comment">//DIRECTORY_RINGTONES 代表铃音</span></span><br><span class="line">Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));</span><br></pre></td></tr></table></figure>
+<p>得到File对象后, 你就可以为所欲为</p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/reference/java/io/File.html#public-methods">File类</a></p>
+<hr>
+<p>###共享数据</p>
+<blockquote>
+<p>记得第一份工作面试的时候被问了一个问题:如何自己实现类似友盟分享功能?<br>当时回答的很含糊, 现在再来看, 就是通过Intent来定义分享action, 遍历所有的APP, 显示符合这个action的应用, 按规则启动隐式Intent</p>
+</blockquote>
+<ul>
+<li>简单数据<br>通过Intent</li>
+<li>文件<br>通过V4包中的<a target="_blank" rel="noopener" href="https://developer.android.google.cn/reference/androidx/core/content/FileProvider.html">FileProvider</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -953,284 +1197,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-%E6%BA%90%E7%A0%81%E5%88%9D%E6%AD%A5%E8%AE%A4%E8%AF%86/" class="post-title-link" itemprop="url">Android-源码初步认识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-15 11:11:01" itemprop="dateModified" datetime="2021-02-15T11:11:01+08:00">2021-02-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android 源码初步认识</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android 源码初步认识</h1>
-        <div class="show-content">
-          <p><b>1.源码结构</b></p><p>"BootLoader" u-boot.img MLO 连接硬件和操作系统的中间件,检测与配置硬件,启动操作系统<br></p><p>"uImage"  Linux内核,被u-boot识别引导</p><p>"ramdisk.img"  Android系统根文件镜像</p><p>"boot.img"  将zImage和ramdisk.img合并为一个包<br></p><p>"system.img"  Android系统核心  将被挂载到 /system分区</p><p>"userdata.img"	用户文件  将被挂载到 /data分区</p><p><br></p><p>android在线源码：<a href="http://www.grepcode.com/" target="_blank">http://www.grepcode.com/</a></p><hr>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%88%87%E4%B9%9D%E5%A6%B9%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">Android切九妹图片</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-15 11:10:31" itemprop="dateModified" datetime="2021-02-15T11:10:31+08:00">2021-02-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android切九妹图片</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android切九妹图片</h1>
-        <div class="show-content">
-          <p>1.打开sdk/tools/draw9patch</p><p>2.拖进去一张图片</p><p>3.四周都可以点，左键选择锚点</p><p>4.左上为图片拉伸区域，右下为内容固定区域</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1300,7 +1266,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">97</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

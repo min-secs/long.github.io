@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="添加代理增快访问速度 1.打开ipaddress.com网站 2.输入GitHub.com或者fastly.net查询IP 3.管理员打开C:\Windows\System32\drivers\etc\hosts 4.199.232.69.194 fastly.net  Q: github.io打不开 A: 按如上配置自己的域名 185.199.109.153 min-secs.github.io">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git常用功能">
+<meta property="og:url" content="http://example.com/2021/02/25/%E5%B7%A5%E5%85%B7/Git%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/index.html">
+<meta property="og:site_name" content="Boom.Tan个人空间">
+<meta property="og:description" content="添加代理增快访问速度 1.打开ipaddress.com网站 2.输入GitHub.com或者fastly.net查询IP 3.管理员打开C:\Windows\System32\drivers\etc\hosts 4.199.232.69.194 fastly.net  Q: github.io打不开 A: 按如上配置自己的域名 185.199.109.153 min-secs.github.io">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-25T09:35:05.000Z">
+<meta property="article:modified_time" content="2021-02-25T09:58:33.508Z">
+<meta property="article:author" content="boom.Tan">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/02/25/%E5%B7%A5%E5%85%B7/Git%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Git常用功能 | Boom.Tan个人空间</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Boom.Tan个人空间</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">97</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/25/%E5%B7%A5%E5%85%B7/Git%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git常用功能
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-25 17:35:05 / Modified: 17:58:33" itemprop="dateCreated datePublished" datetime="2021-02-25T17:35:05+08:00">2021-02-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="添加代理"><a href="#添加代理" class="headerlink" title="添加代理"></a><strong>添加代理</strong></h3><p>增快访问速度</p>
+<p>1.打开ipaddress.com网站</p>
+<p>2.输入GitHub.com或者fastly.net查询IP</p>
+<p>3.管理员打开C:\Windows\System32\drivers\etc\hosts</p>
+<p>4.199.232.69.194 fastly.net</p>
+<hr>
+<p>Q: github.io打不开</p>
+<p>A: 按如上配置自己的域名 185.199.109.153 min-secs.github.io</p>
+<h3 id="配置用户名-邮箱"><a href="#配置用户名-邮箱" class="headerlink" title="配置用户名,邮箱"></a>配置用户名,邮箱</h3><p>git config –global user.email “email”</p>
+<p>git config –global user.name “username”</p>
+<h3 id="查看邮箱"><a href="#查看邮箱" class="headerlink" title="查看邮箱"></a>查看邮箱</h3><p>git config user.name</p>
+<p>git config user.email</p>
+<h3 id="克隆一个仓库"><a href="#克隆一个仓库" class="headerlink" title="克隆一个仓库"></a>克隆一个仓库</h3><p>​    git clone git://</p>
+<p>​    </p>
+<h3 id="获取远程仓库并合并到本地分支"><a href="#获取远程仓库并合并到本地分支" class="headerlink" title="获取远程仓库并合并到本地分支"></a><strong>获取远程仓库并合并到本地分支</strong></h3><p>​    git pull</p>
+<p>​    git pull –rebase </p>
+<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a><strong>提交</strong></h3><p>​    git commit </p>
+<p>​    <strong>覆盖上次提交</strong></p>
+<p>git commit –amend</p>
+<h3 id="创建新分支-并切到该分支"><a href="#创建新分支-并切到该分支" class="headerlink" title="创建新分支,并切到该分支"></a><strong>创建新分支</strong>,并切到该分支</h3><p>​    git co -b bugFix </p>
+<p>​    </p>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a><strong>合并</strong></h3><p>​    git merge bugFix 合并分支到master</p>
+<p>​    git rebase master 类似于线性提交</p>
+<p>将<strong>master</strong>强制指向head的第三级父提交(不能在当前分支操作当前分支)</p>
+<p>​    git branch -f master HEAD~3 </p>
+<p>​    </p>
+<h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a><strong>撤销</strong></h3><p>​    git reset <hash> 本地</hash></p>
+<p>​    git revert <hash> 远程</hash></p>
+<p>​    </p>
+<h3 id="整理提交记录"><a href="#整理提交记录" class="headerlink" title="整理提交记录"></a><strong>整理提交记录</strong></h3><p>​    git cherry-pick <hash> 知道hash的情况比较方便</hash></p>
+<p>​    git rebase -i &lt;HEAD~3&gt;</p>
+<p>​    </p>
+<h3 id="打TAG"><a href="#打TAG" class="headerlink" title="打TAG"></a>打<strong>TAG</strong></h3><p>​    git tag v1 <hash></hash></p>
+<p>​    </p>
+<h3 id="上传到远程仓库"><a href="#上传到远程仓库" class="headerlink" title="上传到远程仓库"></a><strong>上传到远程仓库</strong></h3><p>​    git push //和push.default文件有关</p>
+<p>​    </p>
+<h3 id="跟踪远程分支"><a href="#跟踪远程分支" class="headerlink" title="跟踪远程分支"></a><strong>跟踪远程分支</strong></h3><p>​    git co -b foo o/master</p>
+<p>​    git branch -u o/master foo (原来的跟踪状态不会同步更新)</p>
+<h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a><strong>设置别名</strong></h3><p>git config –global alias.co “checkout” //使用git co 代替 checkout</p>
+<h3 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a><strong>图形化界面</strong></h3><p>gitk –all</p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a><strong>对比</strong></h3><p>Git log xx</p>
+<p>Git log -p xx //比较内容</p>
+<h3 id="配置缩写"><a href="#配置缩写" class="headerlink" title="配置缩写"></a><strong>配置缩写</strong></h3><p>git config –global alias.st status</p>
+<h3 id="查看git地址"><a href="#查看git地址" class="headerlink" title="查看git地址"></a><strong>查看git地址</strong></h3><p>git remote show origin</p>
+<h3 id="回退到指定commit"><a href="#回退到指定commit" class="headerlink" title="回退到指定commit"></a><strong>回退到指定</strong>commit</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="放弃本地强制和远程一致"><a href="#放弃本地强制和远程一致" class="headerlink" title="放弃本地强制和远程一致"></a><strong>放弃本地强制和远程一致</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin&#x2F;dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<h3 id="清除untrack-files"><a href="#清除untrack-files" class="headerlink" title="清除untrack files"></a>清除untrack files</h3><ul>
+<li>删除当前目录下untrack文件，不包括文件夹和.gitignore中指定的文件和文件夹</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean -f</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除当前目录下untrack文件和文件夹， 不包括.gitignore中指定的文件和文件夹</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean -df</span><br></pre></td></tr></table></figure>
+<h3 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h3><p>* git clone错误之”error: RPC failed; curl 56 OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054”</p>
+<p>A1: git config –global http.sslVerify “false” //验证通过</p>
+<p>A2: git config http.postBuffer 524288000 //暂未验证</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/25/%E5%B7%A5%E5%85%B7/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/" rel="prev" title="脚本语言">
+      <i class="fa fa-chevron-left"></i> 脚本语言
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">添加代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D-%E9%82%AE%E7%AE%B1"><span class="nav-number">2.</span> <span class="nav-text">配置用户名,邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%82%AE%E7%AE%B1"><span class="nav-number">3.</span> <span class="nav-text">查看邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">克隆一个仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%B9%B6%E5%90%88%E5%B9%B6%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="nav-number">5.</span> <span class="nav-text">获取远程仓库并合并到本地分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4"><span class="nav-number">6.</span> <span class="nav-text">提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF-%E5%B9%B6%E5%88%87%E5%88%B0%E8%AF%A5%E5%88%86%E6%94%AF"><span class="nav-number">7.</span> <span class="nav-text">创建新分支,并切到该分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%B9%B6"><span class="nav-number">8.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80"><span class="nav-number">9.</span> <span class="nav-text">撤销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E7%90%86%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95"><span class="nav-number">10.</span> <span class="nav-text">整理提交记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93TAG"><span class="nav-number">11.</span> <span class="nav-text">打TAG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">12.</span> <span class="nav-text">上传到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="nav-number">13.</span> <span class="nav-text">跟踪远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="nav-number">14.</span> <span class="nav-text">设置别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2"><span class="nav-number">15.</span> <span class="nav-text">图形化界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">16.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%BC%A9%E5%86%99"><span class="nav-number">17.</span> <span class="nav-text">配置缩写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bgit%E5%9C%B0%E5%9D%80"><span class="nav-number">18.</span> <span class="nav-text">查看git地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E9%80%80%E5%88%B0%E6%8C%87%E5%AE%9Acommit"><span class="nav-number">19.</span> <span class="nav-text">回退到指定commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BE%E5%BC%83%E6%9C%AC%E5%9C%B0%E5%BC%BA%E5%88%B6%E5%92%8C%E8%BF%9C%E7%A8%8B%E4%B8%80%E8%87%B4"><span class="nav-number">20.</span> <span class="nav-text">放弃本地强制和远程一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E9%99%A4untrack-files"><span class="nav-number">21.</span> <span class="nav-text">清除untrack files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-number">22.</span> <span class="nav-text">遇到的错误</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">boom.Tan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">boom.Tan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
