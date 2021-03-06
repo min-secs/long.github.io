@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">97</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">99</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -169,6 +169,88 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%91%8A%E5%88%ABUSB%E6%95%B0%E6%8D%AE%E7%BA%BF,%E5%88%A9%E7%94%A8wifi%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/%E8%BD%A6%E6%9C%BA/%E5%91%8A%E5%88%ABUSB%E6%95%B0%E6%8D%AE%E7%BA%BF,%E5%88%A9%E7%94%A8wifi%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">告别USB数据线,使用wifi调试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-06 09:53:43" itemprop="dateModified" datetime="2021-03-06T09:53:43+08:00">2021-03-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%A6%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">车机</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>前言:目前在车机开发多媒体的U盘播放功能,每次插U盘就不能调试,调试就不能插U盘很不方便.有了远程调试程序,终于方便多了,唯一的缺点是wifi不稳定容易连接超时</p>
+</blockquote>
+<h5 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h5><p>使用USB数据线成功连接(抱一下大腿先)程序.打开cmd,输入<br><code>adb tcpip 5555</code><br>看到<img src="http://upload-images.jianshu.io/upload_images/2226681-a657793cd1ff5b96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tcp_success"><br>即表示成功.</p>
+<h5 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h5><p>打开手机wifi查看当前IP<br><code>adb connect IP:5555</code><br>此时就算拔掉USB,可以看到Eclipse还是连接着设备</p>
+<h4 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h4><p>使用adb的时候容易遇到一个错误<br><code>ADB server didn&#39;t ACK</code><br>一般情况下是端口号被360手机助手等等软件占用了</p>
+<ul>
+<li>解决办法<br>在cmd窗口中<br><code>adb nodaemon server</code><br>查看一下哪个端口被占用了(比如我的 5037)<br>然后<br><code>netstat -ano | findstr &quot;5037&quot;</code><br>找到被占用的端口,在任务管理器中将其结束掉</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1285,7 +1367,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/05/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/xUtils3%E7%94%A8%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1299,74 +1381,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/05/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-05 18:37:39 / Modified: 18:57:42" itemprop="dateCreated datePublished" datetime="2021-02-05T18:37:39+08:00">2021-02-05</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89/" class="post-title-link" itemprop="url">Activity官方直译深入理解(完结)</a>
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/xUtils3%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">xUtils3用法</a>
         </h2>
 
         <div class="post-meta">
@@ -1376,14 +1391,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-15 11:07:32" itemprop="dateModified" datetime="2021-02-15T11:07:32+08:00">2021-02-15</time>
+                <time title="Modified: 2021-03-04 09:05:59" itemprop="dateModified" datetime="2021-03-04T09:05:59+08:00">2021-03-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1406,13 +1421,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-<!DOCTYPE html>
+          <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activity官方直译深入理解（完结）</title>
+    <title>xUtils3用法</title>
     <style type="text/css" media="all">
       body {
         margin: 0;
@@ -1464,12 +1478,19 @@
   <body>
     <div class="container">
       <div class="post">
-        <h1 class="title">Activity官方直译深入理解（完结）</h1>
+        <h1 class="title">xUtils3用法</h1>
         <div class="show-content">
-          <hr id="null"><blockquote>Activity</blockquote><p>一个Activity是用户可以直观交互的东西。所有的activity都聚焦于创建一个窗口，可以通过setcontentview(view)的方式。通常情况下一个activity是全屏显示的，当然也可以设置不同的theme来显示不同的风格，例如windowIsFloating来设置浮动窗口。以下是每个activity必须回调的方法：</p><h4> Oncreate 在此你可以初始化你的activity。通常情况下你会用布局文件setcontentview的方式来定义此activity。在程序中通过findViewById(int)来和布局中的控件进行交互。</h4><h4> Onpause 当用户离开你的activity时会回调此方法，通常情况下之前用户做的改变行为需在此提交。</h4><p>在用Context.startActivity()启动之前，需要在AndroidManifest.xml通过&lt;activity&gt;声明。</p><p><i>Activity的生命周期</i></p><p>﻿</p><div class="image-package">
-<img name="1639224201-1493335611311" src="http://upload-images.jianshu.io/upload_images/2226681-0da4a89ed2cc5f87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50"><br><div class="image-caption">图片发自简书App</div>
-</div><p>整个过程从Oncreate开始，ondestroy结束。用户可以见到activity时刻从onstart开始到onstop之前。我们可以在onstart里面注册BroadcastReceiver，以便收到广播后修改我们的ui, 在onstop里面取消我们的BroadcastReceiver。用户可以和activity交互的时候从onresume开始直到onpause，一个activity会经常在这两个生命周期切换，所以最好在这两个方法里做轻量级的操作。</p><p>你应该在你的子类中回调如下方法，以便在不同的时候处理不同的逻辑。</p><blockquote>public class Activity extends ApplicationContext {﻿</blockquote><blockquote> protected void onCreate(Bundle savedInstanceState);﻿﻿</blockquote><blockquote> protected void onStart();﻿﻿</blockquote><blockquote> protected void onRestart();﻿﻿</blockquote><blockquote> protected void onResume();﻿﻿</blockquote><blockquote> protected void onPause();﻿﻿</blockquote><blockquote> protected void onStop();﻿﻿</blockquote><blockquote> protected void onDestroy();﻿</blockquote><blockquote> }</blockquote><p>Note：如果一个activity的onpause方法不结束的话，当前的或另一个activity的onresume方法不会执行。</p><hr id="null"><h3>Configuration Changes</h3><p>屏幕翻转，改变语言或者输入设备的改变，都会导致activity销毁。当然，我们可以在manifest.xml里面声明android:configChanges属性，在上述配置改变的时候交给我们自己的activity处理.将回调在这个方法里onConfigurationChanged(Configuration)，如果在此方法中有些屏幕配置的改变没有处理到，那么activity还是会被销毁，如果是当前在栈顶的activity则会重建。</p><hr id="null"><h3>Starting Activities and Getting Results</h3><p>通常情况下我们用startActivity(Intent)来启动一个新的activity，但有时我们想从新的activity结束的时候获取某些数据。比如微信打开相册选择某个图片发给联系人。此时就要用到startActivityForResult(Intent, int)，int为请求码，将在稍后介绍。返回的结果将回调在原activity的onActivityResult(int, int, Intent)方法里。不同的int表示不同的情况，如结果返回成功与否。Android系统已帮我们做了定义（RESULT_CANCELED, RESULT_OK）。下面请看示例：见谅，实在不知道怎么在手机上调代码的格式</p><p>﻿</p><blockquote> public boolean onKeyDown(int keyCode, KeyEvent event) {﻿</blockquote><blockquote> if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {﻿</blockquote><blockquote> // When the user center presses, let them pick a contact.﻿</blockquote><blockquote> startActivityForResult(﻿</blockquote><blockquote> new Intent(Intent.ACTION_PICK,﻿</blockquote><blockquote> new Uri("content://contacts")),﻿</blockquote><blockquote> PICK_CONTACT_REQUEST);﻿</blockquote><blockquote> return true;﻿</blockquote><blockquote> }﻿</blockquote><blockquote> return false;﻿</blockquote><blockquote> }﻿﻿</blockquote><blockquote> protected void onActivityResult(int requestCode, int resultCode,﻿</blockquote><blockquote> Intent data) {﻿</blockquote><blockquote> if (requestCode == PICK_CONTACT_REQUEST) {﻿</blockquote><blockquote> if (resultCode == RESULT_OK) {﻿</blockquote><blockquote> // A contact was picked. Here we will just display it﻿</blockquote><blockquote> // to the user.﻿</blockquote><blockquote> startActivity(new Intent(Intent.ACTION_VIEW, data));﻿</blockquote><blockquote> }﻿</blockquote><blockquote> }﻿</blockquote><blockquote> }</blockquote><blockquote><br></blockquote><hr id="null"><h3>Permissions</h3><p>启动一个Activity可能被拒绝，当在manifest里面没声明对应权限的时候。任何一个权限的生命周期（6.0需要特别的权限处理，百度android6.0权限封装）将持续到整个activity结束。</p><h3><hr id="null"></h3><p>Process Lifecycle<br></p><p>Android系统会尽可能长的保留我们的应用进程，但是当内存不足的时候会移除最老的进程。通常情况下移除进程会和用户交互的activity类型有很大相关，以下列出了四种activity的类型（重要性从高到低）：</p><h4>1.foreground activity</h4><p>用户正在交互的Activity,如你现在正在浏览的简书。它的进程只有在内存超出预期（由手机设备分配）才会被杀掉，通常来讲设备有责任保留它的进程。</p><h4>2.visible activity</h4><p>用户可见但不是foreground activity,比如此时弹出了一个对话框，一般来说不会被杀掉，除非为了保证foreground activity运行。</p><h4>3.background activity</h4><p>系统为前两种Activity预留内存会将此activity安全的杀掉。当用户重新返回这个activity时，oncreate方法会被回调，并会在onSaveInstanceState(Bundle)方法保存退出前的状态。</p><h4>4.empty process</h4><p>不再持有Activity或者是一个Service or BroadcastReceiver，系统在内存不足时有极大的可能性杀掉，所以我们在用service这种后台服务的时候，需要告诉系统我们的进程需要保留（通常做法是设置前台进程，弹出notification）。</p><hr id="null"><h3>Public method</h3><p>1.addContentView(View view, ViewGroup.LayoutParams param)</p><p>添加一个可添加的布局</p><p>2.createPendingResult(int requestCode, Intent data, int flags)</p><p>创建一个PendingIntent的对象，并将处理结果返回到onActivityResult(int, int, Intent)。</p><p>3.dispatchTouchEvent(MotionEvent ev)</p><p>此方法在处理滑动冲突时极为有用，还有一个在子类中常用的方法view.getparent.requestdisallow（true）谁用谁知道。事件分发在很多大牛的文章已经有讲述了，小弟就不献丑了。</p><p>4.dump(String prefix, FileDescriptor fd, PrintWriter writer, String[] args)﻿﻿</p><p>打印Activity的状态到指定流﻿﻿</p><p>5.enterPictureInPictureMode（）﻿﻿</p><p>让此Activity进入画中画模式，如果系统允许的话。现在主流直播可能就是此方法的衍生。﻿﻿</p><p>6.findViewById(int id)﻿﻿</p><p>从XML中解析出view对象﻿﻿</p><p>7.finish()﻿﻿</p><p>结束当前Activity,有人说此方法是不正常的结束方式，但看官方并无特别说明。﻿﻿</p><p>8.finishActivity(int requestCode)﻿﻿</p><p>强制关闭通过startActivityForResult(Intent, int)启动的activity。﻿﻿</p><p>9.finishAndRemoveTask()﻿﻿</p><p>结束一个Task里所有的activity。哟，难道能在主页调这个方法？﻿﻿</p><p>10.getApplication()﻿﻿</p><p>获取Activity唯一的application。如果是组件化项目不知道这个方式可不可用？﻿﻿</p><p>11.getCallingActivity()﻿﻿</p><p>超级有用的方法，通常我们做开发的，不知道当前页面是哪个activity,我们可以继承一个baseactivity,然后再回调oncreate的时候打印出当前的类名，这样我们就可以知道哪个页面对应哪个activity了。关于这个郭大神有一篇这个文章，后面我会贴出代码。</p><p>12.getCurrentFocus()</p><p>获得当前Window聚焦的具体view</p><p>13.getFragmentManager()</p><p>返回和当前Activity绑定的fragment的fragment manager</p><p>14.getIntent()</p><p>获得启动此Activity的intent</p><p>15.getLayoutInflater()</p><p>通过此方法直接解析一个布局成View</p><p>16.getReferrer()</p><p>谁启动了我？</p><p>17.getParentActivityIntent()</p><p>18.getRequestedOrientation()</p><p>当前请求的屏幕方向，注意用词，请求的，可能没请求成功</p><p>19.getSystemService(String name)</p><p>根据名字获得不同系统级的服务</p><p>20.isDestroyed()</p><p>回调的Ondestroy执行了，表示当前activity的实例已经死了</p><p>21.isFinishing()</p><p>调用Finish（）后</p><p>22.isImmersive()</p><p>是否为沉侵模式，并且不能被通知打断</p><p>23.isInMultiWindowMode()</p><p>是否为多窗口模式</p><p>24.isInPictureInPictureMode()</p><p>是否为画中画模式</p><p>25.onAttachFragment(Fragment fragment)</p><p>回调此方法在Fragment.onAttach()后</p><p>26.onAttachedToWindow()</p><p>当前Activity的主window是否关联上了windowmanager</p><p>27.onBackPressed()</p><p>用户按了返回键</p><p>28.onKeyDown(int keyCode, KeyEvent event)</p><p>当有键被按下的时候，同时所有的子view没有处理的情况会回调</p><p>29.onLowMemory()</p><p>内存不足时回调，可在此释放一些资源，降低被系统回收的概率</p><p>30.onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)</p><p>请求的所有权限回调</p><p>31.onTouchEvent(MotionEvent event)</p><p>触摸事件，当子view没做处理的时候</p><p>32.overridePendingTransition(int enterAnim, int exitAnim)</p><p>在startActivity(Intent) or finish()后执行activity的切换动画。</p><p>33.recreate()</p><p>重新创建一个新实例</p><p>34.releaseInstance()</p><p>通知本地App叫它释放内存</p><p>35.runOnUiThread(Runnable action)</p><p>运行在UI线程，可在此更新一些界面显示</p><p>36.setIntent(Intent newIntent)</p><p>更新回调的getintent（）</p><p>37.setVisible(boolean visible)</p><p>当前主Window是否可见</p><hr id="null"><p><br></p><h3>Protected methods<br>
-</h3><p>1.onActivityResult(int requestCode, int resultCode, Intent data)</p><p>接收启动的Activity结束时返回给它的一系列参数</p><p>2.onCreate(Bundle savedInstanceState)</p><p>3.onDestroy()</p><p>4.onNewIntent(Intent intent)</p><p>当启动模式为singleTop，在调用startActivity(Intent)时回调此方法</p><p>5.onpaues()</p><p>6.onPostCreate(Bundle savedInstanceState)</p><p>在onStart() and onRestoreInstanceState(Bundle)后调用，此方法用的少，但存在基友它的道理</p><p>7.﻿onPostResume()</p><p>在Onresume后调用</p><p>8.onUserLeaveHint()</p><p>当用户选择进入后台时回调</p><hr id="null"><p>Activity完</p>
+          <p>转载自:<a href="http://blog.csdn.net/smartbetter/article/details/51866792" target="_blank">http://blog.csdn.net/smartbetter/article/details/51866792</a></p><p>1.先来认识一下xUtils3<br></p><p><b>1）xUtils3简介</b></p><p>xUtils是目前功能比较完善的一个<a href="http://lib.csdn.net/base/android" target="_blank">Android</a>开源框架，最近又发布了xUtil3.0，在增加新功能的同时又提高了框架的性能，下面来看看官方（<a href="https://github.com/wyouflf/xUtils3" target="_blank">https://github.com/wyouflf/xUtils3</a>）对xUtils3的介绍：</p><p>xUtils包含了很多实用的android工具；</p><p>xUtils支持超大文件(超过2G)上传，更全面的http请求协议支持(11种谓词)，拥有更加灵活的ORM，更多的事件注解支持且不受混淆影响；</p><p>xUtils 最低兼容Android 4.0 (api level 14)；</p><p>xUtils3变化较多所以建立了新的项目不在旧版(github.com/wyouflf/xUtils)上继续维护, 相对于旧版本：</p><p>HTTP实现替换HttpClient为UrlConnection, 自动解析回调泛型, 更安全的断点续传策略；</p><p>支持标准的Cookie策略, 区分domain, path；</p><p>事件注解去除不常用的功能, 提高性能；</p><p>数据库api简化提高性能, 达到和greenDao一致的性能；</p><p>图片绑定支持gif(受系统兼容性影响, 部分gif文件只能静态显示), webp; 支持圆角, 圆形, 方形等裁剪, 支持自动旋转。</p><p><b>2）在我们的项目中快速配置xUtils3</b></p><p>xUtils3的配置十分的简单：</p><p>2-1）使用Gradle构建时添加一下依赖即可</p><p>compile'org.xutils:xutils:3.3.36'</p><p>如果使用eclipse可以点击下面链接下载aar文件， 然后用zip解压，取出jar包和so文件。</p><p>Github下载：<a href="https://github.com/wyouflf/xUtils3" target="_blank">https://github.com/wyouflf/xUtils3</a></p><p>JCenter下载：<a href="http://jcenter.bintray.com/org/xutils/xutils/" target="_blank">http://jcenter.bintray.com/org/xutils/xutils/</a></p><p>Maven下载1：<a href="http://central.maven.org/maven2/org/xutils/xutils/" target="_blank">http://central.maven.org/maven2/org/xutils/xutils/</a></p><p>Maven下载2：<a href="http://repo1.maven.org/maven2/org/xutils/xutils/" target="_blank">http://repo1.maven.org/maven2/org/xutils/xutils/</a></p><p>2-2）加入权限</p><p><br></p><div class="image-package">
+<img src="http://upload-images.jianshu.io/upload_images/2226681-76a3f0cd863ecd63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" data-original-src="http://upload-images.jianshu.io/upload_images/2226681-76a3f0cd863ecd63.png?imageMogr2/auto-orient/strip" data-image-slug="76a3f0cd863ecd63" data-width="542" data-height="49"><br><div class="image-caption"></div>
+</div><p>2-3）创建Application</p><p>public class MyApp extends Application{</p><p>@Override public void onCreate() {</p><p>super.onCreate();       </p><p> x.Ext.init(this);       </p><p> x.Ext.setDebug(false);//输出debug日志，开启会影响性能</p><p>}}</p><p>2-4）在AndroidManifest文件中注册MyApp</p><div class="image-package">
+<img src="http://upload-images.jianshu.io/upload_images/2226681-b0f05958b6cea057.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" data-original-src="http://upload-images.jianshu.io/upload_images/2226681-b0f05958b6cea057.png?imageMogr2/auto-orient/strip" data-image-slug="b0f05958b6cea057" data-width="217" data-height="94"><br><div class="image-caption"></div>
+</div><p>xUtils3主要包含注解模块、网络模块、图片模块和<a href="http://lib.csdn.net/base/mysql" target="_blank">数据库</a>模块，下面将做一一说明。</p><p><a href target="_blank">2.xUtils3注解模块的使用</a></p><p>xUtils3注解模块在实际开发中的使用如下：</p><p><b>1）Activity的注解的使用如下：</b></p><p><br></p><div class="image-package">
+<img src="http://upload-images.jianshu.io/upload_images/2226681-832d7201c174dd27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" data-original-src="http://upload-images.jianshu.io/upload_images/2226681-832d7201c174dd27.png?imageMogr2/auto-orient/strip" data-image-slug="832d7201c174dd27" data-width="418" data-height="246"><br><div class="image-caption"></div>
+</div><p><b>2）Fragment的注解的使用如下：</b></p><p><br></p><div class="image-package">
+<img src="http://upload-images.jianshu.io/upload_images/2226681-41f09c1fbd9e13b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" data-original-src="http://upload-images.jianshu.io/upload_images/2226681-41f09c1fbd9e13b2.png?imageMogr2/auto-orient/strip" data-image-slug="41f09c1fbd9e13b2" data-width="594" data-height="246"><br><div class="image-caption"></div>
+</div><p><b>3）为按钮设置点击事件</b></p><p>方法必须私有限定,</p><p>方法参数形式必须和type对应的Listener接口一致.</p><p>注解参数value支持数组: value={id1, id2, id3}</p><p><br></p><div class="image-package">
+<img src="http://upload-images.jianshu.io/upload_images/2226681-d6e88ae27bf1ec47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" data-original-src="http://upload-images.jianshu.io/upload_images/2226681-d6e88ae27bf1ec47.png?imageMogr2/auto-orient/strip" data-image-slug="d6e88ae27bf1ec47" data-width="570" data-height="324"><br><div class="image-caption"></div>
+</div><p>强调：使用注解模块一定要注意初始化视图注解框架。</p><p><a href target="_blank">3.xUtils3网络模块的使用</a></p><p>xUtils3网络模块大大方便了在实际开发中网络模块的开发，xUtils3网络模块大致包括GET请求、POST请求、如何使用其他请求方式、上传文件、下载文件、使用缓存等功能，下面将做一一说明：</p><p><b>1）GET请求</b></p><p><br></p><p>下面我们来看下带有缓存的GET请求，POST请求和其他请求方式类似，后面就不再赘述：</p><p><b>带有缓存的GET请求：</b></p><p>RequestParams params =newRequestParams(url);params.addQueryStringParameter("username","abc");params.addQueryStringParameter("password","123");// 默认缓存存活时间, 单位:毫秒（如果服务器没有返回有效的max-age或Expires则参考）params.setCacheMaxAge(1000*60);x.http().get(params,newCallback.CacheCallback() {privatebooleanhasError =false;privateString result =null;@OverridepublicbooleanonCache(String result) {//得到缓存数据, 缓存过期后不会进入this.result = result;returntrue;//true: 信任缓存数据, 不再发起网络请求; false不信任缓存数据}@OverridepublicvoidonSuccess(String result) {//如果服务返回304或onCache选择了信任缓存,这时result为nullLog.i("JAVA","开始请求");if(result !=null) {this.result = result;        }    }@OverridepublicvoidonError(Throwable ex,booleanisOnCallback) {        hasError =true;        Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();if(exinstanceofHttpException) {//网络错误HttpException httpEx = (HttpException) ex;intresponseCode = httpEx.getCode();            String responseMsg = httpEx.getMessage();            String errorResult = httpEx.getResult();//...}else{//其他错误//...}    }@OverridepublicvoidonCancelled(CancelledException cex) {    }@OverridepublicvoidonFinished() {if(!hasError &amp;&amp; result !=null) {//成功获取数据Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();        }    }});</p><p><br></p><p>上面onCache方法中需要注意的几点：</p><p>a）如果服务端没有返回过期时间，参考params.setCacheMaxAge(maxAge)方法。</p><p>b）客户端会根据服务端返回的header中max-age或expires来确定本地缓存是否给onCache方法。如果服务端没有返回max-age或expires，那么缓存将一直保存，除非这里自己定义了返回false，那么xUtils将请求新数据, 来覆盖它。</p><p>c）如果信任该缓存返回true，将不再请求网络。返回false继续请求网络，但会在请求头中加上ETag,Last-Modified等信息。如果服务端返回304，则表示数据没有更新，不继续加载数据。</p><p><b>2）POST请求</b></p><p>RequestParamsparams=newRequestParams(url);params.addBodyParameter("username","abc");params.addParameter("password","123");params.addHeader("head","android");//为当前请求添加一个头x.http().post(params,newCallback.CommonCallback() {    @OverridepublicvoidonSuccess(String result) {//解析result}    @OverridepublicvoidonError(Throwable ex, boolean isOnCallback) {    }    @OverridepublicvoidonCancelled(CancelledException cex) {    }    @OverridepublicvoidonFinished() {    }});</p><p><br></p><p><b>3）其他网络请求方式</b></p><p>RequestParams params =newRequestParams(url);params.addParameter("username","abc");x.http().request(HttpMethod.PUT, params,newCallback.CommonCallback() {@OverridepublicvoidonSuccess(String result) {//解析result}@OverridepublicvoidonError(Throwable ex,booleanisOnCallback) {    }@OverridepublicvoidonCancelled(CancelledException cex) {    }@OverridepublicvoidonFinished() {    }});</p><p><br></p><p><br></p><p><b>4）上传文件</b></p><p>String path="/mnt/sdcard/Download/icon.jpg";RequestParams params =newRequestParams(url);params.setMultipart(true);params.addBodyParameter("file",newFile(path));x.http().post(params,newCallback.CommonCallback() {@OverridepublicvoidonSuccess(String result) {    }@OverridepublicvoidonError(Throwable ex,booleanisOnCallback) {    }@OverridepublicvoidonCancelled(CancelledException cex) {    }@OverridepublicvoidonFinished() {    }});</p><p><br></p><p><b>5）下载文件</b></p><p>这里以下载apk为例进行说明，apk下载完成后，自动调用系统的安装方法。</p><p>url ="http://127.0.0.1/server/abc.apk";RequestParams params =newRequestParams(url);//自定义保存路径，Environment.getExternalStorageDirectory()：SD卡的根目录params.setSaveFilePath(Environment.getExternalStorageDirectory()+"/myapp/");//自动为文件命名params.setAutoRename(true);x.http().post(params,newCallback.ProgressCallback() {@OverridepublicvoidonSuccess(File result) {//apk下载完成后，调用系统的安装方法Intent intent =newIntent(Intent.ACTION_VIEW);        intent.setDataAndType(Uri.fromFile(result),"application/vnd.android.package-archive");        getActivity().startActivity(intent);    }@OverridepublicvoidonError(Throwable ex,booleanisOnCallback) {    }@OverridepublicvoidonCancelled(CancelledException cex) {    }@OverridepublicvoidonFinished() {    }//网络请求之前回调@OverridepublicvoidonWaiting() {    }//网络请求开始的时候回调@OverridepublicvoidonStarted() {    }//下载的时候不断回调的方法@OverridepublicvoidonLoading(longtotal,longcurrent,booleanisDownloading) {//当前进度和文件总大小Log.i("JAVA","current："+ current +"，total："+total);     }});</p><p><br></p><p><a href target="_blank">4.xUtils3图片模块的使用</a></p><p>xUtils3图片模块，重点在于加载图片的4个bind方法，loadDrawable与loadFIle用法和ImageOptions用法，需多加练习。</p><p><b>1）xUtils3 ImageOptions：</b></p><p>//通过ImageOptions.Builder().set方法设置图片的属性ImageOptions imageOptions=newImageOptions.Builder().setFadeIn(true).build();//淡入效果//ImageOptions.Builder()的一些其他属性：.setCircular(true)//设置图片显示为圆形.setSquare(true)//设置图片显示为正方形.setCrop(true).setSize(200,200)//设置大小.setAnimation(animation)//设置动画.setFailureDrawable(Drawable failureDrawable)//设置加载失败的动画.setFailureDrawableId(intfailureDrawable)//以资源id设置加载失败的动画.setLoadingDrawable(Drawable loadingDrawable)//设置加载中的动画.setLoadingDrawableId(intloadingDrawable)//以资源id设置加载中的动画.setIgnoreGif(false)//忽略Gif图片.setParamsBuilder(ParamsBuilder paramsBuilder)//在网络请求中添加一些参数.setRaduis(intraduis)//设置拐角弧度.setUseMemCache(true)//设置使用MemCache，默认true</p><p><br></p><p><b>2）xUtils3 bind方法：</b></p><p>// assets filex.image().bind(imageView,"assets://test.gif", imageOptions);// local filex.image().bind(imageView,newFile("/sdcard/test.gif").toURI().toString(), imageOptions);x.image().bind(imageView,"/sdcard/test.gif", imageOptions);x.image().bind(imageView,"file:///sdcard/test.gif", imageOptions);x.image().bind(imageView,"file:/sdcard/test.gif", imageOptions);x.image().bind(imageView, url, imageOptions,newCallback.CommonCallback() {@OverridepublicvoidonSuccess(Drawable result) {    }@OverridepublicvoidonError(Throwable ex,booleanisOnCallback) {    }@OverridepublicvoidonCancelled(CancelledException cex) {    }@OverridepublicvoidonFinished() {    }</p><p><br></p><p><br></p><p><b>3）xUtils3 loadDrawable方法：</b></p><p>x.image().loadDrawable(url, imageOptions,newCallback.CommonCallback() {@OverridepublicvoidonSuccess(Drawable result) {        imageView.setImageDrawable(result);    }@OverridepublicvoidonError(Throwable ex,booleanisOnCallback) {    }@OverridepublicvoidonCancelled(CancelledException cex) {    }@OverridepublicvoidonFinished() {    }});</p><p><br></p><p><b>4）xUtils3 loadFile方法：</b></p><p>当我们通过bind()或者loadDrawable()方法加载了一张图片后，它会保存到本地文件中，那当我需要这张图片时，就可以通过loadFile()方法进行查找。</p><p>x.image().loadFile(url,imageOptions,newCallback.CacheCallback(){@OverridepublicbooleanonCache(File result) {//在这里可以做图片另存为等操作Log.i("JAVA","file："+result.getPath()+result.getName());returntrue;//相信本地缓存返回true}@OverridepublicvoidonSuccess(File result) {    }@OverridepublicvoidonError(Throwable ex,booleanisOnCallback) {    }@OverridepublicvoidonCancelled(CancelledException cex) {    }@OverridepublicvoidonFinished() {    }});</p><p><br></p><p><a href target="_blank">4.xUtils3数据库模块的使用</a></p><p><b>1）初始化配置和创建实体类</b></p><p>首先在项目Application中进行初始化配置DaoConfig（与onCreate方法同级目录下）：</p><p>/**</p><p>* 初始化DaoConfig配置</p><p>*/DbManager.DaoConfig daoConfig =newDbManager.DaoConfig()//设置数据库名，默认xutils.db.setDbName("myapp.db")//设置数据库路径，默认存储在app的私有目录.setDbDir(newFile("/mnt/sdcard/"))//设置数据库的版本号.setDbVersion(2)//设置数据库打开的监听.setDbOpenListener(newDbManager.DbOpenListener() {@OverridepublicvoidonDbOpened(DbManager db) {//开启数据库支持多线程操作，提升性能，对写入加速提升巨大db.getDatabase().enableWriteAheadLogging();            }        })//设置数据库更新的监听.setDbUpgradeListener(newDbManager.DbUpgradeListener() {@OverridepublicvoidonUpgrade(DbManager db,intoldVersion,intnewVersion) {            }        })//设置表创建的监听.setTableCreateListener(newDbManager.TableCreateListener() {@OverridepublicvoidonTableCreated(DbManager db, TableEntity table){                Log.i("JAVA","onTableCreated："+ table.getName());            }        });//设置是否允许事务，默认true//.setAllowTransaction(true)DbManager db = x.getDb(daoConfig);</p><p><br></p><p>然后创建数据库表ChildInfo的实体类：</p><p>/**</p><p>* onCreated = "sql"：当第一次创建表需要插入数据时候在此写sql语句</p><p>*/@Table(name ="child_info",onCreated ="")publicclassChildInfo{/**</p><p>* name = "id"：数据库表中的一个字段</p><p>* isId = true：是否是主键</p><p>* autoGen = true：是否自动增长</p><p>* property = "NOT NULL"：添加约束</p><p>*/@Column(name ="id",isId =true,autoGen =true,property ="NOT NULL")privateintid;@Column(name ="c_name")privateString cName;publicChildInfo(String cName) {this.cName = cName;    }//默认的构造方法必须写出，如果没有，这张表是创建不成功的publicChildInfo() {    }publicintgetId() {returnid;    }publicvoidsetId(intid) {this.id = id;    }publicStringgetcName() {returncName;    }publicvoidsetcName(String cName) {this.cName = cName;    }@OverridepublicStringtoString() {return"ChildInfo{"+"id="+id+",cName='"+cName+'\''+'}';    }}</p><p><br></p><p>之后就能进行创建和删除数据库的操作了：</p><p><b>2）创建数据库</b></p><p>//用集合向child_info表中插入多条数据ArrayList childInfos =newArrayList&lt;&gt;();childInfos.add(newChildInfo("zhangsan"));childInfos.add(newChildInfo("lisi"));childInfos.add(newChildInfo("wangwu"));childInfos.add(newChildInfo("zhaoliu"));childInfos.add(newChildInfo("qianqi"));childInfos.add(newChildInfo("sunba"));//db.save()方法不仅可以插入单个对象，还能插入集合db.save(childInfos);</p><p><br></p><p><b>3）删除数据库</b></p><p>db.dropDb();</p><p><br></p><p><b>4）删除表</b></p><p>db.dropTable(ChildInfo.class);</p><p><br></p><p><b>5）新增表中的数据</b></p><p>ChildInfo childInfo =newChildInfo("zhangsan123");db.save(childInfo);</p><p><br></p><p><b>6）删除表中的数据</b></p><p>//第一种写法：db.delete(ChildInfo.class);//child_info表中数据将被全部删除//第二种写法，添加删除条件：WhereBuilder b = WhereBuilder.b();b.and("id","&gt;",2);//构造修改的条件b.and("id","&lt;",4);db.delete(ChildInfo.class, b);</p><p><br></p><p><b>7）修改表中的数据</b></p><p>//第一种写法：ChildInfo first = db.findFirst(ChildInfo.class);first.setcName("zhansan2");db.update(first,"c_name"); //c_name：表中的字段名//第二种写法：WhereBuilder b = WhereBuilder.b();b.and("id","=",first.getId()); //构造修改的条件KeyValue name = new KeyValue("c_name","zhansan3");db.update(ChildInfo.class,b,name);//第三种写法：first.setcName("zhansan4");db.saveOrUpdate(first);</p><p><br></p><p><b>8）查询表中的数据</b></p><p>//查询数据库表中第一条数据ChildInfo first = db.findFirst(ChildInfo.class);Log.i("JAVA",first.toString());//添加查询条件进行查询List all = db.selector(ChildInfo.class).where("id","&gt;",2).and("id","&lt;",4).findAll();for(ChildInfo childInfo :all){    Log.i("JAVA",childInfo.toString());}</p><p><br></p><p><a href target="_blank">5.xUtils3提供的其他一些方法</a></p><p><b>1）UI异步执行</b></p><p>x.task().run(newRunnable() {@Overridepublicvoidrun() {//异步代码}});</p><p><br></p><p><b>2）UI同步执行</b></p><p>x.task().post(newRunnable() {@Overridepublicvoidrun() {//同步代码}});</p>
         </div>
       </div>
     </div>
@@ -1559,7 +1580,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1567,6 +1588,11 @@
             <a href="/categories/">
         <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>

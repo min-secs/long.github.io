@@ -95,7 +95,7 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Activity官方直译深入理解（完结）</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity%E5%AE%98%E6%96%B9%E7%9B%B4%E8%AF%91%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%88%E5%AE%8C%E7%BB%93%EF%BC%89-1/</url>
     <content><![CDATA[<!DOCTYPE html>
 <html lang="en">
@@ -165,6 +165,9 @@
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>Activity官方直译深入理解(完结)</title>
@@ -2145,7 +2148,7 @@ getDataFromDb();
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Manifest merger failed with multiple errors</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Manifest-merger-failed-with-multiple-errors/</url>
     <content><![CDATA[<!DOCTYPE html>
 <html lang="en">
@@ -2213,6 +2216,9 @@ getDataFromDb();
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>MediaSession框架</title>
@@ -2230,6 +2236,8 @@ getDataFromDb();
 </li>
 </ul>
 <a id="more"></a>
+
+<!--more-->
 
 <h3 id="3-使用媒体会话"><a href="#3-使用媒体会话" class="headerlink" title="3. 使用媒体会话"></a>3. 使用媒体会话</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1. 在Activity或服务的onCreate中初始化</span></span><br><span class="line">mediaSession = <span class="keyword">new</span> MediaSessionCompat(context, TAG);</span><br><span class="line">mediaSession.setActive(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Do not let MediaButtons restart the player when the app is not visible</span></span><br><span class="line">mediaSession.setMediaButtonReceiver(<span class="keyword">null</span>);</span><br><span class="line">mediaSession.setFlags(</span><br><span class="line">                MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 初始化PlaybackStateCompat实例</span></span><br><span class="line">stateBuilder = <span class="keyword">new</span> PlaybackStateCompat.Builder()</span><br><span class="line">      .setActions(</span><br><span class="line">         PlaybackStateCompat.ACTION_PLAY |</span><br><span class="line">         PlaybackStateCompat.ACTION_PLAY_PAUSE |</span><br><span class="line">         PlaybackStateCompat.ACTION_FAST_FORWARD |</span><br><span class="line">         PlaybackStateCompat.ACTION_REWIND |</span><br><span class="line">         PlaybackStateCompat.ACTION_PAUSE);</span><br><span class="line">mediaSession.setPlaybackState(stateBuilder.build());</span><br><span class="line"><span class="comment">// 3. 设置callback, 接收客户端传来的消息, 如播放暂停上下曲</span></span><br><span class="line">mediaSession.setCallback(<span class="keyword">new</span> MySessionCallback());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 媒体信息改变/播放状态改变</span></span><br><span class="line">mediaSession.setMetaData();</span><br><span class="line">mediaSession.setPlaybackState()</span><br></pre></td></tr></table></figure>
 
@@ -4622,7 +4630,7 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>xUtils3用法</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/xUtils3%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<!DOCTYPE html>
 <html lang="en">
@@ -4700,6 +4708,9 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
   </body>
 </html>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>Git常用功能</title>
@@ -4717,7 +4728,11 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
 <h3 id="查看邮箱"><a href="#查看邮箱" class="headerlink" title="查看邮箱"></a>查看邮箱</h3><p>git config user.name</p>
 <p>git config user.email</p>
 <h3 id="克隆一个仓库"><a href="#克隆一个仓库" class="headerlink" title="克隆一个仓库"></a>克隆一个仓库</h3><p>​    git clone git://</p>
-<p>​    </p>
+<a id="more"></a>
+
+
+
+<hr>
 <h3 id="获取远程仓库并合并到本地分支"><a href="#获取远程仓库并合并到本地分支" class="headerlink" title="获取远程仓库并合并到本地分支"></a><strong>获取远程仓库并合并到本地分支</strong></h3><p>​    git pull</p>
 <p>​    git pull –rebase </p>
 <h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a><strong>提交</strong></h3><p>​    git commit </p>
@@ -4834,6 +4849,51 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
 ]]></content>
       <categories>
         <category>工具</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>读&lt;java并发实战&gt;</title>
+    <url>/2021/03/04/Android%E6%97%A5%E8%AE%B0/%E8%AF%BBJava%E5%B9%B6%E5%8F%91%E5%AE%9E%E6%88%98/</url>
+    <content><![CDATA[<h3 id="前读-惑"><a href="#前读-惑" class="headerlink" title="前读 * 惑"></a>前读 * 惑</h3><h4 id="Q1-并发最佳实践"><a href="#Q1-并发最佳实践" class="headerlink" title="Q1, 并发最佳实践"></a>Q1, 并发最佳实践</h4><h4 id="Q2-并发是什么"><a href="#Q2-并发是什么" class="headerlink" title="Q2, 并发是什么"></a>Q2, 并发是什么</h4><p>​    并发的目的: 让程序运行更快, 但不是线程越多越快, 线程的创建和CPU执行上下文切换会消耗时间</p>
+<p>​    使用多线程同时执行一批任务</p>
+<h4 id="Q3-哪种场景下使用并发"><a href="#Q3-哪种场景下使用并发" class="headerlink" title="Q3, 哪种场景下使用并发"></a>Q3, 哪种场景下使用并发</h4><a id="more"></a>]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
+      <tags>
+        <tag>读记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>接入车机版喜马拉雅</title>
+    <url>/2021/03/06/%E8%BD%A6%E6%9C%BA/%E6%8E%A5%E5%85%A5%E8%BD%A6%E6%9C%BA%E7%89%88%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85%E8%AF%B4%E6%98%8E/</url>
+    <content><![CDATA[<blockquote>
+<p>​    前言: 喜马拉雅手机版和车机版两者接入方式不同, 手机版xmly提供了SDK+API的方式, 车机版只有API的方式, 区别在客户端API接入和服务端API接入</p>
+</blockquote>
+<ol>
+<li><p>先找喜马拉雅工作人员申请app_key ,app_secret ,如果是服务端接入的话还需要server_auth_key 一般一周内即可申请到</p>
+</li>
+<li><p>确定host和path, 目前喜马拉雅有三种host</p>
+<p><a href="https://api.ximalaya.com/iot/openapi-smart-device-api">https://api.ximalaya.com/iot/openapi-smart-device-api</a></p>
+<p><a href="https://api.ximalaya.com/iot/openapi-smart-device-pay-api">https://api.ximalaya.com/iot/openapi-smart-device-pay-api</a></p>
+<p><a href="https://api.ximalaya.com,具体域名见具体接口示例/">https://api.ximalaya.com</a></p>
+<p>path根据业务区分</p>
+<p>GET/POST</p>
+</li>
+<li><p>确定公共参数和业务参数</p>
+<p><img src="/2021/03/06/%E8%BD%A6%E6%9C%BA/%E6%8E%A5%E5%85%A5%E8%BD%A6%E6%9C%BA%E7%89%88%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85%E8%AF%B4%E6%98%8E/资料\long\boke\Hexo-Blog\source_posts\车机\接入车机版喜马拉雅说明.assets\image-20210306100626108.png" alt="image-20210306100626108"></p>
+<p>GET请求参数拼接在url后, POST请求放在body中</p>
+<blockquote>
+<p>文档上这么写的, 实际上部分接口POST依然拼接在url后</p>
+</blockquote>
+</li>
+<li><p>计算sig, 联系喜马工程师获取demo, 以testSignature方法为准</p>
+</li>
+</ol>
+<p>公共数据采用客户端授权access_token, 私有数据如用户信息采用服务端授权access_token</p>
+]]></content>
+      <categories>
+        <category>车机</category>
       </categories>
   </entry>
 </search>
