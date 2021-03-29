@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">100</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">101</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -169,6 +169,119 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/%E8%BD%A6%E6%9C%BA/Android-mk%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/%E8%BD%A6%E6%9C%BA/Android-mk%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Android.mk</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-06 11:35:35" itemprop="dateModified" datetime="2021-03-06T11:35:35+08:00">2021-03-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%A6%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">车机</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>Android源码编译不同的版本,略微有不同<br>如下基于9.0</p>
+</blockquote>
+<p>编写app之前,确认编译环境使用的sdk版本,在build.gradle中配置成一样的<br>删掉不需要用的东西,也许某个虚线下面在编译时就是一个炸弹</p>
+<p>一个apk构依赖部分<br>系统属性/自己项目的module/第三方jar/第三方aar/so库</p>
+<ul>
+<li><h4 id="系统预编译好的属性"><a href="#系统预编译好的属性" class="headerlink" title="系统预编译好的属性"></a>系统预编译好的属性</h4>如AndroidX系列,<br>implementation ‘androidx.constraintlayout:constraintlayout:1.1.0<br>可在编译目录中通过查找对应 name属性<br><code>find prebuilts/sdk/ -name Android.bp|xargs grep &quot;name.*constraintlayout&quot;</code></li>
+</ul>
+<p>mk如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">LOCAL_STATIC_ANDROID_LIBRARIES :&#x3D; \ androidx-constraintlayout_constraintlayout</span><br><span class="line"></span><br><span class="line">include $(BUILD_PACKAGE)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="依赖自己项目中Module"><a href="#依赖自己项目中Module" class="headerlink" title="依赖自己项目中Module"></a>依赖自己项目中Module</h4></li>
+</ul>
+<p>1.只依赖java文件,即常用的jar包<br>module中配置Android.bp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">java_library &#123;</span><br><span class="line">    name: &quot;constantproxy&quot;,</span><br><span class="line"></span><br><span class="line">    srcs: [</span><br><span class="line">        &quot;src&#x2F;main&#x2F;java&#x2F;**&#x2F;*.java&quot;,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    exclude_srcs: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    libs: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    static_libs: [</span><br><span class="line">        &quot;androidx.media_media&quot;, &#x2F;&#x2F;依赖的系统属性</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    required: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    dxflags: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>app中Android.mk</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH :&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">LOCAL_STATIC_JAVA_LIBRARIES :&#x3D; \</span><br><span class="line">							   constantproxy\</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2.既依赖java又依赖res<br>此种module不需要写mk<br>在app中引入即可</p>
+<blockquote>
+<p>? 理论上是不是每个module都可以这么写</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line"></span><br><span class="line">LOCAL_MODULE_TAGS :&#x3D; optional</span><br><span class="line"></span><br><span class="line">LOCAL_SRC_FILES :&#x3D; $(call all-java-files-under, src)</span><br><span class="line">LOCAL_SRC_FILES +&#x3D; $(call all-java-files-under, yourmodule&#x2F;src)</span><br><span class="line">LOCAL_RESOURCE_DIR +&#x3D; $(LOCAL_PATH)&#x2F;src&#x2F;main&#x2F;res</span><br><span class="line">LOCAL_RESOURCE_DIR +&#x3D; $(LOCAL_PATH)&#x2F;yourmodule&#x2F;src&#x2F;main&#x2F;res</span><br><span class="line">#注意yourmodule路径的准确性</span><br><span class="line"></span><br><span class="line">LOCAL_AAPT_FLAGS :&#x3D; --auto-add-overlay \</span><br><span class="line">                                      --extra-packages yourmodule包名 \</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">include $(BUILD_PACKAGE)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="第三方jar"><a href="#第三方jar" class="headerlink" title="第三方jar"></a>第三方jar</h4>在jar的同级目录下新建Androd.bp 如libs/Android.bp<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java_import &#123;</span><br><span class="line">    name: &quot;my_jar&quot;,</span><br><span class="line">    jars: [&quot;annotation-1.1.0.jar&quot;],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+如果依赖第三方jar的是库,则在库里面的Android.bp中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">java_library &#123;</span><br><span class="line">    name: &quot;my_lib_core&quot;,</span><br><span class="line"></span><br><span class="line">    srcs: [</span><br><span class="line">        &quot;src&#x2F;main&#x2F;java&#x2F;**&#x2F;*.java&quot;,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    exclude_srcs: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    libs: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    static_libs: [</span><br><span class="line">        &quot;androidx.appcompat_appcompat&quot;,&quot;my_jar&quot;</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    required: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    dxflags: [</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+如果是自己的项目,则在app中Android.mk<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line">LOCAL_STATIC_JAVA_LIBRARIES :&#x3D; \</span><br><span class="line">                my_jar \</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">LOCAL_PRIVATE_PLATFORM_APIS :&#x3D; true</span><br><span class="line">include $(BUILD_PACKAGE)</span><br></pre></td></tr></table></figure></li>
+<li><h4 id="依赖第三方aar"><a href="#依赖第三方aar" class="headerlink" title="依赖第三方aar"></a>依赖第三方aar</h4>在aar同级目录Android.bp中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">android_library_import &#123;</span><br><span class="line">    name: &quot;navigation-fragment-nodeps&quot;,</span><br><span class="line">    aars: [&quot;libs&#x2F;navigation-fragment-2.3.0-alpha01.aar&quot;],</span><br><span class="line">    sdk_version: &quot;current&quot;,</span><br><span class="line">    static_libs: [</span><br><span class="line">		&quot;androidx.fragment_fragment&quot;, &#x2F;&#x2F;navigation-fragment依赖androidx.fragment_fragment</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">android_library &#123;</span><br><span class="line">    name: &quot;androidx.navigation_navigation-fragment&quot;,</span><br><span class="line">    sdk_version: &quot;current&quot;,</span><br><span class="line">    manifest: &quot;androidx.navigation.fragment&#x2F;AndroidManifest.xml&quot;,</span><br><span class="line">    static_libs: [</span><br><span class="line">        &quot;navigation-fragment-nodeps&quot;,</span><br><span class="line">		&quot;androidx.fragment_fragment&quot;,</span><br><span class="line">    ],</span><br><span class="line">    java_version: &quot;1.8&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+在Android.mk中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_STATIC_ANDROID_LIBRARIES :&#x3D; \</span><br><span class="line">                    androidx.navigation_navigation-fragment</span><br></pre></td></tr></table></figure></li>
+<li><h4 id="so库"><a href="#so库" class="headerlink" title="so库"></a>so库</h4><blockquote>
+<p>此so库指的是NDK编译出来的so库,libs下直接可用<br>需要用到so库的mk里面</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">include $(BUILD_PACKAGE)</span><br><span class="line"></span><br><span class="line">libs_dir :&#x3D; $(TARGET_OUT)&#x2F;app&#x2F;yourapkname&#x2F;lib&#x2F;armeabi</span><br><span class="line">$(shell mkdir -p $(libs_dir))</span><br><span class="line">src_files :&#x3D; $(shell ls $(LOCAL_PATH)&#x2F;libs&#x2F;armeabi&#x2F;)</span><br><span class="line">$(foreach file, $(src_files),\</span><br><span class="line">			    $(shell cp $(LOCAL_PATH)&#x2F;libs&#x2F;armeabi&#x2F;$(file) $(libs_dir)&#x2F;$(file)))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<p>Android9.0源码中的mk例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:&#x3D; $(call my-dir)</span><br><span class="line"> </span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"> </span><br><span class="line">LOCAL_USE_AAPT2 :&#x3D; true</span><br><span class="line">LOCAL_PACKAGE_NAME :&#x3D; APK名字</span><br><span class="line">LOCAL_OVERRIDES_PACKAGES :&#x3D; </span><br><span class="line">LOCAL_MODULE_TAGS :&#x3D; optional</span><br><span class="line"> </span><br><span class="line"># can&#39;t use LOCAL_SDK_VERSION, otherwise the error will occur like this:</span><br><span class="line"># &quot;(java:sdk) should not link to&quot;</span><br><span class="line">#LOCAL_SDK_VERSION :&#x3D; current</span><br><span class="line">LOCAL_PRIVATE_PLATFORM_APIS :&#x3D; true</span><br><span class="line">LOCAL_PRIVILEGED_MODULE :&#x3D; true</span><br><span class="line">LOCAL_JAVACFLAGS :&#x3D; -Xlint:deprecation -Xlint:unchecked</span><br><span class="line"> </span><br><span class="line">#LOCAL_PROGUARD_FLAG_FILES :&#x3D; proguard.flags</span><br><span class="line">#LOCAL_JARJAR_RULES :&#x3D; $(LOCAL_PATH)&#x2F;jarjar-rules.txt</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># src, res, AndroidManifest.xml ...</span><br><span class="line">###################################################</span><br><span class="line">LOCAL_MANIFEST_FILE :&#x3D; src&#x2F;main&#x2F;AndroidManifest.xml</span><br><span class="line">LOCAL_SRC_FILES :&#x3D; $(call all-java-files-under, src&#x2F;main&#x2F;java)</span><br><span class="line">LOCAL_RESOURCE_DIR :&#x3D; $(LOCAL_PATH)&#x2F;src&#x2F;main&#x2F;res</span><br><span class="line">LOCAL_ASSET_DIR :&#x3D; $(LOCAL_PATH)&#x2F;src&#x2F;main&#x2F;assets</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># AS dependencies from androidx or android-support</span><br><span class="line">###################################################</span><br><span class="line">#implementation &#39;androidx.appcompat:appcompat:1.0.0&#39;</span><br><span class="line">#LOCAL_STATIC_ANDROID_LIBRARIES +&#x3D; androidx.appcompat_appcompat</span><br><span class="line"> </span><br><span class="line">#implementation &#39;androidx.constraintlayout:constraintlayout:1.1.0&#39;</span><br><span class="line">#LOCAL_STATIC_ANDROID_LIBRARIES +&#x3D; androidx-constraintlayout_constraintlayout</span><br><span class="line"> </span><br><span class="line">#implementation &#39;androidx.recyclerview:recyclerview:1.0.0&#39;</span><br><span class="line">#LOCAL_STATIC_ANDROID_LIBRARIES +&#x3D; androidx.recyclerview_recyclerview</span><br><span class="line"> </span><br><span class="line">#implementation &#39;com.google.android.material:material:1.0.0&#39;</span><br><span class="line">#LOCAL_STATIC_ANDROID_LIBRARIES +&#x3D; com.google.android.material_material</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># custom aar library</span><br><span class="line">###################################################</span><br><span class="line">#LOCAL_STATIC_JAVA_AAR_LIBRARIES +&#x3D; 第三方AAR的别名，如：Demo_xxx-1.0.0</span><br><span class="line">#LOCAL_AAPT_FLAGS +&#x3D; --extra-packages 第三方AAR里面AndroidManifest.xml定义的包名</span><br><span class="line">#LOCAL_RESOURCE_DIR +&#x3D; 如果第三方AAR里面有res编不过的时候可以将res解压出来在此引用，如：$(LOCAL_PATH)&#x2F;libs&#x2F;xxx&#x2F;res</span><br><span class="line">LOCAL_AAPT_FLAGS +&#x3D; --auto-add-overlay</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># custom jar library</span><br><span class="line">###################################################</span><br><span class="line">#LOCAL_STATIC_JAVA_LIBRARIES +&#x3D; 自定义Module或第三方JAR的别名</span><br><span class="line">#LOCAL_JAVA_LIBRARIES +&#x3D;</span><br><span class="line"> </span><br><span class="line">###################################################</span><br><span class="line"># custom jni library</span><br><span class="line">###################################################</span><br><span class="line">LOCAL_JNI_SHARED_LIBRARIES :&#x3D; </span><br><span class="line"> </span><br><span class="line">include $(BUILD_PACKAGE)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">##############################################################</span><br><span class="line"># Pre-built dependency jars,aars,...</span><br><span class="line">##############################################################</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"> </span><br><span class="line">#LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES +&#x3D; AAR或JAR别名与文件路径对应关系，如：Demo_xxx-1.0.0:libs&#x2F;xxx&#x2F;xxx.aar</span><br><span class="line"> </span><br><span class="line">include $(BUILD_MULTI_PREBUILT)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">##############################################################</span><br><span class="line"># Pre-built dependency jars,aars,...</span><br><span class="line">##############################################################</span><br><span class="line">#prebuilts +&#x3D; xxx:libs&#x2F;xxx&#x2F;xxx.aar</span><br><span class="line">#</span><br><span class="line">#define define-prebuilt</span><br><span class="line">#  $(eval tw :&#x3D; $(subst :, ,$(strip $(1)))) \</span><br><span class="line">#  $(eval include $(CLEAR_VARS)) \</span><br><span class="line">#  $(eval LOCAL_MODULE :&#x3D; $(word 1,$(tw))) \</span><br><span class="line">#  $(eval LOCAL_MODULE_TAGS :&#x3D; optional) \</span><br><span class="line">#  $(eval LOCAL_MODULE_CLASS :&#x3D; JAVA_LIBRARIES) \</span><br><span class="line">#  $(eval LOCAL_SRC_FILES :&#x3D; $(word 2,$(tw))) \</span><br><span class="line">#  $(eval LOCAL_UNINSTALLABLE_MODULE :&#x3D; true) \</span><br><span class="line">#  $(eval LOCAL_SDK_VERSION :&#x3D; system_current) \</span><br><span class="line">#  $(eval include $(BUILD_PREBUILT))</span><br><span class="line">#endef</span><br><span class="line">#</span><br><span class="line">#$(foreach p,$(prebuilts),\</span><br><span class="line">#  $(call define-prebuilt,$(p)))</span><br><span class="line">#</span><br><span class="line">#prebuilts :&#x3D;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">##############################################################</span><br><span class="line"># find other Android.mk </span><br><span class="line">##############################################################</span><br><span class="line">include $(call all-makefiles-under, $(LOCAL_PATH))</span><br></pre></td></tr></table></figure>
+<hr>
+<p>上面的方式都不行的话,直接打包apk编译<br>xx.apk同级目录Android.mk</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH :&#x3D; $(call my-dir)</span><br><span class="line">include $(CLEAR_VARS)</span><br><span class="line"></span><br><span class="line">LOCAL_MODULE :&#x3D; weixin</span><br><span class="line">LOCAL_MODULE_CLASS :&#x3D; APPS</span><br><span class="line">LOCAL_MODULE_SUFFIX :&#x3D; $(COMMON_ANDROID_PACKAGE_SUFFIX)</span><br><span class="line">LOCAL_SRC_FILES :&#x3D; $(LOCAL_MODULE).apk</span><br><span class="line">LOCAL_MODULE_PATH :&#x3D; $(TARGET_OUT_APP)</span><br><span class="line">LOCAL_CERTIFICATE :&#x3D; platform</span><br><span class="line">include $(BUILD_PREBUILT)</span><br><span class="line">include $(call all-makefiles-under,$(LOCAL_PATH))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1046,93 +1159,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/02/03/%E6%97%B6%E9%97%B4/2018-01-29~02-03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/02/03/%E6%97%B6%E9%97%B4/2018-01-29~02-03/" class="post-title-link" itemprop="url">老板领导与员工</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-02-03 08:35:05" itemprop="dateCreated datePublished" datetime="2018-02-03T08:35:05+08:00">2018-02-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-22 17:23:59" itemprop="dateModified" datetime="2021-02-22T17:23:59+08:00">2021-02-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%B6%E9%97%B4/" itemprop="url" rel="index"><span itemprop="name">时间</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="本周总结"><a href="#本周总结" class="headerlink" title="本周总结"></a>本周总结</h3><h2 id="1-总体计划概要"><a href="#1-总体计划概要" class="headerlink" title="1.总体计划概要"></a>1.总体计划概要</h2><ul>
-<li><p>工作时长:3307分钟</p>
-<p>学习:34分钟<br>*交通:<br>*陪伴家人:332分钟<br>*日常(洗漱,洗澡等):125分钟<br>*睡眠:2520<br>*娱乐:695分钟</p>
-<h2 id="2-计划本周目标及完成情况"><a href="#2-计划本周目标及完成情况" class="headerlink" title="2.计划本周目标及完成情况"></a>2.计划本周目标及完成情况</h2><p>每天学习一小时–未完成<br>每天快走40分钟–未完成<br>汗颜~</p>
-<h2 id="3-完成情况原因分析"><a href="#3-完成情况原因分析" class="headerlink" title="3.完成情况原因分析"></a>3.完成情况原因分析</h2><p>早上喜欢睡懒觉,晚上12点多才睡,影响到了第二天的质量</p>
-<h2 id="4-后续计划"><a href="#4-后续计划" class="headerlink" title="4.后续计划"></a>4.后续计划</h2><p>每晚11:30必须睡觉<br>下班后走40分钟<br>早上7点起床,学习一小时</p>
-<h5 id="本周做得完善的地方"><a href="#本周做得完善的地方" class="headerlink" title="本周做得完善的地方"></a>本周做得完善的地方</h5><p>工作上比较顺利,也帮朋友解决了一些问题,但上班只能挣小钱,要多学习商业模式</p>
-<h5 id="值得改进的地方"><a href="#值得改进的地方" class="headerlink" title="值得改进的地方"></a>值得改进的地方</h5><p>每晚睡的晚必须要改进了,平时工作的时候,稍微触及点利益的变得很敏感,还需要看开,想好各种场景的措辞,向高压锅同志学习</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1198,7 +1228,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">101</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

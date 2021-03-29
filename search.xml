@@ -17,7 +17,19 @@
   <entry>
     <title>photo</title>
     <url>/2021/02/22/photo/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>ThirdMediaProxy mediaProxy= ThirdMediaProxy.getInstance();</p>
+<p>mediaProxy.init(this, packageService, cls);</p>
+<p>//注册相关回调</p>
+<p>mediaProxy.setOnServiceConnectCallback(serviceConnectCallback);</p>
+<p>mediaProxy.setListCallback(onListCallback);</p>
+<p>mediaProxy.setId3InfoCallback(onId3infoCallback);</p>
+<p>//回调类型</p>
+<p>void onListCallback(String parentMediaId, List&lt;MediaBrowserCompat.MediaItem&gt; children){}</p>
+<p>//请求分类</p>
+<p>mediaProxy.request(ThirdMediaProxy.BROWSER_MUSIC_CATEGORIES, page,pagesize);</p>
+<p>//播放</p>
+<p>mediaProxy.playFromMediaId(mediaId, extra);</p>
+]]></content>
   </entry>
   <entry>
     <title>Activity-finish之后,onDestoy并不会马上执行</title>
@@ -4722,7 +4734,8 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
 <p>4.199.232.69.194 fastly.net</p>
 <hr>
 <p>Q: github.io打不开</p>
-<p>A: 按如上配置自己的域名 185.199.109.153 min-secs.github.io</p>
+<p>A: 按如上配置自己的域名 </p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">140.82.114.4	github.com</span><br><span class="line">185.199.109.153 github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
 <h3 id="配置用户名-邮箱"><a href="#配置用户名-邮箱" class="headerlink" title="配置用户名,邮箱"></a>配置用户名,邮箱</h3><p>git config –global user.email “email”</p>
 <p>git config –global user.name “username”</p>
 <h3 id="查看邮箱"><a href="#查看邮箱" class="headerlink" title="查看邮箱"></a>查看邮箱</h3><p>git config user.name</p>
@@ -4906,5 +4919,47 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       <categories>
         <category>随笔</category>
       </categories>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/03/08/%E8%BD%A6%E6%9C%BA/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85%E8%AE%BE%E8%AE%A1%E6%A6%82%E8%A6%81/</url>
+    <content><![CDATA[<h3 id="第三方音乐服务设计概要"><a href="#第三方音乐服务设计概要" class="headerlink" title="第三方音乐服务设计概要"></a>第三方音乐服务设计概要</h3><ol>
+<li><p>功能</p>
+<p>列表</p>
+<p>播放</p>
+<p>登录/三方登录</p>
+<p>支付</p>
+</li>
+<li><p><strong>设计总架构</strong></p>
+ <img src="/2021/03/08/%E8%BD%A6%E6%9C%BA/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85%E8%AE%BE%E8%AE%A1%E6%A6%82%E8%A6%81/资料\long\boke\Hexo-Blog\source\_posts\车机\喜马拉雅设计概要.assets\image-20210311192931748.png" alt="image-20210311192931748" style="zoom: 80%;">
+
+
+</li>
+<li><p>服务端</p>
+<p>3.1 核心类</p>
+<ul>
+<li><p>BaseMusicService 用于构建MediaBrowser体系</p>
+</li>
+<li><p>BasePlaybackManager </p>
+<ol>
+<li><p>通过MediaSession接收客户端传输事件</p>
+</li>
+<li><p>管理播放队列</p>
+</li>
+<li><p>登录</p>
+</li>
+<li><p>…</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>客户端</p>
+</li>
+</ol>
+<p>待办:</p>
+<p>喜马拉雅需要API请求登录, 暂未做本地缓存</p>
+<p>分页列表缓存何时清除</p>
+]]></content>
   </entry>
 </search>
