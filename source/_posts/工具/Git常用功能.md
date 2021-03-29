@@ -21,9 +21,12 @@ categories: 工具
 
 Q: github.io打不开
 
-A: 按如上配置自己的域名 185.199.109.153 min-secs.github.io
+A: 按如上配置自己的域名 
 
-
+```text
+140.82.114.4	github.com
+185.199.109.153 github.global.ssl.fastly.net
+```
 
 ### 配置用户名,邮箱
 
