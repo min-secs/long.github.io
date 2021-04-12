@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">101</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -169,6 +169,98 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E7%BB%93%E5%90%88xutils3%E4%BB%BF%E5%BE%AE%E4%BF%A1%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E7%BB%93%E5%90%88xutils3%E4%BB%BF%E5%BE%AE%E4%BF%A1%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>前言:最近涉及到和QQ打交道,定义所有的好友一共只能有300条消息,如果一次性从数据库读取300条或者更多,界面会有细微的卡顿.所以考虑了下分页,第一次进来只显示20条(仿微信),当用户滑到第一条后,如果数据库有消息,则再加载20条.</p>
+</blockquote>
+<p>##步骤-问把大象关冰箱,总共分几步?<br>###1.自定义absListview.scrollListerner<br>核心的东西是监听ListView的scrollListerner,网上扒了一个挺不错的,大家用的时候实现这个scrollListerner,完善自己的逻辑即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyOnScrollListener</span> <span class="keyword">implements</span> <span class="title">OnScrollListener</span> </span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> totalItemCount;</span><br><span class="line">      <span class="comment">//ListView最后的item项</span></span><br><span class="line">	  <span class="keyword">private</span> <span class="keyword">int</span> lastItem;</span><br><span class="line">      <span class="comment">//listview第一项</span></span><br><span class="line">	  <span class="keyword">private</span> <span class="keyword">int</span> firstItem;</span><br><span class="line">	    <span class="comment">//用于判断当前是否在加载</span></span><br><span class="line">	  <span class="keyword">private</span> <span class="keyword">boolean</span> isLoading;</span><br><span class="line">	    <span class="comment">//底部加载更多布局</span></span><br><span class="line">	  <span class="keyword">private</span> View footer;</span><br><span class="line">	    <span class="comment">//接口回调的实例</span></span><br><span class="line">	  <span class="keyword">private</span> OnloadDataListener listener;</span><br><span class="line">	 </span><br><span class="line">	  <span class="comment">//数据</span></span><br><span class="line">	  <span class="keyword">private</span> List&lt;MsgBean&gt; data;</span><br><span class="line">	  Handler handler = <span class="keyword">new</span> Handler();</span><br><span class="line">     </span><br><span class="line">	 </span><br><span class="line">	  <span class="function"><span class="keyword">public</span> <span class="title">MyOnScrollListener</span><span class="params">(View footer, List&lt;MsgBean&gt; data)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">this</span>.footer = footer;</span><br><span class="line">	    <span class="keyword">this</span>.data = data;</span><br><span class="line">	  &#125;</span><br><span class="line">	  <span class="comment">//设置接口回调的实例</span></span><br><span class="line">	  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnLoadDataListener</span><span class="params">(OnloadDataListener listener)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">this</span>.listener = listener;</span><br><span class="line">	  &#125;</span><br><span class="line">	   <span class="comment">/**</span></span><br><span class="line"><span class="comment">	   * 滑动状态变化</span></span><br><span class="line"><span class="comment">	   *</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> view</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> scrollState 1 SCROLL_STATE_TOUCH_SCROLL是拖动  2 SCROLL_STATE_FLING是惯性滑动 0SCROLL_STATE_IDLE是停止 , 只有当在不同状态间切换的时候才会执行</span></span><br><span class="line"><span class="comment">	   */</span></span><br><span class="line">	  <span class="meta">@Override</span></span><br><span class="line">	   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrollStateChanged</span><span class="params">(AbsListView view, <span class="keyword">int</span> scrollState)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//如果数据没有加载，并且滑动状态是停止的,并且滚到了第一个item,可在此做下拉更新或者上拉更新的判断</span></span><br><span class="line">	    <span class="keyword">if</span> (!isLoading &amp;&amp; firstItem == <span class="number">0</span> &amp;&amp; scrollState == SCROLL_STATE_IDLE) &#123;</span><br><span class="line">	      <span class="comment">//显示加载更多</span></span><br><span class="line">	      footer.setVisibility(View.VISIBLE);</span><br><span class="line">	    </span><br><span class="line">	      <span class="comment">//模拟一个延迟两秒的刷新功能</span></span><br><span class="line">	       handler.postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	        <span class="meta">@Override</span></span><br><span class="line">	        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	          <span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</span><br><span class="line">	            <span class="comment">//开始加载更多数据</span></span><br><span class="line">	            loadMoreData();</span><br><span class="line">	            <span class="comment">//回调设置ListView的数据</span></span><br><span class="line">	            listener.onLoadData(data);</span><br><span class="line">	             <span class="comment">//加载完成后操作什么</span></span><br><span class="line">	            loadComplete();</span><br><span class="line">	          &#125;</span><br><span class="line">	        &#125;</span><br><span class="line">	      &#125;, <span class="number">2000</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	   <span class="comment">/**</span></span><br><span class="line"><span class="comment">	   * 当加载数据完成后，设置加载标志为false表示没有加载数据了</span></span><br><span class="line"><span class="comment">	   * 并且设置底部加载更多为隐藏</span></span><br><span class="line"><span class="comment">	   */</span></span><br><span class="line">	  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    isLoading = <span class="keyword">false</span>;</span><br><span class="line">	    footer.setVisibility(View.GONE);</span><br><span class="line">	 </span><br><span class="line">	  &#125;</span><br><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	   * 开始加载更多新数据，这里每次只更新三条数据</span></span><br><span class="line"><span class="comment">	   */</span></span><br><span class="line">	  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadMoreData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    isLoading = <span class="keyword">true</span>;</span><br><span class="line">	    MsgBean msg = <span class="keyword">null</span>;</span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">	      msg = <span class="keyword">new</span> MsgBean();</span><br><span class="line">	     msg .setRemark(<span class="string">&quot;Liming&quot;</span>+i);</span><br><span class="line">	     msg .setMsgID(i);</span><br><span class="line">	      data.add(stu);</span><br><span class="line">	    &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	   * 监听可见界面的情况</span></span><br><span class="line"><span class="comment">	   *</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> view       ListView</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> firstVisibleItem 第一个可见的 item 的索引</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> visibleItemCount 可以显示的 item的条数</span></span><br><span class="line"><span class="comment">	   * <span class="doctag">@param</span> totalItemCount  总共有多少个 item</span></span><br><span class="line"><span class="comment">	   */</span></span><br><span class="line">	  <span class="meta">@Override</span></span><br><span class="line">	   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScroll</span><span class="params">(AbsListView view, <span class="keyword">int</span> firstVisibleItem, <span class="keyword">int</span> visibleItemCount, <span class="keyword">int</span> totalItemCount)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//实现下拉加载</span></span><br><span class="line">	    lastItem = firstVisibleItem + visibleItemCount;</span><br><span class="line">           <span class="comment">//实现上拉加载</span></span><br><span class="line">	    firstItem = firstVisibleItem;</span><br><span class="line">	     <span class="comment">//总listView的item个数</span></span><br><span class="line">	    <span class="keyword">this</span>.totalItemCount = totalItemCount;</span><br><span class="line">	  &#125;</span><br><span class="line">	  <span class="comment">//回调接口</span></span><br><span class="line">	  <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnloadDataListener</span> </span>&#123;</span><br><span class="line">	    <span class="function"><span class="keyword">void</span> <span class="title">onLoadData</span><span class="params">(List&lt;MsgBean&gt; data)</span></span>;</span><br><span class="line">	  &#125;</span><br><span class="line">	 &#125;</span><br></pre></td></tr></table></figure>
+<p>###2.实现此接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListPageActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">MyOnScrollListener</span>.<span class="title">OnloadDataListener</span>  </span>&#123;</span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line">	  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	    setContentView(R.layout.activity_list_page);</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">//显示到ListView上</span></span><br><span class="line">	    showListView(data);</span><br><span class="line"> <span class="comment">//自定义的滚动监听事件</span></span><br><span class="line">	    MyOnScrollListener onScrollListener = <span class="keyword">new</span> MyOnScrollListener(header, data);</span><br><span class="line">	    <span class="comment">//设置接口回调</span></span><br><span class="line">	    onScrollListener.setOnLoadDataListener(<span class="keyword">this</span>);</span><br><span class="line">	    <span class="comment">//设置ListView的滚动监听事件</span></span><br><span class="line">	    mListView.setOnScrollListener(onScrollListener);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">	  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoadData</span><span class="params">(List&lt;MsgBean&gt; data)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">//加载数据完成后，展示数据到ListView</span></span><br><span class="line">	    showListView(data);</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>showListView里面无疑是普通的更新adapter的工作<br>那么我们如何借助xutils的数据库进行分类呢?<br>###3.利用xutils数据库操作进行分页处理<br>首先,我们理一下思路,上面我们已经实现了上拉的回调,在此回调中把新来的数据加载到adapter即可.<br>//下文db是Dbmanager的实例,可参考<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/95b6c4d7b7ce">xutils3用法</a></p>
+<pre><code>/**
+ * 当前屏幕显示的消息数量
+ */
+private int MAX_MSG_NUMBER = 20;
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;MsgBean&gt; <span class="title">getDataFromDb</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	 List&lt;?&gt; dbSize = db.selector(MsgBean.class).where(WhereBuilder.b(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;=&quot;</span>, <span class="number">400</span>)).findAll();<span class="comment">//记得捕获null指针和DbException异常</span></span><br><span class="line"><span class="comment">//如果数据库比我们显示的页数小,则不偏移,否则,偏移到我们需要显示的位置</span></span><br><span class="line">		<span class="keyword">if</span> (dbSize.size() &lt; MAX_MSG_NUMBER) &#123;</span><br><span class="line">			indexOffset = <span class="number">0</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			indexOffset = dbSize.size() - MAX_MSG_NUMBER;</span><br><span class="line">		&#125;</span><br><span class="line">	 </span><br><span class="line">	 List&lt;MsgBean&gt; datas = db.selector(MsgBean.class).where(WhereBuilder.b(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;=&quot;</span>, <span class="number">400</span>)).limit(MAX_MSG_NUMBER)</span><br><span class="line">					.offset(indexOffset).findAll();</span><br><span class="line">		<span class="keyword">return</span> datas;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里解释一下          </p>
+</blockquote>
+<pre><code>db.selector(MsgBean.class).where(WhereBuilder.b(&quot;id&quot;, &quot;=&quot;, 400)).limit(MAX_MSG_NUMBER).offset(indexOffset).findAll();是我们实现分页的关键
+</code></pre>
+<p>.limit是我们定义的分页大小<br>.offset偏移量,我们数据库的大小是不变的,如果不定义偏移量,那么我们定义的分页大小每次只从0取到19.假设数据库中有21条数据,那么我们需要从1取到20,而不是0到19,所以偏移1.</p>
+<p>然后我们在loadMoreData中</p>
+<pre><code>MAX_MSG_NUMBER += MAX_MSG_NUMBER;
+getDataFromDb();
+</code></pre>
+<p>将大小自加,即完成加载更多的功能,在onLoadData(List<MsgBean> data)中加载数据即可.</MsgBean></p>
+<hr>
+<p>后面贴上我对xutils数据库操作的封装,还有很多不完善之处</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数据库 xutils用法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 青楼爱小生</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DbUtil</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = DbUtil.class.getName();</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> DbUtil dbUtil;</span><br><span class="line">	<span class="keyword">private</span> DbManager db;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">DbUtil</span><span class="params">()</span></span>&#123;</span><br><span class="line">		db = x.getDb(MyApplication.getInstance().daoConfig);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DbUtil <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(dbUtil == <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (DbUtil.class) &#123;</span><br><span class="line">				<span class="keyword">if</span>(dbUtil == <span class="keyword">null</span>)&#123;</span><br><span class="line">					dbUtil = <span class="keyword">new</span> DbUtil();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> dbUtil;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 增加数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> list</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMsgList</span><span class="params">(List&lt;MsgBean&gt; list)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.saveOrUpdate(list);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 增加一条数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> node</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMsgToDb</span><span class="params">(MsgBean node)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.saveOrUpdate(node);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除表中所有数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> cls  创建的表的映射</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteAll</span><span class="params">(Class cls)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.delete(cls);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除第一条数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> cls</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteFirst</span><span class="params">(Class cls)</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.delete(db.findFirst(cls));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 查询表中所有数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> List&lt;?&gt; findAll(Class cls) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> db.findAll(cls) == <span class="keyword">null</span> ? Collections.emptyList() : db.findAll(cls);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">			<span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * //添加查询条件进行查询</span></span><br><span class="line"><span class="comment">		List&lt;ChildInfo&gt; all = db.selector(ChildInfo.class).where(&quot;id&quot;,&quot;&gt;&quot;,2).and(&quot;id&quot;,&quot;&lt;&quot;,4).findAll();</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 搜索指定条件的数据</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> List&lt;?&gt; findDataByWhere(Class cls,WhereBuilder format)&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> db.selector(cls).where(format).findAll()== <span class="keyword">null</span> ?</span><br><span class="line">					Collections.emptyList() :db.selector(cls).where(format).findAll();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">		LogHelper.e(TAG, e.getMessage());</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 添加查询条件进行查询</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> cls  表映射</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> str  select语句</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> format  where语句</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> List&lt;DbModel&gt; DbModel  key为数据库列名 value为值</span></span><br><span class="line"><span class="comment">	 * eg:(Selector.from(Parent.class)  </span></span><br><span class="line"><span class="comment">                                   .where(&quot;id&quot; ,&quot;&lt;&quot;, 54)  </span></span><br><span class="line"><span class="comment">                                   .and(WhereBuilder.b(&quot;age&quot;, &quot;&gt;&quot;, 20).or(&quot;age&quot;, &quot; &lt; &quot;, 30))  </span></span><br><span class="line"><span class="comment">                                   .orderBy(&quot;id&quot;)  </span></span><br><span class="line"><span class="comment">                                   .limit(pageSize)    .offset(pageSize * pageIndex));  </span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> Selector&lt;?&gt; findDataBySelector(Class cls,WhereBuilder format)&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span>  db.selector(cls).where(format);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1131,145 +1223,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/Android-studio%E6%89%93%E5%BC%80%E6%97%A0%E5%93%8D%E5%BA%94/" class="post-title-link" itemprop="url">Android-studio打开无响应</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-15 11:09:18" itemprop="dateModified" datetime="2021-02-15T11:09:18+08:00">2021-02-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android studio打开无响应</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">Android studio打开无响应</h1>
-        <div class="show-content">
-          <p>双击666后无任何反应</p><p>有两种可能</p><p>1.gradle版本和AS不对应</p><p>2.环境变量没配置</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1339,7 +1292,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

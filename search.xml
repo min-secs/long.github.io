@@ -4844,21 +4844,22 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
 <p>find prebuilts/sdk/ -name Android.bp|xargs grep “name.*androidx” </p>
 </li>
 </ul>
-<h1 id="七-Shell"><a href="#七-Shell" class="headerlink" title="七. \Shell**"></a><strong>七.</strong> <strong><em>\</em>Shell**</strong></h1><p><strong>查看</strong>cpu信息</p>
-<p><img src="file:///C:\Users\admin\AppData\Local\Temp\ksohtml30816\wps2.jpg" alt="img"> </p>
+<h1 id="七-Shell"><a href="#七-Shell" class="headerlink" title="七. \Shell**"></a><strong>七.</strong> <strong><em>\</em>Shell**</strong></h1><h4 id="查看cpu信息"><a href="#查看cpu信息" class="headerlink" title="查看cpu信息"></a><strong>查看</strong>cpu信息</h4><p><img src="file:///C:\Users\admin\AppData\Local\Temp\ksohtml30816\wps2.jpg" alt="img"> </p>
 <p>adb shell</p>
 <p>cat /proc/cpuinfo  AArch64对应arm64-v8a</p>
-<p><strong>查找文件</strong></p>
-<p>busybox find . -name filename</p>
-<p><strong>抓取日志</strong></p>
+<p>getprop ro.product.cpu.abi //打印架构字符串</p>
+<h4 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a><strong>查找文件</strong></h4><p>busybox find . -name filename</p>
+<p>####<strong>抓取日志</strong></p>
 <p>adb pull /data/misc/bwlog/</p>
-<p><strong>查看当前占用</strong></p>
+<p>####<strong>查看当前占用</strong></p>
 <p>Lsof | grep 路径</p>
-<p><strong>查看settings 属性</strong></p>
-<p>Settings.System.<strong>getString</strong>(context.getContentResolver(), CustomViewUtils.<strong>NAME_BW_THEME_COLOR</strong>);</p>
+<h4 id="查看settings-属性"><a href="#查看settings-属性" class="headerlink" title="查看settings 属性"></a><strong>查看settings 属性</strong></h4><p>Settings.System.<strong>getString</strong>(context.getContentResolver(), CustomViewUtils.<strong>NAME_BW_THEME_COLOR</strong>);</p>
 <p>settings get SYSTEM bw_theme_color</p>
-<p><strong>查看文件大小</strong></p>
-<p> busybox du -h -d 1</p>
+<h4 id="查看文件大小"><a href="#查看文件大小" class="headerlink" title="查看文件大小"></a><strong>查看文件大小</strong></h4><p> busybox du -h -d 1</p>
+<p>####<strong>设置屏幕旋转</strong></p>
+<p>adb shell content insert –uri content://settings/system –bind name:s:user_rotation –bind value:i:1 i后面取值(0，1，2，3)</p>
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a><strong>python</strong></h2><p>使用镜像 </p>
+<p>pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a> (xxx)</p>
 ]]></content>
       <categories>
         <category>工具</category>
@@ -4961,5 +4962,13 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
 <p>喜马拉雅需要API请求登录, 暂未做本地缓存</p>
 <p>分页列表缓存何时清除</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Android-体系目录</title>
+    <url>/2021/04/07/Android%E6%97%A5%E8%AE%B0/Android-%E4%BD%93%E7%B3%BB%E7%9B%AE%E5%BD%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
 </search>

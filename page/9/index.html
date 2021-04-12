@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">101</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -169,6 +169,129 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/Android%E5%9F%BA%E7%A1%80%E8%BF%9B%E9%98%B6%E4%B9%8BEffectiveJava%E7%BF%BB%E8%AF%91%E7%B3%BB%E5%88%97(%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3)/" class="post-title-link" itemprop="url">Android基础进阶之EffectiveJava翻译系列(第三章-类和接口)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 16:52:21" itemprop="dateModified" datetime="2021-02-11T16:52:21+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="3-类和接口"><a href="#3-类和接口" class="headerlink" title="3. 类和接口"></a>3. 类和接口</h4><blockquote>
+<p>类和接口是Java编程的核心<br>#####Item13 最小化类和成员变量的访问权限<br>信息隐藏与封装是程序设计的基本原则<br>通用经验是能让类或者变量不可访问就让它不可访问<br>四种访问权限:</p>
+</blockquote>
+<ul>
+<li>private<br>只在它声明的地方可用</li>
+<li>package-private<br>同一个包内可用</li>
+<li>protected<br>同一个包或子类可用</li>
+<li>public<br>任何地方可用<blockquote>
+<p>公共类不应包含公共字段。确保static final引用的对象是不可变的。<br>绝不可以用private static final来声明一个数组对象</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="Item14-用公共方法提供公共字段"><a href="#Item14-用公共方法提供公共字段" class="headerlink" title="Item14 用公共方法提供公共字段"></a>Item14 用公共方法提供公共字段</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bad</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> x;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//good</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> y;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.x = x;</span><br><span class="line">		<span class="keyword">this</span>.y = y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getX</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> x; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getY</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> y; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123; <span class="keyword">this</span>.x = x; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setY</span><span class="params">(<span class="keyword">double</span> y)</span> </span>&#123; <span class="keyword">this</span>.y = y; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Item15-最小化可变性"><a href="#Item15-最小化可变性" class="headerlink" title="Item15 最小化可变性"></a>Item15 最小化可变性</h5><p>对象始终不变的类比可变的更安全和好用,如String<br>我们设计不可变对象时应遵循如下准则:</p>
+<ul>
+<li>不要提供任何方法来改变对象的状态</li>
+<li>确保类不可继承</li>
+<li>所有的字段使用private final修饰</li>
+<li>确保不要让类中的可变对象访问,使用深拷贝替代<br>如果一个类确实可变,也要保证其它地方尽可能不变,TimerTask是很好的例子<br>#####Item16 组合和继承,优先使用组合<blockquote>
+<p>继承虽然有很多好处,但是违背了封装性,暴露了父类的实现细节<br>#####Item17 专用于继承的设计，否则禁止继承<br>未能理解,后续补充<br>#####Item18 接口和抽象类之间倾向于接口<br>Java提供了两种机制来提供多个类型定义的实现:接口和抽象类</p>
+</blockquote>
+</li>
+</ul>
+<p>最明显的区别在于抽象类允许某些方法的实现,更重要的区别在于一个类使用了抽象类的方式来定义,则这个类必须是抽象类的子类.因为Java只允许单一继承，因此对抽象类的这种限制严重影响了它们作为类型定义的使用 </p>
+<ul>
+<li>已经存在的类可以很容易的实现一个新的接口<br>比如实现Comparable接口</li>
+<li>接口是定义混合器的理想选择<br>比如为一个主要类型的类添加比较方法,可通过实现Comparable接口实现实例之间的排序</li>
+</ul>
+<p>有一个特例是抽象类比接口更加易用,如果注重程序的易用性而不是灵活性则可以考虑抽象类<br>#####Item19 仅使用接口定义类型<br>当一个类实现了一个接口,这个接口是为类的实例服务的而不是为了其他目的</p>
+<p>所以有一种常量接口尽量不要使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bad</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PhysicalConstants</span> </span>&#123;</span><br><span class="line">	<span class="comment">// Avogadro&#x27;s number (1/mol)</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> AVOGADROS_NUMBER = <span class="number">6.02214199e23</span>;</span><br><span class="line">	<span class="comment">// Boltzmann constant (J/K)</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> BOLTZMANN_CONSTANT = <span class="number">1.3806503e-23</span>;</span><br><span class="line">	<span class="comment">// Mass of the electron (kg)</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> ELECTRON_MASS = <span class="number">9.10938188e-31</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果有这种常量需要使用,可以把它定义在与之关联的类里面</p>
+<h5 id="Item20-用继承来替代复合类-原单词-tagged-classes"><a href="#Item20-用继承来替代复合类-原单词-tagged-classes" class="headerlink" title="Item20 用继承来替代复合类(原单词: tagged classes)"></a>Item20 用继承来替代复合类(原单词: tagged classes)</h5><p>偶尔会遇到一个类的实例包含了多种不同的类别,如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad Tagged class - vastly inferior to a class hierarchy!</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Figure</span> </span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">enum</span> <span class="title">Shape</span> </span>&#123; RECTANGLE, CIRCLE &#125;;</span><br><span class="line">	<span class="comment">// Tag field - the shape of this figure</span></span><br><span class="line">	<span class="keyword">final</span> Shape shape;</span><br><span class="line">	<span class="comment">// These fields are used only if shape is RECTANGLE</span></span><br><span class="line">	<span class="keyword">double</span> length;</span><br><span class="line">	<span class="keyword">double</span> width;</span><br><span class="line">	<span class="comment">// This field is used only if shape is CIRCLE</span></span><br><span class="line">	<span class="keyword">double</span> radius;</span><br><span class="line">	<span class="comment">// Constructor for circle</span></span><br><span class="line">	Figure(<span class="keyword">double</span> radius) &#123;</span><br><span class="line">		shape = Shape.CIRCLE;</span><br><span class="line">		<span class="keyword">this</span>.radius = radius;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// Constructor for rectangle</span></span><br><span class="line">	Figure(<span class="keyword">double</span> length, <span class="keyword">double</span> width) &#123;</span><br><span class="line">		shape = Shape.RECTANGLE;</span><br><span class="line">		<span class="keyword">this</span>.length = length;</span><br><span class="line">		<span class="keyword">this</span>.width = width;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">area</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">switch</span>(shape) &#123;</span><br><span class="line">		<span class="keyword">case</span> RECTANGLE:</span><br><span class="line">			<span class="keyword">return</span> length * width;</span><br><span class="line">		<span class="keyword">case</span> CIRCLE:</span><br><span class="line">			<span class="keyword">return</span> Math.PI * (radius * radius);</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<p>优化如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Class hierarchy replacement for a tagged class</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Figure</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">area</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Figure</span> </span>&#123;</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">double</span> radius;</span><br><span class="line">	Circle(<span class="keyword">double</span> radius) &#123; <span class="keyword">this</span>.radius = radius; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">area</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> Math.PI * (radius * radius); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Figure</span> </span>&#123;</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">double</span> length;</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">double</span> width;</span><br><span class="line">	Rectangle(<span class="keyword">double</span> length, <span class="keyword">double</span> width) &#123;</span><br><span class="line">		<span class="keyword">this</span>.length = length;</span><br><span class="line">		<span class="keyword">this</span>.width = width;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">area</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> length * width; &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h5 id="Item21-使用函数对象表示策略"><a href="#Item21-使用函数对象表示策略" class="headerlink" title="Item21  使用函数对象表示策略"></a>Item21  使用函数对象表示策略</h5><p>直译过来有点不好理解,大意是对于多个类都要使用的策略(或用方法表示),采用接口来实现</p>
+<p>如一个类需要比较方法,另一个类也需要,则抽象出一个Comparable接口来给各个类通用</p>
+<h5 id="Item22-嵌套类的使用"><a href="#Item22-嵌套类的使用" class="headerlink" title="Item22 嵌套类的使用"></a>Item22 嵌套类的使用</h5><p>有四种嵌套类,分别是静态成员类、非静态成员类、匿名内部类和本地类<br>除了第一个都是内部类</p>
+<ul>
+<li>静态成员类<br>可以访问外部类的私有属性</li>
+<li>非静态成员类<br>同静态成员类,区别在于没有static修饰<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> MyIterator();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//典型用法</span></span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">MyIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>匿名内部类<br>不用声明,常用于监听器,随用随销</li>
+<li>本地类<br>略 未能理解,后续补充,欢迎留言增益知识<blockquote>
+<p>如果成员类需要外部类的引用,则使用非静态成员类,否则使用静态成员类</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e9933b7e9009">上一章:Object的方法</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dd9c5d7cdaa5">下一章:泛型</a> </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1002,138 +1125,6 @@ Thermometer.newInstance(TemperatureScale.CELSIUS)不仅比Thermometer.newInstanc
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/06/Android%E6%97%A5%E8%AE%B0/xutils3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8D%87%E7%BA%A7%EF%BC%88markdown%E7%89%88%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/06/Android%E6%97%A5%E8%AE%B0/xutils3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8D%87%E7%BA%A7%EF%BC%88markdown%E7%89%88%EF%BC%89/" class="post-title-link" itemprop="url">Xutils3数据库升级</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2020-02-06T08:35:05+08:00">2020-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-11 17:01:04" itemprop="dateModified" datetime="2021-02-11T17:01:04+08:00">2021-02-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>前言:xutils真是一款不错的android开发框架，在使用过程中减少了程序员很多的代码量。不过其中也有一小部分需要注意的地方。其它使用请看<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/95b6c4d7b7ce">xutils3详细用法</a></p>
-</blockquote>
-<h2 id="1-注解注意事项"><a href="#1-注解注意事项" class="headerlink" title="1.注解注意事项"></a>1.注解注意事项</h2><p>不像黄牛刀的注解，xutils的注解是在运行时（ps：我也不懂），用xutils注解点击事件发现，在频繁的切换点击两个button的时候，只会响应一个button的点击，用findviewbyid的方式设置onclicklitsener，就不会有这个bug。</p>
-<p>所以我们在用到点击功能的时候，恰当的用一下注解，目前只发现频繁点击会出现问题，不一定其它地方埋着什么。</p>
-<h2 id="2-数据库升级"><a href="#2-数据库升级" class="headerlink" title="2.数据库升级"></a>2.数据库升级</h2><p>当我们的业务在一天天完善的时候，之前建立的数据库字段可能需要做修改。我们如下配置数据库的代码</p>
-<pre><code>    DbManager.DaoConfig daoConfig =newDbManager.DaoConfig()
-
-    .setDbName(&quot;myapp.db&quot;)//设置数据库名
-
-    xutils.db.setDbDir(newFile(&quot;/mnt/sdcard/&quot;))//设置数据库路径，默认存储在app的私有目录
-
-    .setDbVersion(2)//设置数据库的版本号
-
-    .setDbOpenListener(newDbManager.DbOpenListener() &#123;//设置数据库打开的监听
-
-        @Override
-        public void onDbOpened(DbManager db) &#123;//开启数据库支持多线程操作，提升性能，对写入加速提升巨大
-        db.getDatabase().enableWriteAheadLogging();
-&#125;
-&#125;)
-    .setDbUpgradeListener(newDbManager.DbUpgradeListener() &#123;//设置数据库更新的监听
-
-        @Override
-        public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
-
-&#125;
-
-&#125;)  .setTableCreateListener(newDbManager.TableCreateListener() &#123;//设置表创建的监听
-        @Override
-        public void onTableCreated(DbManager db, TableEntity table)&#123;
-        Log.i(&quot;JAVA&quot;,&quot;onTableCreated：&quot;+ table.getName());
-&#125;
-&#125;);
-</code></pre>
-<hr>
-<p>我们可以在setDbVersion（x）填上任意数字，当然根据我们自己的实际情况</p>
-<p>在需要改字段的时候，我们可以填x+n的数字,然后在</p>
-<pre><code>.setDbUpgradeListener(newDbManager.DbUpgradeListener() &#123;//设置数据库更新的监听
-
-@Override 
-public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
-
-  //不需要之前的数据
-
-  db.delete(x.class);
-
-  //需要之前的数据
-
-  db.addColumn(x.class,&quot;test&quot;);//新增的字段
-
-  db.saveOrUpdate(db.findall（）);//当前表中有这条isId则更新数据，没有则添加
-
-&#125;
-
-&#125;)
-</code></pre>
-<hr>
-<p>感谢android，感谢开源</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1203,7 +1194,7 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

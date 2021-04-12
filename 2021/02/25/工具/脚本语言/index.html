@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="file:///C:/Users/admin/AppData/Local/Temp/ksohtml30816/wps2.jpg">
 <meta property="article:published_time" content="2021-02-25T00:35:05.000Z">
-<meta property="article:modified_time" content="2021-02-25T10:01:05.122Z">
+<meta property="article:modified_time" content="2021-04-12T06:42:58.267Z">
 <meta property="article:author" content="boom.Tan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="file:///C:/Users/admin/AppData/Local/Temp/ksohtml30816/wps2.jpg">
@@ -122,7 +122,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">101</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -202,10 +202,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-02-25 08:35:05 / Modified: 18:01:05" itemprop="dateCreated datePublished" datetime="2021-02-25T08:35:05+08:00">2021-02-25</time>
+              <time title="Created: 2021-02-25 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-25T08:35:05+08:00">2021-02-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-04-12 14:42:58" itemprop="dateModified" datetime="2021-04-12T14:42:58+08:00">2021-04-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -268,21 +274,22 @@
 <p>find prebuilts/sdk/ -name Android.bp|xargs grep “name.*androidx” </p>
 </li>
 </ul>
-<h1 id="七-Shell"><a href="#七-Shell" class="headerlink" title="七. \Shell**"></a><strong>七.</strong> <strong><em>\</em>Shell**</strong></h1><p><strong>查看</strong>cpu信息</p>
-<p><img src="file:///C:\Users\admin\AppData\Local\Temp\ksohtml30816\wps2.jpg" alt="img"> </p>
+<h1 id="七-Shell"><a href="#七-Shell" class="headerlink" title="七. \Shell**"></a><strong>七.</strong> <strong><em>\</em>Shell**</strong></h1><h4 id="查看cpu信息"><a href="#查看cpu信息" class="headerlink" title="查看cpu信息"></a><strong>查看</strong>cpu信息</h4><p><img src="file:///C:\Users\admin\AppData\Local\Temp\ksohtml30816\wps2.jpg" alt="img"> </p>
 <p>adb shell</p>
 <p>cat /proc/cpuinfo  AArch64对应arm64-v8a</p>
-<p><strong>查找文件</strong></p>
-<p>busybox find . -name filename</p>
-<p><strong>抓取日志</strong></p>
+<p>getprop ro.product.cpu.abi //打印架构字符串</p>
+<h4 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a><strong>查找文件</strong></h4><p>busybox find . -name filename</p>
+<p>####<strong>抓取日志</strong></p>
 <p>adb pull /data/misc/bwlog/</p>
-<p><strong>查看当前占用</strong></p>
+<p>####<strong>查看当前占用</strong></p>
 <p>Lsof | grep 路径</p>
-<p><strong>查看settings 属性</strong></p>
-<p>Settings.System.<strong>getString</strong>(context.getContentResolver(), CustomViewUtils.<strong>NAME_BW_THEME_COLOR</strong>);</p>
+<h4 id="查看settings-属性"><a href="#查看settings-属性" class="headerlink" title="查看settings 属性"></a><strong>查看settings 属性</strong></h4><p>Settings.System.<strong>getString</strong>(context.getContentResolver(), CustomViewUtils.<strong>NAME_BW_THEME_COLOR</strong>);</p>
 <p>settings get SYSTEM bw_theme_color</p>
-<p><strong>查看文件大小</strong></p>
-<p> busybox du -h -d 1</p>
+<h4 id="查看文件大小"><a href="#查看文件大小" class="headerlink" title="查看文件大小"></a><strong>查看文件大小</strong></h4><p> busybox du -h -d 1</p>
+<p>####<strong>设置屏幕旋转</strong></p>
+<p>adb shell content insert –uri content://settings/system –bind name:s:user_rotation –bind value:i:1 i后面取值(0，1，2，3)</p>
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a><strong>python</strong></h2><p>使用镜像 </p>
+<p>pip install -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a> (xxx)</p>
 
     </div>
 
@@ -363,7 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">四. \访问数据库**</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim"><span class="nav-number">2.</span> <span class="nav-text">** \Vim**</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83-Shell"><span class="nav-number">3.</span> <span class="nav-text">七. \Shell**</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">四. \访问数据库**</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim"><span class="nav-number">2.</span> <span class="nav-text">** \Vim**</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83-Shell"><span class="nav-number">3.</span> <span class="nav-text">七. \Shell**</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bcpu%E4%BF%A1%E6%81%AF"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">查看cpu信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">查找文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bsettings-%E5%B1%9E%E6%80%A7"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">查看settings 属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.0.0.4.</span> <span class="nav-text">查看文件大小</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python"><span class="nav-number">3.1.</span> <span class="nav-text">python</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,7 +384,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
