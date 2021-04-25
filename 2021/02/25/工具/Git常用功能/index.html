@@ -28,7 +28,7 @@
 <meta property="og:description" content="添加代理增快访问速度 1.打开ipaddress.com网站 2.输入GitHub.com或者fastly.net查询IP 3.管理员打开C:\Windows\System32\drivers\etc\hosts 4.199.232.69.194 fastly.net  Q: github.io打不开 A: 按如上配置自己的域名  12140.82.114.4	github.com185.199.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-25T09:35:05.000Z">
-<meta property="article:modified_time" content="2021-03-08T05:46:09.888Z">
+<meta property="article:modified_time" content="2021-04-17T02:42:46.372Z">
 <meta property="article:author" content="boom.Tan">
 <meta name="twitter:card" content="summary">
 
@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">104</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -208,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-08 13:46:09" itemprop="dateModified" datetime="2021-03-08T13:46:09+08:00">2021-03-08</time>
+                <time title="Modified: 2021-04-17 10:42:46" itemprop="dateModified" datetime="2021-04-17T10:42:46+08:00">2021-04-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,6 +244,9 @@
 <p>git config –global user.name “username”</p>
 <h3 id="查看邮箱"><a href="#查看邮箱" class="headerlink" title="查看邮箱"></a>查看邮箱</h3><p>git config user.name</p>
 <p>git config user.email</p>
+<h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a><strong>设置别名</strong></h3><p>git config –global alias.co “checkout” //使用git co 代替 checkout</p>
+<p>git config –global alias.st status</p>
+<h3 id="查看当前配置"><a href="#查看当前配置" class="headerlink" title="查看当前配置"></a><strong>查看当前配置</strong></h3><p> git config –global –list</p>
 <h3 id="克隆一个仓库"><a href="#克隆一个仓库" class="headerlink" title="克隆一个仓库"></a>克隆一个仓库</h3><p>​    git clone git://</p>
 <a id="more"></a>
 
@@ -274,11 +277,9 @@
 <p>​    </p>
 <h3 id="跟踪远程分支"><a href="#跟踪远程分支" class="headerlink" title="跟踪远程分支"></a><strong>跟踪远程分支</strong></h3><p>​    git co -b foo o/master</p>
 <p>​    git branch -u o/master foo (原来的跟踪状态不会同步更新)</p>
-<h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a><strong>设置别名</strong></h3><p>git config –global alias.co “checkout” //使用git co 代替 checkout</p>
 <h3 id="图形化界面"><a href="#图形化界面" class="headerlink" title="图形化界面"></a><strong>图形化界面</strong></h3><p>gitk –all</p>
 <h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a><strong>对比</strong></h3><p>Git log xx</p>
 <p>Git log -p xx //比较内容</p>
-<h3 id="配置缩写"><a href="#配置缩写" class="headerlink" title="配置缩写"></a><strong>配置缩写</strong></h3><p>git config –global alias.st status</p>
 <h3 id="查看git地址"><a href="#查看git地址" class="headerlink" title="查看git地址"></a><strong>查看git地址</strong></h3><p>git remote show origin</p>
 <h3 id="回退到指定commit"><a href="#回退到指定commit" class="headerlink" title="回退到指定commit"></a><strong>回退到指定</strong>commit</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
 
@@ -379,7 +380,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">添加代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D-%E9%82%AE%E7%AE%B1"><span class="nav-number">2.</span> <span class="nav-text">配置用户名,邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%82%AE%E7%AE%B1"><span class="nav-number">3.</span> <span class="nav-text">查看邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">克隆一个仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%B9%B6%E5%90%88%E5%B9%B6%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="nav-number">5.</span> <span class="nav-text">获取远程仓库并合并到本地分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4"><span class="nav-number">6.</span> <span class="nav-text">提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF-%E5%B9%B6%E5%88%87%E5%88%B0%E8%AF%A5%E5%88%86%E6%94%AF"><span class="nav-number">7.</span> <span class="nav-text">创建新分支,并切到该分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%B9%B6"><span class="nav-number">8.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80"><span class="nav-number">9.</span> <span class="nav-text">撤销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E7%90%86%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95"><span class="nav-number">10.</span> <span class="nav-text">整理提交记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93TAG"><span class="nav-number">11.</span> <span class="nav-text">打TAG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">12.</span> <span class="nav-text">上传到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="nav-number">13.</span> <span class="nav-text">跟踪远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="nav-number">14.</span> <span class="nav-text">设置别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2"><span class="nav-number">15.</span> <span class="nav-text">图形化界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">16.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%BC%A9%E5%86%99"><span class="nav-number">17.</span> <span class="nav-text">配置缩写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bgit%E5%9C%B0%E5%9D%80"><span class="nav-number">18.</span> <span class="nav-text">查看git地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E9%80%80%E5%88%B0%E6%8C%87%E5%AE%9Acommit"><span class="nav-number">19.</span> <span class="nav-text">回退到指定commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BE%E5%BC%83%E6%9C%AC%E5%9C%B0%E5%BC%BA%E5%88%B6%E5%92%8C%E8%BF%9C%E7%A8%8B%E4%B8%80%E8%87%B4"><span class="nav-number">20.</span> <span class="nav-text">放弃本地强制和远程一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E9%99%A4untrack-files"><span class="nav-number">21.</span> <span class="nav-text">清除untrack files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-number">22.</span> <span class="nav-text">遇到的错误</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">添加代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D-%E9%82%AE%E7%AE%B1"><span class="nav-number">2.</span> <span class="nav-text">配置用户名,邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%82%AE%E7%AE%B1"><span class="nav-number">3.</span> <span class="nav-text">查看邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">设置别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">查看当前配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="nav-number">6.</span> <span class="nav-text">克隆一个仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%B9%B6%E5%90%88%E5%B9%B6%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="nav-number">7.</span> <span class="nav-text">获取远程仓库并合并到本地分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4"><span class="nav-number">8.</span> <span class="nav-text">提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF-%E5%B9%B6%E5%88%87%E5%88%B0%E8%AF%A5%E5%88%86%E6%94%AF"><span class="nav-number">9.</span> <span class="nav-text">创建新分支,并切到该分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%B9%B6"><span class="nav-number">10.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80"><span class="nav-number">11.</span> <span class="nav-text">撤销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E7%90%86%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95"><span class="nav-number">12.</span> <span class="nav-text">整理提交记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93TAG"><span class="nav-number">13.</span> <span class="nav-text">打TAG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">14.</span> <span class="nav-text">上传到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="nav-number">15.</span> <span class="nav-text">跟踪远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2"><span class="nav-number">16.</span> <span class="nav-text">图形化界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">17.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bgit%E5%9C%B0%E5%9D%80"><span class="nav-number">18.</span> <span class="nav-text">查看git地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E9%80%80%E5%88%B0%E6%8C%87%E5%AE%9Acommit"><span class="nav-number">19.</span> <span class="nav-text">回退到指定commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BE%E5%BC%83%E6%9C%AC%E5%9C%B0%E5%BC%BA%E5%88%B6%E5%92%8C%E8%BF%9C%E7%A8%8B%E4%B8%80%E8%87%B4"><span class="nav-number">20.</span> <span class="nav-text">放弃本地强制和远程一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E9%99%A4untrack-files"><span class="nav-number">21.</span> <span class="nav-text">清除untrack files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF"><span class="nav-number">22.</span> <span class="nav-text">遇到的错误</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -393,7 +394,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">104</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="图像 图片大小计算   分辨率x图片位深(kb) 1360px*360px*4 bytes-per-pixel * 50 images &#x3D; 506 kiB * 50 images &#x3D; 24.7 MiB   内存优化  首次获取图片的宽高, 计算取样比例 然后加载真实图片   12345678910val point &#x3D; Point()windowManager.defaultD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Boom.Tan个人空间">
+<meta property="og:url" content="http://example.com/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/index.html">
+<meta property="og:site_name" content="Boom.Tan个人空间">
+<meta property="og:description" content="图像 图片大小计算   分辨率x图片位深(kb) 1360px*360px*4 bytes-per-pixel * 50 images &#x3D; 506 kiB * 50 images &#x3D; 24.7 MiB   内存优化  首次获取图片的宽高, 计算取样比例 然后加载真实图片   12345678910val point &#x3D; Point()windowManager.defaultD">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20201118144402322.png">
+<meta property="article:published_time" content="2021-04-25T11:46:44.767Z">
+<meta property="article:modified_time" content="2021-01-15T09:07:21.912Z">
+<meta property="article:author" content="boom.Tan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/Users/admin/AppData/Roaming/Typora/typora-user-images/image-20201118144402322.png">
+
+<link rel="canonical" href="http://example.com/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title> | Boom.Tan个人空间</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Boom.Tan个人空间</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">104</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-25 19:46:44" itemprop="dateCreated datePublished" datetime="2021-04-25T19:46:44+08:00">2021-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-15 17:07:21" itemprop="dateModified" datetime="2021-01-15T17:07:21+08:00">2021-01-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h1><ol>
+<li>图片大小计算</li>
+</ol>
+<ul>
+<li><p>分辨率x图片位深(kb)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">360px*360px*4 bytes-per-pixel * 50 images &#x3D; 506 kiB * 50 images &#x3D; 24.7 MiB</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li><p>内存优化 </p>
+<p>首次获取图片的宽高, 计算取样比例</p>
+<p>然后加载真实图片</p>
+</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> point = Point()</span><br><span class="line">windowManager.defaultDisplay.getSize(point)</span><br><span class="line"><span class="keyword">val</span> options = BitmapFactory.Options()</span><br><span class="line">options.inJustDecodeBounds = <span class="literal">true</span></span><br><span class="line">BitmapFactory.decodeFile(columnName, options)</span><br><span class="line"><span class="keyword">val</span> heightRadio = options.outHeight / point.y</span><br><span class="line"><span class="keyword">val</span> widthRadio = options.outWidth / point.x</span><br><span class="line">options.inSampleSize = Math.max(heightRadio, widthRadio)</span><br><span class="line">options.inJustDecodeBounds = <span class="literal">false</span></span><br><span class="line"><span class="keyword">val</span> decodeFile = BitmapFactory.decodeFile(columnName, options)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><ul>
+<li>Glide<ol>
+<li>activity销毁加载怎么停止的</li>
+<li>一张图片如何加载</li>
+<li>缓存机制</li>
+</ol>
+</li>
+<li>Picasso</li>
+<li>universalImageLoader</li>
+</ul>
+<h1 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h1><p>dumpsys media_session //查看当前session状态</p>
+<p>dumpsys audio //查看当前audio状态</p>
+<h2 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1.基础概念"></a>1.<strong>基础概念</strong></h2><blockquote>
+<p>模拟信号 -&gt; 采样 -&gt; 量化 -&gt; 编码 -&gt; 数字信号  </p>
+</blockquote>
+<p>​        人耳听到的最大频率为20kHz, 根据奈奎斯特采样定理：为了不失真地恢复模拟信号，采样频率应该不小于模拟信号频谱中最高频率的2倍。</p>
+<p>所以常用的采样率就是44.1KHz  –&gt; 保存频率</p>
+<p>位数 –&gt; 保存振幅(取相似的整数值)</p>
+<h5 id="声道数"><a href="#声道数" class="headerlink" title="声道数"></a>声道数</h5><p>声道数，是指支持能<strong>不同发声</strong>（注意是不同声音）的音响的个数。</p>
+<p>单声道：1个声道<br> 双声道：2个声道<br> 立体声道：默认为2个声道<br> 立体声道（4声道）：4个声道</p>
+<h5 id="码率"><a href="#码率" class="headerlink" title="码率"></a>码率</h5><p>码率，是指一个数据流中每秒钟能通过的信息量，单位bps（bit per second）</p>
+<p>码率 = 采样率 * 采样位数 * 声道数</p>
+<h1 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h1><h2 id="1-基础概念-1"><a href="#1-基础概念-1" class="headerlink" title="1.基础概念"></a>1.基础概念</h2><h3 id="帧-一副画面"><a href="#帧-一副画面" class="headerlink" title="帧: 一副画面"></a>帧: 一副画面</h3><h3 id="帧率-单位fps-frames-per-second-一秒内帧数"><a href="#帧率-单位fps-frames-per-second-一秒内帧数" class="headerlink" title="帧率: 单位fps, (frames per second) 一秒内帧数"></a>帧率: 单位fps, (frames per second) 一秒内帧数</h3><p>​    24/25 fps –&gt; 电影</p>
+<p>​    30/60 fps –&gt; 游戏</p>
+<pre><code>&gt;85 fps 肉眼无法感知
+</code></pre>
+<h3 id="色彩空间"><a href="#色彩空间" class="headerlink" title="色彩空间"></a>色彩空间</h3><ul>
+<li><p>RGB</p>
+</li>
+<li><p>YUV</p>
+<p>Y: 亮度, 含有较多的绿色通道</p>
+<p>U:蓝色通道与亮度差值</p>
+<p>V:红色通道与亮度差值</p>
+</li>
+</ul>
+<h5 id="RGB和YUV的换算"><a href="#RGB和YUV的换算" class="headerlink" title="RGB和YUV的换算"></a>RGB和YUV的换算</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Y &#x3D; 0.299R ＋ 0.587G ＋ 0.114B </span><br><span class="line">U &#x3D; －0.147R － 0.289G ＋ 0.436B</span><br><span class="line">V &#x3D; 0.615R － 0.515G － 0.100B</span><br><span class="line">——————————————————</span><br><span class="line">R &#x3D; Y ＋ 1.14V</span><br><span class="line">G &#x3D; Y － 0.39U － 0.58V</span><br><span class="line">B &#x3D; Y ＋ 2.03U</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="调优"><a href="#调优" class="headerlink" title="调优"></a>调优</h1><h2 id="1-ANR"><a href="#1-ANR" class="headerlink" title="1. ANR"></a>1. ANR</h2><ul>
+<li>抓取data/anr下面的日志分析</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ANR in</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">group&#x3D;&quot;main&quot; sCount&#x3D;1 </span><br></pre></td></tr></table></figure>
+<p>有可能是主线程繁忙,有可能是其他线程持有了主线程需要的锁</p>
+<ul>
+<li><p>使用Cpu Profile分析主线程使用情况</p>
+</li>
+<li><p>bugreport</p>
+<p>同步时间轴, 开始日志 <code>dumpstate: begin</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpsys activity processes&#x2F;&#x2F;查看应用oom_adj</span><br></pre></td></tr></table></figure>
+<h2 id="2-Crash"><a href="#2-Crash" class="headerlink" title="2. Crash"></a>2. Crash</h2></li>
+</ul>
+<h2 id="3-续航"><a href="#3-续航" class="headerlink" title="3. 续航"></a>3. 续航</h2><h2 id="4-减小体积"><a href="#4-减小体积" class="headerlink" title="4.  减小体积"></a>4.  减小体积</h2><h2 id="5-启动优化"><a href="#5-启动优化" class="headerlink" title="5. 启动优化"></a>5. 启动优化</h2><h2 id="6-内存"><a href="#6-内存" class="headerlink" title="6. 内存"></a>6. 内存</h2><ul>
+<li>dumpsys meminfo packagename</li>
+</ul>
+<p><img src="/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201118144402322.png" alt="image-20201118144402322"></p>
+<p>查看内存占用,和当前Activity数量</p>
+<ul>
+<li><p>使用AS profiler</p>
+<p>MEMORY中GC之后,dump当前内存, Leaks之后,跟踪排查相关引用</p>
+</li>
+<li><p>MAT</p>
+<p>导入hprof </p>
+<h2 id="7-CPU"><a href="#7-CPU" class="headerlink" title="7. CPU"></a>7. CPU</h2><h2 id="other-黑屏如何分析"><a href="#other-黑屏如何分析" class="headerlink" title="other 黑屏如何分析?"></a>other 黑屏如何分析?</h2></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/07/Android%E6%97%A5%E8%AE%B0/Android-%E4%BD%93%E7%B3%BB%E7%9B%AE%E5%BD%95/" rel="prev" title="Android-体系目录">
+      <i class="fa fa-chevron-left"></i> Android-体系目录
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text">图像</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9F%B3%E9%A2%91"><span class="nav-number">2.</span> <span class="nav-text">音频</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">1.基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A3%B0%E9%81%93%E6%95%B0"><span class="nav-number">2.1.0.0.1.</span> <span class="nav-text">声道数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A0%81%E7%8E%87"><span class="nav-number">2.1.0.0.2.</span> <span class="nav-text">码率</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%86%E9%A2%91"><span class="nav-number">3.</span> <span class="nav-text">视频</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5-1"><span class="nav-number">3.1.</span> <span class="nav-text">1.基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A7-%E4%B8%80%E5%89%AF%E7%94%BB%E9%9D%A2"><span class="nav-number">3.1.1.</span> <span class="nav-text">帧: 一副画面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A7%E7%8E%87-%E5%8D%95%E4%BD%8Dfps-frames-per-second-%E4%B8%80%E7%A7%92%E5%86%85%E5%B8%A7%E6%95%B0"><span class="nav-number">3.1.2.</span> <span class="nav-text">帧率: 单位fps, (frames per second) 一秒内帧数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4"><span class="nav-number">3.1.3.</span> <span class="nav-text">色彩空间</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#RGB%E5%92%8CYUV%E7%9A%84%E6%8D%A2%E7%AE%97"><span class="nav-number">3.1.3.0.1.</span> <span class="nav-text">RGB和YUV的换算</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%83%E4%BC%98"><span class="nav-number">4.</span> <span class="nav-text">调优</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ANR"><span class="nav-number">4.1.</span> <span class="nav-text">1. ANR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Crash"><span class="nav-number">4.2.</span> <span class="nav-text">2. Crash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BB%AD%E8%88%AA"><span class="nav-number">4.3.</span> <span class="nav-text">3. 续航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%87%8F%E5%B0%8F%E4%BD%93%E7%A7%AF"><span class="nav-number">4.4.</span> <span class="nav-text">4.  减小体积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96"><span class="nav-number">4.5.</span> <span class="nav-text">5. 启动优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%86%85%E5%AD%98"><span class="nav-number">4.6.</span> <span class="nav-text">6. 内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-CPU"><span class="nav-number">4.7.</span> <span class="nav-text">7. CPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#other-%E9%BB%91%E5%B1%8F%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90"><span class="nav-number">4.8.</span> <span class="nav-text">other 黑屏如何分析?</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">boom.Tan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">boom.Tan</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

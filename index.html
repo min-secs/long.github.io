@@ -116,7 +116,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">104</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -169,6 +169,155 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-04-25 19:46:44" itemprop="dateCreated datePublished" datetime="2021-04-25T19:46:44+08:00">2021-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-15 17:07:21" itemprop="dateModified" datetime="2021-01-15T17:07:21+08:00">2021-01-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h1><ol>
+<li>图片大小计算</li>
+</ol>
+<ul>
+<li><p>分辨率x图片位深(kb)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">360px*360px*4 bytes-per-pixel * 50 images &#x3D; 506 kiB * 50 images &#x3D; 24.7 MiB</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li><p>内存优化 </p>
+<p>首次获取图片的宽高, 计算取样比例</p>
+<p>然后加载真实图片</p>
+</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> point = Point()</span><br><span class="line">windowManager.defaultDisplay.getSize(point)</span><br><span class="line"><span class="keyword">val</span> options = BitmapFactory.Options()</span><br><span class="line">options.inJustDecodeBounds = <span class="literal">true</span></span><br><span class="line">BitmapFactory.decodeFile(columnName, options)</span><br><span class="line"><span class="keyword">val</span> heightRadio = options.outHeight / point.y</span><br><span class="line"><span class="keyword">val</span> widthRadio = options.outWidth / point.x</span><br><span class="line">options.inSampleSize = Math.max(heightRadio, widthRadio)</span><br><span class="line">options.inJustDecodeBounds = <span class="literal">false</span></span><br><span class="line"><span class="keyword">val</span> decodeFile = BitmapFactory.decodeFile(columnName, options)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><ul>
+<li>Glide<ol>
+<li>activity销毁加载怎么停止的</li>
+<li>一张图片如何加载</li>
+<li>缓存机制</li>
+</ol>
+</li>
+<li>Picasso</li>
+<li>universalImageLoader</li>
+</ul>
+<h1 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h1><p>dumpsys media_session //查看当前session状态</p>
+<p>dumpsys audio //查看当前audio状态</p>
+<h2 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1.基础概念"></a>1.<strong>基础概念</strong></h2><blockquote>
+<p>模拟信号 -&gt; 采样 -&gt; 量化 -&gt; 编码 -&gt; 数字信号  </p>
+</blockquote>
+<p>​        人耳听到的最大频率为20kHz, 根据奈奎斯特采样定理：为了不失真地恢复模拟信号，采样频率应该不小于模拟信号频谱中最高频率的2倍。</p>
+<p>所以常用的采样率就是44.1KHz  –&gt; 保存频率</p>
+<p>位数 –&gt; 保存振幅(取相似的整数值)</p>
+<h5 id="声道数"><a href="#声道数" class="headerlink" title="声道数"></a>声道数</h5><p>声道数，是指支持能<strong>不同发声</strong>（注意是不同声音）的音响的个数。</p>
+<p>单声道：1个声道<br> 双声道：2个声道<br> 立体声道：默认为2个声道<br> 立体声道（4声道）：4个声道</p>
+<h5 id="码率"><a href="#码率" class="headerlink" title="码率"></a>码率</h5><p>码率，是指一个数据流中每秒钟能通过的信息量，单位bps（bit per second）</p>
+<p>码率 = 采样率 * 采样位数 * 声道数</p>
+<h1 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h1><h2 id="1-基础概念-1"><a href="#1-基础概念-1" class="headerlink" title="1.基础概念"></a>1.基础概念</h2><h3 id="帧-一副画面"><a href="#帧-一副画面" class="headerlink" title="帧: 一副画面"></a>帧: 一副画面</h3><h3 id="帧率-单位fps-frames-per-second-一秒内帧数"><a href="#帧率-单位fps-frames-per-second-一秒内帧数" class="headerlink" title="帧率: 单位fps, (frames per second) 一秒内帧数"></a>帧率: 单位fps, (frames per second) 一秒内帧数</h3><p>​    24/25 fps –&gt; 电影</p>
+<p>​    30/60 fps –&gt; 游戏</p>
+<pre><code>&gt;85 fps 肉眼无法感知
+</code></pre>
+<h3 id="色彩空间"><a href="#色彩空间" class="headerlink" title="色彩空间"></a>色彩空间</h3><ul>
+<li><p>RGB</p>
+</li>
+<li><p>YUV</p>
+<p>Y: 亮度, 含有较多的绿色通道</p>
+<p>U:蓝色通道与亮度差值</p>
+<p>V:红色通道与亮度差值</p>
+</li>
+</ul>
+<h5 id="RGB和YUV的换算"><a href="#RGB和YUV的换算" class="headerlink" title="RGB和YUV的换算"></a>RGB和YUV的换算</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Y &#x3D; 0.299R ＋ 0.587G ＋ 0.114B </span><br><span class="line">U &#x3D; －0.147R － 0.289G ＋ 0.436B</span><br><span class="line">V &#x3D; 0.615R － 0.515G － 0.100B</span><br><span class="line">——————————————————</span><br><span class="line">R &#x3D; Y ＋ 1.14V</span><br><span class="line">G &#x3D; Y － 0.39U － 0.58V</span><br><span class="line">B &#x3D; Y ＋ 2.03U</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="调优"><a href="#调优" class="headerlink" title="调优"></a>调优</h1><h2 id="1-ANR"><a href="#1-ANR" class="headerlink" title="1. ANR"></a>1. ANR</h2><ul>
+<li>抓取data/anr下面的日志分析</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ANR in</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">group&#x3D;&quot;main&quot; sCount&#x3D;1 </span><br></pre></td></tr></table></figure>
+<p>有可能是主线程繁忙,有可能是其他线程持有了主线程需要的锁</p>
+<ul>
+<li><p>使用Cpu Profile分析主线程使用情况</p>
+</li>
+<li><p>bugreport</p>
+<p>同步时间轴, 开始日志 <code>dumpstate: begin</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpsys activity processes&#x2F;&#x2F;查看应用oom_adj</span><br></pre></td></tr></table></figure>
+<h2 id="2-Crash"><a href="#2-Crash" class="headerlink" title="2. Crash"></a>2. Crash</h2></li>
+</ul>
+<h2 id="3-续航"><a href="#3-续航" class="headerlink" title="3. 续航"></a>3. 续航</h2><h2 id="4-减小体积"><a href="#4-减小体积" class="headerlink" title="4.  减小体积"></a>4.  减小体积</h2><h2 id="5-启动优化"><a href="#5-启动优化" class="headerlink" title="5. 启动优化"></a>5. 启动优化</h2><h2 id="6-内存"><a href="#6-内存" class="headerlink" title="6. 内存"></a>6. 内存</h2><ul>
+<li>dumpsys meminfo packagename</li>
+</ul>
+<p><img src="/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201118144402322.png" alt="image-20201118144402322"></p>
+<p>查看内存占用,和当前Activity数量</p>
+<ul>
+<li><p>使用AS profiler</p>
+<p>MEMORY中GC之后,dump当前内存, Leaks之后,跟踪排查相关引用</p>
+</li>
+<li><p>MAT</p>
+<p>导入hprof </p>
+<h2 id="7-CPU"><a href="#7-CPU" class="headerlink" title="7. CPU"></a>7. CPU</h2><h2 id="other-黑屏如何分析"><a href="#other-黑屏如何分析" class="headerlink" title="other 黑屏如何分析?"></a>other 黑屏如何分析?</h2></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -438,6 +587,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/05/Android%E6%97%A5%E8%AE%B0/HTTP%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/05/Android%E6%97%A5%E8%AE%B0/HTTP%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">HTTP基础</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-05 08:35:05" itemprop="dateCreated datePublished" datetime="2021-03-05T08:35:05+08:00">2021-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-06 11:33:23" itemprop="dateModified" datetime="2021-03-06T11:33:23+08:00">2021-03-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Content-Length-内容长度-字节"><a href="#Content-Length-内容长度-字节" class="headerlink" title="Content-Length: 内容长度(字节)"></a>Content-Length: 内容长度(字节)</h3><h3 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h3><ul>
+<li>text/html: html文本,主要用于浏览器页面响应</li>
+<li>application/x-www-form-urlencoded: 普通表单</li>
+<li>multipart/form-data: 多用于传文件</li>
+<li>application/json</li>
+<li>Transfer-encoding: chunked 分段传输</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/04/Android%E6%97%A5%E8%AE%B0/%E8%AF%BBJava%E5%B9%B6%E5%8F%91%E5%AE%9E%E6%88%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -552,7 +781,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-08 13:46:09" itemprop="dateModified" datetime="2021-03-08T13:46:09+08:00">2021-03-08</time>
+                <time title="Modified: 2021-04-17 10:42:46" itemprop="dateModified" datetime="2021-04-17T10:42:46+08:00">2021-04-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -588,6 +817,9 @@
 <p>git config –global user.name “username”</p>
 <h3 id="查看邮箱"><a href="#查看邮箱" class="headerlink" title="查看邮箱"></a>查看邮箱</h3><p>git config user.name</p>
 <p>git config user.email</p>
+<h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a><strong>设置别名</strong></h3><p>git config –global alias.co “checkout” //使用git co 代替 checkout</p>
+<p>git config –global alias.st status</p>
+<h3 id="查看当前配置"><a href="#查看当前配置" class="headerlink" title="查看当前配置"></a><strong>查看当前配置</strong></h3><p> git config –global –list</p>
 <h3 id="克隆一个仓库"><a href="#克隆一个仓库" class="headerlink" title="克隆一个仓库"></a>克隆一个仓库</h3><p>​    git clone git://</p>
           <!--noindex-->
             <div class="post-button">
@@ -646,7 +878,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-04-12 14:42:58" itemprop="dateModified" datetime="2021-04-12T14:42:58+08:00">2021-04-12</time>
+                <time title="Modified: 2021-04-25 19:47:22" itemprop="dateModified" datetime="2021-04-25T19:47:22+08:00">2021-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -722,8 +954,12 @@
 <h4 id="查看settings-属性"><a href="#查看settings-属性" class="headerlink" title="查看settings 属性"></a><strong>查看settings 属性</strong></h4><p>Settings.System.<strong>getString</strong>(context.getContentResolver(), CustomViewUtils.<strong>NAME_BW_THEME_COLOR</strong>);</p>
 <p>settings get SYSTEM bw_theme_color</p>
 <h4 id="查看文件大小"><a href="#查看文件大小" class="headerlink" title="查看文件大小"></a><strong>查看文件大小</strong></h4><p> busybox du -h -d 1</p>
-<p>####<strong>设置屏幕旋转</strong></p>
+<p>####设置屏幕旋转</p>
 <p>adb shell content insert –uri content://settings/system –bind name:s:user_rotation –bind value:i:1 i后面取值(0，1，2，3)</p>
+<p>####应用冷启动脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="keyword">for</span> i <span class="keyword">in</span> `seq 1 100`</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="keyword">do</span></span> </span><br><span class="line"><span class="meta">&gt;</span><span class="bash">   adb shell am force-stop com.android.samples.mytest</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">   sleep 1</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">   adb shell am start-activity -W -n com.android.samples.mytest/.MainActivity | grep <span class="string">&quot;TotalTime&quot;</span> | cut -d <span class="string">&#x27; &#x27;</span> -f 2</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="keyword">done</span></span></span><br></pre></td></tr></table></figure>
+
+
 <h2 id="python"><a href="#python" class="headerlink" title="python"></a><strong>python</strong></h2><p>使用镜像 </p>
 <p>pip install -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a> (xxx)</p>
 
@@ -852,7 +1088,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-04 09:11:44" itemprop="dateModified" datetime="2021-03-04T09:11:44+08:00">2021-03-04</time>
+                <time title="Modified: 2021-04-25 19:49:46" itemprop="dateModified" datetime="2021-04-25T19:49:46+08:00">2021-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -895,214 +1131,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E9%9A%8F%E7%AC%94/%E4%B8%8A%E7%8F%AD%E8%BF%98%E6%98%AF%E5%88%9B%E4%B8%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/%E9%9A%8F%E7%AC%94/%E4%B8%8A%E7%8F%AD%E8%BF%98%E6%98%AF%E5%88%9B%E4%B8%9A/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-05 14:53:26" itemprop="dateModified" datetime="2021-02-05T14:53:26+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>上班还是创业</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">上班还是创业</h1>
-        <div class="show-content">
-          <p>上班：朝九晚五还好，整天看老板颜色，听领导安排，固定资产，涨不过房价</p><p>创业：风餐露宿，未来不确定，但是有充分的自由，一朝一夕自己当老板，风险大，收益高</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E6%97%B6%E9%97%B4/%E6%A8%A1%E6%9D%BF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/%E6%97%B6%E9%97%B4/%E6%A8%A1%E6%9D%BF/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 08:39:48" itemprop="dateCreated datePublished" datetime="2021-02-06T08:39:48+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-22 17:25:30" itemprop="dateModified" datetime="2021-02-22T17:25:30+08:00">2021-02-22</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="本周总结"><a href="#本周总结" class="headerlink" title="本周总结"></a>本周总结</h3><h2 id="1-总体计划概要"><a href="#1-总体计划概要" class="headerlink" title="1.总体计划概要"></a>1.总体计划概要</h2><p>工作时长:</p>
-<ul>
-<li><p>学习:</p>
-</li>
-<li><p>交通:</p>
-</li>
-<li><p>陪伴家人:</p>
-</li>
-<li><p>日常(洗漱,洗澡等)</p>
-</li>
-<li><p>睡眠:</p>
-</li>
-<li><p>娱乐:</p>
-</li>
-</ul>
-<h2 id="2-计划本周目标及完成情况"><a href="#2-计划本周目标及完成情况" class="headerlink" title="2.计划本周目标及完成情况"></a>2.计划本周目标及完成情况</h2><h2 id="3-完成情况原因分析"><a href="#3-完成情况原因分析" class="headerlink" title="3.完成情况原因分析"></a>3.完成情况原因分析</h2><h2 id="4-后续计划"><a href="#4-后续计划" class="headerlink" title="4.后续计划"></a>4.后续计划</h2><h5 id="本周做得完善的地方"><a href="#本周做得完善的地方" class="headerlink" title="本周做得完善的地方"></a>本周做得完善的地方</h5><h5 id="值得改进的地方"><a href="#值得改进的地方" class="headerlink" title="值得改进的地方"></a>值得改进的地方</h5>
       
     </div>
 
@@ -1186,7 +1214,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">104</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
