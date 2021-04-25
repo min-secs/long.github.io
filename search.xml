@@ -15,23 +15,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>photo</title>
-    <url>/2021/02/22/photo/</url>
-    <content><![CDATA[<p>ThirdMediaProxy mediaProxy= ThirdMediaProxy.getInstance();</p>
-<p>mediaProxy.init(this, packageService, cls);</p>
-<p>//注册相关回调</p>
-<p>mediaProxy.setOnServiceConnectCallback(serviceConnectCallback);</p>
-<p>mediaProxy.setListCallback(onListCallback);</p>
-<p>mediaProxy.setId3InfoCallback(onId3infoCallback);</p>
-<p>//回调类型</p>
-<p>void onListCallback(String parentMediaId, List&lt;MediaBrowserCompat.MediaItem&gt; children){}</p>
-<p>//请求分类</p>
-<p>mediaProxy.request(ThirdMediaProxy.BROWSER_MUSIC_CATEGORIES, page,pagesize);</p>
-<p>//播放</p>
-<p>mediaProxy.playFromMediaId(mediaId, extra);</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Activity-finish之后,onDestoy并不会马上执行</title>
     <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/Activity-finish-%E5%90%8E-onDestroy-()%E5%B9%B6%E4%B8%8D%E4%BC%9A%E7%AB%8B%E9%A9%AC%E6%89%A7%E8%A1%8C/</url>
     <content><![CDATA[
@@ -2031,8 +2014,8 @@ Thermometer.newInstance(TemperatureScale.CELSIUS)不仅比Thermometer.newInstanc
       </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2021/02/06/Android%E6%97%A5%E8%AE%B0/ListView%E7%BB%93%E5%90%88xutils3%E4%BB%BF%E5%BE%AE%E4%BF%A1%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A/</url>
+    <title>ListView结合xUtils仿微信实现分页</title>
+    <url>/2021/02/19/Android%E6%97%A5%E8%AE%B0/ListView%E7%BB%93%E5%90%88xutils3%E4%BB%BF%E5%BE%AE%E4%BF%A1%E5%AE%9E%E7%8E%B0%E4%B8%8B%E6%8B%89%E5%8A%A0%E8%BD%BD%E6%9B%B4%E5%A4%9A/</url>
     <content><![CDATA[<blockquote>
 <p>前言:最近涉及到和QQ打交道,定义所有的好友一共只能有300条消息,如果一次性从数据库读取300条或者更多,界面会有细微的卡顿.所以考虑了下分页,第一次进来只显示20条(仿微信),当用户滑到第一条后,如果数据库有消息,则再加载20条.</p>
 </blockquote>
@@ -2062,6 +2045,9 @@ getDataFromDb();
 <p>后面贴上我对xutils数据库操作的封装,还有很多不完善之处</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数据库 xutils用法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 青楼爱小生</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DbUtil</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = DbUtil.class.getName();</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> DbUtil dbUtil;</span><br><span class="line">	<span class="keyword">private</span> DbManager db;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">DbUtil</span><span class="params">()</span></span>&#123;</span><br><span class="line">		db = x.getDb(MyApplication.getInstance().daoConfig);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DbUtil <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(dbUtil == <span class="keyword">null</span>)&#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (DbUtil.class) &#123;</span><br><span class="line">				<span class="keyword">if</span>(dbUtil == <span class="keyword">null</span>)&#123;</span><br><span class="line">					dbUtil = <span class="keyword">new</span> DbUtil();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> dbUtil;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 增加数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> list</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMsgList</span><span class="params">(List&lt;MsgBean&gt; list)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.saveOrUpdate(list);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 增加一条数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> node</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMsgToDb</span><span class="params">(MsgBean node)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.saveOrUpdate(node);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除表中所有数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> cls  创建的表的映射</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteAll</span><span class="params">(Class cls)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.delete(cls);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除第一条数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> cls</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteFirst</span><span class="params">(Class cls)</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			db.delete(db.findFirst(cls));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 查询表中所有数据</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> DbException </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> List&lt;?&gt; findAll(Class cls) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> db.findAll(cls) == <span class="keyword">null</span> ? Collections.emptyList() : db.findAll(cls);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">			LogHelper.e(TAG, e.getMessage());</span><br><span class="line">			<span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * //添加查询条件进行查询</span></span><br><span class="line"><span class="comment">		List&lt;ChildInfo&gt; all = db.selector(ChildInfo.class).where(&quot;id&quot;,&quot;&gt;&quot;,2).and(&quot;id&quot;,&quot;&lt;&quot;,4).findAll();</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 搜索指定条件的数据</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> List&lt;?&gt; findDataByWhere(Class cls,WhereBuilder format)&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> db.selector(cls).where(format).findAll()== <span class="keyword">null</span> ?</span><br><span class="line">					Collections.emptyList() :db.selector(cls).where(format).findAll();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">		LogHelper.e(TAG, e.getMessage());</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 添加查询条件进行查询</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> cls  表映射</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> str  select语句</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> format  where语句</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> List&lt;DbModel&gt; DbModel  key为数据库列名 value为值</span></span><br><span class="line"><span class="comment">	 * eg:(Selector.from(Parent.class)  </span></span><br><span class="line"><span class="comment">                                   .where(&quot;id&quot; ,&quot;&lt;&quot;, 54)  </span></span><br><span class="line"><span class="comment">                                   .and(WhereBuilder.b(&quot;age&quot;, &quot;&gt;&quot;, 20).or(&quot;age&quot;, &quot; &lt; &quot;, 30))  </span></span><br><span class="line"><span class="comment">                                   .orderBy(&quot;id&quot;)  </span></span><br><span class="line"><span class="comment">                                   .limit(pageSize)    .offset(pageSize * pageIndex));  </span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	 <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> Selector&lt;?&gt; findDataBySelector(Class cls,WhereBuilder format)&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span>  db.selector(cls).where(format);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (DbException e) &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
   </entry>
   <entry>
     <title>ListView自动滚到最后一条</title>
@@ -4992,7 +4978,7 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
       </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Android-Media</title>
     <url>/2021/04/25/Android%E6%97%A5%E8%AE%B0/media/</url>
     <content><![CDATA[<h1 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h1><ol>
 <li>图片大小计算</li>
@@ -5010,7 +4996,7 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
 <figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">val</span> point = Point()</span><br><span class="line">windowManager.defaultDisplay.getSize(point)</span><br><span class="line"><span class="keyword">val</span> options = BitmapFactory.Options()</span><br><span class="line">options.inJustDecodeBounds = <span class="literal">true</span></span><br><span class="line">BitmapFactory.decodeFile(columnName, options)</span><br><span class="line"><span class="keyword">val</span> heightRadio = options.outHeight / point.y</span><br><span class="line"><span class="keyword">val</span> widthRadio = options.outWidth / point.x</span><br><span class="line">options.inSampleSize = Math.max(heightRadio, widthRadio)</span><br><span class="line">options.inJustDecodeBounds = <span class="literal">false</span></span><br><span class="line"><span class="keyword">val</span> decodeFile = BitmapFactory.decodeFile(columnName, options)</span><br></pre></td></tr></table></figure>
 
 
-
+<a id="more"></a>
 
 <h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><ul>
 <li>Glide<ol>
@@ -5080,5 +5066,231 @@ public void onUpgrade(DbManager db,intoldVersion,intnewVersion) &#123;
 <h2 id="7-CPU"><a href="#7-CPU" class="headerlink" title="7. CPU"></a>7. CPU</h2><h2 id="other-黑屏如何分析"><a href="#other-黑屏如何分析" class="headerlink" title="other 黑屏如何分析?"></a>other 黑屏如何分析?</h2></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Android日记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>蓝鲸Record</title>
+    <url>/2021/02/06/companies/bw/record%20/</url>
+    <content><![CDATA[<h1 id="一-Password"><a href="#一-Password" class="headerlink" title="一. \Password**"></a><strong>一.</strong> <strong><em>\</em>Password**</strong></h1><h2 id="wifi密码"><a href="#wifi密码" class="headerlink" title="\wifi密码**"></a><strong><em>\</em>wifi密码**</strong></h2><p>bw1308&amp;&amp;</p>
+<h2 id="pin"><a href="#pin" class="headerlink" title="\pin**"></a><strong><em>\</em>pin**</strong></h2><p>123456</p>
+<p>tannima</p>
+<h2 id="邮箱"><a href="#邮箱" class="headerlink" title="\邮箱**"></a><strong><em>\</em>邮箱**</strong></h2><p><a href="mailto:&#x74;&#97;&#x6e;&#x6c;&#111;&#x6e;&#x67;&#64;&#98;&#x77;&#105;&#x63;&#x2e;&#x63;&#x6e;">&#x74;&#97;&#x6e;&#x6c;&#111;&#x6e;&#x67;&#64;&#98;&#x77;&#105;&#x63;&#x2e;&#x63;&#x6e;</a></p>
+<p>密码：Ttannima99</p>
+<p>先登录阿里云绑定手机修改密码。~</p>
+<p><a href="https://qiye.aliyun.com/">https://qiye.aliyun.com</a></p>
+<h2 id="confluence-amp-jira账号："><a href="#confluence-amp-jira账号：" class="headerlink" title="\confluence&amp;jira账号：**"></a><strong><em>\</em>confluence&amp;jira账号：**</strong></h2><p>账号：tanlong</p>
+<p>密码：bwtanlong123</p>
+<p>confluence地址： <a href="http://120.79.4.206:8090/">http://120.79.4.206:8090</a></p>
+<p>jira地址： <a href="http://120.79.4.206:8080/">http://120.79.4.206:8080</a></p>
+<h2 id="文档资料："><a href="#文档资料：" class="headerlink" title="\文档资料：**"></a><strong><em>\</em>文档资料：**</strong></h2><p>confluence培训资料：<a href="http://120.79.4.206:8090/x/_oAO">http://120.79.4.206:8090/x/_oAO</a></p>
+<p>jira培训资料：<a href="http://120.79.4.206:8090/x/-IAO">http://120.79.4.206:8090/x/-IAO</a></p>
+<h2 id="gerrit账号："><a href="#gerrit账号：" class="headerlink" title="\gerrit账号：**"></a><strong><em>\</em>gerrit账号：**</strong></h2><p>tanlong </p>
+<p>tlong@app6</p>
+<h2 id="服务器IP：192-168-0-200"><a href="#服务器IP：192-168-0-200" class="headerlink" title="\服务器IP：192.168.0.200**"></a><strong><em>\</em>服务器IP：192.168.0.200**</strong></h2><p>账号：tanlong</p>
+<p>密码：bw123456</p>
+<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="\Ubuntu**"></a><strong><em>\</em>Ubuntu**</strong></h2><p>Boom</p>
+<p>tannima</p>
+<p>Ubuntu2 </p>
+<p>Tan</p>
+<h2 id="Jenkins"><a href="#Jenkins" class="headerlink" title="\Jenkins**"></a><strong><em>\</em>Jenkins**</strong></h2><p>jenkins网址：<a href="http://120.77.175.62:8081/">http://120.77.175.62:8081</a><br>samba：\192.168.0.200\release<br>谭龙<br>用户名：tanlong<br>密码：bwtanlong567</p>
+<h2 id="ftp"><a href="#ftp" class="headerlink" title="\ftp**"></a><strong><em>\</em>ftp**</strong></h2><p>  <a href="ftp://120.77.175.62/">ftp://120.77.175.62/</a><br>  账号：a100_download<br>  密码：123456</p>
+<p>乱码解决</p>
+<p>选择时间区域, 设置兼容全球utf-8</p>
+<h2 id="公司百度网盘"><a href="#公司百度网盘" class="headerlink" title="公司百度网盘"></a>公司百度网盘</h2><p>（手机号是17774990251）</p>
+<p>  密码：bw1303&amp;&amp;</p>
+<h1 id="二-Git"><a href="#二-Git" class="headerlink" title="二. \Git**"></a><strong>二.</strong> <strong><em>\</em>Git**</strong></h1><p><strong>代理</strong></p>
+<p>1.打开ipaddress.com网站</p>
+<p>2.输入GitHub.com或者fastly.net查询IP</p>
+<p>3.管理员打开C:\Windows\System32\drivers\etc\hosts</p>
+<p>4.199.232.69.194 fastly.net</p>
+<hr>
+<p>Q: github.io打不开</p>
+<p>A: 按如上配置自己的域名 185.199.109.153 min-secs.github.io</p>
+<p><strong>提交</strong></p>
+<p>​    git commit </p>
+<p>​    </p>
+<p><strong>创建新分支</strong>,并切到该分支</p>
+<p>​    git co -b bugFix </p>
+<p>​    </p>
+<p><strong>合并</strong></p>
+<p>​    git merge bugFix 合并分支到master</p>
+<p>​    git rebase master 类似于线性提交</p>
+<p>将<strong>master</strong>强制指向head的第三级父提交(不能在当前分支操作当前分支)</p>
+<p>​    git branch -f master HEAD~3 </p>
+<p>​    </p>
+<p><strong>撤销</strong></p>
+<p>​    git reset <hash> 本地</hash></p>
+<p>​    git revert <hash> 远程</hash></p>
+<p>​    </p>
+<p><strong>整理提交记录</strong></p>
+<p>​    git cherry-pick <hash> 知道hash的情况比较方便</hash></p>
+<p>​    git rebase -i &lt;HEAD~3&gt;</p>
+<p>​    </p>
+<p>打<strong>TAG</strong></p>
+<p>​    git tag v1 <hash></hash></p>
+<p><strong>克隆一个仓库</strong></p>
+<p>​    git clone git://</p>
+<p>​    </p>
+<p><strong>获取远程仓库并合并到本地分支</strong></p>
+<p>​    git pull</p>
+<p>​    git pull –rebase </p>
+<p>​    </p>
+<p><strong>上传到远程仓库</strong></p>
+<p>​    git push //和push.default文件有关</p>
+<p>​    </p>
+<p><strong>跟踪远程分支</strong></p>
+<p>​    git co -b foo o/master</p>
+<p>​    git branch -u o/master foo (原来的跟踪状态不会同步更新)</p>
+<p><strong>设置别名</strong></p>
+<p>git config –global alias.co “checkout” //使用git co 代替 checkout</p>
+<p><strong>图形化界面</strong></p>
+<p>gitk –all</p>
+<p><strong>覆盖上次提交</strong></p>
+<p>git commit –amend</p>
+<p><strong>对比</strong></p>
+<p>Git log xx</p>
+<p>Git log -p xx //比较内容</p>
+<p><strong>配置缩写</strong></p>
+<p>git config –global alias.st status</p>
+<p><strong>查看git地址</strong></p>
+<p>git remote show origin</p>
+<p><strong>回退到指定</strong>commit</p>
+<p>git reset –hard commit_id</p>
+<p><strong>放弃本地强制和远程一致</strong></p>
+<p>git fetch –all </p>
+<p>git reset –hard origin/dev</p>
+<p>git pull</p>
+<p> <strong><em>\</em>遇到的错误**</strong></p>
+<p>* git clone错误之”error: RPC failed; curl 56 OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054”</p>
+<p>A1: git config –global http.sslVerify “false” //验证通过</p>
+<p>A2: git config http.postBuffer 524288000 //暂未验证</p>
+<h1 id="三-Gerrit"><a href="#三-Gerrit" class="headerlink" title="三. \Gerrit**"></a><strong>三.</strong> <strong><em>\</em>Gerrit**</strong></h1><p>配置用户名,邮箱</p>
+<p>git config –global user.email “email”</p>
+<p>git config –global user.name “username”</p>
+<p>查看邮箱</p>
+<p>git config user.name</p>
+<p>git config user.email</p>
+<p>gerrit中配置邮箱</p>
+<p>忽略文件</p>
+<p>/build</p>
+<p>/src/test/</p>
+<p>/src/androidTest/</p>
+<p>/node_modules/</p>
+<p>*.iml</p>
+<p>*.json</p>
+<p>提交前配置格式化</p>
+<p>​    工程项目仓库，使用 npm init –yes</p>
+<p>​    commitizen init cz-conventional-changelog –save –save-exact</p>
+<p>git cz  //配置提交 git commit –amend //二次提交,未push之前</p>
+<p>//提交审核 对应分支 master</p>
+<p>git push origin HEAD:refs/for/Platform_Dev  </p>
+<h1 id="四-AndroidStudio"><a href="#四-AndroidStudio" class="headerlink" title="\四.AndroidStudio**"></a><strong><em>\</em>四.AndroidStudio**</strong></h1><p>\1. 修改 classpath ‘com.android.tools.build:gradle:3.5.3’</p>
+<p>2.gradle-wrapper.properties distributionUrl=https://services.gradle.org/distributions/gradle-5.4.1-all.zip</p>
+<p>3.阿里云镜像maven { url ‘<a href="http://maven.aliyun.com/nexus/content/groups/public/&#39;">http://maven.aliyun.com/nexus/content/groups/public/&#39;</a> }</p>
+<p>​    maven { url ‘<a href="http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;">http://maven.aliyun.com/nexus/content/repositories/jcenter&#39;</a> }</p>
+<p>\4. 本地缓存jar包</p>
+<p><strong><em>\</em>c盘/用户/用户名/.gradle/caches/modules-2**</strong></p>
+<p>AS各方库,版本号要一致</p>
+<p>\5. 定义Live temp生成时间</p>
+<p>Setting/Editor/Live Templates </p>
+<p>定义变量 $data$ 选择Edit variables date()函数</p>
+<p><strong><em>\</em>项目根目录**</strong></p>
+<p>gradlew -q :mediaplayer:dependencies //查看依赖</p>
+<p>Q: INSTALL_FAILED_TEST_ONLY: installPackageLI</p>
+<p>A: AS3.0以上打包的apk会自动添加test_only=false属性,</p>
+<p>android.injected.testOnly=false //gradle.pro中添加</p>
+<p>Q: INSTALL_FAILED_NO_MATCHING_ABIS: Failed to extract native libraries, res=-113</p>
+<p>A: app.gradle</p>
+<p>Android{</p>
+<p>…</p>
+<p>splits {<br>  abi {<br>    enable true<br>    reset()<br>    include ‘arm64-v8a’ , ‘x86’<br>    universalApk true<br>  }<br>}</p>
+<p>}</p>
+<p>导出javadoc</p>
+<p>-encoding utf-8 -charset utf-8</p>
+<h1 id="四-访问数据库"><a href="#四-访问数据库" class="headerlink" title="四. \访问数据库**"></a><strong>四.</strong> <strong><em>\</em>访问数据库**</strong></h1><p>cd  /data/user_de/0/com.android.providers.media/databases</p>
+<p>cd /data/data/com.android.providers.media/databases</p>
+<p>ls</p>
+<p>sqlite3 external.db 进入数据库</p>
+<p>.tables //列出所有表</p>
+<p> .mode column  显示的列会对齐</p>
+<p>.header on //显示列名</p>
+<p> select * from 表</p>
+<h1 id="五-Ubuntu"><a href="#五-Ubuntu" class="headerlink" title="五. \Ubuntu**"></a><strong>五.</strong> <strong><em>\</em>Ubuntu**</strong></h1><p>a100-user-debug</p>
+<p>Q: 启动Ubuntu黑屏</p>
+<p>A: 关闭 3D加速器</p>
+<p>Q: git安装失败，git : 依赖: liberror-perl 但无法安装它</p>
+<p>A: sudo apt-get update</p>
+<p>sudo apt-get install git</p>
+<p>Q: 安装vmTools提示空间不足</p>
+<p>A: 拷贝到桌面在提取</p>
+<p>Q: E: 无法获得锁 /var/lib/apt/lists/lock - open (11 资源临时不可用)</p>
+<p>A: sudo rm /var/lib/apt/lists/lock</p>
+<p>Q: 正在读取软件包列表… 有错误</p>
+<p>A: sudo rm /var/lib/apt/lists/* -vf<br>sudo apt-get update //耗时较久</p>
+<p>Q: E: 无法获得锁 /var/lib/dpkg/lock-frontend - open (11: 资源暂时不可用</p>
+<p>A: sudo rm /var/cache/apt/archives/lock</p>
+<p>sudo rm /var/lib/dpkg/lock</p>
+<p>sudo rm /var/lib/dpkg/lock-frontend //验证通过</p>
+<p>Q: git commit 无法保存</p>
+<p>A: ctrl+x 然后按Y</p>
+<h1 id="六-Vim"><a href="#六-Vim" class="headerlink" title="六. \Vim**"></a><strong>六.</strong> <strong><em>\</em>Vim**</strong></h1><ul>
+<li>查看</li>
+</ul>
+<p>vi xx.sh +22 //跳到指定行</p>
+<ul>
+<li>删除</li>
+</ul>
+<p>当前行 dd</p>
+<p>全选ggvG 按d删除</p>
+<ul>
+<li>创建文件</li>
+</ul>
+<p>touch + xx.tt</p>
+<ul>
+<li>查找</li>
+</ul>
+<p>/xx  查找某字符, n 向下找</p>
+<ul>
+<li>替换</li>
+</ul>
+<p>:s/from/to/  替换当前行第一个</p>
+<p>:s/from/to/g  替换当前行所有</p>
+<ul>
+<li>Mk转bp</li>
+</ul>
+<p>out/soong/host/linux-x86/bin</p>
+<p>如果没有androidmk  使用m -j blueprint_tools</p>
+<p>androidmk  android.mk &gt; android.bp</p>
+<ul>
+<li><p>查找</p>
+<p>find prebuilts/sdk/ -name Android.bp|xargs grep “name.*androidx” </p>
+</li>
+</ul>
+<h1 id="七-Shell"><a href="#七-Shell" class="headerlink" title="七. \Shell**"></a><strong>七.</strong> <strong><em>\</em>Shell**</strong></h1><p><strong>查看</strong>cpu信息</p>
+<p><img src="file:///C:\Users\admin\AppData\Local\Temp\ksohtml30816\wps2.jpg" alt="img"> </p>
+<p>adb shell</p>
+<p>cat /proc/cpuinfo  AArch64对应arm64-v8a</p>
+<p><strong>查找文件</strong></p>
+<p>busybox find . -name filename</p>
+<p><strong>抓取日志</strong></p>
+<p>adb pull /data/misc/bwlog/</p>
+<p><strong>查看当前占用</strong></p>
+<p>Lsof | grep 路径</p>
+<p><strong>查看settings 属性</strong></p>
+<p>Settings.System.<strong>getString</strong>(context.getContentResolver(), CustomViewUtils.<strong>NAME_BW_THEME_COLOR</strong>);</p>
+<p>settings get SYSTEM bw_theme_color</p>
+<p><strong>查看文件大小</strong></p>
+<p> busybox du -h -d 1</p>
+<p><strong>模拟mode</strong></p>
+<p>./vendor/bin/hw/VehicleSimulateMcu 0 11 7 0 19 4;./vendor/bin/hw/VehicleSimulateMcu 0 11 7 1 19 4;</p>
+<h1 id="八-烧录"><a href="#八-烧录" class="headerlink" title="八. 烧录"></a>八. 烧录</h1><p>文件含义</p>
+<h1 id="九-python"><a href="#九-python" class="headerlink" title="九. python"></a>九. python</h1><p>使用镜像</p>
+<p>pip install xx -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
+]]></content>
+      <categories>
+        <category>companies</category>
+      </categories>
   </entry>
 </search>

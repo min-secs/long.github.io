@@ -173,77 +173,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%95%B0%E7%BB%84%E8%BD%AC%E9%9B%86%E5%90%88%E6%96%B0%E9%A2%96%E5%86%99%E6%B3%95get%E2%88%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="boom.Tan">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Boom.Tan个人空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%95%B0%E7%BB%84%E8%BD%AC%E9%9B%86%E5%90%88%E6%96%B0%E9%A2%96%E5%86%99%E6%B3%95get%E2%88%9A/" class="post-title-link" itemprop="url">数组转集合新颖写法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-02-06 08:35:05 / Modified: 09:23:07" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">Android日记</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>title: my new post<br>date: 2021-02-05 19:04:35<br>categories: Android日记<br>tags: Android</p>
-<p>前言:啥也不说了,show me the code!</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> List&lt;Integer&gt; <span class="title">intArrayAsList</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span>[] a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line"></span><br><span class="line">    retrun <span class="keyword">new</span> AbstractList&lt;Integer&gt;() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> Interger <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">            retrun a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> Integer <span class="title">set</span><span class="params">(<span class="keyword">int</span> i, Integer val)</span></span>&#123;</span><br><span class="line">            <span class="keyword">int</span> oldVal = a[i];</span><br><span class="line">            a[i] = val;</span><br><span class="line">            retrun oldVal;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123; retrun a.length;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/Android%E6%97%A5%E8%AE%B0/%E6%A3%80%E6%B5%8Bcpu%E5%8D%A0%E7%94%A8%E7%8E%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1168,6 +1097,124 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992021%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2020%E5%B9%B4%E7%9A%84%E6%88%91%20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="boom.Tan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boom.Tan个人空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/%E5%86%99%E7%BB%992021%E5%B9%B4%E7%9A%84%E4%BD%A0,%E6%9D%A5%E8%87%AA2020%E5%B9%B4%E7%9A%84%E6%88%91%20/" class="post-title-link" itemprop="url">写给2021年的你,来自2020年的我</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 08:35:05" itemprop="dateCreated datePublished" datetime="2021-02-06T08:35:05+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-11 11:54:37" itemprop="dateModified" datetime="2021-02-11T11:54:37+08:00">2021-02-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%AA%E6%9D%A5%E7%9A%84%E4%BD%A0/" itemprop="url" rel="index"><span itemprop="name">未来的你</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="2020年终总结"><a href="#2020年终总结" class="headerlink" title="2020年终总结"></a>2020年终总结</h5><h6 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h6><p>优</p>
+<ul>
+<li>搭建了蓝鲸整个多媒体平台,虽然现在编解码还有点问题,整体流程可用</li>
+<li>工资破万</li>
+<li>重新阅读了设计模式</li>
+<li>用平台思维来设计代码</li>
+<li>提高了责任心, 周末加班解决同事遗留下来的重大问题</li>
+</ul>
+<hr>
+<p>劣</p>
+<ul>
+<li>表达能力需要锻炼, 有技术含量的事情表达出一半. 有同事基本很薄弱,却表达出很厉害的感觉, 虽然我不喜欢这样,但我还是想把自己做的东西能表达完整</li>
+<li>没搭建好自己的学习体系</li>
+</ul>
+<hr>
+<h6 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h6><p>优</p>
+<ul>
+<li>额.. 好像没进行有效锻炼, 偶尔下班前跑跑步, 不过倒是经常打乒乓球</li>
+</ul>
+<hr>
+<p>劣</p>
+<ul>
+<li>晚上还是经不住短视频的诱惑 -  这块研究下办法,好的是困的时候马上就放下手机了,没有勉强自己</li>
+<li>平时坐久了定了闹钟,但是事情来了还是没有去运动运动</li>
+</ul>
+<hr>
+<h6 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h6><p>优</p>
+<ul>
+<li>谈的越久, 越明白笨笨的好, 好好珍惜</li>
+<li>有年终了, 给父母一份安心</li>
+<li>倩妹长大了, 希望身体健康, 开心平安长大</li>
+</ul>
+<hr>
+<p>劣</p>
+<ul>
+<li>婚前准备两家人的思想还是不统一, 如果要彩礼的话, 结婚证拿的话也要有礼节, 我爸会爆哦.. 刚好也是现在双方最困难的时候, 也是最需要用钱的时候, 笨笨愿意站出来和我一起面对, 很欣慰了</li>
+<li>和家人在一起的时间越来越短了, 多陪陪家人</li>
+<li>还是异地</li>
+</ul>
+<hr>
+<h3 id="写给2021的你"><a href="#写给2021的你" class="headerlink" title="写给2021的你"></a>写给2021的你</h3><ul>
+<li>考教师资格证做准备, 先把普通话过了</li>
+<li>身体是第一位的, 上班多运动</li>
+<li>常回家看看</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1243,7 +1290,7 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
