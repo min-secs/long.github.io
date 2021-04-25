@@ -1,3 +1,11 @@
+---
+title: ListView结合xUtils仿微信实现分页
+date: 2021-2-19 17:12:42
+tags: 
+categories: Android日记
+
+---
+
 >前言:最近涉及到和QQ打交道,定义所有的好友一共只能有300条消息,如果一次性从数据库读取300条或者更多,界面会有细微的卡顿.所以考虑了下分页,第一次进来只显示20条(仿微信),当用户滑到第一条后,如果数据库有消息,则再加载20条.
 
 ##步骤-问把大象关冰箱,总共分几步?
@@ -135,9 +143,9 @@ showListView里面无疑是普通的更新adapter的工作
 //下文db是Dbmanager的实例,可参考[xutils3用法](http://www.jianshu.com/p/95b6c4d7b7ce)
 
     /**
-	 * 当前屏幕显示的消息数量
-	 */
-	private int MAX_MSG_NUMBER = 20;
+     * 当前屏幕显示的消息数量
+     */
+    private int MAX_MSG_NUMBER = 20;
 ```java
 private List<MsgBean> getDataFromDb() {
 
@@ -162,7 +170,7 @@ private List<MsgBean> getDataFromDb() {
 .offset偏移量,我们数据库的大小是不变的,如果不定义偏移量,那么我们定义的分页大小每次只从0取到19.假设数据库中有21条数据,那么我们需要从1取到20,而不是0到19,所以偏移1.
 
 然后我们在loadMoreData中
- 
+
     MAX_MSG_NUMBER += MAX_MSG_NUMBER;
     getDataFromDb();
 将大小自加,即完成加载更多的功能,在onLoadData(List<MsgBean> data)中加载数据即可.

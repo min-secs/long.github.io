@@ -40,6 +40,16 @@ git config user.name
 
 git config user.email
 
+### **设置别名**
+
+git config --global alias.co "checkout" //使用git co 代替 checkout
+
+git config --global alias.st status
+
+### **查看当前配置**
+
+ git config --global --list
+
 ### 克隆一个仓库
 
 ​	git clone git://
@@ -130,11 +140,7 @@ git commit –amend
 
  
 
-### **设置别名**
 
-git config --global alias.co "checkout" //使用git co 代替 checkout
-
- 
 
 ### **图形化界面**
 
@@ -147,12 +153,6 @@ gitk --all
 Git log xx
 
 Git log -p xx //比较内容
-
- 
-
-### **配置缩写**
-
-git config --global alias.st status
 
  
 

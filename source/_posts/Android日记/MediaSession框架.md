@@ -194,7 +194,7 @@ public boolean onMediaButtonEvent(Intent mediaButtonEvent) {
 
 #### Q1: 方控下一曲多次, 音源跑到上一个, 如当前播放视频, 切曲多次跑到了音乐源
 
-​		A: 舒工(万里)查找源码后发现, MediaSession的遍历依赖当前uid, 车机应用中基本每个媒体服务都设置了android:sharedUserId="android.uid.system", 所以匹配不到对应的Session后, 会取列表中的第一个, 导致不匹配
+​		A: 查找源码后发现, MediaSession的遍历依赖当前uid, 车机应用中基本每个媒体服务都设置了android:sharedUserId="android.uid.system", 所以匹配不到对应的Session后, 会取列表中的第一个, 导致不匹配
 
 解决方案有两种:
 
