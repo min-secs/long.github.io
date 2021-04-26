@@ -522,7 +522,7 @@ androidmk  android.mk > android.bp
 
 # **七.** ***\*Shell\****
 
-**查看**cpu信息
+#### 查看cpu信息
 
 ![img](file:///C:\Users\admin\AppData\Local\Temp\ksohtml30816\wps2.jpg) 
 
@@ -532,37 +532,41 @@ cat /proc/cpuinfo  AArch64对应arm64-v8a
 
  
 
-**查找文件**
+#### 查找文件
 
 busybox find . -name filename
 
  
 
-**抓取日志**
+#### 抓取日志
 
 adb pull /data/misc/bwlog/
 
  
 
-**查看当前占用**
+#### 查看当前占用
 
 Lsof | grep 路径
 
  
 
-**查看settings 属性**
+#### 查看settings 属性
 
 Settings.System.**getString**(context.getContentResolver(), CustomViewUtils.**NAME_BW_THEME_COLOR**);
 
 settings get SYSTEM bw_theme_color
 
+#### 查看当前源
 
+settings get system bw_current_source_name
 
-**查看文件大小**
+#### 查看文件大小
 
  busybox du -h -d 1
 
+#### 模拟发送广播
 
+adb shell am broadcast -a com.android.action.xx --es test_string "this is test string" --ei test_int 100 --ez test_boolean true
 
 **模拟mode**
 
@@ -578,3 +582,8 @@ settings get SYSTEM bw_theme_color
 
 pip install xx -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
+# 十. RDS
+
+AF: 自动搜寻当前电台的其他频道, 比如从深圳开到了北京, 当前频点无信号,自动搜索同电台的另一个频道
+
+TA: 电台信息等, 自动搜索同类型电台
