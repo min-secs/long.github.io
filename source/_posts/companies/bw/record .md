@@ -572,6 +572,15 @@ adb shell am broadcast -a com.android.action.xx --es test_string "this is test s
 
 ./vendor/bin/hw/VehicleSimulateMcu 0 11 7 0 19 4;./vendor/bin/hw/VehicleSimulateMcu 0 11 7 1 19 4;
 
+#### Linux查找
+
+find prebuilts/sdk/ -name Android.bp|xargs grep "name.*androidx" 
+grep -r "查询内容"  文件目录
+
+#### 查看carService信息
+
+dumpsys bw_car_service
+
 # 八. 烧录
 
 文件含义
