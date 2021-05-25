@@ -409,24 +409,6 @@ splits {
 
 -encoding utf-8 -charset utf-8
 
-# **四.** ***\*访问数据库\****
-
-cd  /data/user_de/0/com.android.providers.media/databases
-
-cd /data/data/com.android.providers.media/databases
-
-ls
-
-sqlite3 external.db 进入数据库
-
-.tables //列出所有表
-
- .mode column  显示的列会对齐
-
-.header on //显示列名
-
- select * from 表
-
  
 
 # **五.** ***\*Ubuntu\****
@@ -580,6 +562,26 @@ grep -r "查询内容"  文件目录
 #### 查看carService信息
 
 dumpsys bw_car_service
+
+#### 访问数据库
+
+cd  data/user_de/0/com.android.providers.media/databases
+
+cd /data/data/com.android.providers.media/databases
+
+ls
+
+sqlite3 external.db 进入数据库
+
+.tables //列出所有表
+
+ .mode column  显示的列会对齐
+
+.header on //显示列名
+
+ select * from 表
+
+
 
 # 八. 烧录
 
