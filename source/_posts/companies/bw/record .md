@@ -550,7 +550,20 @@ settings get system bw_current_source_name
 
 adb shell am broadcast -a com.android.action.xx --es test_string "this is test string" --ei test_int 100 --ez test_boolean true
 
-**模拟mode**
+```java
+//模拟发送告警
+adb shell am broadcast -a com.bw.intent.action.RDS_PTY_ALARM --ez bw.intent.extra.RDS_PTY_ALARM true
+```
+
+#### 模拟发送服务
+
+am startservice -a hide_warn com.bw.traffic/.TrafficAlarmService
+
+//发送前台服务
+
+am  start-foreground-service -a show_warn com.bw.traffic/.TrafficAlarmService
+
+#### **模拟mode**
 
 ./vendor/bin/hw/VehicleSimulateMcu 0 11 7 0 19 4;./vendor/bin/hw/VehicleSimulateMcu 0 11 7 1 19 4;
 
