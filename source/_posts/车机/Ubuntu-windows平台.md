@@ -7,6 +7,8 @@ categories: 车机
 
 Win10下商城搜索Ubuntu
 
+一个版本的有效期为三年
+
 * sudo apt-get update
 * mkdir ~/bin
 * curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
@@ -23,7 +25,7 @@ Win10下商城搜索Ubuntu
 
 
 
-执行时会出现错误“Cannot get http://gerrit.googlesource.com/git-repo/clone.bundle”
+Q1: 执行时会出现错误“Cannot get http://gerrit.googlesource.com/git-repo/clone.bundle”
 
 解决方法：
 
@@ -32,6 +34,15 @@ Win10下商城搜索Ubuntu
         git clone https://gerrit-googlesource.lug.ustc.edu.cn/git-repo
     
     然后将git-repo里面的repo文件复制到bin目录，然后chmod a+x ~/bin/repo.   再在同步源码的工作目录新建.repo文件夹，把git-repo重命名为repo复制到.repo目录下，重新执行repo init即可。
+Q2: /usr/bin/env: ‘python’: No such file or directory
+
+sudo apt install  pythonxx //根据提示安装对应版本
+
+sudo ln -s /usr/bin/pythonxx /usr/bin/python //创建软连接
+
+
+
 ————————————————
-版权声明：本文为CSDN博主「haolask」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/haolask/article/details/102826032
+
+[Ubantu18.04环境下编译android源码_Yoryky的专栏-CSDN博客](https://blog.csdn.net/Yoryky/article/details/81813717)

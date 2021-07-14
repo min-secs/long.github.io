@@ -8,7 +8,9 @@ categories: Android日记
 ---
 
 ### Content-Length: 内容长度(字节)
+
 ### Content-Type
+
  * text/html: html文本,主要用于浏览器页面响应
  * application/x-www-form-urlencoded: 普通表单
  * multipart/form-data: 多用于传文件

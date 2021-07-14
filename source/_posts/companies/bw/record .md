@@ -534,7 +534,7 @@ Lsof | grep 路径
 
 #### 查看settings 属性
 
-Settings.System.**getString**(context.getContentResolver(), CustomViewUtils.**NAME_BW_THEME_COLOR**);
+Settings.System.getString(context.getContentResolver(), CustomViewUtils.NAME_BW_THEME_COLOR);
 
 settings get SYSTEM bw_theme_color
 
@@ -545,6 +545,10 @@ settings get system bw_current_source_name
 #### 查看文件大小
 
  busybox du -h -d 1
+
+#### 模拟发送Activity
+
+adb shell am start com.android.settings/.Settings
 
 #### 模拟发送广播
 
@@ -566,6 +570,10 @@ am  start-foreground-service -a show_warn com.bw.traffic/.TrafficAlarmService
 #### **模拟mode**
 
 ./vendor/bin/hw/VehicleSimulateMcu 0 11 7 0 19 4;./vendor/bin/hw/VehicleSimulateMcu 0 11 7 1 19 4;
+
+#### monkey
+
+monkey -p com.bw.mediaplayer -p com.android.launcher3 --ignore-crashes --ignore-timeouts --ignore-native-crashes --pct-touch 50 -s 1 -v -v --throttle 100 100000 2>>/sdcard/monkey/error.txt  1>>/sdcard/monkey/info.txt
 
 #### Linux查找
 
