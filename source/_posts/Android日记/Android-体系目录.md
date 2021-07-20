@@ -78,11 +78,28 @@ A2 首次bind的时候
 
 #### 思架构
 
-view体系
+##### view体系
 
-input体系
+##### input体系
 
-audio体系
+##### audio体系
+
+声音卡顿常见解决方案
+
+1. 增大AudioTrack bufferSizeInBytes * 2
+
+2. 设置进程优先级为audio 
+
+   
+
+   ```java
+   int priority = android.os.Process.getThreadPriority(android.os.Process.myTid());
+   if(priority != android.os.Process.THREAD_PRIORITY_AUDIO) {
+       android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO);
+   }
+   ```
+
+   
 
 Q1 声音是如何采集和输出的?
 
