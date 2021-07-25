@@ -16,15 +16,15 @@ categories: Android日记
 
 ​	当消息队列无消息时, native层做的休眠, 发送消息通过往管道写数据唤醒
 
-###### Q1 Looper在什么时候阻塞等待的?
+Q1 Looper在什么时候阻塞等待的?
 
 A1 messageQueue 为null,在native层做的等待
 
-###### Q2 enqueueMessage为何用的for(;;)发送消息, 不应该只发送一条吗
+Q2 enqueueMessage为何用的for(;;)发送消息, 不应该只发送一条吗
 
 A2 头部消息为null时,或者不是延时消息时,调用一次发送, 如果是延时消息需要加入到单链表中, 需要一次挪next的位置
 
-###### Q3 MessageQueue合适调用mQuit?
+Q3 MessageQueue合适调用mQuit?
 
 A3
 
@@ -36,27 +36,27 @@ A3
 
 #####  Service完整传输数据流程
 
-![架构](D:\资料\long\boke\github.io\source\_posts\Android日记\Android-体系目录.assets\ams_ipc.jpg)
+![架构](Android-体系目录.assets\ams_ipc.jpg)
 //
 
-![startService完整流程](D:\资料\long\boke\github.io\source\_posts\Android日记\Android-体系目录.assets\binder_ipc_process.jpg)
+![startService完整流程](Android-体系目录.assets\binder_ipc_process.jpg)
 //
 
-![通信协议](D:\资料\long\boke\github.io\source\_posts\Android日记\Android-体系目录.assets\binder_transaction.jpg)
+![通信协议](Android-体系目录.assets\binder_transaction.jpg)
 
  >= 21的版本, 不准隐式启动服务
 
-###### Q1 如何从java中定义的native方法, 找到实现类
+Q1 如何从java中定义的native方法, 找到实现类
 
 A1 根据命名规则, 一般为(native)__javaName_(native)
 
-###### Q2 服务何时注册到native层ServiceManager中的
+Q2 服务何时注册到native层ServiceManager中的
 
 A2 首次bind的时候
 
 ##### 3. Activity启动流程
 
-![Activity启动流程](D:\资料\long\boke\github.io\source\_posts\Android日记\Android-体系目录.assets\start_activity_process.jpg)
+![Activity启动流程](Android-体系目录.assets\start_activity_process.jpg)
 
 ##### 4.PMS
 
@@ -108,6 +108,8 @@ video体系
 Q1 视频是如何采集和输出的?
 
 #### 思网络
+
+
 
 #### 思基础
 
