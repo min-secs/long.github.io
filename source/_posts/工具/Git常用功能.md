@@ -160,6 +160,8 @@ Git log -p xx //比较内容
 
 git remote show origin
 
+git remote -v
+
  
 
 ### **回退到指定**commit
