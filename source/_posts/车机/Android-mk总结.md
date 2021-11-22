@@ -310,3 +310,17 @@ include $(BUILD_PREBUILT)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 ```
 
+### 指定if else
+
+```mk
+LOCAL_SRC_FILES := $(call all-java-files-under, src/main)
+ifeq "$(CA_PRODUCT_VEHICLE_TYPE)" "CD569"
+LOCAL_SRC_FILES += $(call all-java-files-under, src/nfore)
+#for GaoTong
+else ifeq "$(CA_PRODUCT_VEHICLE_TYPE)" "8155"
+LOCAL_SRC_FILES += $(call all-java-files-under, src/gt)
+$(warning "No define CA Product Vehicle Type")
+endif
+
+```
+
